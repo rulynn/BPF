@@ -11,17 +11,17 @@ b = BPF(text="""
 BPF_HASH(last);
 
 int do_trace(struct pt_regs *ctx) {
-    u64 ts, *tsp, delta, *count, count_cur, key = 0, count_key = 1;
+    u64 ts, *tsp, delta, *cnt_point, cnt_num, key = 0, cnt_key = 1;
     // update count
-    count = last.lookup(&count_key);
-    if (count == 0) {
-        count_cur = 1;
+    cnt_point = last.lookup(&cnt_key);
+    if (cnt_point == 0) {
+        cnt_num = 1;
     }
     else {
-        count_cur = *count + 1;
-        last.delete(&count_key);
+        cnt_num = *cnt_point + 1;
+        last.delete(&cnt_key);
     }
-    last.update(&count_key, &count_cur);
+    last.update(&cnt_key, &cnt_num);
 
     // attempt to read stored timestamp
     tsp = last.lookup(&key);
@@ -29,7 +29,7 @@ int do_trace(struct pt_regs *ctx) {
         delta = bpf_ktime_get_ns() - *tsp;
         if (delta < 1000000000) {
             // output if time is less than 1 second
-            bpf_trace_printk("%d,%d\\n", count_cur, delta / 1000000);
+            bpf_trace_printk("%d,%d\\n", cnt_num, delta / 1000000);
         }
         last.delete(&key);
     }
