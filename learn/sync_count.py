@@ -29,7 +29,7 @@ int do_trace(struct pt_regs *ctx) {
         delta = bpf_ktime_get_ns() - *tsp;
         if (delta < 1000000000) {
             // output if time is less than 1 second
-            bpf_trace_printk("%d,%d\\n", cnt_num, delta / 1000000);
+            bpf_trace_printk("%d %d\\n", cnt_num, delta / 1000000);
         }
         last.delete(&key);
     }
@@ -49,7 +49,7 @@ start = 0
 while 1:
     try:
         (task, pid, cpu, flags, ts, msg) = b.trace_fields()
-        [cnt, ms] = msg.split(",")
+        [cnt, ms] = msg.split()
         if start == 0:
             start = ts
         ts = ts - start
