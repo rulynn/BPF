@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #
-# [4] sync_timing.py    Trace time between syncs.
+# sync_timing.py    Trace time between syncs.
 #                   For Linux, uses BCC, eBPF. Embedded C.
 #
 # Written as a basic example of tracing time between events.
