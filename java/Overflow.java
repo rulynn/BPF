@@ -2,8 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-/*
-    Memory Overflow: Constantly allocate large objects
+/* Memory Overflow
+
+    DESP: Constantly allocate large objects
+
+    CPU: 99%; MEM: 1.6%
 */
 public class Overflow {
 

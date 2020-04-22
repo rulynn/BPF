@@ -3,8 +3,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/*
-    Memory Leak: Constantly allocate objects, while using global variables, so that objects cannot be garbage collected
+/* Memory Leak
+
+    Desp: Constantly allocate objects, while using global variables,
+    so that objects cannot be garbage collected
+
+    MEM: 26%; CPU: 99%
 */
 
 public class Leak {
