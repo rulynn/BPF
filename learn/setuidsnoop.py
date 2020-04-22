@@ -37,7 +37,7 @@ struct data_t {
 };
 BPF_HASH(infotmp, u32, struct val_t);
 BPF_PERF_OUTPUT(events);
-int syscall__setuid(struct pt_regs *ctx, int uid)
+int kprobe__sys_setuid(struct pt_regs *ctx, int uid)
 {
     u32 pid = bpf_get_current_pid_tgid();
     FILTER
@@ -48,7 +48,7 @@ int syscall__setuid(struct pt_regs *ctx, int uid)
     }
     return 0;
 };
-int do_ret_sys_setuid(struct pt_regs *ctx)
+int kretprobe__sys_setuid(struct pt_regs *ctx)
 {
     struct data_t data = {};
     struct val_t *valp;
@@ -77,9 +77,9 @@ if debug:
 
 # initialize BPF
 b = BPF(text=bpf_text)
-setuid_fnname = b.get_syscall_fnname("setuid")
-b.attach_kprobe(event=setuid_fnname, fn_name="syscall__setuid")
-b.attach_kretprobe(event=setuid_fnname, fn_name="do_ret_sys_setuid")
+# setuid_fnname = b.get_syscall_fnname("setuid")
+# b.attach_kprobe(event=setuid_fnname, fn_name="syscall__setuid")
+# b.attach_kretprobe(event=setuid_fnname, fn_name="do_ret_sys_setuid")
 
 # header
 print("%-9s %-6s %-16s %-6s %s" % (
