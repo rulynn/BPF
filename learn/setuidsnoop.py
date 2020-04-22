@@ -12,7 +12,7 @@ examples = """examples:
     ./setuidsnoop -p 181    # only trace PID 181
 """
 parser = argparse.ArgumentParser(
-    description="Trace signals issued by the setuid() syscall",
+    description="Trace uid issued by the setuid() syscall",
     formatter_class=argparse.RawDescriptionHelpFormatter,
     epilog=examples)
 parser.add_argument("-p", "--pid",
