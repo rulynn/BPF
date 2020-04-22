@@ -1,31 +1,18 @@
 #!/usr/bin/python
-# @lint-avoid-python-3-compatibility-imports
-#
-# setuidsnoop Trace uid changes issued by the setuid() syscall.
-#             For Linux, uses BCC, eBPF. Embedded C.
-#
-# USAGE: setuidsnoop [-h] [-p PID]
-#
-# Copyright (c) 2016 Brendan Gregg, Sasha Goldshtein.
-# Licensed under the Apache License, Version 2.0 (the "License")
-#
-# 20-Sep-2015   Brendan Gregg     Created killsnoop.
-# 19-Feb-2016   Allan McAleavy    Migrated to BPF_PERF_OUTPUT.
-# 16-Oct-2016   Sasha Goldshtein  Modified to setuidsnoop.
 
 from __future__ import print_function
 from bcc import BPF
+from bcc.utils import ArgString, printb
 import argparse
 from time import strftime
-import ctypes as ct
 
 # arguments
 examples = """examples:
-    ./setuidsnoop         # trace all setuid() calls
-    ./setuidsnoop -p 181  # only trace PID 181
+    ./setuidsnoop           # trace all setuid() signals
+    ./setuidsnoop -p 181    # only trace PID 181
 """
 parser = argparse.ArgumentParser(
-    description="Trace uid changes issued by the setuid() syscall",
+    description="Trace signals issued by the setuid() syscall",
     formatter_class=argparse.RawDescriptionHelpFormatter,
     epilog=examples)
 parser.add_argument("-p", "--pid",
@@ -39,18 +26,18 @@ bpf_text = """
 #include <linux/sched.h>
 struct val_t {
    u64 pid;
-   u32 uid;
+   int uid;
    char comm[TASK_COMM_LEN];
 };
 struct data_t {
    u64 pid;
-   u32 uid;
+   int uid;
    int ret;
    char comm[TASK_COMM_LEN];
 };
 BPF_HASH(infotmp, u32, struct val_t);
 BPF_PERF_OUTPUT(events);
-int kprobe__sys_setuid(struct pt_regs *ctx, u32 uid)
+int syscall__setuid(struct pt_regs *ctx, int uid)
 {
     u32 pid = bpf_get_current_pid_tgid();
     FILTER
@@ -61,7 +48,7 @@ int kprobe__sys_setuid(struct pt_regs *ctx, u32 uid)
     }
     return 0;
 };
-int kretprobe__sys_setuid(struct pt_regs *ctx)
+int do_ret_sys_setuid(struct pt_regs *ctx)
 {
     struct data_t data = {};
     struct val_t *valp;
@@ -90,16 +77,9 @@ if debug:
 
 # initialize BPF
 b = BPF(text=bpf_text)
-
-TASK_COMM_LEN = 16    # linux/sched.h
-
-class Data(ct.Structure):
-    _fields_ = [
-        ("pid", ct.c_ulonglong),
-        ("uid", ct.c_uint),
-        ("ret", ct.c_int),
-        ("comm", ct.c_char * TASK_COMM_LEN)
-    ]
+setuid_fnname = b.get_syscall_fnname("setuid")
+b.attach_kprobe(event=setuid_fnname, fn_name="syscall__setuid")
+b.attach_kretprobe(event=setuid_fnname, fn_name="do_ret_sys_setuid")
 
 # header
 print("%-9s %-6s %-16s %-6s %s" % (
@@ -107,11 +87,14 @@ print("%-9s %-6s %-16s %-6s %s" % (
 
 # process event
 def print_event(cpu, data, size):
-    event = ct.cast(data, ct.POINTER(Data)).contents
-    print("%-9s %-6d %-16s %-6d %d" % (strftime("%H:%M:%S"),
+    event = b["events"].event(data)
+    printb(b"%-9s %-6d %-16s %-6d %d" % (strftime("%H:%M:%S").encode('ascii'),
         event.pid, event.comm, event.uid, event.ret))
 
 # loop with callback to print_event
 b["events"].open_perf_buffer(print_event)
 while 1:
-    b.kprobe_poll()
+    try:
+        b.perf_buffer_poll()
+    except KeyboardInterrupt:
+        exit()
