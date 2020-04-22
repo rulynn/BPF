@@ -9,7 +9,7 @@ public class Overflow {
 
     public static final int _1MB = 1024*1024;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("Press ENTER to start.");
         System.in.read();

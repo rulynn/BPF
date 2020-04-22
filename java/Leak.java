@@ -11,12 +11,11 @@ public class Leak {
 
     public static Map map = new HashMap();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("Press ENTER to start.");
         System.in.read();
 
-        Scanner in = new Scanner(System.in);
         for (int i = 0; i < 100000000; i++) {
             byte[] b = new byte[10*10];
             map.put(i,b);
