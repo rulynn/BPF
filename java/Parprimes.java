@@ -11,10 +11,10 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Parprimes {
 
 
-    static final int NTHREADS = 2;
-    static final int MAXNUM = 10000;
+    static int NTHREADS = 2;
+    static int MAXNUM = 10000;
 
-    static Node[] nodes = new Node[NTHREADS];
+    static Node[] nodes;
 
     static class Node {
         int start = 0;
@@ -54,6 +54,12 @@ public class Parprimes {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Press ENTER to start.");
         System.in.read();
+
+        if (args.length > 0) {
+            NTHREADS = Integer.parseInt(args[0]);
+            MAXNUM = Integer.parseInt(args[1]);
+        }
+        nodes = new Node[NTHREADS];
 
         List<Thread> list = new ArrayList();
 
@@ -95,6 +101,4 @@ public class Parprimes {
             primesLoop(node);
         }
     }
-
-
 }
