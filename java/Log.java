@@ -4,6 +4,13 @@ import java.io.IOException;
  * @Author : linouya
  * @Date : Created in 2020/4/23
  * @Design: "./trace.py 'SyS_write (arg1==1) "%s", arg2' -U -p `pidof java`"
+
+ * Problem:
+ $ ./trace.py 'sys_write (arg1==1) "%s", arg2' -U -p 12142
+ cannot attach kprobe, probe entry may not exist
+ Failed to attach BPF program probe_sys_write_1 to kprobe sys_write
+
+ $ ./tplist.py -p 12142 '*write*'
  */
 
 public class Log {
