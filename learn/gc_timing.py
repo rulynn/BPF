@@ -35,34 +35,30 @@ BPF_HASH(time, u32);
 int do_trace_begin(struct pt_regs *ctx) {
     u32 pid;
     u64 ts;
-    
     pid = bpf_get_current_pid_tgid();
     ts = bpf_ktime_get_ns();
 	time.update(&pid, &ts);
 	return 0;
-
 };
 
 int do_trace_end(struct pt_regs *ctx) {
         
     struct data_t data = {};
     u32 pid;
-    u64 ts, *tsp, delta;
+    u64 *tsp, delta;
     
     pid = bpf_get_current_pid_tgid();
     tsp = time.lookup(&pid);
     delta = bpf_ktime_get_ns() - *tsp;
-     
+    time.delete(&pid);
+    
     data.pid = pid;
     data.delta = delta / 1000;
     data.ts = bpf_ktime_get_ns();
-    
     events.perf_submit(ctx, &data, sizeof(data));
-    time.delete(&pid);
-            
+          
     return 0;
 };
-
 """
 
 if args.pid:
