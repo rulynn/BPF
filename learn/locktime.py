@@ -20,21 +20,20 @@ def run(pid):
     while True:
         sleep(5)
 
-        print("----- locks ----- ")
-        for k, v in locks.items():
-            print("\t tid %d ::: mtx %d ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
-                                  (k.tid, k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
-
+        (task, pid, cpu, flags, ts, msg) = b.trace_fields()
+        print(msg)
+#         print("----- locks ----- ")
+#         for k, v in locks.items():
+#             print("\t tid %d ::: mtx %d ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
+#                                   (k.tid, k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 #
 #         print("----- lock_start ----- ")
 #         for k, v in lock_start.items():
-#             print(k.value + " " + v.value)
-#             print("")
+#             print("\t tid %d ::: mtx %d ::: time %.2fus" % (k.tid, k.mtx, v.value))
 #
 #         print("----- lock_end ----- ")
 #         for k, v in lock_end.items():
-#             print(k.value + " " + v.value)
-#             print("")
+#             print("\t tid %d ::: mtx %d ::: time %.2fus" % (k.tid, k.mtx, v.value))
 
 
 if __name__ == "__main__":

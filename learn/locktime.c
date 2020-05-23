@@ -118,5 +118,3 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     lock_end.delete(&lock_key);
     return 0;
 }
-
-
