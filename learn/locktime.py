@@ -33,7 +33,9 @@ def print_event(cpu, data, size):
     # print("\t tid %d ::: mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
     #     (event.tid, event.mtx, event.start_time_ns/1000.0, event.wait_time_ns/1000.0, event.lock_time_ns/1000.0))
 
-
+    # TODO: How to identify the thread
+#     if event.mtx != 139793938564392:
+#         return
     tmp = item_t()
     tmp.mtx = event.mtx
     tmp.start_time_ns = event.start_time_ns/1000.0
