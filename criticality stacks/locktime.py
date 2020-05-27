@@ -34,7 +34,7 @@ def print_event(cpu, data, size):
     #     (event.tid, event.mtx, event.start_time_ns/1000.0, event.wait_time_ns/1000.0, event.lock_time_ns/1000.0))
 
     # TODO: How to identify the thread
-#     if event.mtx != 139793938564392:
+#     if event.mtx != 140128879416104:
 #         return
     tmp = item_t()
     tmp.mtx = event.mtx
@@ -48,7 +48,7 @@ def print_event(cpu, data, size):
 
     global count
     count = count + 1
-    if count % 200 == 0:
+    if count % 100 == 0:
         statistical_data(output_data)
 
 
@@ -59,7 +59,7 @@ def statistical_data(output_data):
         for item in v:
             print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
             (item.mtx, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
-
+    output_data.clear()
 
 
 # loop with callback to print_event
