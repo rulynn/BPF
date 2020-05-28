@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import matplotlib.pyplot as plt
 
 '''
  tid 10540
@@ -58,4 +59,16 @@ def statistical_data(output_data):
     output_data.clear()
 
 
-#def plot_data():
+def plot_data(output_data):
+    for k, v in output_data.items():
+        # print("\t tid %d" % (k))
+        x=[0,0,0,0]
+        for item in v:
+            plt.plot(item.start_time_ns - start_time, data1[:,2],  color='skyblue', label='y1')
+            # print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
+            # (item.mtx, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
+
+            y=[2.518,3.68,5.23,6.97]
+            plt.plot(x,y)
+    output_data.clear()
+    plt.show()
