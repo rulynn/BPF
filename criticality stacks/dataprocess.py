@@ -50,7 +50,7 @@ def collect_data(event):
     start_time_min = min(start_time_min, event.start_time_ns/1000.0)
     global count
     count = count + 1
-    if count == 100:
+    if count ==1000:
         # statistical_data(output_data)
         plot_data(output_data)
 
