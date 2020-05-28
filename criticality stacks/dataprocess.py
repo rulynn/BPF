@@ -8,19 +8,17 @@ import matplotlib.pyplot as plt
 
 
 '''
- tid 10540
- mtx 140286051165992 ::: start time 4466668547206.98us ::: wait time 24.28us ::: hold time 17.93us
- mtx 140286050976040 ::: start time 4466668547273.42us ::: wait time 6.67us ::: hold time 123.10us
- mtx 140286050846248 ::: start time 4466668547412.12us ::: wait time 6.32us ::: hold time 4.86us
- mtx 140286050976040 ::: start time 4466668547443.03us ::: wait time 6.59us ::: hold time 317.44us
- mtx 140286051165992 ::: start time 4466668547775.50us ::: wait time 6.30us ::: hold time 2.88us
+ mtx 140583477212712
+ tid 9821 ::: start time 4559337579091.74us ::: wait time 12.09us ::: hold time 11.74us
+ tid 9829 ::: start time 4559337578253.24us ::: wait time 6.44us ::: hold time 3843.74us
+ tid 9821 ::: start time 4559337676390.89us ::: wait time 11.44us ::: hold time 9.55us
+ tid 9829 ::: start time 4559337675631.71us ::: wait time 6.37us ::: hold time 801.48us
  ...
- tid 10541
- mtx 140286050853416 ::: start time 4466668547464.24us ::: wait time 6.57us ::: hold time 7.88us
- mtx 140286050846248 ::: start time 4466668547496.15us ::: wait time 6.64us ::: hold time 228.56us
- mtx 140286050976040 ::: start time 4466668547739.79us ::: wait time 6.36us ::: hold time 3.14us
- mtx 140286050846248 ::: start time 4466668547757.39us ::: wait time 6.31us ::: hold time 124.19us
- mtx 140286050853416 ::: start time 4466668547896.45us ::: wait time 6.35us ::: hold time 2.73us
+ mtx 140583474812712
+ tid 9829 ::: start time 4559337550801.24us ::: wait time 8.10us ::: hold time 9.87us
+ tid 9829 ::: start time 4559337564650.30us ::: wait time 13.37us ::: hold time 10.42us
+ tid 9826 ::: start time 4559337556437.01us ::: wait time 6.29us ::: hold time 8580.89us
+ tid 9829 ::: start time 4559337655876.76us ::: wait time 13.17us ::: hold time 8.95us
  ...
 '''
 
@@ -64,14 +62,14 @@ def statistical_data(output_data):
     output_data.clear()
 
 
-tid_dict = {}
-tid_id = 0
+
 def plot_data(output_data):
     for k, v in output_data.items():
         print("\t mtx %d" % (k))
+        tid_dict = {}
+        tid_id = 0
         for item in v:
 
-            global tid_id
             if tid_dict.get(item.tid) == None:
                 tid_dict[item.tid] = tid_id
                 tid_id = tid_id + 1

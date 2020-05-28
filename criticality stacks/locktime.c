@@ -104,9 +104,9 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     struct event_output event = {};
     event.mtx = mtx;
     event.tid = pid;
-    event.lock_time_ns = existing_tm_val->lock_time_ns;
     event.start_time_ns = existing_tm_val->start_time_ns;
-    event.wait_time_ns = hold_time;
+    event.wait_time_ns = existing_tm_val->wait_time_ns;
+    event.lock_time_ns = hold_time;
 
     events.perf_submit(ctx, &event, sizeof(event));
     lock_end.delete(&key);
