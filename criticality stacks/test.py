@@ -3,9 +3,8 @@
 import matplotlib.pyplot as plt
 
 def plot_data():
-    x=[0,0,0,0]
-    y=[2.518,3.68,5.23,6.97]
-    plt.plot(x,y)
+    plt.plot([0,0], [0,2])
+    plt.plot([0,0], [3,5])
     plt.show()
 
 plot_data()

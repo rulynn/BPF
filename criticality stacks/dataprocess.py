@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 
+import matplotlib
+matplotlib.use('Agg')
+
 import matplotlib.pyplot as plt
+
+
 
 '''
  tid 10540
@@ -21,54 +26,66 @@ import matplotlib.pyplot as plt
 
 class item_t:
     def __init__(self):
-        self.mtx = 0
+        self.tid = 0
         self.start_time_ns = 0
         self.wait_time_ns = 0
         self.lock_time_ns = 0
 
-
 output_data = {}
 count = 0
-start_time = 999999999999999
+start_time_min = 999999999999999
 def collect_data(event):
     # TODO: How to identify the thread
     tmp = item_t()
-    tmp.mtx = event.mtx
+    tmp.tid = event.tid
     tmp.start_time_ns = event.start_time_ns/1000.0
     tmp.wait_time_ns = event.wait_time_ns/1000.0
     tmp.lock_time_ns = event.lock_time_ns/1000.0
 
-    if output_data.get(event.tid) == None:
-        output_data[event.tid] = []
-    output_data[event.tid].append(tmp)
+    if output_data.get(event.mtx) == None:
+        output_data[event.mtx] = []
+    output_data[event.mtx].append(tmp)
 
-    global start_time
-    start_time = min(start_time, event.start_time_ns/1000.0)
+    global start_time_min
+    start_time_min = min(start_time_min, event.start_time_ns/1000.0)
     global count
     count = count + 1
-    if count == 1000:
-        statistical_data(output_data)
+    if count == 100:
+        # statistical_data(output_data)
+        plot_data(output_data)
 
 def statistical_data(output_data):
     #print("------ ", count, " ------")
     for k, v in output_data.items():
-        print("\t tid %d" % (k))
+        print("\t mtx %d" % (k))
         for item in v:
-            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
-            (item.mtx, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
+            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
+            (item.tid, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
     output_data.clear()
 
 
+tid_dict = {}
+tid_id = 0
 def plot_data(output_data):
     for k, v in output_data.items():
-        # print("\t tid %d" % (k))
-        x=[0,0,0,0]
+        print("\t mtx %d" % (k))
         for item in v:
-            plt.plot(item.start_time_ns - start_time, data1[:,2],  color='skyblue', label='y1')
-            # print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
-            # (item.mtx, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
 
-            y=[2.518,3.68,5.23,6.97]
-            plt.plot(x,y)
+            global tid_id
+            if tid_dict.get(item.tid) == None:
+                tid_dict[item.tid] = tid_id
+                tid_id = tid_id + 1
+
+            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
+                        (item.tid, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
+
+            x = [tid_dict[item.tid],tid_dict[item.tid]]
+            start_time = item.start_time_ns - start_time_min
+            plt.plot(x, [start_time, start_time + item.wait_time_ns], color='dimgray', label='wait')
+            plt.plot(x, [start_time + item.wait_time_ns, start_time + item.wait_time_ns + item.lock_time_ns] , color='firebrick', label='hold')
+
+        # output
+        path = "out/" + str(k) + ".png"
+        plt.savefig(path)
     output_data.clear()
-    plt.show()
+
