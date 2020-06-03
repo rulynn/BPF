@@ -8,17 +8,18 @@ import matplotlib.pyplot as plt
 
 
 '''
- mtx 140583477212712
- tid 9821 ::: start time 4559337579091.74us ::: wait time 12.09us ::: hold time 11.74us
- tid 9829 ::: start time 4559337578253.24us ::: wait time 6.44us ::: hold time 3843.74us
- tid 9821 ::: start time 4559337676390.89us ::: wait time 11.44us ::: hold time 9.55us
- tid 9829 ::: start time 4559337675631.71us ::: wait time 6.37us ::: hold time 801.48us
- ...
- mtx 140583474812712
- tid 9829 ::: start time 4559337550801.24us ::: wait time 8.10us ::: hold time 9.87us
- tid 9829 ::: start time 4559337564650.30us ::: wait time 13.37us ::: hold time 10.42us
- tid 9826 ::: start time 4559337556437.01us ::: wait time 6.29us ::: hold time 8580.89us
- tid 9829 ::: start time 4559337655876.76us ::: wait time 13.17us ::: hold time 8.95us
+ mtx 139911986011176
+	 tid 9255 ::: start time 5073596298434.87us ::: wait time 85046.37us ::: hold time 35994.17us
+	 tid 9258 ::: start time 5073596280492.59us ::: wait time 62791.55us ::: hold time 26878.19us
+	 tid 9257 ::: start time 5073596258901.99us ::: wait time 65762.03us ::: hold time 28087.69us
+	 tid 9256 ::: start time 5073596258763.20us ::: wait time 348452.35us ::: hold time 11421936.58us
+	 tid 9260 ::: start time 5073596258691.26us ::: wait time 67576.99us ::: hold time 28922.44us
+	 tid 9259 ::: start time 5073596345722.25us ::: wait time 66095.58us ::: hold time 28269.82us
+ mtx 139911983519528
+	 tid 9246 ::: start time 5073609629312.95us ::: wait time 14.65us ::: hold time 20.19us
+	 tid 9259 ::: start time 5073597263174.33us ::: wait time 132.47us ::: hold time 110.96us
+	 tid 9260 ::: start time 5073596391382.42us ::: wait time 96.93us ::: hold time 75.43us
+	 tid 9255 ::: start time 5073597604515.55us ::: wait time 145.73us ::: hold time 121.50us
  ...
 '''
 
@@ -55,12 +56,6 @@ def statistical_data(locks):
         print("\t tid %d ::: mtx %d" % (k.tid, k.mtx))
         print("\t start time %.2fus ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
             (v.start_time_ns, v.wait_time_ns, v.lock_time_ns, v.enter_count))
-#     for k, v in output_data.items():
-#         print("\t mtx %d" % (k))
-#         for item in v:
-#             print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
-#             (item.tid, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
-#     output_data.clear()
 
 tid_dict = {}
 tid_id = 0
@@ -74,13 +69,14 @@ def plot_data(output_data):
                 tid_dict[item.tid] = tid_id
                 tid_id = tid_id + 1
 
-            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
-                        (item.tid, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
-
             x = [tid_dict[item.tid],tid_dict[item.tid]]
             start_time = item.start_time_ns - start_time_min
+            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
+                                    (item.tid, start_time, item.wait_time_ns, item.lock_time_ns))
+
             plt.plot(x, [start_time, start_time + item.wait_time_ns], color='dimgray', label='wait')
-            plt.plot(x, [start_time + item.wait_time_ns, start_time + item.wait_time_ns + item.lock_time_ns] , color='firebrick', label='hold')
+            plt.plot(x, [start_time + item.wait_time_ns, start_time + item.wait_time_ns + item.lock_time_ns] ,
+                        color='firebrick', label='hold')
 
         # output
         path = "out/" + str(k) + ".png"
