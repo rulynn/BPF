@@ -19,15 +19,21 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex
 bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock_return", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=int(pid))
 
-# process event
-def print_event(cpu, data, size):
-    event = bpf["events"].event(data)
-    dp.collect_data(event)
 
-# loop with callback to print_event
-bpf["events"].open_perf_buffer(print_event)
-while 1:
-    try:
-        bpf.perf_buffer_poll()
-    except KeyboardInterrupt:
-        exit()
+locks = bpf["locks"]
+sleep(20)
+dp.collect_data(locks)
+
+
+# # process event
+# def print_event(cpu, data, size):
+#     event = bpf["events"].event(data)
+#     dp.collect_data(event)
+#
+# # loop with callback to print_event
+# bpf["events"].open_perf_buffer(print_event)
+# while 1:
+#     try:
+#         bpf.perf_buffer_poll()
+#     except KeyboardInterrupt:
+#         exit()

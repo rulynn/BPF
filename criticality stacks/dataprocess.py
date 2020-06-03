@@ -30,38 +30,37 @@ class item_t:
         self.lock_time_ns = 0
 
 output_data = {}
-count = 0
+#count = 0
 start_time_min = 999999999999999
-def collect_data(event):
-    # TODO: How to identify the thread
-    tmp = item_t()
-    tmp.tid = event.tid
-    tmp.start_time_ns = event.start_time_ns/1000.0
-    tmp.wait_time_ns = event.wait_time_ns/1000.0
-    tmp.lock_time_ns = event.lock_time_ns/1000.0
+def collect_data(locks):
+    for k, v in locks.items():
+        # TODO: How to identify the thread
+        tmp = item_t()
+        tmp.tid = k.tid
+        tmp.start_time_ns = v.start_time_ns/1000.0
+        tmp.wait_time_ns = v.wait_time_ns/1000.0
+        tmp.lock_time_ns = v.lock_time_ns/1000.0
 
-    if output_data.get(event.mtx) == None:
-        output_data[event.mtx] = []
-    output_data[event.mtx].append(tmp)
+        if output_data.get(k.mtx) == None:
+            output_data[k.mtx] = []
+        output_data[k.mtx].append(tmp)
 
-    global start_time_min
-    start_time_min = min(start_time_min, event.start_time_ns/1000.0)
-    global count
-    count = count + 1
-    if count ==1000:
-        # statistical_data(output_data)
-        plot_data(output_data)
+        global start_time_min
+        start_time_min = min(start_time_min, v.start_time_ns/1000.0)
+    # plot
+    plot_data(output_data)
 
-def statistical_data(output_data):
-    #print("------ ", count, " ------")
-    for k, v in output_data.items():
-        print("\t mtx %d" % (k))
-        for item in v:
-            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
-            (item.tid, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
-    output_data.clear()
-
-
+def statistical_data(locks):
+    for k, v in locks.items():
+        print("\t tid %d ::: mtx %d" % (k.tid, k.mtx))
+        print("\t start time %.2fus ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
+            (v.start_time_ns, v.wait_time_ns, v.lock_time_ns, v.enter_count))
+#     for k, v in output_data.items():
+#         print("\t mtx %d" % (k))
+#         for item in v:
+#             print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
+#             (item.tid, item.start_time_ns, item.wait_time_ns, item.lock_time_ns))
+#     output_data.clear()
 
 tid_dict = {}
 tid_id = 0

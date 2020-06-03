@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sh run.sh jar/ Sync
+# sh run.sh
 
 # dir
 rm -rf out

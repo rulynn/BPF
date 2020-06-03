@@ -9,23 +9,14 @@ struct thread_mutex_key {
 struct thread_mutex_val {
     u64 start_time_ns;
     u64 wait_time_ns;
-    // u64 lock_time_ns;
-    // u64 enter_count;
+    u64 lock_time_ns;
+    u64 enter_count;
 };
 struct mutex_timestamp {
     u64 mtx;
     u64 timestamp;
 };
-// output
-struct event_output {
-    u32 tid;
-    u64 mtx;
-    u64 start_time_ns;
-    u64 wait_time_ns;
-    u64 lock_time_ns;
-};
 
-BPF_PERF_OUTPUT(events);
 // Main info database about mutex and thread pairs
 BPF_HASH(locks, struct thread_mutex_key, struct thread_mutex_val);
 // Pid to the mutex address and timestamp of when the wait started
@@ -71,8 +62,14 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     // Record the wait time for this mutex-tid-stack combination even if locking failed
     struct thread_mutex_val *existing_tm_val, new_tm_val = {};
     existing_tm_val = locks.lookup_or_init(&key, &new_tm_val);
-    existing_tm_val->wait_time_ns = wait_time;
-    existing_tm_val->start_time_ns = entry->timestamp;
+    if (existing_tm_val == 0)
+            return 0;   // Couldn't find this record
+    existing_tm_val->wait_time_ns += wait_time;
+    existing_tm_val->enter_count++;
+
+    if (existing_tm_val->start_time_ns == 0) {
+        existing_tm_val->start_time_ns = entry->timestamp;
+    }
     lock_start.delete(&pid);
     return 0;
 }
@@ -95,20 +92,11 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     if (lock_val == 0)
         return 0;   // Missed the lock of this mutex
     u64 hold_time = now - *lock_val;
-
     struct thread_mutex_val *existing_tm_val = locks.lookup(&key);
     if (existing_tm_val == 0)
         return 0;   // Couldn't find this record
+    existing_tm_val->lock_time_ns += hold_time;
 
-    // output
-    struct event_output event = {};
-    event.mtx = mtx;
-    event.tid = pid;
-    event.start_time_ns = existing_tm_val->start_time_ns;
-    event.wait_time_ns = existing_tm_val->wait_time_ns;
-    event.lock_time_ns = hold_time;
-
-    events.perf_submit(ctx, &event, sizeof(event));
     lock_end.delete(&key);
     return 0;
 }
