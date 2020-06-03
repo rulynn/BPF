@@ -23,20 +23,31 @@ import matplotlib.pyplot as plt
  ...
 '''
 
-class item_t:
+TIME = 15000000
+INTERVAL = 20
+
+
+class item_mtx:
     def __init__(self):
         self.tid = 0
         self.start_time_ns = 0
         self.wait_time_ns = 0
         self.lock_time_ns = 0
 
-output_data = {}
-#count = 0
-start_time_min = 999999999999999
-def collect_data(locks):
+
+class item_tid:
+    def __init__(self):
+        self.mtx = 0
+        self.start_time = 0
+        self.end_time = 0
+
+
+def default_calculation(locks):
+    output_data = {}
+    start_time_min = 999999999999999
     for k, v in locks.items():
         # TODO: How to identify the thread
-        tmp = item_t()
+        tmp = item_mtx()
         tmp.tid = k.tid
         tmp.start_time_ns = v.start_time_ns/1000.0
         tmp.wait_time_ns = v.wait_time_ns/1000.0
@@ -46,25 +57,16 @@ def collect_data(locks):
             output_data[k.mtx] = []
         output_data[k.mtx].append(tmp)
 
-        global start_time_min
         start_time_min = min(start_time_min, v.start_time_ns/1000.0)
     # plot
-    plot_data(output_data)
+    default_calculation_inner(output_data, start_time_min)
 
-def statistical_data(locks):
-    for k, v in locks.items():
-        print("\t tid %d ::: mtx %d" % (k.tid, k.mtx))
-        print("\t start time %.2fus ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
-            (v.start_time_ns, v.wait_time_ns, v.lock_time_ns, v.enter_count))
-
-tid_dict = {}
-tid_id = 0
-def plot_data(output_data):
+def default_calculation_inner(output_data, start_time_min):
+    tid_dict = {}
+    tid_id = 0
     for k, v in output_data.items():
         print("\t mtx %d" % (k))
         for item in v:
-            global tid_id
-            global tid_dict
             if tid_dict.get(item.tid) == None:
                 tid_dict[item.tid] = tid_id
                 tid_id = tid_id + 1
@@ -82,5 +84,53 @@ def plot_data(output_data):
         path = "out/" + str(k) + ".png"
         plt.savefig(path)
 
-    output_data.clear()
+def statistical_data(locks):
+    for k, v in locks.items():
+        print("\t tid %d ::: mtx %d" % (k.tid, k.mtx))
+        print("\t start time %.2fus ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
+            (v.start_time_ns, v.wait_time_ns, v.lock_time_ns, v.enter_count))
+
+def critical_calculation(locks):
+
+    output_data = {}
+    start_time_min = 999999999999999
+
+    for k, v in locks.items():
+        tmp = item_tid()
+        tmp.mtx = k.mtx
+        tmp.start_time = v.start_time_ns/1000.0 + v.wait_time_ns/1000.0
+        tmp.end_time = tmp.start_time + v.lock_time_ns/1000.0
+
+        if output_data.get(k.tid) == None:
+            output_data[k.tid] = []
+        output_data[k.tid].append(tmp)
+        print("\t tid %d ::: start time %.2fus ::: end time %.2fus" % (k.tid, tmp.start_time, tmp.end_time))
+        start_time_min = min(start_time_min, v.start_time_ns/1000.0)
+
+    critical_calculation_inner(output_data, start_time_min)
+
+
+def critical_calculation_inner(output_data, start_time_min):
+    tid_id = 0
+    #ans = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
+    for k, v in output_data.items():
+
+        for item in v:
+            start = (item.start_time - start_time_min) // (TIME // INTERVAL)
+            end = (item.end_time - start_time_min) // (TIME // INTERVAL) + 1
+
+            print("\t start time %.2fus ::: end time %.2fus" % (item.start_time - start_time_min, item.end_time - start_time_min))
+            print("\t tid %d ::: start %d ::: end %d" % (tid_id, start, end))
+
+            plt.plot([tid_id, tid_id], [start, end], color='dimgray')
+
+        tid_id = tid_id + 1
+
+    path = "out/" + str(tid_id) + ".png"
+    plt.savefig(path)
+#             plot
+#             print("\t start %d ::: end %d" % (int(start), int(end)))
+#             for i in range(int(start), int(end)):
+#                 ans[tid_id][i] = 1
+
 
