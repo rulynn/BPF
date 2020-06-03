@@ -63,13 +63,14 @@ def statistical_data(output_data):
 
 
 
+tid_dict = {}
+tid_id = 0
 def plot_data(output_data):
     for k, v in output_data.items():
         print("\t mtx %d" % (k))
-        tid_dict = {}
-        tid_id = 0
         for item in v:
-
+            global tid_id
+            global tid_dict
             if tid_dict.get(item.tid) == None:
                 tid_dict[item.tid] = tid_id
                 tid_id = tid_id + 1
@@ -85,5 +86,6 @@ def plot_data(output_data):
         # output
         path = "out/" + str(k) + ".png"
         plt.savefig(path)
+
     output_data.clear()
 
