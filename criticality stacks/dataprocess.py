@@ -145,7 +145,6 @@ def critical_calculation_inner(output_data, start_time_min):
             for i in range(int(start), int(end)):
                 count_arr[tid_id][i] = 1
         tid_id = tid_id + 1
-    #print(count_arr)
 
     ans = [0 for i in range(tid_id)]
     ans_sum = 0
@@ -159,14 +158,16 @@ def critical_calculation_inner(output_data, start_time_min):
                 ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
     print(ans)
+    print(ans_sum)
+    # plot
+    pre = 0
+    for i in range(0, tid_id):
+        plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum])
+        print(pre/ans_sum, (pre + ans[i])/ans_sum)
+        pre = pre + ans[i]
 
-#     pre = 0
-#     for i in range(0, tid_id):
-#         plt.plot([0, 0], [pre/ans_sum, ans[i]/ans_sum], color='dimgray')
-#         ans[i] = ans[i] + pre
-#
-#     path = "out/critical.png"
-#     plt.savefig(path)
+    path = "out/critical.png"
+    plt.savefig(path)
 
 
 
