@@ -110,7 +110,7 @@ def critical_calculation(locks):
     critical_calculation_inner(output_data, start_time_min)
 
 
-def critical_calculation_inner(output_data, start_time_min):
+def critical_calculation_inner_plot(output_data, start_time_min):
     tid_id = 0
     #ans = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
     for k, v in output_data.items():
@@ -132,5 +132,30 @@ def critical_calculation_inner(output_data, start_time_min):
 #             print("\t start %d ::: end %d" % (int(start), int(end)))
 #             for i in range(int(start), int(end)):
 #                 ans[tid_id][i] = 1
+
+
+def critical_calculation_inner(output_data, start_time_min):
+
+    tid_id = 0
+    tid_dict = {}
+    count = [0 for i in range(INTERVAL)]
+    for k, v in output_data.items():
+        if tid_dict.get(k) == None:
+            tid_dict[k] = tid_id
+            tid_id = tid_id + 1
+        for item in v:
+            start = (item.start_time - start_time_min) // (TIME // INTERVAL)
+            end = (item.end_time - start_time_min) // (TIME // INTERVAL) + 1
+            for i in range(int(start), int(end)):
+                count[i] = count[i] + 1
+    print(count)
+
+    ans = [0 for i in range(tid_id)]
+    for k, v in output_data.items():
+        for item in v:
+            for i in range(int(start), int(end)):
+                ans[tid_dict[k]] = ans[tid_dict[k]] + 1/count[i]
+    print(ans)
+
 
 
