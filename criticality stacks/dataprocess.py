@@ -137,25 +137,36 @@ def critical_calculation_inner_plot(output_data, start_time_min):
 def critical_calculation_inner(output_data, start_time_min):
 
     tid_id = 0
-    tid_dict = {}
-    count = [0 for i in range(INTERVAL)]
+    count_arr = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
     for k, v in output_data.items():
-        if tid_dict.get(k) == None:
-            tid_dict[k] = tid_id
-            tid_id = tid_id + 1
         for item in v:
             start = (item.start_time - start_time_min) // (TIME // INTERVAL)
             end = (item.end_time - start_time_min) // (TIME // INTERVAL) + 1
             for i in range(int(start), int(end)):
-                count[i] = count[i] + 1
-    print(count)
+                count_arr[tid_id][i] = 1
+        tid_id = tid_id + 1
+    #print(count_arr)
 
     ans = [0 for i in range(tid_id)]
-    for k, v in output_data.items():
-        for item in v:
-            for i in range(int(start), int(end)):
-                ans[tid_dict[k]] = ans[tid_dict[k]] + 1/count[i]
+    ans_sum = 0
+    for i in range(0, INTERVAL):
+        count = 0
+        for j in range(0, tid_id):
+            if count_arr[j][i] == 1:
+                count = count + 1
+        for j in range(0, tid_id):
+            if count_arr[j][i] == 1:
+                ans[j] = ans[j] + 1.0 / count
+                ans_sum = ans_sum + 1.0 / count
     print(ans)
+
+#     pre = 0
+#     for i in range(0, tid_id):
+#         plt.plot([0, 0], [pre/ans_sum, ans[i]/ans_sum], color='dimgray')
+#         ans[i] = ans[i] + pre
+#
+#     path = "out/critical.png"
+#     plt.savefig(path)
 
 
 
