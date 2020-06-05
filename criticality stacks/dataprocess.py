@@ -6,7 +6,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
-
 '''
  mtx 139911986011176
 	 tid 9255 ::: start time 5073596298434.87us ::: wait time 85046.37us ::: hold time 35994.17us
@@ -107,38 +106,17 @@ def critical_calculation(locks):
         print("\t tid %d ::: start time %.2fus ::: end time %.2fus" % (k.tid, tmp.start_time, tmp.end_time))
         start_time_min = min(start_time_min, v.start_time_ns/1000.0)
 
+    # critical_calculation_inner_plot(output_data, start_time_min)
     critical_calculation_inner(output_data, start_time_min)
-
-
-def critical_calculation_inner_plot(output_data, start_time_min):
-    tid_id = 0
-    #ans = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
-    for k, v in output_data.items():
-
-        for item in v:
-            start = (item.start_time - start_time_min) // (TIME // INTERVAL)
-            end = (item.end_time - start_time_min) // (TIME // INTERVAL) + 1
-
-            print("\t start time %.2fus ::: end time %.2fus" % (item.start_time - start_time_min, item.end_time - start_time_min))
-            print("\t tid %d ::: start %d ::: end %d" % (tid_id, start, end))
-
-            plt.plot([tid_id, tid_id], [start, end], color='dimgray')
-
-        tid_id = tid_id + 1
-
-    path = "out/" + str(tid_id) + ".png"
-    plt.savefig(path)
-#             plot
-#             print("\t start %d ::: end %d" % (int(start), int(end)))
-#             for i in range(int(start), int(end)):
-#                 ans[tid_id][i] = 1
-
 
 def critical_calculation_inner(output_data, start_time_min):
 
     tid_id = 0
-    count_arr = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
+    # TODO: fix bug not INTERVAL, tid_id...
+    # count_arr = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
+    count_arr = []
     for k, v in output_data.items():
+        count_arr.append([0 for i in range(INTERVAL)])
         for item in v:
             start = (item.start_time - start_time_min) // (TIME // INTERVAL)
             end = (item.end_time - start_time_min) // (TIME // INTERVAL) + 1
@@ -168,6 +146,29 @@ def critical_calculation_inner(output_data, start_time_min):
 
     path = "out/critical.png"
     plt.savefig(path)
+
+def critical_calculation_inner_plot(output_data, start_time_min):
+    tid_id = 0
+    #ans = [[0 for i in range(INTERVAL)] for i in range(INTERVAL)]
+    for k, v in output_data.items():
+
+        for item in v:
+            start = (item.start_time - start_time_min) // (TIME // INTERVAL)
+            end = (item.end_time - start_time_min) // (TIME // INTERVAL) + 1
+
+            print("\t start time %.2fus ::: end time %.2fus" % (item.start_time - start_time_min, item.end_time - start_time_min))
+            print("\t tid %d ::: start %d ::: end %d" % (tid_id, start, end))
+
+            plt.plot([tid_id, tid_id], [start, end], color='dimgray')
+
+        tid_id = tid_id + 1
+
+    path = "out/" + str(tid_id) + ".png"
+    plt.savefig(path)
+#             plot
+#             print("\t start %d ::: end %d" % (int(start), int(end)))
+#             for i in range(int(start), int(end)):
+#                 ans[tid_id][i] = 1
 
 
 
