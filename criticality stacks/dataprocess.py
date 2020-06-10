@@ -108,6 +108,7 @@ def critical_calculation(locks):
 
     # critical_calculation_inner_plot(output_data, start_time_min)
     critical_calculation_inner(output_data, start_time_min)
+    critical_calculation_inner_plot(output_data, start_time_min)
 
 def critical_calculation_inner(output_data, start_time_min):
 
