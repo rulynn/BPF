@@ -2,10 +2,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static java.lang.Thread.sleep;
+
 public class SingleFun {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        sleep(2);
         long start = System.currentTimeMillis();
         runTest();
         long end = System.currentTimeMillis();
