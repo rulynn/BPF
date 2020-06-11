@@ -1,15 +1,27 @@
 #!/bin/bash
 
-# sh run.sh
+# java -jar dacapo.jar avrora
+# java Single
+# sh run.sh 5
+
 
 # dir
 rm -rf out
 mkdir out
 
-# java -jar dacapo.jar avrora
-# java -XX:+ExtendedDTraceProbes Single
-# sh run.sh 5
+name="SingleFun"
+java_name="java SingleFun"
 time=$1
-pid=$(pgrep -f "java Single")
-echo $pid
+
+echo "start running program"
+java $name &
+
+echo "start get pid"
+pid=$(pgrep -f "$java_name")
+echo "program pid: "  $pid
+
+echo "start running eBPF"
 ./locktime.py $pid $time > out.log
+echo "finish"
+
+
