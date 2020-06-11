@@ -3,10 +3,12 @@
 # java -XX:+ExtendedDTraceProbes Single
 # sh run_stat.sh
 
-java -XX:+ExtendedDTraceProbes Single &
+name="SingleFun"
+
+java -XX:+ExtendedDTraceProbes $name &
 echo "start runing program"
 
-pid=$(pgrep -f "Single")
+pid=$(pgrep -f $name)
 echo "program pid: "  $pid
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
