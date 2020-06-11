@@ -2,24 +2,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Single {
+public class SingleFun {
 
 
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
+        runTest();
         long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+    
+    public static void runTest(){
         ArrayList<Integer> integers = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 25000; i++) {
-            integers.add(random.nextInt(100000));
+            integers.add(random.nextInt(100000) + 1);
         }
         for (int i = 0; i < 10000; i++) {
-            for (Integer integer : integers) {
-                integer = integer + random.nextInt(100);
+            for (int j = 0; j <integers.size() - 1; j++) {
+                integers.set(j, integers.get(j) % integers.get(j + 1) + 1);
             }
 
         }
-        end = System.currentTimeMillis();
-        System.out.println(end - start);
     }
 }
