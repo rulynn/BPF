@@ -92,10 +92,12 @@ def critical_calculation_inner_plot(output_data, start_time_min):
     # plot
     pre = 0
     for i in range(0, tid_id):
-        plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum])
+        label = "thread " + i
+        plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
         print(pre/ans_sum, (pre + ans[i])/ans_sum)
         pre = pre + ans[i]
 
+    plt.ylim(0,1)
     path = "out/critical.png"
     plt.savefig(path)
 
@@ -118,6 +120,8 @@ def critical_calculation_inner(output_data, start_time_min):
 
         tid_id = tid_id + 1
 
+    plt.xlabel("barrier")
+    plt.ylabel("time")
     path = "out/threads.png"
     plt.savefig(path)
 
