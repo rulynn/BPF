@@ -23,6 +23,7 @@ echo "program pid: "  $pid
 
 echo "start running eBPF..."
 cd ../criticality_stacks
+chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
 
 echo "start kill the program..."
