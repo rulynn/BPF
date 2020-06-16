@@ -120,7 +120,7 @@ def critical_calculation_inner(output_data):
             wait = (item.wait_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
             hold = (item.lock_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
 
-            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - start_time_min,
+            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - TIME_MIN,
             item.wait_time - TIME_MIN, item.lock_time - TIME_MIN, start, wait, hold))
 
             plt.plot([tid_id, tid_id], [start, wait+1], color='dimgray')
