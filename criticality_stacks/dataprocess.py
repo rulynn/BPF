@@ -5,9 +5,10 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 
-TIME = 15000000
-INTERVAL = 20
 
+INTERVAL = 20
+TIME_MAX = 0
+TIME_MIN = 999999999999999
 
 class item_mtx:
     def __init__(self):
@@ -27,7 +28,7 @@ class item_tid:
 def critical_calculation(locks):
 
     output_data = {}
-    start_time_min = 999999999999999
+
 
     for k, v in locks.items():
         tmp = item_tid()
@@ -45,15 +46,16 @@ def critical_calculation(locks):
         output_data[k.tid].append(tmp)
 
         # Used to calculate relative time: time - (minimum start time)
-        start_time_min = min(start_time_min, v.start_time_ns/1000.0)
+        TIME_MIN = min(TIME_MIN, tmp.start_time)
+        TIME_MAX = max(TIME_MAX, tmp.lock_time)
 
     # plot critical stack
-    critical_calculation_inner_plot(output_data, start_time_min)
-    critical_calculation_inner(output_data, start_time_min)
+    critical_calculation_inner_plot(output_data)
+    critical_calculation_inner(output_data)
 
 
 # plot critical stack
-def critical_calculation_inner_plot(output_data, start_time_min):
+def critical_calculation_inner_plot(output_data):
     tid_id = 0
     count_wait = []
     count_hold = []
@@ -63,11 +65,11 @@ def critical_calculation_inner_plot(output_data, start_time_min):
         count_wait.append([0 for i in range(INTERVAL)])
         count_hold.append([0 for i in range(INTERVAL)])
         for item in v:
-            start = (item.start_time - start_time_min) // (TIME // INTERVAL)
-            wait = (item.wait_time - start_time_min) // (TIME // INTERVAL)
+            start = (item.start_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
+            wait = (item.wait_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
             for i in range(int(start), int(wait)+1):
                 count_wait[tid_id][i] = 1
-            hold = (item.lock_time - start_time_min) // (TIME // INTERVAL)
+            hold = (item.lock_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
             for i in range(int(wait), int(hold)+1):
                 count_hold[tid_id][i] = 1
         tid_id = tid_id + 1
@@ -102,17 +104,17 @@ def critical_calculation_inner_plot(output_data, start_time_min):
     plt.savefig(path)
 
 # print data
-def critical_calculation_inner(output_data, start_time_min):
+def critical_calculation_inner(output_data):
     tid_id = 0
     for k, v in output_data.items():
         print("========= pid %d =========" % (k))
         for item in v:
-            start = (item.start_time - start_time_min) // (TIME // INTERVAL)
-            wait = (item.wait_time - start_time_min) // (TIME // INTERVAL)
-            hold = (item.lock_time - start_time_min) // (TIME // INTERVAL)
+            start = (item.start_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
+            wait = (item.wait_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
+            hold = (item.lock_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
 
             print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - start_time_min,
-            item.wait_time - start_time_min, item.lock_time - start_time_min, start, wait, hold))
+            item.wait_time - TIME_MIN, item.lock_time - TIME_MIN, start, wait, hold))
 
             plt.plot([tid_id, tid_id], [start, wait+1], color='dimgray')
             plt.plot([tid_id, tid_id], [wait, hold+1], color='red')
