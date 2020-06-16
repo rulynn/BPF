@@ -128,15 +128,15 @@ def critical_calculation_inner(output_data):
             print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" % (item.mtx, item.start_time - TIME_MIN,
             item.wait_time - item.start_time, item.lock_time - item.wait_time))
 
-            plt.plot([tid_id, tid_id], [start, wait+1], color='dimgray')
-            plt.plot([tid_id, tid_id], [wait, hold+1], color='red')
+#             plt.plot([tid_id, tid_id], [start, wait+1], color='dimgray')
+#             plt.plot([tid_id, tid_id], [wait, hold+1], color='red')
 
         tid_id = tid_id + 1
 
-    plt.ylim(0,INTERVAL)
-    plt.xlabel("barrier")
-    plt.ylabel("time")
-    path = "out/threads.png"
-    plt.savefig(path)
+#     plt.ylim(0,INTERVAL)
+#     plt.xlabel("barrier")
+#     plt.ylabel("time")
+#     path = "out/threads.png"
+#     plt.savefig(path)
 
 
