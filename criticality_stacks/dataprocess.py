@@ -70,11 +70,12 @@ def critical_calculation_inner_plot(output_data):
         count_wait.append([0 for i in range(INTERVAL)])
         count_hold.append([0 for i in range(INTERVAL)])
         for item in v:
-            start = (item.start_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
-            wait = (item.wait_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
+            time = (TIME_MAX - TIME_MIN) // INTERVAL + 1
+            start = (item.start_time - TIME_MIN) // time
+            wait = (item.wait_time - TIME_MIN) // time
             for i in range(int(start), int(wait)+1):
                 count_wait[tid_id][i] = 1
-            hold = (item.lock_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
+            hold = (item.lock_time - TIME_MIN) // time
             for i in range(int(wait), int(hold)+1):
                 count_hold[tid_id][i] = 1
         tid_id = tid_id + 1
@@ -117,9 +118,10 @@ def critical_calculation_inner(output_data):
     for k, v in output_data.items():
         print("========= pid %d =========" % (k))
         for item in v:
-            start = (item.start_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
-            wait = (item.wait_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
-            hold = (item.lock_time - TIME_MIN) // (TIME_MAX // INTERVAL + 1)
+            time = (TIME_MAX - TIME_MIN) // INTERVAL + 1
+            start = (item.start_time - TIME_MIN) // time
+            wait = (item.wait_time - TIME_MIN) // time
+            hold = (item.lock_time - TIME_MIN) // time
 
             print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - TIME_MIN,
             item.wait_time - TIME_MIN, item.lock_time - TIME_MIN, start, wait, hold))
