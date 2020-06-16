@@ -118,7 +118,7 @@ def critical_calculation_inner(output_data):
     time = (TIME_MAX - TIME_MIN) // INTERVAL + 1
     print("max time %d ::: min time %d ::: time %d" % (TIME_MAX, TIME_MIN, time))
     for k, v in output_data.items():
-        print("pid %d ::" % (k))
+        print("--- pid %d ---" % (k))
         for item in v:
 
             start = (item.start_time - TIME_MIN) // time
