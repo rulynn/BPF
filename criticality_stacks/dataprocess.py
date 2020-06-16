@@ -6,7 +6,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
-INTERVAL = 20
+INTERVAL = 1000
 TIME_MAX = 0
 TIME_MIN = 999999999999999
 
@@ -46,12 +46,11 @@ def critical_calculation(locks):
             output_data[k.tid] = []
         output_data[k.tid].append(tmp)
 
-        # Used to calculate relative time: time - (minimum start time)
+        # Used to calculate relative time: time - TIME_MIN
         TIME_MIN = min(TIME_MIN, tmp.start_time)
         TIME_MAX = max(TIME_MAX, tmp.lock_time)
 
     # plot critical stack
-
     critical_calculation_inner_plot(output_data)
     critical_calculation_inner(output_data)
 
@@ -70,7 +69,9 @@ def critical_calculation_inner_plot(output_data):
         count_wait.append([0 for i in range(INTERVAL)])
         count_hold.append([0 for i in range(INTERVAL)])
         for item in v:
+            # time: Time occupied by each time interval
             time = (TIME_MAX - TIME_MIN) // INTERVAL + 1
+            # Calculate start time block and wait time block
             start = (item.start_time - TIME_MIN) // time
             wait = (item.wait_time - TIME_MIN) // time
             for i in range(int(start), int(wait)+1):
