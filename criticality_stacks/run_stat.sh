@@ -1,22 +1,25 @@
 #!/bin/bash
 
-# java -XX:+ExtendedDTraceProbes Single
-# sh run_stat.sh
+
+# need perf-map-agent: change path
 
 name="SingleFun"
 
-echo "start running program"
+echo "start running program..."
+cd ../java
 java -XX:+ExtendedDTraceProbes $name &
 
-echo "start get pid"
-pid=$(pgrep -f $name)
+echo "start get pid..."
+pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
 echo "start perf map"
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 
 echo "start running eBPF"
+cd ../learn
 ./lockstat.py $pid > out.log
-echo "finish"
 
-# kill -9 $pid
+echo "start kill the program..."
+kill -9 $pid
+echo "finish"
