@@ -96,8 +96,7 @@ def critical_calculation_inner_plot(output_data):
             if count_hold[j][i] == 1:
                 ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
-#     print(ans)
-#     print(ans_sum)
+
     # plot
     pre = 0
     for i in range(0, tid_id):
@@ -107,6 +106,7 @@ def critical_calculation_inner_plot(output_data):
         pre = pre + ans[i]
 
     plt.ylim(0,1)
+    plt.legend()
     path = "out/critical.png"
     plt.savefig(path)
 
