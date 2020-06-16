@@ -118,15 +118,15 @@ def critical_calculation_inner(output_data):
     time = (TIME_MAX - TIME_MIN) // INTERVAL + 1
     print("max time %d ::: min time %d ::: time %d" % (TIME_MAX, TIME_MIN, time))
     for k, v in output_data.items():
-        print("========= pid %d =========" % (k))
+        print("pid %d ::" % (k))
         for item in v:
 
             start = (item.start_time - TIME_MIN) // time
             wait = (item.wait_time - TIME_MIN) // time
             hold = (item.lock_time - TIME_MIN) // time
 
-            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - TIME_MIN,
-            item.wait_time - item.start_time, item.lock_time - item.wait_time, start, wait, hold))
+            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" % (item.mtx, item.start_time - TIME_MIN,
+            item.wait_time - item.start_time, item.lock_time - item.wait_time))
 
             plt.plot([tid_id, tid_id], [start, wait+1], color='dimgray')
             plt.plot([tid_id, tid_id], [wait, hold+1], color='red')
