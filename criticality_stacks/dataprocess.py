@@ -51,6 +51,7 @@ def critical_calculation(locks):
         TIME_MAX = max(TIME_MAX, tmp.lock_time)
 
     # plot critical stack
+    print("max time %d ::: min time %d" % (TIME_MAX, TIME_MIN))
     critical_calculation_inner_plot(output_data)
     critical_calculation_inner(output_data)
 
