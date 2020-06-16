@@ -92,7 +92,7 @@ def critical_calculation_inner_plot(output_data, start_time_min):
     # plot
     pre = 0
     for i in range(0, tid_id):
-        label = "thread " + i
+        label = "thread " + str(i)
         plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
         print(pre/ans_sum, (pre + ans[i])/ans_sum)
         pre = pre + ans[i]
