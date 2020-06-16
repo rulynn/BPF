@@ -6,7 +6,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 TIME = 15000000
-INTERVAL = 1000
+INTERVAL = 20
 
 
 class item_mtx:
@@ -105,7 +105,7 @@ def critical_calculation_inner_plot(output_data, start_time_min):
 def critical_calculation_inner(output_data, start_time_min):
     tid_id = 0
     for k, v in output_data.items():
-        print("========= pid ========= %d" % (k))
+        print("========= pid %d =========" % (k))
         for item in v:
             start = (item.start_time - start_time_min) // (TIME // INTERVAL)
             wait = (item.wait_time - start_time_min) // (TIME // INTERVAL) + 1
