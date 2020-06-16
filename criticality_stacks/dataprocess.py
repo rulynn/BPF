@@ -28,7 +28,8 @@ class item_tid:
 def critical_calculation(locks):
 
     output_data = {}
-
+    global TIME_MIN
+    global TIME_MAX
 
     for k, v in locks.items():
         tmp = item_tid()
@@ -59,6 +60,9 @@ def critical_calculation_inner_plot(output_data):
     tid_id = 0
     count_wait = []
     count_hold = []
+    global TIME_MIN
+    global TIME_MAX
+
     # Divide hold time into $INTERVAL time intervals
     for k, v in output_data.items():
         # init
@@ -106,6 +110,9 @@ def critical_calculation_inner_plot(output_data):
 # print data
 def critical_calculation_inner(output_data):
     tid_id = 0
+    global TIME_MIN
+    global TIME_MAX
+
     for k, v in output_data.items():
         print("========= pid %d =========" % (k))
         for item in v:
