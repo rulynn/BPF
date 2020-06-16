@@ -18,6 +18,7 @@ output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 
 echo "start running eBPF"
 cd ../learn
+chmod 777 lockstat.py
 ./lockstat.py $pid > out.log
 
 echo "start kill the program..."
