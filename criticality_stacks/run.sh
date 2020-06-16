@@ -9,6 +9,8 @@
 rm -rf out
 mkdir out
 
+# Modify java program: Replace 'SingleFun' in java and java_name
+# java program shows in ../java/
 name="SingleFun"
 java_name="java SingleFun"
 time=$1
