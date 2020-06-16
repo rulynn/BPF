@@ -13,18 +13,17 @@ name="SingleFun"
 java_name="java SingleFun"
 time=$1
 
-echo "start running program"
+echo "start running program..."
 java ../java/$name &
 
-echo "start get pid"
+echo "\t start get pid..."
 pid=$(pgrep -f "$java_name")
 echo "program pid: "  $pid
 
-echo "start running eBPF"
+echo "\t start running eBPF..."
 ./locktime.py $pid $time > out.log
-echo "finish"
 
-echo "kill the program"
+echo "\t start kill the program..."
 kill -9 $pid
-
+echo "finish"
 
