@@ -87,14 +87,14 @@ def critical_calculation_inner_plot(output_data, start_time_min):
             if count_hold[j][i] == 1:
                 ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
-    print(ans)
-    print(ans_sum)
+#     print(ans)
+#     print(ans_sum)
     # plot
     pre = 0
     for i in range(0, tid_id):
         label = "thread " + str(i)
         plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
-        print(pre/ans_sum, (pre + ans[i])/ans_sum)
+        # print(pre/ans_sum, (pre + ans[i])/ans_sum)
         pre = pre + ans[i]
 
     plt.ylim(0,1)
@@ -105,14 +105,13 @@ def critical_calculation_inner_plot(output_data, start_time_min):
 def critical_calculation_inner(output_data, start_time_min):
     tid_id = 0
     for k, v in output_data.items():
-        print("\t pid %d" % (k))
+        print("========= pid ========= %d" % (k))
         for item in v:
             start = (item.start_time - start_time_min) // (TIME // INTERVAL)
             wait = (item.wait_time - start_time_min) // (TIME // INTERVAL) + 1
             hold = (item.lock_time - start_time_min) // (TIME // INTERVAL) + 2
 
-            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus \
-            :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - start_time_min,
+            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus :::start block %d ::: wait block %d ::: hold block %d" % (item.mtx, item.start_time - start_time_min,
             item.wait_time - start_time_min, item.lock_time - start_time_min, start, wait, hold))
 
             plt.plot([tid_id, tid_id], [start, wait], color='dimgray')
