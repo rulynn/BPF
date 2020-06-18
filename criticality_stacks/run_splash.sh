@@ -14,9 +14,9 @@ mkdir out
 name="FMM"
 time=$1
 
-echo "start running program..."
-cd /root/splash2/codes/apps/fmm
-./FMM &
+#echo "start running program..."
+#cd /root/splash2/codes/apps/fmm
+#./FMM &
 
 echo "start get pid..."
 pid=$(pgrep -f "$name")
