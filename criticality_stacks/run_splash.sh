@@ -11,7 +11,7 @@ mkdir out
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
-name="FMM"
+name="CHOLESKY"
 time=$1
 
 #echo "start running program..."
@@ -30,4 +30,3 @@ chmod 777 locktime.py
 echo "start kill the program..."
 kill -9 $pid
 echo "finish"
-
