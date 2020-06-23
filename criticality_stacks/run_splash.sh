@@ -9,7 +9,6 @@
 rm -rf out
 mkdir out
 
-time=0
 echo "start running program..."
 cd /root/splash2/codes/kernels/radix
 ./RADIX -p2 -n104857600 &
@@ -21,7 +20,7 @@ echo "program pid: "  $pid
 echo "start running eBPF..."
 cd /root/bcc/learn/Master-Project/criticality_stacks
 chmod 777 locktime.py
-./locktime.py $pid $time > out.log
+./locktime.py $pid > out.log
 
 #echo "start kill the program..."
 #kill -9 $pid
