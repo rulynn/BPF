@@ -9,17 +9,14 @@
 rm -rf out
 mkdir out
 
-# Modify java program: Replace 'SingleFun' in java and java_name
-# java program shows in ../java/
-name="CHOLESKY"
-time=$1
+time=0
 
-#echo "start running program..."
-#cd /root/splash2/codes/apps/fmm
-#./FMM &
+echo "start running program..."
+cd /root/splash2/codes/kernels/radix
+./RADIX -p2 -n1048576 &
 
 echo "start get pid..."
-pid=$(pgrep -f "$name")
+pid=$(pgrep -f "RADIX")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
