@@ -10,8 +10,8 @@ rm -rf out
 mkdir out
 
 echo "start running program..."
-cd /root/splash2/codes/apps/fmm
-./FMM < inputs/input.256
+cd /root/splash2/codes/apps/radix
+./RADIX -p2 -n104857600 &
 
 echo "start get pid..."
 pid=$(pgrep -f "RADIX")
