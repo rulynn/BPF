@@ -10,7 +10,7 @@ rm -rf out
 mkdir out
 
 echo "start running program..."
-cd /root/splash2/codes/apps/radix
+cd /root/splash2/codes/kernels/radix
 ./RADIX -p2 -n104857600 &
 
 echo "start get pid..."
