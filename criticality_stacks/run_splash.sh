@@ -11,7 +11,7 @@ mkdir out
 
 echo "start running program..."
 cd /root/splash2/codes/apps/fmm
-./FMM < inputs/input.16384
+./FMM < inputs/input.256
 
 echo "start get pid..."
 pid=$(pgrep -f "RADIX")
