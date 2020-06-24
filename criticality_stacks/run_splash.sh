@@ -20,11 +20,11 @@ echo "start running program..."
 
 # 1024*1024
 cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
-./LU -p8 -n4096 &
+./LU -p8 -n2048 &
 
 
 echo "start get pid..."
-pid=$(pgrep -f "FFT")
+pid=$(pgrep -f "LU")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
