@@ -20,7 +20,7 @@ echo "start running program..."
 
 # 2 ** 22 = 4,194,304
 cd /root/splash2/codes/kernels/fft
-./FFT -p2 -m26 &
+./FFT -p8 -m26 &
 
 
 echo "start get pid..."
