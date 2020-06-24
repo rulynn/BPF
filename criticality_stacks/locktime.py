@@ -7,11 +7,11 @@ from bcc import BPF
 import dataprocess as dp
 
 
-if len(sys.argv) < 2:
-    print("USAGE: need PID")
+if len(sys.argv) < 3:
+    print("USAGE: need PID and time")
     exit()
 pid = sys.argv[1]
-# time = sys.argv[2]
+time = sys.argv[2]
 debug = 0
 
 # load BPF program
@@ -22,7 +22,7 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mut
 
 
 locks = bpf["locks"]
-#sleep(int(time))
+sleep(int(time))
 dp.default_calculation(locks)
 
 
