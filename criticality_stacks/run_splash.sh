@@ -11,8 +11,16 @@ mkdir out
 time=$1
 
 echo "start running program..."
-cd /root/splash2/codes/kernels/radix
-./RADIX -p2 -n104857600 &
+
+#cd /root/splash2/codes/kernels/radix
+#./RADIX -p2 -n104857600 &
+
+#cd /root/splash2/codes/kernels/cholesky
+#./CHOLESKY -p2 < inputs/tk29.O
+
+cd /root/splash2/codes/kernels/fft
+./FFT -p2 -m16
+
 
 echo "start get pid..."
 pid=$(pgrep -f "RADIX")
