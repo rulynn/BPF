@@ -18,8 +18,9 @@ echo "start running program..."
 #cd /root/splash2/codes/kernels/fft
 #./FFT -p8 -m26 &
 
+# 1024*1024
 cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
-./LU -p8 -n2048 &
+./LU -p8 -n4096 &
 
 
 echo "start get pid..."
