@@ -15,16 +15,18 @@ echo "start running program..."
 
 # 2 ** 22 = 4,194,304
 # 2 ** 26 = 67,108,864
-#cd /root/splash2/codes/kernels/fft
+#cd /root/splash2/c   odes/kernels/fft
 #./FFT -p8 -m26 &
 
 # 1024*1024
-cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
-./LU -p8 -n4096 &
+#cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
+#./LU -p8 -n4096 &
 
+cd /root/splash2/codes/kernels/cholesky
+./CHOLESKY -p8 < inputs/tk29.O &
 
 echo "start get pid..."
-pid=$(pgrep -f "LU")
+pid=$(pgrep -f "CHOLESKY")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
