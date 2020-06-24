@@ -24,7 +24,7 @@ cd /root/splash2/codes/kernels/fft
 
 
 echo "start get pid..."
-pid=$(pgrep -f "RADIX")
+pid=$(pgrep -f "FFT")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
