@@ -12,15 +12,14 @@ time=$1
 
 echo "start running program..."
 
-#cd /root/splash2/codes/kernels/radix
-#./RADIX -p2 -n104857600 &
-
-#cd /root/splash2/codes/kernels/cholesky
-#./CHOLESKY -p2 < inputs/tk29.O &
 
 # 2 ** 22 = 4,194,304
-cd /root/splash2/codes/kernels/fft
-./FFT -p8 -m26 &
+# 2 ** 26 = 67,108,864
+#cd /root/splash2/codes/kernels/fft
+#./FFT -p8 -m26 &
+
+cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
+./LU -p8 -n2048 &
 
 
 echo "start get pid..."
