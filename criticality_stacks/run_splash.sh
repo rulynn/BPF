@@ -22,8 +22,12 @@ echo "start running program..."
 #cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
 #./LU -p8 -n4096 &
 
-cd /root/splash2/codes/kernels/cholesky
-./CHOLESKY -p8 < inputs/tk29.O &
+# TODO: not success, too quick
+#cd /root/splash2/codes/kernels/cholesky
+#./CHOLESKY -p8 < inputs/tk29.O &
+
+cd /root/splash2/codes/apps/ocean/contiguous_partitions
+./OCEAN -p8 -n2050 &
 
 echo "start get pid..."
 pid=$(pgrep -f "CHOLESKY")
