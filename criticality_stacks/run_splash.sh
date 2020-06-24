@@ -18,8 +18,9 @@ echo "start running program..."
 #cd /root/splash2/codes/kernels/cholesky
 #./CHOLESKY -p2 < inputs/tk29.O
 
+# 2 ** 22 = 4,194,304
 cd /root/splash2/codes/kernels/fft
-./FFT -p2 -m16
+./FFT -p2 -m22
 
 
 echo "start get pid..."
