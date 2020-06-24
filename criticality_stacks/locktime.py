@@ -23,7 +23,7 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mut
 
 locks = bpf["locks"]
 #sleep(int(time))
-dp.critical_calculation(locks)
+dp.default_calculation(locks)
 
 
 # # process event

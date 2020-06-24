@@ -140,3 +140,44 @@ def critical_calculation_inner(output_data):
 #     plt.savefig(path)
 
 
+def default_calculation(locks):
+    output_data = {}
+    start_time_min = 999999999999999
+    for k, v in locks.items():
+        # TODO: How to identify the thread
+        tmp = item_mtx()
+        tmp.tid = k.tid
+        tmp.start_time_ns = v.start_time_ns/1000.0
+        tmp.wait_time_ns = v.wait_time_ns/1000.0
+        tmp.lock_time_ns = v.lock_time_ns/1000.0
+
+        if output_data.get(k.mtx) == None:
+            output_data[k.mtx] = []
+        output_data[k.mtx].append(tmp)
+
+        start_time_min = min(start_time_min, v.start_time_ns/1000.0)
+    # plot
+    default_calculation_inner(output_data, start_time_min)
+
+def default_calculation_inner(output_data, start_time_min):
+    tid_dict = {}
+    tid_id = 0
+    for k, v in output_data.items():
+        print("\t mtx %d" % (k))
+        for item in v:
+            if tid_dict.get(item.tid) == None:
+                tid_dict[item.tid] = tid_id
+                tid_id = tid_id + 1
+
+            x = [tid_dict[item.tid],tid_dict[item.tid]]
+            start_time = item.start_time_ns - start_time_min
+            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" %
+                                    (item.tid, start_time, item.wait_time_ns, item.lock_time_ns))
+
+            plt.plot(x, [start_time, start_time + item.wait_time_ns], color='dimgray', label='wait')
+            plt.plot(x, [start_time + item.wait_time_ns, start_time + item.wait_time_ns + item.lock_time_ns] ,
+                        color='firebrick', label='hold')
+
+        # output
+        path = "out/" + str(k) + ".png"
+        plt.savefig(path)
