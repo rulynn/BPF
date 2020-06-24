@@ -16,11 +16,11 @@ echo "start running program..."
 #./RADIX -p2 -n104857600 &
 
 #cd /root/splash2/codes/kernels/cholesky
-#./CHOLESKY -p2 < inputs/tk29.O
+#./CHOLESKY -p2 < inputs/tk29.O &
 
 # 2 ** 22 = 4,194,304
-cd /root/splash2/codes/kernels/fft &
-./FFT -p2 -m22
+cd /root/splash2/codes/kernels/fft
+./FFT -p2 -m22 &
 
 
 echo "start get pid..."
