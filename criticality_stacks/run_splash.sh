@@ -30,7 +30,7 @@ cd /root/splash2/codes/apps/ocean/contiguous_partitions
 ./OCEAN -p8 -n2050 &
 
 echo "start get pid..."
-pid=$(pgrep -f "CHOLESKY")
+pid=$(pgrep -f "OCEAN")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
