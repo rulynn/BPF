@@ -128,9 +128,7 @@ def critical_calculation_inner_plot(output_data):
 
         pre[0] = now[0]
 
-        print(pre)
-        print(now)
-
+    plt.grid()
     plt.ylim(0,1)
     plt.legend()
     path = "out/critical.png"
