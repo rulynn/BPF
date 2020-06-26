@@ -117,9 +117,11 @@ def critical_calculation_inner_plot(output_data):
         now = []
         now.append((pre[0] + ans[i])/ans_sum)
         now.append(0)
-        plt.bar(0, now, width, bottom=pre, label=label)
+        plt.bar((1,2), now, width, bottom=pre, label=label)
 
         pre = now
+
+        print(pre)
 
     plt.ylim(0,1)
     plt.legend()
