@@ -19,6 +19,7 @@ echo "start running program..."
 # ./FFT -p8 -m26 &
 
 # 1024*1024
+starttime = date +%s%N
 cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
 ./LU -p8 -n4096 &
 
@@ -36,8 +37,7 @@ echo "program pid: "  $pid
 echo "start running eBPF..."
 cd /root/bcc/learn/Master-Project/criticality_stacks
 chmod 777 locktime.py
+
+echo $[date +%s%N - $starttime]
 ./locktime.py $pid $time > out.log
 
-#echo "start kill the program..."
-#kill -9 $pid
-#echo "finish"
