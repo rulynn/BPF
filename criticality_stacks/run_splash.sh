@@ -19,7 +19,7 @@ echo "start running program..."
 # ./FFT -p8 -m26 &
 
 # 1024*1024
-begin_time=`date +%s.%N`
+begin_time=`date +%s%N`
 cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
 ./LU -p8 -n4096 &
 
@@ -38,7 +38,8 @@ echo "start running eBPF..."
 cd /root/bcc/learn/Master-Project/criticality_stacks
 chmod 777 locktime.py
 
-end_time=`date +%s.%N`
-echo $end_time -$begin_time
+end_time=`date +%s%N`
+time = $end_time - $begin_time
+echo $time
 ./locktime.py $pid $time > out.log
 
