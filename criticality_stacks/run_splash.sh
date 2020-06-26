@@ -30,13 +30,13 @@ cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
 #cd /root/splash2/codes/apps/ocean/contiguous_partitions
 #./OCEAN -p8 -n2050 &
 
-echo "start get pid..."
+#echo "start get pid..."
 pid=$(pgrep -f "LU")
-echo "program pid: "  $pid
+#echo "program pid: "  $pid
 
-echo "start running eBPF..."
+#echo "start running eBPF..."
 cd /root/bcc/learn/Master-Project/criticality_stacks
-chmod 777 locktime.py
+#chmod 777 locktime.py
 
 end_time=`date +%s%N`
 subtime=`expr $end_time - $begin_time`
