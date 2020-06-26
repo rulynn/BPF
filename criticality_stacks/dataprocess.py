@@ -102,6 +102,7 @@ def critical_calculation_inner_plot(output_data):
     pre.append(0)
     pre.append(0)
     pre.append(0)
+    print(ans)
     for i in range(0, tid_id):
         label = "thread " + str(i)
         width = 1
