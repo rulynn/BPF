@@ -39,7 +39,7 @@ cd /root/bcc/learn/Master-Project/criticality_stacks
 chmod 777 locktime.py
 
 end_time=`date +%s%N`
-subtime = $end_time - $begin_time
+subtime=$end_time - $begin_time
 echo $subtime
 ./locktime.py $pid $time > out.log
 
