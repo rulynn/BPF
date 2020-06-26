@@ -15,7 +15,7 @@ echo "start running program..."
 
 # 2 ** 22 = 4,194,304
 # 2 ** 26 = 67,108,864
-cd /root/splash2/c   odes/kernels/fft
+cd /root/splash2/codes/kernels/fft
 ./FFT -p8 -m26 &
 
 # 1024*1024
