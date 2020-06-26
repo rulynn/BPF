@@ -124,7 +124,7 @@ def critical_calculation_inner_plot(output_data):
         now.append(0)
         now.append(0)
         now.append(0)
-        plt.bar((1,2,3), now, width, bottom=pre, label=label)
+        plt.bar((1,2,3,4,5), now, width, bottom=pre, label=label)
 
         pre[0] = now[0]
 
