@@ -103,6 +103,7 @@ def critical_calculation_inner_plot(output_data):
     pre.append(0)
     for i in range(0, tid_id):
         label = "thread " + str(i)
+        width = 1
 
         #plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
 
@@ -111,6 +112,7 @@ def critical_calculation_inner_plot(output_data):
 
         #print(pre/ans_sum, (pre + ans[i])/ans_sum)
         #pre = pre + ans[i]
+
 
         now = []
         now.append((pre[0] + ans[i])/ans_sum)
