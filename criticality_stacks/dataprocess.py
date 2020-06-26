@@ -104,7 +104,7 @@ def critical_calculation_inner_plot(output_data):
 
         #plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
 
-        width = 0.35  # 设置条形图一个长条的宽度
+        width = 0.35
         p2 = plt.bar(0, (pre + ans[i])/ans_sum, width, bottom=pre/ans_sum)
 
         # print(pre/ans_sum, (pre + ans[i])/ans_sum)
