@@ -30,7 +30,7 @@ cd /root/splash2/codes/kernels/fft
 #./OCEAN -p8 -n2050 &
 
 echo "start get pid..."
-pid=$(pgrep -f "OCEAN")
+pid=$(pgrep -f "FFT")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
