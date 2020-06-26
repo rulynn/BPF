@@ -104,8 +104,8 @@ def critical_calculation_inner_plot(output_data):
 
         #plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
 
-        width = 0.1
-        p2 = plt.bar(0, (pre + ans[i])/ans_sum, width, bottom=pre/ans_sum)
+        width = 1
+        p2 = plt.bar((0,1), (pre + ans[i])/ans_sum, width, bottom=pre/ans_sum, label=label)
 
         print(pre/ans_sum, (pre + ans[i])/ans_sum)
         pre = pre + ans[i]
