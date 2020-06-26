@@ -30,7 +30,7 @@ cd /root/splash2/codes/kernels/cholesky
 #./OCEAN -p8 -n2050 &
 
 echo "start get pid..."
-pid=$(pgrep -f "FFT")
+pid=$(pgrep -f "CHOLESKY")
 echo "program pid: "  $pid
 
 echo "start running eBPF..."
