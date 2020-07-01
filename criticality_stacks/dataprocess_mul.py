@@ -130,15 +130,14 @@ def critical_calculation_inner_plot(mtx, single_data):
         for j in range(0, tid_id):
             if count_wait[j][i] == 1:
                 count = count + 1
-        # ZeroDivisionError
-#         print("count")
-#         print(count)
-        if count == 0:
-            continue
         for j in range(0, tid_id):
             if count_hold[j][i] == 1:
-                ans[j] = ans[j] + 1.0 / count
-                ans_sum = ans_sum + 1.0 / count
+                if count == 0:
+                    ans[j] = ans[j] + 1.0
+                    ans_sum = ans_sum + 1.0
+                else:
+                    ans[j] = ans[j] + 1.0 / count
+                    ans_sum = ans_sum + 1.0 / count
     print(mtx)
     print(ans)
 
