@@ -106,7 +106,7 @@ def critical_calculation_inner_plot(mtx, single_data):
         for item in v:
             # time: Time occupied by each time interval
             time = (TIME_MAX[mtx] - TIME_MIN[mtx]) // INTERVAL + 1
-            print("time %d", % (time))
+            print("time %d" % (time))
             # Calculate start time block and wait time block
             start = (item.start_time - TIME_MIN[mtx]) // time
             wait = (item.wait_time - TIME_MIN[mtx]) // time
