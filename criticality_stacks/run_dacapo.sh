@@ -9,14 +9,10 @@ mkdir out
 time=$1
 
 cd /root
-java -jar dacapo.jar avrora &
+java -jar dacapo.jar -n 5 avrora &
 
 pid=$(pgrep -f "avrora")
-kill -STOP $pid
-
 cd /root/bcc/learn/Master-Project/criticality_stacks
 chmod 777 locktime.py
 
-./locktime.py $pid $time > out.log &
-kill -CONT $pid
-
+./locktime.py $pid $time > out.log
