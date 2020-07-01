@@ -4,7 +4,7 @@ import sys
 import itertools
 from time import sleep
 from bcc import BPF
-import dataprocess_mul as dp
+import dataprocess as dp
 
 
 if len(sys.argv) < 3:
