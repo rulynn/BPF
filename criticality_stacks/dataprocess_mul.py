@@ -121,6 +121,7 @@ def critical_calculation_inner_plot(mtx, single_data):
 #             print(count_hold)
         tid_id = tid_id + 1
 
+    print(count_hold)
     # Calculate criticality: 1.0 / Number of threads waiting in the current interval....
     ans = [0 for i in range(tid_id)]
     ans_sum = 0
@@ -136,8 +137,7 @@ def critical_calculation_inner_plot(mtx, single_data):
             continue
         for j in range(0, tid_id):
             if count_hold[j][i] == 1:
-                ans[j] = ans[j] + 1
-                #ans[j] = ans[j] + 1.0 / count
+                ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
     print(mtx)
     print(ans)
