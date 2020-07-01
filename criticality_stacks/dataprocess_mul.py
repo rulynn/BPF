@@ -126,18 +126,14 @@ def critical_calculation_inner_plot(mtx, single_data):
     ans = [0 for i in range(tid_id)]
     ans_sum = 0
     for i in range(0, INTERVAL):
-        count = 0
+        count = 1
         for j in range(0, tid_id):
             if count_wait[j][i] == 1:
                 count = count + 1
         for j in range(0, tid_id):
             if count_hold[j][i] == 1:
-                if count == 0:
-                    ans[j] = ans[j] + 1.0
-                    ans_sum = ans_sum + 1.0
-                else:
-                    ans[j] = ans[j] + 1.0 / count
-                    ans_sum = ans_sum + 1.0 / count
+                ans[j] = ans[j] + 1.0 / count
+                ans_sum = ans_sum + 1.0 / count
     print(mtx)
     print(ans)
 
