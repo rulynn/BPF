@@ -15,13 +15,13 @@ echo "start running program..."
 
 # 2 ** 22 = 4,194,304
 # 2 ** 26 = 67,108,864
-# cd /root/splash2/codes/kernels/fft
-# ./FFT -p8 -m26 &
+ cd /root/splash2/codes/kernels/fft
+ ./FFT -p8 -m26 &
 
 # 1024*1024
 #begin_time=`date +%s%N`
-cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
-./LU -p8 -n4096 &
+#cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
+#./LU -p8 -n4096 &
 
 # TODO: not success, too quick
 #cd /root/splash2/codes/kernels/cholesky
@@ -31,7 +31,7 @@ cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
 #./OCEAN -p8 -n2050 &
 
 #echo "start get pid..."
-pid=$(pgrep -f "LU")
+pid=$(pgrep -f "FFT")
 #echo "program pid: "  $pid
 
 #echo "start running eBPF..."
