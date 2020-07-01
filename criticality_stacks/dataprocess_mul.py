@@ -6,7 +6,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
-#INTERVAL = 1000
+INTERVAL = 300
 
 TIME_MAX = {}
 TIME_MIN = {}
@@ -54,6 +54,7 @@ def critical_calculation(locks):
                     TIME_MAX[k.mtx] = 0
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
         TIME_MAX[k.mtx] = max(TIME_MAX[k.mtx], tmp.lock_time)
+    print(TIME_MAX)
 
     # plot critical stack
     critical_calculation_inner_plot_mul(output_data)
@@ -84,38 +85,45 @@ def critical_calculation_inner_plot_mul(output_data):
         critical_calculation_inner_plot(k, single_data)
 
 def critical_calculation_inner_plot(mtx, single_data):
-    #print("input: single_data")
-    #print(single_data)
+    print("input: single_data")
+    print(single_data)
     count_wait = []
     count_hold = []
     tid_id = 0
     global TIME_MIN
     global TIME_MAX
 
+    # init
+    count_wait.append([0 for i in range(INTERVAL)])
+    count_hold.append([0 for i in range(INTERVAL)])
+
+
     # Divide hold time into $INTERVAL time intervals
     for k, v in single_data.items():
         # init
-        count_wait.append([0 for i in range(int(TIME_MAX[mtx]))])
-        count_hold.append([0 for i in range(int(TIME_MAX[mtx]))])
+        count_wait.append([0 for i in range(INTERVAL)])
+        count_hold.append([0 for i in range(INTERVAL)])
         print("--- tid %d ---" % (k))
         for item in v:
             # time: Time occupied by each time interval
-            #time = (TIME_MAX[mtx] - TIME_MIN[mtx]) // INTERVAL + 1
+            time = (TIME_MAX[mtx] - TIME_MIN[mtx]) // INTERVAL + 1
             print("time %d" % (time))
             # Calculate start time block and wait time block
-            start = (item.start_time - TIME_MIN[mtx])
-            wait = (item.wait_time - TIME_MIN[mtx])
+            start = (item.start_time - TIME_MIN[mtx]) // time
+            wait = (item.wait_time - TIME_MIN[mtx]) // time
             for i in range(int(start), int(wait)+1):
                 count_wait[tid_id][i] = 1
-            hold = (item.lock_time - TIME_MIN[mtx])
+            hold = (item.lock_time - TIME_MIN[mtx]) // time
             for i in range(int(wait), int(hold)+1):
                 count_hold[tid_id][i] = 1
+            print(count_wait)
+            print(count_hold)
         tid_id = tid_id + 1
 
     # Calculate criticality: 1.0 / Number of threads waiting in the current interval....
     ans = [0 for i in range(tid_id)]
     ans_sum = 0
-    for i in range(0, int(TIME_MAX[mtx])):
+    for i in range(0, INTERVAL):
         count = 0
         for j in range(0, tid_id):
             if count_wait[j][i] == 1:
