@@ -8,7 +8,7 @@ rm -rf out
 mkdir out
 time=$1
 
-cd /root/splash2/codes/kernels/fft
+cd /root
 java -jar dacapo.jar avrora &
 
 pid=$(pgrep -f "avrora")
