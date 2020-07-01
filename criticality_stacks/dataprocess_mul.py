@@ -95,8 +95,8 @@ def critical_calculation_inner_plot(mtx, single_data):
     # Divide hold time into $INTERVAL time intervals
     for k, v in single_data.items():
         # init
-        count_wait.append([0 for i in range(int(TIME_MAX[mtx])])
-        count_hold.append([0 for i in range(int(TIME_MAX[mtx])])
+        count_wait.append([0 for i in range(int(TIME_MAX[mtx]))])
+        count_hold.append([0 for i in range(int(TIME_MAX[mtx]))])
         print("--- tid %d ---" % (k))
         for item in v:
             # time: Time occupied by each time interval
