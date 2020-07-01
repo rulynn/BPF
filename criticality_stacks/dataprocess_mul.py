@@ -173,8 +173,10 @@ def critical_calculation_inner(output_data):
     tid_id = 0
     global TIME_MIN
     global TIME_MAX
+
     for k, v in output_data.items():
         print("--- tid %d ---" % (k))
+        time = (TIME_MAX[k] - TIME_MIN[k]) // INTERVAL + 1
         for item in v:
 
             start = (item.start_time - TIME_MIN[k]) // time
