@@ -85,8 +85,8 @@ def critical_calculation_inner_plot_mul(output_data):
         critical_calculation_inner_plot(k, single_data)
 
 def critical_calculation_inner_plot(mtx, single_data):
-    print("input: single_data")
-    print(single_data)
+#     print("input: single_data")
+#     print(single_data)
     count_wait = []
     count_hold = []
     tid_id = 0
