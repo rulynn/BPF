@@ -175,7 +175,7 @@ def critical_calculation_inner(output_data):
     global TIME_MAX
 
     for k, v in output_data.items():
-        print("--- tid %d ---" % (k))
+        print("--- mtx %d ---" % (k))
         time = (TIME_MAX[k] - TIME_MIN[k]) // INTERVAL + 1
         for item in v:
 
@@ -183,7 +183,7 @@ def critical_calculation_inner(output_data):
             wait = (item.wait_time - TIME_MIN[k]) // time
             hold = (item.lock_time - TIME_MIN[k]) // time
 
-            print("\t mtx %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" % (item.mtx, item.start_time - TIME_MIN[k],
+            print("\t tid %d ::: start time %.2fus ::: wait time %.2fus ::: hold time %.2fus" % (item.tid, item.start_time - TIME_MIN[k],
             item.wait_time - item.start_time, item.lock_time - item.wait_time))
 
         tid_id = tid_id + 1
