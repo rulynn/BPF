@@ -78,9 +78,9 @@ def critical_calculation_inner_plot_mul(output_data):
             # end time: release the lock
             tmp.lock_time = item.lock_time
 
-            if output_data.get(item.pid) == None:
-                single_data[item.pid] = []
-            single_data[item.pid].append(tmp)
+            if output_data.get(item.tid) == None:
+                single_data[item.tid] = []
+            single_data[item.tid].append(tmp)
         critical_calculation_inner_plot(k, single_data)
 
 def critical_calculation_inner_plot(mtx, single_data):
@@ -176,7 +176,7 @@ def critical_calculation_inner(output_data):
     time = (TIME_MAX - TIME_MIN) // INTERVAL + 1
     print("max time %d ::: min time %d ::: time %d" % (TIME_MAX, TIME_MIN, time))
     for k, v in output_data.items():
-        print("--- pid %d ---" % (k))
+        print("--- tid %d ---" % (k))
         for item in v:
 
             start = (item.start_time - TIME_MIN) // time
