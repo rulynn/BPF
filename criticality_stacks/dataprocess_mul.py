@@ -129,6 +129,8 @@ def critical_calculation_inner_plot(mtx, single_data):
             if count_wait[j][i] == 1:
                 count = count + 1
         # ZeroDivisionError
+        print("count")
+        print(count)
         if count == 0:
             continue
         for j in range(0, tid_id):
