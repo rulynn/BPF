@@ -18,5 +18,5 @@ chmod 777 locktime.py
 ./locktime.py $pid $time > out.log &
 
 chmod 777 lockstat.py
-./locktime.py $pid > out_stack.log &
+./lockstat.py $pid > out_stack.log &
 
