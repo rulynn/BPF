@@ -100,9 +100,11 @@ def critical_calculation_inner_plot(mtx, single_data):
         # init
         count_wait.append([0 for i in range(INTERVAL)])
         count_hold.append([0 for i in range(INTERVAL)])
+        print("--- tid %d ---" % (k))
         for item in v:
             # time: Time occupied by each time interval
             time = (TIME_MAX[mtx] - TIME_MIN[mtx]) // INTERVAL + 1
+            print("time %d", % (time))
             # Calculate start time block and wait time block
             start = (item.start_time - TIME_MIN[mtx]) // time
             wait = (item.wait_time - TIME_MIN[mtx]) // time
@@ -111,6 +113,8 @@ def critical_calculation_inner_plot(mtx, single_data):
             hold = (item.lock_time - TIME_MIN[mtx]) // time
             for i in range(int(wait), int(hold)+1):
                 count_hold[tid_id][i] = 1
+            print(count_wait)
+            print(count_hold)
         tid_id = tid_id + 1
 
     # Calculate criticality: 1.0 / Number of threads waiting in the current interval....
