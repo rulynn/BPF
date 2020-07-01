@@ -111,6 +111,7 @@ def critical_calculation_inner_plot(mtx, single_data):
             # Calculate start time block and wait time block
             start = (item.start_time - TIME_MIN[mtx]) // time
             wait = (item.wait_time - TIME_MIN[mtx]) // time
+            print("start %d ::: wait %d" % (start, wait)
             for i in range(int(start), int(wait)+1):
                 count_wait[tid_id][i] = 1
             hold = (item.lock_time - TIME_MIN[mtx]) // time
@@ -129,8 +130,8 @@ def critical_calculation_inner_plot(mtx, single_data):
             if count_wait[j][i] == 1:
                 count = count + 1
         # ZeroDivisionError
-        print("count")
-        print(count)
+#         print("count")
+#         print(count)
         if count == 0:
             continue
         for j in range(0, tid_id):
