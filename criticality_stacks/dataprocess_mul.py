@@ -48,8 +48,10 @@ def critical_calculation(locks):
         output_data[k.mtx].append(tmp)
 
         # Used to calculate relative time: time - TIME_MIN
-        if TIME_MIN[k.mtx] == None:
+        if TIME_MIN.get(k.mtx) == None:
             TIME_MIN[k.mtx] = 999999999999999
+        if TIME_MAX.get(k.mtx) == None:
+                    TIME_MAX[k.mtx] = 0
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
         TIME_MAX[k.mtx] = max(TIME_MAX[k.mtx], tmp.lock_time)
 
