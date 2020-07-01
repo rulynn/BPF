@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# java -jar dacapo.jar avrora
-# java Single
-# sh run_dacapo.sh 5
+# sh run_splash.sh 5
 
 
 # dir
