@@ -78,7 +78,7 @@ def critical_calculation_inner_plot_mul(output_data):
 
             if output_data.get(item.pid) == None:
                 single_data[item.pid] = []
-             single_data[item.pid].append(tmp)
+            single_data[item.pid].append(tmp)
         critical_calculation_inner_plot(k, single_data)
 
 def critical_calculation_inner_plot(mtx, single_data):
