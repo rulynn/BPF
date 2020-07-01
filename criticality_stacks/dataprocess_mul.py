@@ -84,7 +84,8 @@ def critical_calculation_inner_plot_mul(output_data):
         critical_calculation_inner_plot(k, single_data)
 
 def critical_calculation_inner_plot(mtx, single_data):
-
+    print("input: single_data")
+    print(single_data)
     count_wait = []
     count_hold = []
     tid_id = 0
@@ -94,6 +95,7 @@ def critical_calculation_inner_plot(mtx, single_data):
     # init
     count_wait.append([0 for i in range(INTERVAL)])
     count_hold.append([0 for i in range(INTERVAL)])
+
 
     # Divide hold time into $INTERVAL time intervals
     for k, v in single_data.items():
