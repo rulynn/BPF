@@ -22,8 +22,9 @@ def addtodict(thedict, key_a, key_b, val):
 
 def critical_calculation(locks):
     output_data = preprocessed(locks)
-    print(output_data)
+    #print(output_data)
     for k, v in output_data:
+        print(k, v)
         ans = calculation_single(k, v)
         plot(k, ans)
 
