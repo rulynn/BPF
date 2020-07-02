@@ -14,7 +14,7 @@ pid=$(pgrep -f "avrora")
 cd /root/bcc/learn/Master-Project/criticality_stacks
 
 chmod 777 locktime.py
-./locktime.py $pid $time > out.log &
+./locktime.py $pid $time > out.log
 
 #chmod 777 lockstat.py
 #output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
