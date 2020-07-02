@@ -7,7 +7,7 @@ rm -rf out
 mkdir out
 time=$1
 
-echo "start running program..."
+echo "start running program"
 
  cd ~/splash2/codes/kernels/fft
  ./FFT -p8 -m26 &
@@ -22,6 +22,7 @@ echo "start running program..."
 #./OCEAN -p8 -n2050 &
 
 pid=$(pgrep -f "FFT")
+echo "program pid: "  $pid
 
 cd ~/bcc/learn/Master-Project/criticality_stacks
 chmod 777 locktime.py

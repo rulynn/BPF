@@ -3,7 +3,7 @@
 struct thread_mutex_key_t {
     u32 tid;
     u64 mtx;
-    int lock_stack_id;
+    //int lock_stack_id;
 };
 struct thread_mutex_val_t {
     u64 start_time_ns;
@@ -21,11 +21,11 @@ struct mutex_lock_time_key_t {
 };
 struct mutex_lock_time_val_t {
     u64 timestamp;
-    int stack_id;
+    //int stack_id;
 };
 
 // Mutex to the stack id which initialized that mutex
-BPF_HASH(init_stacks, u64, int);
+//BPF_HASH(init_stacks, u64, int);
 // Main info database about mutex and thread pairs
 BPF_HASH(locks, struct thread_mutex_key_t, struct thread_mutex_val_t);
 // Pid to the mutex address and timestamp of when the wait started
@@ -55,7 +55,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
         return 0;   // Missed the entry
 
     u64 wait_time = now - entry->timestamp;
-    int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
+    //int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
 
     // If pthread_mutex_lock() returned 0, we have the lock
     if (PT_REGS_RC(ctx) == 0) {
@@ -65,7 +65,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
         key.tid = pid;
         struct mutex_lock_time_val_t val = {};
         val.timestamp = now;
-        val.stack_id = stack_id;
+        //val.stack_id = stack_id;
         lock_end.update(&key, &val);
     }
 
@@ -73,7 +73,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     // TODO Update tm_key fields with the mutex, tid, and stack id
     tm_key.mtx = entry->mtx;
     tm_key.tid = pid;
-    tm_key.lock_stack_id = stack_id;
+    //tm_key.lock_stack_id = stack_id;
     // TODO Call locks.lookup_or_init(...) and update the wait time and the enter count
     //      of the entry in the locks data structure
     struct thread_mutex_val_t *existing_tm_val, new_tm_val;
@@ -108,7 +108,7 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     struct thread_mutex_key_t tm_key = {};
     tm_key.mtx = mtx;
     tm_key.tid = pid;
-    tm_key.lock_stack_id = lock_val->stack_id;
+    // tm_key.lock_stack_id = lock_val->stack_id;
 
     struct thread_mutex_val_t *existing_tm_val = locks.lookup(&tm_key);
     if (existing_tm_val == 0)
@@ -118,10 +118,10 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     lock_end.delete(&lock_key);
     return 0;
 }
-int probe_mutex_init(struct pt_regs *ctx)
-{
-    int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
-    u64 mutex_addr = PT_REGS_PARM1(ctx);
-    init_stacks.update(&mutex_addr, &stack_id);
-    return 0;
-}
+//int probe_mutex_init(struct pt_regs *ctx)
+//{
+//    int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
+//    u64 mutex_addr = PT_REGS_PARM1(ctx);
+//    init_stacks.update(&mutex_addr, &stack_id);
+//    return 0;
+//}
