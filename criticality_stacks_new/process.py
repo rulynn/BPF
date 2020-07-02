@@ -14,6 +14,12 @@ class unit:
         self.wait_time = 0
         self.hold_time = 0
 
+def addtodict(thedict, key_a, key_b, val):
+    if key_a in adic:
+        thedict[key_a].update({key_b: val})
+    else:
+        thedict.update({key_a:{key_b: val}})
+
 def critical_calculation(locks):
     output_data = preprocessed(locks)
     print(output_data)
@@ -36,12 +42,13 @@ def preprocessed(locks):
         # end time: release the lock
         tmp.hold_time = tmp.wait_time + v.lock_time_ns/1000.0
 
-        # save data
-        if output_data.get(k.mtx) == None:
-            output_data[k.mtx] = {}
-        if output_data[k.mtx].get(k.tid) == None:
-            output_data[k.mtx][k.tid] = []
-        output_data[k.mtx][k.tid].append(tmp)
+        addtodict(output_data, k.mtx, k.tid, tmp)
+#         # save data
+#         if output_data.get(k.mtx) == None:
+#             output_data[k.mtx] = {}
+#         if output_data[k.mtx].get(k.tid) == None:
+#             output_data[k.mtx][k.tid] = []
+#         output_data[k.mtx][k.tid].append(tmp)
 
         # Used to calculate relative time: time - TIME_MIN
         if TIME_MIN.get(k.mtx) == None:
