@@ -79,6 +79,8 @@ def calculation_single(mtx, single_data):
                 continue
              print("start %d ::: wait %d ::: hold %d" % (start, wait, hold))
              for i in range(int(start), int(wait)+1):
+                print(tid_list.index(k))
+                print(i)
                 count_wait[tid_list.index(k)][i] = 1
              for i in range(int(wait), int(hold)+1):
                 count_hold[tid_list.index(k)][i] = 1
