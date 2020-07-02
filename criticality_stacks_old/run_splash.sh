@@ -33,7 +33,7 @@ pid=$(pgrep -f "FFT")
 #echo "program pid: "  $pid
 
 #echo "start running eBPF..."
-cd /root/bcc/learn/Master-Project/criticality_stacks
+cd /root/bcc/learn/Master-Project/criticality_stacks_old
 #chmod 777 locktime.py
 
 #end_time=`date +%s%N`
