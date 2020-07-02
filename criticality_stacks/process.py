@@ -38,7 +38,7 @@ def preprocessed(locks):
         # save data
         if output_data.get(k.mtx) == None:
             output_data[k.mtx] = {}
-        if output_data[k.mtx].get(k.tid) == None
+        if output_data[k.mtx].get(k.tid) == None:
             output_data[k.mtx][k.tid] = []
         output_data[k.mtx][k.tid].append(tmp)
 
