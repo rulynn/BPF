@@ -74,7 +74,7 @@ def calculation_single(mtx, single_data):
              hold = item.lock_time - TIME_MIN[mtx]
 
              # TODO: deal with this error msg
-             if start > MAX_TIME or wait > MAX_TIME ot hold > MAX_TIME:
+             if start > MAX_TIME or wait > MAX_TIME or hold > MAX_TIME:
                 print("WARNING: LARGER THAN MAX_TIME!!! start %d ::: wait %d ::: hold %d" % (start, wait, hold))
                 continue
              print("start %d ::: wait %d ::: hold %d" % (start, wait, hold))
