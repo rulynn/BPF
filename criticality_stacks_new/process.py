@@ -19,8 +19,8 @@ def critical_calculation(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
-        ans = calculation_single(k, v)
-        plot(k, ans)
+        ans, ans_sum = calculation_single(k, v)
+        plot(k, ans, ans_sum)
 
 def preprocessed(locks):
 
@@ -97,9 +97,12 @@ def calculation_single(mtx, single_data):
             if count_hold[j][i] == 1:
                 ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
-    return ans
+    return ans, ans_sum
 
-def plot(mtx, ans):
+def plot(mtx, ans, ans_sum):
+
+    global tid_list
+
     # plot
     pre = []
     pre.append(0)
