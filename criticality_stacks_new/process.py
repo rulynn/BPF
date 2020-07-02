@@ -16,6 +16,7 @@ class unit:
 
 def critical_calculation(locks):
     output_data = preprocessed(locks)
+    print(type(output_data))
     for k, v in output_data:
         ans = calculation_single(k, v)
         plot(k, ans)
