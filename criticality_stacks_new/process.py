@@ -97,7 +97,6 @@ def calculation_single(mtx, single_data):
             if count_hold[j][i] == 1:
                 ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
-    print(ans)
     return ans
 
 def plot(mtx, ans):
