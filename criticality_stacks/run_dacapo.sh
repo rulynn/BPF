@@ -9,7 +9,7 @@ mkdir out
 time=$1
 
 cd /root
-java -jar dacapo.jar -n 5 avrora &
+java -jar dacapo.jar -n 2 avrora &
 
 pid=$(pgrep -f "avrora")
 cd /root/bcc/learn/Master-Project/criticality_stacks
