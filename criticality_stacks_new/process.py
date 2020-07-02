@@ -54,6 +54,8 @@ def calculation_single(mtx, single_data):
 
     global TIME_MIN
     tid_list = []
+    count_wait = []
+    count_hold = []
 
     # k: tid; v: unit
     for k, v in single_data.items():
@@ -63,8 +65,6 @@ def calculation_single(mtx, single_data):
             tid_list.append(k)
 
         # init
-        count_wait = []
-        count_hold = []
         count_wait.append([0 for i in range(MAX_TIME)])
         count_hold.append([0 for i in range(MAX_TIME)])
 
