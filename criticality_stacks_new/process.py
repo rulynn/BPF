@@ -79,19 +79,19 @@ def calculation_single(mtx, single_data):
                 continue
              print("start %d ::: wait %d ::: hold %d" % (start, wait, hold))
              for i in range(int(start), int(wait)+1):
-                count_wait[k][i] = 1
+                count_wait[tid_list.index(k)][i] = 1
              for i in range(int(wait), int(hold)+1):
-                count_hold[k][i] = 1
+                count_hold[tid_list.index(k)][i] = 1
 
     # calculate
     ans = {}
     ans_sum = 0
     for i in range(0, MAX_TIME):
         count = 1
-        for j in tid_list:
+        for j in range(len(tid_list)):
             if count_wait[j][i] == 1:
                 count = count + 1
-        for j in tid_list:
+        for j in range(len(tid_list)):
             if count_hold[j][i] == 1:
                 ans[j] = ans[j] + 1.0 / count
                 ans_sum = ans_sum + 1.0 / count
