@@ -27,27 +27,28 @@ def preprocessed(locks):
     global TIME_MIN
     output_data = {}
 
-    for k, v in locks.items():
+    for k in locks.items():
+        print(k)
 
-        tmp = unit()
-        # start time: get the lock
-        tmp.start_time = v.start_time_ns/1000.0
-        # wait time
-        tmp.wait_time = tmp.start_time + v.wait_time_ns/1000.0
-        # end time: release the lock
-        tmp.hold_time = tmp.wait_time + v.lock_time_ns/1000.0
-
-#         # save data
-        if output_data.get(k.mtx) == None:
-            output_data[k.mtx] = {}
-        if output_data[k.mtx].get(k.tid) == None:
-            output_data[k.mtx][k.tid] = []
-        output_data[k.mtx][k.tid].append(tmp)
-
-        # Used to calculate relative time: time - TIME_MIN
-        if TIME_MIN.get(k.mtx) == None:
-            TIME_MIN[k.mtx] = 999999999999999
-        TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
+#         tmp = unit()
+#         # start time: get the lock
+#         tmp.start_time = v.start_time_ns/1000.0
+#         # wait time
+#         tmp.wait_time = tmp.start_time + v.wait_time_ns/1000.0
+#         # end time: release the lock
+#         tmp.hold_time = tmp.wait_time + v.lock_time_ns/1000.0
+#
+# #         # save data
+#         if output_data.get(k.mtx) == None:
+#             output_data[k.mtx] = {}
+#         if output_data[k.mtx].get(k.tid) == None:
+#             output_data[k.mtx][k.tid] = []
+#         output_data[k.mtx][k.tid].append(tmp)
+#
+#         # Used to calculate relative time: time - TIME_MIN
+#         if TIME_MIN.get(k.mtx) == None:
+#             TIME_MIN[k.mtx] = 999999999999999
+#         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
     return output_data
 
