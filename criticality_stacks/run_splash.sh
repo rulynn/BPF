@@ -30,7 +30,7 @@ cd /root/splash2/codes/kernels/lu/non_contiguous_blocks
 
 #echo "start get pid..."
 pid=$(pgrep -f "LU")
-#echo "program pid: "  $pid
+echo "program pid: "  $pid
 
 #echo "start running eBPF..."
 cd /root/bcc/learn/Master-Project/criticality_stacks
