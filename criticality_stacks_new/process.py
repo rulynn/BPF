@@ -84,7 +84,7 @@ def calculation_single(mtx, single_data):
                 count_hold[tid_list.index(k)][i] = 1
 
     # calculate
-    ans = []
+    ans = [0 for i in range(len(tid_list))]
     ans_sum = 0
     for i in range(0, MAX_TIME):
         count = 1
