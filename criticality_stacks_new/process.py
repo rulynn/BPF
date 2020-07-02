@@ -58,7 +58,7 @@ def calculation_single(mtx, single_data):
     tid_list = []
 
     # k: tid; v: unit
-    for k, v in single_data:
+    for k, v in single_data.items():
 
         # tid list
         if k not in tid_list:
