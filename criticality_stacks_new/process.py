@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 
 MAX_TIME = 50000
 TIME_MIN = {}
+tid_list = []
 
 class unit:
     def __init__(self):
@@ -27,6 +28,11 @@ def preprocessed(locks):
     output_data = {}
 
     for k, v in locks.items():
+
+        # tid list
+        if k not in tid_list:
+            tid_list.append(k.tid)
+
         tmp = unit()
         # start time: get the lock
         tmp.start_time = v.start_time_ns/1000.0
@@ -53,16 +59,12 @@ def preprocessed(locks):
 def calculation_single(mtx, single_data):
 
     global TIME_MIN
-    tid_list = []
+    global tid_list
     count_wait = []
     count_hold = []
 
     # k: tid; v: unit
     for k, v in single_data.items():
-
-        # tid list
-        if k not in tid_list:
-            tid_list.append(k)
 
         # init
         count_wait.append([0 for i in range(MAX_TIME)])
@@ -107,18 +109,9 @@ def plot(mtx, ans):
     pre.append(0)
     pre.append(0)
     print(ans)
-    for i in range(0, tid_id):
+    for i in range(len(tid_list)):
         label = "thread " + str(i)
         width = 0.35
-
-        #plt.plot([0, 0], [pre/ans_sum, (pre + ans[i])/ans_sum], label=label)
-
-        #width = 1
-        #p2 = plt.bar(0, (pre + ans[i])/ans_sum, width, bottom=pre/ans_sum, label=label)
-
-        #print(pre/ans_sum, (pre + ans[i])/ans_sum)
-        #pre = pre + ans[i]
-
 
         now = []
         now.append(pre[0] + ans[i]/ans_sum)
