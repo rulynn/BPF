@@ -60,7 +60,7 @@ def calculation_single(mtx, single_data):
 
         # tid list
         if k not in tid_list:
-            tid_list.append(tid)
+            tid_list.append(k)
 
         # init
         count_wait = []
