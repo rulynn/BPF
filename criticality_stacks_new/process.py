@@ -66,7 +66,7 @@ def calculation_single(mtx, single_data):
     # k: tid; v: unit
     for k, v in single_data.items():
 
-        print("tid %d" % (k))
+        print("tid %d ::: tid index" % (k, tid_list.index(k)))
         # init
         count_wait.append([0 for i in range(MAX_TIME)])
         count_hold.append([0 for i in range(MAX_TIME)])
