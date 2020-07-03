@@ -99,6 +99,10 @@ def calculation_single(mtx, single_data):
 
 def plot(mtx, ans, ans_sum):
 
+    if ans_sum == 0:
+        print("WARNING: ans sum is 0 ::: mtx %d" % (mtx))
+        continue
+
     global tid_list
 
     # plot
@@ -109,6 +113,7 @@ def plot(mtx, ans, ans_sum):
     pre.append(0)
     pre.append(0)
     print(ans)
+    print(ans_sum)
     for i in range(len(tid_list)):
         label = "thread " + str(i)
         width = 0.35
