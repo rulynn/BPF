@@ -15,7 +15,7 @@ time = sys.argv[2]
 debug = 0
 
 # load BPF program
-bpf = BPF(src_file = "locktime.c")
+bpf = BPF(src_file = "locktime_new.c")
 # bpf.attach_uprobe(name="pthread", sym="pthread_mutex_init", fn_name="probe_mutex_init", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock", pid=int(pid))
 bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock_return", pid=int(pid))
