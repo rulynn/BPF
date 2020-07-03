@@ -101,7 +101,7 @@ def plot(mtx, ans, ans_sum):
 
     if ans_sum == 0:
         print("WARNING: ans sum is 0 ::: mtx %d" % (mtx))
-        continue
+        return
 
     global tid_list
 
