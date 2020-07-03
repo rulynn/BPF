@@ -3,7 +3,7 @@
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-
+import numpy
 
 MAX_TIME = 50000
 TIME_MIN = {}
@@ -60,18 +60,14 @@ def calculation_single(mtx, single_data):
 
     global TIME_MIN
     global tid_list
-    count_wait = []
-    count_hold = []
+    count_wait = numpy.zeros((len(tid_list),MAX_TIME))
+    count_hold = numpy.zeros(((len(tid_list),MAX_TIME))
 
     print(tid_list)
     # k: tid; v: unit
     for k, v in single_data.items():
 
-        # init
-        count_wait.append([0 for i in range(MAX_TIME)])
-        count_hold.append([0 for i in range(MAX_TIME)])
-
-        print("tid %d ::: tid index" % (k))
+        print("tid %d" % (k))
 
         for item in v:
              start = item.start_time - TIME_MIN[mtx]
