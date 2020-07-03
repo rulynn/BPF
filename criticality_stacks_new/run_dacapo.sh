@@ -8,8 +8,9 @@ mkdir out
 time=$1
 
 java -jar ~/dacapo.jar -n 2 avrora &
-pid=$(pgrep -f "avrora")
 
+pid=$(pgrep -f "avrora")
+echo "program pid: "  $pid
 
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
