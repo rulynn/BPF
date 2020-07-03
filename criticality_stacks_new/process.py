@@ -61,8 +61,7 @@ def calculation_single(mtx, single_data):
     global TIME_MIN
     global tid_list
     count_wait = numpy.zeros((len(tid_list),MAX_TIME))
-    count_hold = numpy.zeros(((len(tid_list),MAX_TIME))
-
+    count_hold = numpy.zeros((len(tid_list),MAX_TIME))
     print(tid_list)
     # k: tid; v: unit
     for k, v in single_data.items():
