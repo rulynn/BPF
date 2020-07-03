@@ -71,7 +71,7 @@ def calculation_single(mtx, single_data):
         count_wait.append([0 for i in range(MAX_TIME)])
         count_hold.append([0 for i in range(MAX_TIME)])
 
-        print("tid %d ::: tid index" % (k, tid_list.index(k)))
+        print("tid %d ::: tid index" % (k))
 
         for item in v:
              start = item.start_time - TIME_MIN[mtx]
