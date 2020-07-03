@@ -123,7 +123,6 @@ def plot(mtx, ans, ans_sum):
 
         pre = now
 
-
     #plt.grid(axis="y")
     plt.ylim(0,1)
     #plt.legend()
