@@ -74,7 +74,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     tm_key.tid = pid;
     //tm_key.lock_stack_id = stack_id;
 
-    struct thread_mutex_val *existing_tm_val, new_tm_val = {};
+    struct thread_mutex_val_t *existing_tm_val, new_tm_val = {};
     existing_tm_val = locks.lookup_or_init(&tm_key, &new_tm_val);
     if (existing_tm_val == 0)
         return 0;   // Couldn't find this record
@@ -106,7 +106,7 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     struct thread_mutex_key_t tm_key = {};
     tm_key.mtx = mtx;
     tm_key.tid = pid;
-    tm_key.lock_stack_id = lock_val->stack_id;
+    //tm_key.lock_stack_id = lock_val->stack_id;
 
     struct thread_mutex_val_t *existing_tm_val = locks.lookup(&tm_key);
     if (existing_tm_val == 0)
