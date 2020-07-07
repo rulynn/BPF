@@ -21,6 +21,6 @@ cd ../criticality_stacks_new
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
 
-#kill -9 $pid
-#echo "finish"
+kill -9 $pid
+echo "finish"
 
