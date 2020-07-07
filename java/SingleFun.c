@@ -6,7 +6,7 @@ using namespace std;
 
 int main() {
     int times = 5;
-    while(times > 0) {}
+    while(times > 0) {
         times--;
         vector<int> nums;
         for (int i = 0; i < 100000; i++) {
