@@ -14,5 +14,6 @@ int main() {
             nums[j] = nums[j] % nums[j+1] + 1;
         }
     }
+    cout << "finish" << endl;
 	return 0;
 }
