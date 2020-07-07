@@ -10,10 +10,10 @@ time=$1
 # java program shows in ../java/
 
 cd ../java
-g++ SingleFun.c -o SingleFun
-./SingleFun &
+g++ Threads.c -o Threads
+./Threads &
 
-pid=$(pgrep -f "./SingleFun")
+pid=$(pgrep -f "./Threads")
 echo "program pid: "  $pid
 
 cd ../criticality_stacks
