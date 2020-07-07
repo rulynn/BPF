@@ -17,7 +17,8 @@ int main() {
                 nums[j] = nums[j] % nums[j+1] + 1;
             }
         }
+        cout << "Finish" << " " << (5 - times) << endl;
     }
-    cout << "finish" << endl;
+
 	return 0;
 }
