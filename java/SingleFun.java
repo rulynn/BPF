@@ -8,11 +8,14 @@ public class SingleFun {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        sleep(2);
-        long start = System.currentTimeMillis();
-        runTest();
-        long end = System.currentTimeMillis();
-        System.out.println(end - start);
+        int times = 5;
+        while (times > 0) {
+            times--;
+            long start = System.currentTimeMillis();
+            runTest();
+            long end = System.currentTimeMillis();
+            System.out.println(end - start);
+        }
     }
     
     public static void runTest(){
