@@ -2,16 +2,15 @@
 
 # sh run_dacapo.sh 5
 
-
 # dir
 rm -rf out
 mkdir out
 time=$1
 
-java -jar ~/dacapo.jar -n 2 avrora &
+java -XX:+ExtendedDTraceProbes -jar ~/dacapo.jar -n 2 avrora &
+sleep 1
 pid=$(pgrep -f "avrora")
-
-cd /root/bcc/learn/Master-Project/criticality_stacks
+echo "program pid: "  $pid
 
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
