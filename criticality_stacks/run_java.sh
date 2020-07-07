@@ -18,10 +18,10 @@ java $name &
 pid=$(pgrep -f "$java_name")
 echo "program pid: "  $pid
 
-cd ../criticality_stacks_new
+cd ../criticality_stacks
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
 
 kill -9 $pid
-echo "finish"
+echo "eBPF finish"
 
