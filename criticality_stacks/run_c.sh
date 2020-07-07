@@ -8,14 +8,12 @@ time=$1
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
-name="SingleFun"
-java_name="java SingleFun"
 
 cd ../java
 g++ SingleFun.c -o SingleFun
 ./SingleFun
 
-pid=$(pgrep -f "$name")
+pid=$(pgrep -f "./SingleFun")
 echo "program pid: "  $pid
 
 cd ../criticality_stacks
