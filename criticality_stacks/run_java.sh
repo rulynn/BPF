@@ -12,6 +12,7 @@ name="SingleFun"
 java_name="java SingleFun"
 
 cd ../java
+#java -XX:+ExtendedDTraceProbes $name &
 java $name &
 
 pid=$(pgrep -f "$java_name")
