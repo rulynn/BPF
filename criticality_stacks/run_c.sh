@@ -11,7 +11,7 @@ time=$1
 
 cd ../java
 g++ SingleFun.c -o SingleFun
-./SingleFun
+./SingleFun &
 
 pid=$(pgrep -f "./SingleFun")
 echo "program pid: "  $pid
