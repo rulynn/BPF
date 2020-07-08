@@ -27,8 +27,9 @@ def critical_calculation(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
-        ans, ans_sum = calculation_single(k, v)
-        plot(k, ans, ans_sum)
+        calculation_single(k, v)
+        #ans, ans_sum = calculation_single(k, v)
+        #plot(k, ans, ans_sum)
 
 def preprocessed(locks):
 
@@ -87,7 +88,7 @@ def calculation_single(mtx, single_data):
 
 
 # delete: memory error
-def calculation_single(mtx, single_data):
+#def calculation_single(mtx, single_data):
 #
 #     global TIME_MIN
 #     global tid_list
