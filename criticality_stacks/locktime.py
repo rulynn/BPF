@@ -23,8 +23,8 @@ bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mu
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=int(pid))
 
 locks = bpf["locks"]
-init_stacks = bpf["init_stacks"]
-stacks = bpf["stacks"]
+# init_stacks = bpf["init_stacks"]
+# stacks = bpf["stacks"]
 sleep(int(time))
 process.critical_calculation(locks)
-stack.main(init_stacks, stacks)
+# stack.main(init_stacks, stacks)
