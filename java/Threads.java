@@ -16,17 +16,16 @@ public class Threads {
         thread2.start();
     }
 
+    public static class TestThread implements Runnable{
+        private Long val = 0L;
 
-}
-
-class TestThread implements Runnable{
-    private Long val = 0L;
-
-    @Override
-    public synchronized void run() {
-        for (int i = 0; i < 400000000; i++) {
-            val++;
+        @Override
+        public synchronized void run() {
+            for (int i = 0; i < 400000000; i++) {
+                val++;
+            }
+            System.out.println(val);
         }
-        System.out.println(val);
     }
 }
+
