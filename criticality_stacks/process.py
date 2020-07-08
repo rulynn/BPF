@@ -79,7 +79,7 @@ def calculation_single(mtx, single_data):
         print("tid %d" % (k))
         for item in v:
             arr.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
-            arr.append(TIME(1, k, start + item.wait_time + item.hold_time))
+            arr.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
     arr.sort(key=lambda x: x[2])
 
     print(arr)
