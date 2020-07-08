@@ -17,10 +17,10 @@ class UNIT:
         self.hold_time = 0
 
 class TIME:
-    def __init__(self, kind, tid, time):
-        self.kind = kind
+    def __init__(self, status, tid, timeStamp):
+        self.status = status
         self.tid = tid
-        self.time = time
+        self.timeStamp = timeStamp
 
 
 def critical_calculation(locks):
@@ -71,18 +71,56 @@ def calculation_single(mtx, single_data):
     global tid_list
     count_wait = numpy.zeros((len(tid_list),MAX_TIME))
     count_hold = numpy.zeros((len(tid_list),MAX_TIME))
-    arr = []
+    threadPointList = []
 
     print("----- mtx %d -----" % (mtx))
     # k: tid; v: unit
     for k, v in single_data.items():
         print("tid %d" % (k))
         for item in v:
-            arr.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
-            arr.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-    arr.sort(key=lambda x: x[2])
+            threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
+            threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
+    #threadPointList.sort(key=lambda x: x[2])
 
-    print(arr)
+    print(threadPointList)
+    ans = solve(threadPointList)
+
+def solve(threadPointList):
+
+    isHold = []
+    ans = []
+    lastStamp = 0
+    maxTid = 0
+
+    for i in range(0, len(tid_list)):
+        isHold[i] = false
+        ans[i] = 0.0
+
+    for threadPoint in threadPointList:
+        maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
+        nowCount = countHold(isHold)
+
+        for i in range(0, maxTid):
+            if isHold[i] == True:
+                ans[i] += (threadPoint.timeStamp - lastStamp) * 1.0 / nowCount
+        if threadPoint.status == 0
+            isHold[threadPoint.tid] = True
+        else:
+            isHold[threadPoint.tid] = False
+
+        lastStamp = threadPoint.timeStamp
+
+        return ans
+
+
+
+def countHold(isHold):
+    count = 0
+    for item in isHold:
+        if item == True
+            count = count + 1
+    return count
+
 
 
 
