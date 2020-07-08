@@ -5,6 +5,7 @@ import itertools
 from time import sleep
 from bcc import BPF
 import process
+import stack
 
 
 if len(sys.argv) < 3:
