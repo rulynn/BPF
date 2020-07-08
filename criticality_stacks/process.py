@@ -104,7 +104,7 @@ def solve(threadPointList):
         for i in range(0, maxTid):
             if isHold[i] == True:
                 ans[i] += (threadPoint.timeStamp - lastStamp) * 1.0 / nowCount
-        if threadPoint.status == 0
+        if threadPoint.status == 0:
             isHold[threadPoint.tid] = True
         else:
             isHold[threadPoint.tid] = False
