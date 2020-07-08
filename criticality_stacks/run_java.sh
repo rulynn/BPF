@@ -11,12 +11,12 @@ time=$1
 cd ../java
 
 javac Threads.java
-java -XX:+ExtendedDTraceProbes Threads &
-sleep 1
-pid=$(pgrep -f "Threads")
 
-#java $name &
-#pid=$(pgrep -f "$java_name")
+#java -XX:+ExtendedDTraceProbes Threads &
+#sleep 1
+java Threads &
+
+pid=$(pgrep -f "Threads")
 echo "program pid: "  $pid
 
 cd ../criticality_stacks
