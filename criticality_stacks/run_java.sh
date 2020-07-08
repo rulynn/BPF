@@ -14,6 +14,7 @@ java_name="java Threads"
 cd ../java
 javac Threads.java
 java -XX:+ExtendedDTraceProbes $name &
+sleep 1
 #java $name &
 
 pid=$(pgrep -f "$java_name")
