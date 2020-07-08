@@ -5,7 +5,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
 
-MAX_TIME = 50000
+MAX_TIME = 5000000
 TIME_MIN = {}
 tid_list = []
 
