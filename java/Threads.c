@@ -11,7 +11,7 @@ mutex mut;
 
 void icrement () {
     mut.lock ();
-    for (int i = 0; i < 100000000; i++) {
+    for (int i = 0; i < 50000000; i++) {
         val++;
     }
     mut.unlock ();
