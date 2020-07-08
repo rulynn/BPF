@@ -2,10 +2,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * @Author : linouya
- * @Date : Created in 5:25 下午 2020/7/8
- */
 public class Threads {
 
     public static void main(String[] args) throws IOException {
