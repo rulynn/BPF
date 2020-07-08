@@ -4,16 +4,24 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
+from collections import OrderedDict
 
 MAX_TIME = 50000
 TIME_MIN = {}
 tid_list = []
 
-class unit:
+class UNIT:
     def __init__(self):
         self.start_time = 0
         self.wait_time = 0
         self.hold_time = 0
+
+class TIME:
+    def __init__(self):
+        self.kind = 0
+        self.tid = 0
+        self.time = 0
+
 
 def critical_calculation(locks):
     output_data = preprocessed(locks)
@@ -33,7 +41,7 @@ def preprocessed(locks):
         if k not in tid_list:
             tid_list.append(k.tid)
 
-        tmp = unit()
+        tmp = UNIT()
         # start time: get the lock
         tmp.start_time = v.start_time_ns/1000.0
         # wait time
@@ -58,45 +66,67 @@ def preprocessed(locks):
 
 
 def calculation_single(mtx, single_data):
-
     global TIME_MIN
     global tid_list
     count_wait = numpy.zeros((len(tid_list),MAX_TIME))
     count_hold = numpy.zeros((len(tid_list),MAX_TIME))
+    arr = []
+
     print("----- mtx %d -----" % (mtx))
     # k: tid; v: unit
     for k, v in single_data.items():
-
         print("tid %d" % (k))
-
         for item in v:
-             start = item.start_time - TIME_MIN[mtx]
-             wait = item.wait_time
-             hold = item.hold_time
+            arr.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
+            arr.append(TIME(1, k, start + item.wait_time + item.hold_time))
+    arr.sort(key=lambda x: x[2])
 
-             # TODO: deal with this error msg
-             if start > MAX_TIME or wait > MAX_TIME or hold > MAX_TIME:
-                print("WARNING: LARGER THAN MAX_TIME!!! start %d ::: wait %d ::: hold %d" % (start, wait, hold))
-                continue
-             print("start %d ::: wait %d ::: hold %d" % (start, wait, hold))
-             for i in range(int(start), int(start)+int(wait)+1):
-                count_wait[tid_list.index(k)][i] = 1
-             for i in range(int(wait), int(wait)+int(hold)+1):
-                count_hold[tid_list.index(k)][i] = 1
+    print(arr)
 
-    # calculate
-    ans = [0 for i in range(len(tid_list))]
-    ans_sum = 0
-    for i in range(0, MAX_TIME):
-        count = 1
-        for j in range(len(tid_list)):
-            if count_wait[j][i] == 1:
-                count = count + 1
-        for j in range(len(tid_list)):
-            if count_hold[j][i] == 1:
-                ans[j] = ans[j] + 1.0 / count
-                ans_sum = ans_sum + 1.0 / count
-    return ans, ans_sum
+
+
+
+# delete: memory error
+def calculation_single(mtx, single_data):
+#
+#     global TIME_MIN
+#     global tid_list
+#     count_wait = numpy.zeros((len(tid_list),MAX_TIME))
+#     count_hold = numpy.zeros((len(tid_list),MAX_TIME))
+#     print("----- mtx %d -----" % (mtx))
+#     # k: tid; v: unit
+#     for k, v in single_data.items():
+#
+#         print("tid %d" % (k))
+#
+#         for item in v:
+#              start = item.start_time - TIME_MIN[mtx]
+#              wait = item.wait_time
+#              hold = item.hold_time
+#
+#              # TODO: deal with this error msg
+#              if start > MAX_TIME or wait > MAX_TIME or hold > MAX_TIME:
+#                 print("WARNING: LARGER THAN MAX_TIME!!! start %d ::: wait %d ::: hold %d" % (start, wait, hold))
+#                 continue
+#              print("start %d ::: wait %d ::: hold %d" % (start, wait, hold))
+#              for i in range(int(start), int(start)+int(wait)+1):
+#                 count_wait[tid_list.index(k)][i] = 1
+#              for i in range(int(wait), int(wait)+int(hold)+1):
+#                 count_hold[tid_list.index(k)][i] = 1
+#
+#     # calculate
+#     ans = [0 for i in range(len(tid_list))]
+#     ans_sum = 0
+#     for i in range(0, MAX_TIME):
+#         count = 1
+#         for j in range(len(tid_list)):
+#             if count_wait[j][i] == 1:
+#                 count = count + 1
+#         for j in range(len(tid_list)):
+#             if count_hold[j][i] == 1:
+#                 ans[j] = ans[j] + 1.0 / count
+#                 ans_sum = ans_sum + 1.0 / count
+#     return ans, ans_sum
 
 def plot(mtx, ans, ans_sum):
 
