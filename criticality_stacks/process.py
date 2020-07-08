@@ -37,9 +37,9 @@ def preprocessed(locks):
         # start time: get the lock
         tmp.start_time = v.start_time_ns/1000.0
         # wait time
-        tmp.wait_time = tmp.start_time + v.wait_time_ns/1000.0
+        tmp.wait_time = v.wait_time_ns/1000.0
         # end time: release the lock
-        tmp.hold_time = tmp.wait_time + v.lock_time_ns/1000.0
+        tmp.hold_time = v.lock_time_ns/1000.0
 
 #         # save data
         if output_data.get(k.mtx) == None:
@@ -79,9 +79,9 @@ def calculation_single(mtx, single_data):
                 print("WARNING: LARGER THAN MAX_TIME!!! start %d ::: wait %d ::: hold %d" % (start, wait, hold))
                 continue
              print("start %d ::: wait %d ::: hold %d" % (start, wait, hold))
-             for i in range(int(start), int(wait)+1):
+             for i in range(int(start), int(start)+int(wait)+1):
                 count_wait[tid_list.index(k)][i] = 1
-             for i in range(int(wait), int(hold)+1):
+             for i in range(int(wait), int(wait)+int(hold)+1):
                 count_hold[tid_list.index(k)][i] = 1
 
     # calculate
