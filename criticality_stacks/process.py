@@ -71,8 +71,8 @@ def calculation_single(mtx, single_data):
 
         for item in v:
              start = item.start_time - TIME_MIN[mtx]
-             wait = item.wait_time - TIME_MIN[mtx]
-             hold = item.hold_time - TIME_MIN[mtx]
+             wait = item.wait_time
+             hold = item.hold_time
 
              # TODO: deal with this error msg
              if start > MAX_TIME or wait > MAX_TIME or hold > MAX_TIME:
