@@ -9,22 +9,22 @@ volatile long long val;
 
 mutex mut;
 
-//void icrement () {
-//    mut.lock ();
-//    for (int i = 0; i < 1000000000; i++) {
-//        val++;
-//    }
-//    mut.unlock ();
-//}
-
 void icrement () {
-
-    for (int i = 0; i < 100000000; i++) {
-        mut.lock ();
+    mut.lock ();
+    for (int i = 0; i < 1000000000; i++) {
         val++;
-        mut.unlock ();
     }
+    mut.unlock ();
 }
+
+//void icrement () {
+//
+//    for (int i = 0; i < 100000000; i++) {
+//        mut.lock ();
+//        val++;
+//        mut.unlock ();
+//    }
+//}
 
 
 int main (int argc, char* argv []) {
