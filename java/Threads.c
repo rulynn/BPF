@@ -40,6 +40,6 @@ int main (int argc, char* argv []) {
         t1.join ();
         t2.join ();
         cout << val << endl;
-        return 0;
     }
+    return 0;
 }
