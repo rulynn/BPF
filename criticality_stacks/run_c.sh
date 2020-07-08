@@ -10,7 +10,7 @@ time=$1
 # java program shows in ../java/
 
 cd ../java
-g++ Threads.c -o Threads
+g++ Threads.c -o Threads -lpthread
 ./Threads &
 
 pid=$(pgrep -f "./Threads")

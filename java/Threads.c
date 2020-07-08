@@ -1,9 +1,7 @@
 #include <iostream>
-
 #include <thread>
-
 #include <mutex>
-
+#include <pthread.h>
 using namespace std;
 
 
