@@ -84,6 +84,7 @@ def calculation_single(mtx, single_data):
 
     print(threadPointList)
     ans = solve(threadPointList)
+    print(ans)
 
 def solve(threadPointList):
 
