@@ -17,10 +17,10 @@ class UNIT:
         self.hold_time = 0
 
 class TIME:
-    def __init__(self):
-        self.kind = 0
-        self.tid = 0
-        self.time = 0
+    def __init__(self, kind, tid, time):
+        self.kind = kind
+        self.tid = tid
+        self.time = time
 
 
 def critical_calculation(locks):
