@@ -53,6 +53,7 @@ def preprocessed(locks):
             TIME_MIN[k.mtx] = 999999999999999
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
+    print(tid_list)
     return output_data
 
 
@@ -62,7 +63,7 @@ def calculation_single(mtx, single_data):
     global tid_list
     count_wait = numpy.zeros((len(tid_list),MAX_TIME))
     count_hold = numpy.zeros((len(tid_list),MAX_TIME))
-    print(tid_list)
+    print("----- mtx %d -----" % (mtx))
     # k: tid; v: unit
     for k, v in single_data.items():
 
