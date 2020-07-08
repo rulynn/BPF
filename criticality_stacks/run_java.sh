@@ -8,8 +8,8 @@ time=$1
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
-name="SingleFun"
-java_name="java SingleFun"
+name="Threads"
+java_name="java Threads"
 
 cd ../java
 #java -XX:+ExtendedDTraceProbes $name &
