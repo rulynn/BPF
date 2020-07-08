@@ -8,16 +8,15 @@ time=$1
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
-name="Threads"
-java_name="java Threads"
-
 cd ../java
-javac Threads.java
-java -XX:+ExtendedDTraceProbes $name &
-sleep 2
-#java $name &
 
-pid=$(pgrep -f "$java_name")
+javac Threads.java
+java -XX:+ExtendedDTraceProbes Threads &
+sleep 1
+pid=$(pgrep -f "java -XX:+ExtendedDTraceProbes Threads")
+
+#java $name &
+#pid=$(pgrep -f "$java_name")
 echo "program pid: "  $pid
 
 cd ../criticality_stacks
