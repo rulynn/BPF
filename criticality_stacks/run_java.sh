@@ -12,8 +12,9 @@ name="Threads"
 java_name="java Threads"
 
 cd ../java
-#java -XX:+ExtendedDTraceProbes $name &
-java $name &
+javac Threads.java
+java -XX:+ExtendedDTraceProbes $name &
+#java $name &
 
 pid=$(pgrep -f "$java_name")
 echo "program pid: "  $pid
