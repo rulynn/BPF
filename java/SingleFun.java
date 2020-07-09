@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
 public class SingleFun {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         int times = 1;
         while (times > 0) {
             times--;
@@ -21,14 +21,13 @@ public class SingleFun {
     public static void runTest(){
         ArrayList<Integer> integers = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 25000; i++) {
             integers.add(random.nextInt(100000) + 1);
         }
         for (int i = 0; i < 10000; i++) {
             for (int j = 0; j <integers.size() - 1; j++) {
                 integers.set(j, integers.get(j) % integers.get(j + 1) + 1);
             }
-
         }
     }
 }
