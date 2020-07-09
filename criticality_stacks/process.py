@@ -80,7 +80,8 @@ def calculation_single(mtx, single_data):
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-    #threadPointList.sort(key=lambda x: x[2])
+            print("start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
+    threadPointList.sort(key=lambda x: x[2])
 
     for item in threadPointList:
         print("time %d ::: tid %d ::: status: %d" % (item.timeStamp, item.tid, item.status))
