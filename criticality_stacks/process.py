@@ -174,6 +174,8 @@ def plot():
     pre.append(0)
     pre.append(0)
     for i in range(len(tid_list)):
+        if ans[i] == 0:
+            continue
         label = "thread " + str(tid_list[i])
         width = 0.35
 
