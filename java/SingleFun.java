@@ -7,7 +7,7 @@ import static java.lang.Thread.sleep;
 public class SingleFun {
 
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) {
         int times = 1;
         while (times > 0) {
             times--;

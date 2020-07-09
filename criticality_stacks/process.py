@@ -7,7 +7,8 @@ import numpy
 
 TIME_MIN = {}
 tid_list = []
-
+ans = []
+total = 0
 class UNIT:
     def __init__(self, start_time, wait_time, spin_time, hold_time, enter_count):
         self.start_time = start_time
@@ -35,29 +36,58 @@ def preprocessed(locks):
     global TIME_MIN
     output_data = {}
 
-    for k, v in locks.items():
+    grouper = lambda (k, v): k.tid
+    sorted_by_thread = sorted(locks.items(), key=grouper)
+    locks_by_thread = itertools.groupby(sorted_by_thread, grouper)
+    for tid, items in locks_by_thread:
+        print("thread %d" % tid)
+        for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
 
-        if k not in tid_list:
-            tid_list.append(k.tid)
+             if k not in tid_list:
+                tid_list.append(k.tid)
 
-        tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
-        print("tid: %d" % (k.tid))
-        print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" %
-            (v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+             tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
+             print("\tmutex %s ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
+                   (k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
-        # save data
-        if output_data.get(k.mtx) == None:
-            output_data[k.mtx] = {}
-        if output_data[k.mtx].get(k.tid) == None:
-            output_data[k.mtx][k.tid] = []
-        output_data[k.mtx][k.tid].append(tmp)
+             # save data
+             if output_data.get(k.mtx) == None:
+                 output_data[k.mtx] = {}
+             if output_data[k.mtx].get(k.tid) == None:
+                 output_data[k.mtx][k.tid] = []
+             output_data[k.mtx][k.tid].append(tmp)
 
-        # Used to calculate relative time: time - TIME_MIN
-        if TIME_MIN.get(k.mtx) == None:
-            TIME_MIN[k.mtx] = 999999999999999
-        TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
+             # Used to calculate relative time: time - TIME_MIN
+             if TIME_MIN.get(k.mtx) == None:
+                 TIME_MIN[k.mtx] = 999999999999999
+             TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
     return output_data
+#
+#
+#     for k, v in locks.items():
+#
+#         if k not in tid_list:
+#             tid_list.append(k.tid)
+#
+#         tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
+# #         print("tid: %d" % (k.tid))
+# #         print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" %
+# #             (v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+#
+#         # save data
+#         if output_data.get(k.mtx) == None:
+#             output_data[k.mtx] = {}
+#         if output_data[k.mtx].get(k.tid) == None:
+#             output_data[k.mtx][k.tid] = []
+#         output_data[k.mtx][k.tid].append(tmp)
+#
+#         # Used to calculate relative time: time - TIME_MIN
+#         if TIME_MIN.get(k.mtx) == None:
+#             TIME_MIN[k.mtx] = 999999999999999
+#         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
+#
+#     return output_data
 
 
 def calculation_single(mtx, single_data):
@@ -87,11 +117,13 @@ def calculation_single(mtx, single_data):
 
 def calculation_single_inner(threadPointList):
 
+    global ans
+    global total
+
     isHold = []
-    ans = []
     lastStamp = 0
     maxTid = 0
-    ans_sum = 0
+
 
     # TODO: update
     for i in range(0, len(tid_list)):
@@ -107,7 +139,7 @@ def calculation_single_inner(threadPointList):
         for i in range(0, len(tid_list)):
             if isHold[i] == True:
                 ans[i] += (threadPoint.time - lastStamp) * 1.0 / nowCount
-                ans_sum += (threadPoint.time - lastStamp) * 1.0 / nowCount
+                total += (threadPoint.time - lastStamp) * 1.0 / nowCount
 
         if threadPoint.status == 0:
             isHold[index] = True
@@ -116,8 +148,8 @@ def calculation_single_inner(threadPointList):
 
         lastStamp = threadPoint.time
     print("ans list: ", ans)
-    print(ans_sum)
-    return ans, ans_sum
+    print(total)
+    return ans, total
 
 
 
