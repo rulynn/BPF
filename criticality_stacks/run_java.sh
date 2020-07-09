@@ -15,6 +15,7 @@ javac Threads.java
 #java -XX:+ExtendedDTraceProbes Threads &
 #sleep 1
 java Threads &
+sleep 1
 
 pid=$(pgrep -f "Threads")
 echo "program pid: "  $pid
