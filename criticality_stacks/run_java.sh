@@ -23,7 +23,5 @@ echo "program pid: "  $pid
 cd ../criticality_stacks
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
-
-kill -9 $pid
 echo "eBPF finish"
 

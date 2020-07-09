@@ -27,7 +27,7 @@ def critical_calculation(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
-        print(".............................. Single MTX ..............................")
+        print(".............................. Single MTX ..............................\n")
         calculation_single(k, v)
         print("\n")
         print("\n")
@@ -67,8 +67,9 @@ def preprocessed(locks):
             TIME_MIN[k.mtx] = 999999999999999
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
-    print("==================== tid list ====================")
+    print("------------------- tid list start -------------------")
     print(tid_list)
+    print("------------------- tid list end -------------------\n\n")
     return output_data
 
 
