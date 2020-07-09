@@ -11,6 +11,8 @@ mutex mut;
 
 void icrement () {
     mut.lock ();
+    std::thread::id tid = std::this_thread::get_id();
+    cout << tid << endl;
     for (int i = 0; i < 1000000000; i++) {
         val++;
     }
@@ -35,10 +37,12 @@ int main (int argc, char* argv []) {
         // Two threads
         thread t1 (icrement);
         thread t2 (icrement);
+        thread t3 (icrement);
 
         // wait
-        t1.join ();
-        t2.join ();
+        t1.join();
+        t2.join();
+        t3.join();
         cout << val << endl;
     }
     return 0;

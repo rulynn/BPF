@@ -30,8 +30,8 @@ def critical_calculation(locks):
     # print(output_data)
     for k, v in output_data.items():
         ans, ans_sum = calculation_single(k, v)
-        print("\n\n\n")
         plot(k, ans, ans_sum)
+        print("\n\n\n")
 
 def preprocessed(locks):
 
@@ -137,6 +137,7 @@ def calculation_single_inner(threadPointList):
         ans_sum += ans[i]
 
     print(ans)
+    print(ans_sum)
     return ans, ans_sum
 
 
@@ -147,6 +148,47 @@ def countHold(isHold):
         if item == True:
             count = count + 1
     return count
+
+def plot(mtx, ans, ans_sum):
+
+    print("................... plot start ...................")
+
+    if ans_sum == 0:
+        print("WARNING: ans sum is 0 ::: mtx %d" % (mtx))
+        return
+
+    global tid_list
+
+    # plot
+    pre = []
+    pre.append(0)
+    pre.append(0)
+    pre.append(0)
+    pre.append(0)
+    pre.append(0)
+#     print(ans)
+#     print(ans_sum)
+    for i in range(len(tid_list)):
+        label = "thread " + str(i)
+        width = 0.35
+
+        now = []
+        now.append(pre[0] + ans[i]/ans_sum)
+        now.append(0)
+        now.append(0)
+        now.append(0)
+        now.append(0)
+        plt.bar((1,2,3,4,5), now, width, bottom=pre, label=label)
+
+        pre = now
+
+    #plt.grid(axis="y")
+    plt.ylim(0,1)
+    #plt.legend()
+    path = "out/critical-" + str(mtx) + ".png"
+    plt.savefig(path)
+
+
 
 
 
@@ -193,42 +235,3 @@ def countHold(isHold):
 #                 ans[j] = ans[j] + 1.0 / count
 #                 ans_sum = ans_sum + 1.0 / count
 #     return ans, ans_sum
-
-def plot(mtx, ans, ans_sum):
-
-    print("................... plot start ...................")
-
-    if ans_sum == 0:
-        print("WARNING: ans sum is 0 ::: mtx %d" % (mtx))
-        return
-
-    global tid_list
-
-    # plot
-    pre = []
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-#     print(ans)
-#     print(ans_sum)
-    for i in range(len(tid_list)):
-        label = "thread " + str(i)
-        width = 0.35
-
-        now = []
-        now.append(pre[0] + ans[i]/ans_sum)
-        now.append(0)
-        now.append(0)
-        now.append(0)
-        now.append(0)
-        plt.bar((1,2,3,4,5), now, width, bottom=pre, label=label)
-
-        pre = now
-
-    #plt.grid(axis="y")
-    plt.ylim(0,1)
-    #plt.legend()
-    path = "out/critical-" + str(mtx) + ".png"
-    plt.savefig(path)
