@@ -176,7 +176,7 @@ def plot():
     for i in range(len(tid_list)):
         if ans[i] == 0:
             continue
-        label = "thread " + str(tid_list[i])
+        label = str(tid_list[i][4:]) + ": " + str(ans[i]/total)
         width = 0.35
 
         now = []
