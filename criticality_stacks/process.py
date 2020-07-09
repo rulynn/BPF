@@ -104,7 +104,7 @@ def calculation_single(mtx, single_data):
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
             #print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" % (item.start_time - TIME_MIN[mtx],
-            item.wait_time, item.spin_time, item.hold_time, item.enter_count))
+            #item.wait_time, item.spin_time, item.hold_time, item.enter_count))
     threadPointList.sort(key=lambda pair: pair.time)
 
 #     print("................... thread point list ...................")
