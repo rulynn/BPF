@@ -12,7 +12,7 @@ cd ../java
 
 javac Threads.java
 
-java -XX:+ExtendedDTraceProbes Threads &
+java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints Threads &
 sleep 1
 #java Threads &
 #sleep 1
