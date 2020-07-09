@@ -31,7 +31,7 @@ public class ThreadsWithLock {
         public void run() {
             lock.lock();
             System.out.println("now tid: " + Thread.currentThread().getId());
-            for (int i = 0; i < 400000000; i++) {
+            for (int i = 0; i < 40000000; i++) {
                 val++;
             }
             lock.unlock();
