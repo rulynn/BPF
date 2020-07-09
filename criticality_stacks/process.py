@@ -93,9 +93,9 @@ def calculation_single(mtx, single_data):
             item.wait_time, item.spin_time, item.hold_time, item.enter_count))
     threadPointList.sort(key=lambda pair: pair.time)
 
-    print("................... thread point list ...................")
-    for item in threadPointList:
-        print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
+#     print("................... thread point list ...................")
+#     for item in threadPointList:
+#         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
     return calculation_single_inner(threadPointList)
 
@@ -120,7 +120,7 @@ def calculation_single_inner(threadPointList):
         #maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
         nowCount = countHold(isHold)
         index = tid_list.index(threadPoint.tid)
-        print("tid %d ::: nowCount %d ::: index %d" % (threadPoint.tid, nowCount, index))
+        #print("tid %d ::: nowCount %d ::: index %d" % (threadPoint.tid, nowCount, index))
 
         for i in range(0, len(tid_list)):
             if isHold[i] == True:
