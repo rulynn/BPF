@@ -20,7 +20,7 @@ java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVM
 pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
-output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
+output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 
 cd ../criticality_stacks
 chmod 777 locktime.py
