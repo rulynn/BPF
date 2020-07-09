@@ -16,11 +16,13 @@ public class Threads {
         private Long val = 0L;
 
         @Override
-        public synchronized void run() {
-            for (int i = 0; i < 400000000; i++) {
-                val++;
+        public void run() {
+            synchronized (this) {
+                for (int i = 0; i < 400000000; i++) {
+                    val++;
+                }
+                System.out.println(val);
             }
-            System.out.println(val);
         }
     }
 }
