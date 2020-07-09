@@ -25,7 +25,7 @@ class TIME:
         self.time = time
 
 
-def critical_calculation(locks):
+def main(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():

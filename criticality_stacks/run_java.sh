@@ -20,10 +20,10 @@ sleep 1
 pid=$(pgrep -f "Threads")
 echo "program pid: "  $pid
 
+output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
+
 cd ../criticality_stacks
 chmod 777 locktime.py
-#chmod 777 lockstat.py
 ./locktime.py $pid $time > out.log
-#./lockstat.py $pid > out_stack.log &
 echo "eBPF finish"
 
