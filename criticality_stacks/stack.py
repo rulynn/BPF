@@ -8,7 +8,7 @@ def print_stack(bpf, pid, stacks, stack_id):
     for addr in stacks.walk(stack_id):
         print_frame(bpf, pid, addr)
 
-def main(init_stacks, stacks):
+def main(locks, init_stacks, stacks):
     print("................... stack start ...................")
     mutex_ids = {}
     next_mutex_id = 1
