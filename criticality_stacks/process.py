@@ -9,12 +9,12 @@ TIME_MIN = {}
 tid_list = []
 
 class UNIT:
-    def __init__(self):
-        self.start_time = 0
-        self.wait_time = 0
-        self.spin_time = 0
-        self.hold_time = 0
-        self.enter_count = 0
+    def __init__(self, start_time, wait_time, spin_time, hold_time, enter_count):
+        self.start_time = start_time
+        self.wait_time = wait_time
+        self.spin_time = spin_time
+        self.hold_time = hold_time
+        self.enter_count = enter_count
 
 class TIME:
     def __init__(self, status, tid, time):
@@ -25,7 +25,6 @@ class TIME:
 
 def run(locks):
     output_data = preprocessed(locks)
-    # print(output_data)
     for k, v in output_data.items():
         ans, ans_sum = calculation_single(k, v)
         plot(k, ans, ans_sum)
@@ -38,25 +37,15 @@ def preprocessed(locks):
 
     for k, v in locks.items():
 
-        # tid list
         if k not in tid_list:
             tid_list.append(k.tid)
 
-        tmp = UNIT()
-        # start time: get the lock
-        tmp.start_time = v.start_time_ns/1000.0
-        # wait time
-        tmp.wait_time = v.wait_time_ns/1000.0
-        # spin time
-        tmp.spin_time = v.spin_time_ns/1000.0
-        # end time: release the lock
-        tmp.hold_time = v.lock_time_ns/1000.0
-        tmp.enter_count = v.enter_count
-        print("origin data: ")
-        print("\ttid %d ::: start %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" % (k.tid, tmp.start_time,
-                    tmp.wait_time, tmp.spin_time, tmp.hold_time, tmp.enter_count))
+        tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
+        print("tid: %d" % (k.tid))
+        print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" %
+            (v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
-#         # save data
+        # save data
         if output_data.get(k.mtx) == None:
             output_data[k.mtx] = {}
         if output_data[k.mtx].get(k.tid) == None:
@@ -68,9 +57,6 @@ def preprocessed(locks):
             TIME_MIN[k.mtx] = 999999999999999
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
-#     print("------------------- tid list start -------------------")
-#     print(tid_list)
-#     print("------------------- tid list end -------------------\n\n")
     return output_data
 
 
@@ -82,7 +68,7 @@ def calculation_single(mtx, single_data):
     threadPointList = []
     # k: tid; v: unit
     for k, v in single_data.items():
-        print("tid %d" % (k))
+        print("tid: %d" % (k))
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
@@ -144,10 +130,8 @@ def countHold(isHold):
 
 def plot(mtx, ans, ans_sum):
 
-#     print("................... plot start ...................")
-
     if ans_sum == 0:
-        print("WARNING: ans sum is 0 ::: mtx %d" % (mtx))
+        print("ERROR: ans sum is 0 ::: mtx %d" % (mtx))
         return
 
     global tid_list

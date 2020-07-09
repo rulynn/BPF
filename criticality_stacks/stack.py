@@ -11,8 +11,6 @@ def print_stack(bpf, pid, stacks, stack_id):
 
 def run(bpf, pid, locks, init_stacks, stacks):
     print("................... stack start ...................")
-    init_stacks = bpf["init_stacks"]
-    stacks = bpf["stacks"]
     mutex_ids = {}
     next_mutex_id = 1
     for k, v in init_stacks.items():
