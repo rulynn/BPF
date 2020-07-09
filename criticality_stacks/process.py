@@ -24,7 +24,7 @@ class TIME:
         self.time = time
 
 
-def main(locks):
+def run(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
