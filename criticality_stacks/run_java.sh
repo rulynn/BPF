@@ -12,16 +12,18 @@ cd ../java
 
 javac Threads.java
 
-#java -XX:+ExtendedDTraceProbes Threads &
-#sleep 1
-java Threads &
+java -XX:+ExtendedDTraceProbes Threads &
 sleep 1
+#java Threads &
+#sleep 1
 
 pid=$(pgrep -f "Threads")
 echo "program pid: "  $pid
 
 cd ../criticality_stacks
 chmod 777 locktime.py
-./locktime.py $pid $time > out.log
+chmod 777 lockstat.py
+./locktime.py $pid $time > out.log &
+./lockstat.py $pid > out_stack.log &
 echo "eBPF finish"
 
