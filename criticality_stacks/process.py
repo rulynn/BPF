@@ -129,8 +129,8 @@ def calculation_single_inner(threadPointList):
 
         lastStamp = threadPoint.time
 
-        print(ans)
-        return ans
+    print(ans)
+    return ans
 
 
 
