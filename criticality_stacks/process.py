@@ -163,6 +163,8 @@ def countHold(isHold):
 def plot():
 
     global tid_list
+    global ans
+    global total
 
     # plot
     pre = []
@@ -172,7 +174,7 @@ def plot():
     pre.append(0)
     pre.append(0)
     for i in range(len(tid_list)):
-        label = "thread " + str(i)
+        label = "thread " + str(tid_list[i])
         width = 0.35
 
         now = []
@@ -186,6 +188,7 @@ def plot():
         pre = now
 
     plt.ylim(0,1)
+    plt.legend()
     path = "out/critical.png"
     plt.savefig(path)
 
