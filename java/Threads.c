@@ -31,18 +31,16 @@ void icrement () {
 
 int main (int argc, char* argv []) {
 
-    int times = 5;
+    int times = 3;
     while(times > 0) {
         times--;
         // Two threads
         thread t1 (icrement);
         thread t2 (icrement);
-        thread t3 (icrement);
 
         // wait
         t1.join();
         t2.join();
-        t3.join();
         cout << val << endl;
     }
     return 0;
