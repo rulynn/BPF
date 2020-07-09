@@ -27,9 +27,9 @@ class TIME:
 def run(locks):
     output_data = preprocessed(locks)
     for k, v in output_data.items():
-        ans, ans_sum = calculation_single(k, v)
-        plot(k, ans, ans_sum)
-        print("")
+        calculation_single(k, v)
+
+    plot()
 
 def preprocessed(locks):
 
@@ -147,8 +147,6 @@ def calculation_single_inner(threadPointList):
             isHold[index] = False
 
         lastStamp = threadPoint.time
-    print("ans list: ", ans)
-    print(total)
     return ans, total
 
 
@@ -160,11 +158,7 @@ def countHold(isHold):
             count = count + 1
     return count
 
-def plot(mtx, ans, ans_sum):
-
-    if ans_sum == 0:
-        print("ERROR: ans sum is 0 ::: mtx %d" % (mtx))
-        return
+def plot():
 
     global tid_list
 
@@ -175,14 +169,12 @@ def plot(mtx, ans, ans_sum):
     pre.append(0)
     pre.append(0)
     pre.append(0)
-#     print(ans)
-#     print(ans_sum)
     for i in range(len(tid_list)):
         label = "thread " + str(i)
         width = 0.35
 
         now = []
-        now.append(pre[0] + ans[i]/ans_sum)
+        now.append(pre[0] + ans[i]/total)
         now.append(0)
         now.append(0)
         now.append(0)
@@ -191,10 +183,8 @@ def plot(mtx, ans, ans_sum):
 
         pre = now
 
-    #plt.grid(axis="y")
     plt.ylim(0,1)
-    #plt.legend()
-    path = "out/critical-" + str(mtx) + ".png"
+    path = "out/critical.png"
     plt.savefig(path)
 
 
