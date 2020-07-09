@@ -76,7 +76,7 @@ def preprocessed(locks):
 
 def calculation_single(mtx, single_data):
 
-    print("Single MTX: %d \n" % (mtx))
+    print("------------------- Single MTX start: %d -------------------\n" % (mtx))
     global TIME_MIN
     global tid_list
     threadPointList = []
