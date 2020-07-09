@@ -6,8 +6,13 @@ struct thread_mutex_key_t {
     int lock_stack_id;
 };
 struct thread_mutex_val_t {
-    u64 start_time_ns;
+//    u64 start_time_ns;
+//    u64 wait_time_ns;
+//    u64 lock_time_ns;
+//    u64 enter_count;
+    u64 start_time_ns;   // time point
     u64 wait_time_ns;
+    u64 spin_time_ns;
     u64 lock_time_ns;
     u64 enter_count;
 };
@@ -45,6 +50,7 @@ int probe_mutex_lock(struct pt_regs *ctx)
     lock_start.update(&pid, &val);
     return 0;
 }
+
 int probe_mutex_lock_return(struct pt_regs *ctx)
 {
     u64 now = bpf_ktime_get_ns();
@@ -53,7 +59,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     struct mutex_timestamp_t *entry = lock_start.lookup(&pid);
     if (entry == 0)
         return 0;   // Missed the entry
-    u64 wait_time = now - entry->timestamp;
+    u64 spin_time = now - entry->timestamp;
     int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
 
     // If pthread_mutex_lock() returned 0, we have the lock
@@ -69,7 +75,6 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     }
 
     struct thread_mutex_key_t tm_key = {};
-    // TODO Update tm_key fields with the mutex, tid, and stack id
     tm_key.mtx = entry->mtx;
     tm_key.tid = pid;
     tm_key.lock_stack_id = stack_id;
@@ -78,11 +83,13 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     existing_tm_val = locks.lookup_or_init(&tm_key, &new_tm_val);
     if (existing_tm_val == 0)
         return 0;   // Couldn't find this record
-    existing_tm_val->wait_time_ns += wait_time;
+    existing_tm_val->spin_time_ns += spin_time;
     existing_tm_val->enter_count++;
 
     if (existing_tm_val->start_time_ns == 0) {
         existing_tm_val->start_time_ns = entry->timestamp;
+        existing_tm_val->wait_time_ns = now - entry->timestamp;
+        existing_tm_val->spin_time_ns -= existing_tm_val->wait_time_ns;
     }
 
     lock_start.delete(&pid);
