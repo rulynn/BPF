@@ -5,7 +5,6 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
 
-MAX_TIME = 50000
 TIME_MIN = {}
 tid_list = []
 
@@ -77,8 +76,6 @@ def calculation_single(mtx, single_data):
     print("================================ Single MTX: %d ================================\n" % (mtx))
     global TIME_MIN
     global tid_list
-    count_wait = numpy.zeros((len(tid_list),MAX_TIME))
-    count_hold = numpy.zeros((len(tid_list),MAX_TIME))
     threadPointList = []
 
     print("................... time list: ...................")

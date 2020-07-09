@@ -12,7 +12,7 @@ cd ../java
 name="Threads"  #ThreadsWithLock
 javac $name.java
 
-java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
+java -XX:+ExtendedDTraceProbes $name &
 sleep 1
 
 #java Threads &
