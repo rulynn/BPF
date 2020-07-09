@@ -73,12 +73,10 @@ def preprocessed(locks):
 
 def calculation_single(mtx, single_data):
 
-    print("================================ Single MTX: %d ================================\n" % (mtx))
+    print("Single MTX: %d \n" % (mtx))
     global TIME_MIN
     global tid_list
     threadPointList = []
-
-    print("................... time list: ...................")
     # k: tid; v: unit
     for k, v in single_data.items():
         print("tid %d" % (k))
@@ -100,7 +98,6 @@ def calculation_single(mtx, single_data):
 
 def calculation_single_inner(threadPointList):
 
-    print("................... ans: weight list ...................")
     isHold = []
     ans = []
     lastStamp = 0
@@ -129,8 +126,7 @@ def calculation_single_inner(threadPointList):
             isHold[index] = False
 
         lastStamp = threadPoint.time
-
-    print(ans)
+    print("ans list: ", ans)
     print(ans_sum)
     return ans, ans_sum
 
