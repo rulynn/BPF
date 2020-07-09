@@ -31,7 +31,8 @@ void icrement () {
 
 int main (int argc, char* argv []) {
 
-    int times = 3;
+    int times = 1;
+    sleep(2);
     while(times > 0) {
         times--;
         // Two threads
