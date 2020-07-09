@@ -7,7 +7,7 @@ public class Threads {
     public static volatile Long val = 0L;
 
     public static void main(String[] args) throws InterruptedException {
-        int times = 1;
+        int times = 2;
         while(times > 0) {
             times--;
             TestThread testThread = new TestThread();
