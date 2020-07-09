@@ -2,16 +2,13 @@
 
 
 # need perf-map-agent: change path
-
-name="SingleFun"
-
 cd ../java
 javac Threads.java
 java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints Threads &
 sleep 1
 
 
-pid=$(pgrep -f "$name")
+pid=$(pgrep -f "Threads")
 echo "program pid: "  $pid
 
 
