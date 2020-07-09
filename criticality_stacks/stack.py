@@ -4,7 +4,8 @@ import itertools
 
 def print_frame(bpf, pid, addr):
     #print("\t\t%16s (%x)" % (bpf.sym(addr, pid, show_module=True, show_offset=True), addr))
-    print(addr)
+    print("\t\t%16s (%x)" % (bpf.sym(addr, pid), addr))
+    #print(addr)
 
 def print_stack(bpf, pid, stacks, stack_id):
     for addr in stacks.walk(stack_id):
