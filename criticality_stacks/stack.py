@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import itertools
 
 def print_frame(bpf, pid, addr):
     print("\t\t%16s (%x)" % (bpf.sym(addr, pid, show_module=True, show_offset=True), addr))
