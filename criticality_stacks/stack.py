@@ -3,7 +3,7 @@
 import itertools
 
 def print_frame(bpf, pid, addr):
-    print("\t\t%16s (%x)" % (bpf.sym(addr, pid, show_module=True, show_offset=True), addr))
+    print("\t%16s (%x)" % (bpf.sym(addr, pid, show_module=True, show_offset=True), addr))
 
 def print_stack(bpf, pid, stacks, stack_id):
     for addr in stacks.walk(stack_id):
@@ -26,8 +26,8 @@ def run(bpf, pid, locks, init_stacks, stacks):
     for tid, items in locks_by_thread:
         print("thread %d" % tid)
         for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
-#            mutex_descr = mutex_ids[k.mtx] if k.mtx in mutex_ids else bpf.sym(k.mtx, pid)
-#             print("\tmutex %s ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
-#                   (mutex_descr, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+            #mutex_descr = mutex_ids[k.mtx] if k.mtx in mutex_ids else bpf.sym(k.mtx, pid)
+            print("\tmutex %s ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
+                  (k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
             print_stack(bpf, pid, stacks, k.lock_stack_id)
             print("")
