@@ -27,4 +27,4 @@ init_stacks = bpf["init_stacks"]
 stacks = bpf["stacks"]
 sleep(int(time))
 process.run(locks)
-stack.run(bpf, pid, locks, init_stacks, stacks)
+stack.run(bpf, int(pid), locks, init_stacks, stacks)
