@@ -8,7 +8,7 @@ public class SingleFun {
 
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        int times = 5;
+        int times = 1;
         while (times > 0) {
             times--;
             long start = System.currentTimeMillis();
