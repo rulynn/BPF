@@ -52,6 +52,9 @@ def preprocessed(locks):
         # end time: release the lock
         tmp.hold_time = v.lock_time_ns/1000.0
         tmp.enter_count = v.enter_count
+        print("origin data: ")
+        print("\tstart %d ::: wait %d ::: spin %d ::: hold %d ::: enter count %d" % (tmp.start_time,
+                    tmp.wait_time, tmp.spin_time, tmp.hold_time, tmp.enter_count))
 
 #         # save data
         if output_data.get(k.mtx) == None:
