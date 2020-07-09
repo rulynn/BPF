@@ -83,10 +83,10 @@ def calculation_single(mtx, single_data):
     #threadPointList.sort(key=lambda x: x[2])
 
     print(threadPointList)
-    ans = solve(threadPointList)
+    ans = calculation_single_inner(threadPointList)
     print(ans)
 
-def solve(threadPointList):
+def calculation_single_inner(threadPointList):
 
     isHold = []
     ans = []
