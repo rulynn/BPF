@@ -98,8 +98,8 @@ def calculation_single_inner(threadPointList):
 
     # TODO: update
     for i in range(0, len(tid_list)):
-        isHold[i] = False
-        ans[i] = 0.0
+        isHold.append(False)
+        ans.append(0.0)
 
     for threadPoint in threadPointList:
         maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
