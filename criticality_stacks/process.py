@@ -17,10 +17,10 @@ class UNIT:
         self.hold_time = 0
 
 class TIME:
-    def __init__(self, status, tid, timeStamp):
+    def __init__(self, status, tid, time):
         self.status = status
         self.tid = tid
-        self.timeStamp = timeStamp
+        self.time = time
 
 
 def critical_calculation(locks):
@@ -81,10 +81,10 @@ def calculation_single(mtx, single_data):
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
             print("start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
-    threadPointList.sort(key=lambda pair: pair[2])
+    threadPointList.sort(key=lambda pair: pair.time)
 
     for item in threadPointList:
-        print("time %d ::: tid %d ::: status: %d" % (item.timeStamp, item.tid, item.status))
+        print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
     ans = calculation_single_inner(threadPointList)
     print(ans)
@@ -106,13 +106,13 @@ def calculation_single_inner(threadPointList):
 
         for i in range(0, maxTid):
             if isHold[i] == True:
-                ans[i] += (threadPoint.timeStamp - lastStamp) * 1.0 / nowCount
+                ans[i] += (threadPoint.time - lastStamp) * 1.0 / nowCount
         if threadPoint.status == 0:
             isHold[threadPoint.tid] = True
         else:
             isHold[threadPoint.tid] = False
 
-        lastStamp = threadPoint.timeStamp
+        lastStamp = threadPoint.time
 
         return ans
 
