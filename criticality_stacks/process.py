@@ -195,6 +195,8 @@ def countHold(isHold):
 
 def plot(mtx, ans, ans_sum):
 
+    print("................... plot start ...................")
+
     if ans_sum == 0:
         print("WARNING: ans sum is 0 ::: mtx %d" % (mtx))
         return
