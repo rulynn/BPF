@@ -102,16 +102,18 @@ def calculation_single_inner(threadPointList):
         ans.append(0.0)
 
     for threadPoint in threadPointList:
-        maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
+        #maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
         nowCount = countHold(isHold)
+        index = tid_list.index(threadPoint.tid)
 
-        for i in range(0, maxTid):
+        for i in range(0, len(tid_list)):
             if isHold[i] == True:
                 ans[i] += (threadPoint.time - lastStamp) * 1.0 / nowCount
+
         if threadPoint.status == 0:
-            isHold[threadPoint.tid] = True
+            isHold[index] = True
         else:
-            isHold[threadPoint.tid] = False
+            isHold[index] = False
 
         lastStamp = threadPoint.time
 
