@@ -71,6 +71,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     if (existing_tm_val->start_time_ns == 0) {
         existing_tm_val->start_time_ns = entry->timestamp;
         existing_tm_val->wait_time_ns = now - entry->timestamp;
+        existing_tm_val->spin_time_ns -= existing_tm_val->start_time_ns;
     }
     lock_start.delete(&pid);
     return 0;
