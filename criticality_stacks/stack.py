@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 
 
+def print_frame(bpf, pid, addr):
+    print("\t\t%16s (%x)" % (bpf.sym(addr, pid, show_module=True, show_offset=True), addr))
+
+def print_stack(bpf, pid, stacks, stack_id):
+    for addr in stacks.walk(stack_id):
+        print_frame(bpf, pid, addr)
+
 def main(init_stacks, stacks):
     while True:
         sleep(5)
