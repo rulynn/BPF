@@ -11,7 +11,7 @@ time=$1
 cd ../java
 name="SingleFun" #ThreadsWithLock
 javac $name.java
-java -XX:+ExtendedDTraceProbes $name &    #  -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &    #
 sleep 1
 
 #java Threads &
