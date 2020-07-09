@@ -22,8 +22,8 @@ echo "program pid: "  $pid
 
 cd ../criticality_stacks
 chmod 777 locktime.py
-chmod 777 lockstat.py
+#chmod 777 lockstat.py
 ./locktime.py $pid $time > out.log &
-./lockstat.py $pid > out_stack.log &
+#./lockstat.py $pid > out_stack.log &
 echo "eBPF finish"
 
