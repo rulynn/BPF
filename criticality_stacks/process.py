@@ -27,7 +27,6 @@ def critical_calculation(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
-        print(".............................. Single MTX ..............................\n")
         calculation_single(k, v)
         print("\n")
         print("\n")
@@ -67,41 +66,42 @@ def preprocessed(locks):
             TIME_MIN[k.mtx] = 999999999999999
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
-    print("------------------- tid list start -------------------")
-    print(tid_list)
-    print("------------------- tid list end -------------------\n\n")
+#     print("------------------- tid list start -------------------")
+#     print(tid_list)
+#     print("------------------- tid list end -------------------\n\n")
     return output_data
 
 
 def calculation_single(mtx, single_data):
+
+    print("================================ Single MTX: %d ================================\n" % (mtx))
     global TIME_MIN
     global tid_list
     count_wait = numpy.zeros((len(tid_list),MAX_TIME))
     count_hold = numpy.zeros((len(tid_list),MAX_TIME))
     threadPointList = []
 
-    print("==================== time list ====================")
-    print("mtx %d" % (mtx))
+    print("................... time list: ...................")
     # k: tid; v: unit
     for k, v in single_data.items():
-        print("\t tid %d" % (k))
+        print("tid %d" % (k))
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-            print("\t\t start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
+            print("\t start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
     threadPointList.sort(key=lambda pair: pair.time)
 
-    print("==================== thread point list ====================")
+    print("................... thread point list ...................")
     for item in threadPointList:
         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
     ans = calculation_single_inner(threadPointList)
 
-    print("==================== ans: weight list ====================")
-    print(ans)
+
 
 def calculation_single_inner(threadPointList):
 
+    print("................... ans: weight list ...................")
     isHold = []
     ans = []
     lastStamp = 0
@@ -116,6 +116,7 @@ def calculation_single_inner(threadPointList):
         #maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
         nowCount = countHold(isHold)
         index = tid_list.index(threadPoint.tid)
+        print("tid %d ::: nowCount %d ::: index %d" % (threadPoint.tid, nowCount, index))
 
         for i in range(0, len(tid_list)):
             if isHold[i] == True:
@@ -128,6 +129,7 @@ def calculation_single_inner(threadPointList):
 
         lastStamp = threadPoint.time
 
+        print(ans)
         return ans
 
 
