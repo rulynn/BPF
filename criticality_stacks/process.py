@@ -82,20 +82,22 @@ def calculation_single(mtx, single_data):
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
     #threadPointList.sort(key=lambda x: x[2])
 
-    print(threadPointList)
+    for item in threadPointList:
+        print("time %d ::: tid %d ::: status: %d" % (item.timeStamp, item.tid, item.status))
+
     ans = calculation_single_inner(threadPointList)
     print(ans)
 
 def calculation_single_inner(threadPointList):
 
-    isHold = []
-    ans = []
+    isHold = [False for i in len(tid_list)]
+    ans = [0.0 for i in len(tid_list)]
     lastStamp = 0
     maxTid = 0
 
-    for i in range(0, len(tid_list)):
-        isHold[i] = false
-        ans[i] = 0.0
+#     for i in range(0, len(tid_list)):
+#         isHold[i] = False
+#         ans[i] = 0.0
 
     for threadPoint in threadPointList:
         maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
