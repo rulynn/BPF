@@ -62,6 +62,7 @@ def preprocessed(locks):
             TIME_MIN[k.mtx] = 999999999999999
         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
+    print("==================== tid list ====================")
     print(tid_list)
     return output_data
 
@@ -73,20 +74,24 @@ def calculation_single(mtx, single_data):
     count_hold = numpy.zeros((len(tid_list),MAX_TIME))
     threadPointList = []
 
-    print("----- mtx %d -----" % (mtx))
+    print("==================== time list ====================")
+    print("\t mtx %d" % (mtx))
     # k: tid; v: unit
     for k, v in single_data.items():
-        print("tid %d" % (k))
+        print("\t\t tid %d" % (k))
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-            print("start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
+            print("\t\t\t start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
     threadPointList.sort(key=lambda pair: pair.time)
 
+    print("==================== thread point list ====================")
     for item in threadPointList:
-        print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
+        print("\t time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
     ans = calculation_single_inner(threadPointList)
+
+    print("==================== ans: weight list ====================")
     print(ans)
 
 def calculation_single_inner(threadPointList):
@@ -189,8 +194,8 @@ def plot(mtx, ans, ans_sum):
     pre.append(0)
     pre.append(0)
     pre.append(0)
-    print(ans)
-    print(ans_sum)
+#     print(ans)
+#     print(ans_sum)
     for i in range(len(tid_list)):
         label = "thread " + str(i)
         width = 0.35
