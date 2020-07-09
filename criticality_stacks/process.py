@@ -29,11 +29,9 @@ def critical_calculation(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
-        calculation_single(k, v)
+        ans, ans_sum = calculation_single(k, v)
         print("\n\n\n")
-
-        #ans, ans_sum = calculation_single(k, v)
-        #plot(k, ans, ans_sum)
+        plot(k, ans, ans_sum)
 
 def preprocessed(locks):
 
@@ -110,6 +108,7 @@ def calculation_single_inner(threadPointList):
     ans = []
     lastStamp = 0
     maxTid = 0
+    ans_sum = 0
 
     # TODO: update
     for i in range(0, len(tid_list)):
@@ -133,8 +132,11 @@ def calculation_single_inner(threadPointList):
 
         lastStamp = threadPoint.time
 
+    for item in ans:
+        ans_sum += ans[i]
+
     print(ans)
-    return ans
+    return ans, ans_sum
 
 
 
