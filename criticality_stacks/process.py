@@ -27,7 +27,12 @@ def critical_calculation(locks):
     output_data = preprocessed(locks)
     # print(output_data)
     for k, v in output_data.items():
+        print(".............................. Single MTX ..............................")
         calculation_single(k, v)
+        print("\n")
+        print("\n")
+        print("\n")
+
         #ans, ans_sum = calculation_single(k, v)
         #plot(k, ans, ans_sum)
 
@@ -75,19 +80,19 @@ def calculation_single(mtx, single_data):
     threadPointList = []
 
     print("==================== time list ====================")
-    print("\t mtx %d" % (mtx))
+    print("mtx %d" % (mtx))
     # k: tid; v: unit
     for k, v in single_data.items():
-        print("\t\t tid %d" % (k))
+        print("\t tid %d" % (k))
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-            print("\t\t\t start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
+            print("\t\t start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
     threadPointList.sort(key=lambda pair: pair.time)
 
     print("==================== thread point list ====================")
     for item in threadPointList:
-        print("\t time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
+        print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
     ans = calculation_single_inner(threadPointList)
 
