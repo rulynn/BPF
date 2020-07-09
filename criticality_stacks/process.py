@@ -4,7 +4,6 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
-from collections import OrderedDict
 
 MAX_TIME = 50000
 TIME_MIN = {}
