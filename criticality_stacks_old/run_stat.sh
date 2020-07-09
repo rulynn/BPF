@@ -17,6 +17,6 @@ output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 
 cd ../criticality_stacks_old
 chmod 777 lockstat.py
-./lockstat.py $pid > out_stack.log
+./lockstat.py $pid
 
 echo "eBPF finish"
