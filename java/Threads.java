@@ -4,7 +4,9 @@ import java.util.Random;
 
 public class Threads {
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static volatile Long val = 0L;
+
+    public static void main(String[] args) throws InterruptedException {
         int times = 5;
         while(times > 0) {
             times--;
@@ -16,19 +18,17 @@ public class Threads {
 
             thread1.join();
             thread2.join();
+            System.out.println(val);
         }
     }
 
     public static class TestThread implements Runnable{
-        private Long val = 0L;
-
         @Override
         public void run() {
             synchronized (this) {
                 for (int i = 0; i < 400000000; i++) {
                     val++;
                 }
-                System.out.println(val);
             }
         }
     }
