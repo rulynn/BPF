@@ -9,10 +9,10 @@ time=$1
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
 cd ../java
-name="Threads"  #ThreadsWithLock
+name="Threads" #ThreadsWithLock
 javac $name.java
 
-java -XX:+ExtendedDTraceProbes $name &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer $name &
 sleep 1
 
 #java Threads &
