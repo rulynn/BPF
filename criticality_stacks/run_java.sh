@@ -21,7 +21,7 @@ pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
 # jstack
-jstack $pid > jstack.log &
+jstack $pid > jstack.log
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 
