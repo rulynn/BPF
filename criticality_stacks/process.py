@@ -91,14 +91,15 @@ def calculation_single(mtx, single_data):
 
 def calculation_single_inner(threadPointList):
 
-    isHold = [0 for i in len(tid_list)]
-    ans = [0.0 for i in len(tid_list)]
+    isHold = []
+    ans = []
     lastStamp = 0
     maxTid = 0
 
-#     for i in range(0, len(tid_list)):
-#         isHold[i] = False
-#         ans[i] = 0.0
+    # TODO: update
+    for i in range(0, len(tid_list)):
+        isHold[i] = False
+        ans[i] = 0.0
 
     for threadPoint in threadPointList:
         maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
