@@ -26,7 +26,8 @@ public class Threads {
         @Override
         public void run() {
             synchronized (this) {
-                for (int i = 0; i < 400000000; i++) {
+                System.out.println("now tid: " + Thread.currentThread().getId());
+                for (int i = 0; i < 40000000; i++) {
                     val++;
                 }
             }

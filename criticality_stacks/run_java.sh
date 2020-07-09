@@ -9,16 +9,16 @@ time=$1
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
 cd ../java
+name="Threads"  #ThreadsWithLock
+javac $name.java
 
-javac ThreadsWithLock.java
-
-java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints ThreadsWithLock &
+java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
 sleep 1
 
 #java Threads &
 #sleep 1
 
-pid=$(pgrep -f "ThreadsWithLock")
+pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
