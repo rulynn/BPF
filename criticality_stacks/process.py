@@ -16,6 +16,7 @@ class UNIT:
         self.wait_time = 0
         self.spin_time = 0
         self.hold_time = 0
+        self.enter_count = 0
 
 class TIME:
     def __init__(self, status, tid, time):
@@ -54,6 +55,7 @@ def preprocessed(locks):
         tmp.spin_time = v.spin_time_ns/1000.0
         # end time: release the lock
         tmp.hold_time = v.lock_time_ns/1000.0
+        tmp.enter_count = v.enter_count
 
 #         # save data
         if output_data.get(k.mtx) == None:
@@ -89,7 +91,8 @@ def calculation_single(mtx, single_data):
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-            print("\t start %d ::: wait %d ::: spin %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.spin_time, item.hold_time))
+            print("\t start %d ::: wait %d ::: spin %d ::: hold %d ::: enter count %d" % (item.start_time - TIME_MIN[mtx],
+            item.wait_time, item.spin_time, item.hold_time, item.enter_count))
     threadPointList.sort(key=lambda pair: pair.time)
 
     print("................... thread point list ...................")
