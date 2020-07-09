@@ -7,7 +7,7 @@ public class Single {
 
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis();
-        long end = System.currentTimeMillis();
+        long end = 0;
         ArrayList<Integer> integers = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 25000; i++) {
