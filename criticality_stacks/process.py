@@ -118,7 +118,7 @@ def calculation_single_inner(threadPointList):
 def countHold(isHold):
     count = 0
     for item in isHold:
-        if item == True
+        if item == True:
             count = count + 1
     return count
 
