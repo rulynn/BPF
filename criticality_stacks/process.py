@@ -125,6 +125,7 @@ def calculation_single_inner(threadPointList):
         for i in range(0, len(tid_list)):
             if isHold[i] == True:
                 ans[i] += (threadPoint.time - lastStamp) * 1.0 / nowCount
+                ans_sum += (threadPoint.time - lastStamp) * 1.0 / nowCount
 
         if threadPoint.status == 0:
             isHold[index] = True
@@ -132,9 +133,6 @@ def calculation_single_inner(threadPointList):
             isHold[index] = False
 
         lastStamp = threadPoint.time
-
-    for item in ans:
-        ans_sum += ans[i]
 
     print(ans)
     print(ans_sum)
