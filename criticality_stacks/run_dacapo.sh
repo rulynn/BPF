@@ -7,7 +7,8 @@ rm -rf out
 mkdir out
 time=$1
 
-java -XX:+ExtendedDTraceProbes -jar ~/dacapo.jar -n 2 avrora &
+#java -XX:+ExtendedDTraceProbes -jar ~/dacapo.jar -n 2 avrora &
+java -jar ~/dacapo.jar -n 2 avrora &
 sleep 1
 pid=$(pgrep -f "avrora")
 echo "program pid: "  $pid
