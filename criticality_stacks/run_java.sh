@@ -10,14 +10,15 @@ time=$1
 # java program shows in ../java/
 cd ../java
 
-javac Threads.java
+javac ThreadsWithLock.java
 
-java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints Threads &
+java -XX:+ExtendedDTraceProbes -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints ThreadsWithLock &
 sleep 1
+
 #java Threads &
 #sleep 1
 
-pid=$(pgrep -f "Threads")
+pid=$(pgrep -f "ThreadsWithLock")
 echo "program pid: "  $pid
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
