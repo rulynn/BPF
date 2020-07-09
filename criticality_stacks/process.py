@@ -14,6 +14,7 @@ class UNIT:
     def __init__(self):
         self.start_time = 0
         self.wait_time = 0
+        self.spin_time = 0
         self.hold_time = 0
 
 class TIME:
@@ -28,9 +29,7 @@ def critical_calculation(locks):
     # print(output_data)
     for k, v in output_data.items():
         calculation_single(k, v)
-        print("\n")
-        print("\n")
-        print("\n")
+        print("\n\n\n")
 
         #ans, ans_sum = calculation_single(k, v)
         #plot(k, ans, ans_sum)
@@ -51,6 +50,8 @@ def preprocessed(locks):
         tmp.start_time = v.start_time_ns/1000.0
         # wait time
         tmp.wait_time = v.wait_time_ns/1000.0
+        # spin time
+        tmp.spin_time = v.spin_time_ns/1000.0
         # end time: release the lock
         tmp.hold_time = v.lock_time_ns/1000.0
 
@@ -88,7 +89,7 @@ def calculation_single(mtx, single_data):
         for item in v:
             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-            print("\t start %d ::: wait %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
+            print("\t start %d ::: wait %d ::: spin %d ::: hold %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.spin_time, item.hold_time))
     threadPointList.sort(key=lambda pair: pair.time)
 
     print("................... thread point list ...................")

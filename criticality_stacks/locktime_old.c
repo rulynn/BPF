@@ -7,9 +7,8 @@ struct thread_mutex_key {
 };
 // value: thread info
 struct thread_mutex_val {
-    u64 start_time_ns;   // time point
+    u64 start_time_ns;
     u64 wait_time_ns;
-    u64 spin_time_ns;
     u64 lock_time_ns;
     u64 enter_count;
 };
@@ -49,7 +48,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     struct mutex_timestamp *entry = lock_start.lookup(&pid);
     if (entry == 0)
         return 0;   // Missed the entry
-    u64 spin_time = now - entry->timestamp;
+    u64 wait_time = now - entry->timestamp;
 
     // key
     struct thread_mutex_key key = {};
@@ -65,12 +64,11 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     existing_tm_val = locks.lookup_or_init(&key, &new_tm_val);
     if (existing_tm_val == 0)
             return 0;   // Couldn't find this record
-    existing_tm_val->spin_time_ns += spin_time;
+    existing_tm_val->wait_time_ns += wait_time;
     existing_tm_val->enter_count++;
 
     if (existing_tm_val->start_time_ns == 0) {
         existing_tm_val->start_time_ns = entry->timestamp;
-        existing_tm_val->wait_time_ns = now - entry->timestamp;
     }
     lock_start.delete(&pid);
     return 0;
