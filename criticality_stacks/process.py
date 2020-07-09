@@ -97,7 +97,8 @@ def calculation_single(mtx, single_data):
     for item in threadPointList:
         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
-    ans = calculation_single_inner(threadPointList)
+    return calculation_single_inner(threadPointList)
+
 
 
 
