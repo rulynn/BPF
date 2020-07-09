@@ -91,7 +91,7 @@ def calculation_single(mtx, single_data):
 
 def calculation_single_inner(threadPointList):
 
-    isHold = [False for i in len(tid_list)]
+    isHold = [0 for i in len(tid_list)]
     ans = [0.0 for i in len(tid_list)]
     lastStamp = 0
     maxTid = 0
