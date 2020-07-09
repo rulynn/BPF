@@ -28,7 +28,7 @@ stacks = bpf["stacks"]
 
 sleep(int(time))
 process.main(locks)
-main()
+
 # stack.main(bpf, pid, locks, init_stacks, stacks)
 
 
@@ -40,7 +40,7 @@ def print_stack(bpf, pid, stacks, stack_id):
     for addr in stacks.walk(stack_id):
         print_frame(bpf, pid, addr)
 
-def main():
+def stack_fun():
     print("................... stack start ...................")
     mutex_ids = {}
     next_mutex_id = 1
@@ -62,3 +62,5 @@ def main():
                   (k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
             print_stack(bpf, pid, stacks, k.lock_stack_id)
             print("")
+
+stack_fun()
