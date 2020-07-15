@@ -5,13 +5,12 @@
 # dir
 rm -rf out
 mkdir out
-name=$1
-time=$2
+time=$1
 
-java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
+java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 avrora &
 sleep 1
 
-pid=$(pgrep -f "$name")
+pid=$(pgrep -f "avrora")
 echo "program pid: "  $pid
 
 # jstack
