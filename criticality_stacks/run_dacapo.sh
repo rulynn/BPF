@@ -7,7 +7,7 @@ rm -rf out
 mkdir out
 time=$1
 
-java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 1 avrora &
+java -XX:+PreserveFramePointer -jar ~/dacapo.jar avrora &
 #sleep 1
 
 pid=$(pgrep -f "avrora")
