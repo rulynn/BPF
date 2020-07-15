@@ -5,20 +5,25 @@
 # dir
 rm -rf out
 mkdir out
-time=$1
+name=$1
+time=$2
 
-#java -XX:+ExtendedDTraceProbes -jar ~/dacapo.jar -n 2 avrora &
-java -jar ~/dacapo.jar -n 2 avrora &
+java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
 sleep 1
-pid=$(pgrep -f "avrora")
+
+pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
+
+# jstack
+jstack $pid
+
+output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
+echo "eBPF finish"
 
-#chmod 777 lockstat.py
-#output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
-#./lockstat.py $pid > out_stack.log &
+
 
 
 
