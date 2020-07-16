@@ -201,7 +201,7 @@ def plot():
     plt.legend()
     path = "out/critical.png"
     plt.savefig(path)
-    subplot()
+    subplot(sub_tid, sub_total)
 
 def subplot(sub_tid, sub_total):
 
