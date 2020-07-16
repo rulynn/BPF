@@ -208,6 +208,14 @@ def subplot(sub_tid, sub_total):
     global tid_list
     global ans
 
+    # plot
+    pre = []
+    pre.append(0)
+    pre.append(0)
+    pre.append(0)
+    pre.append(0)
+    pre.append(0)
+
     for i in sub_tid:
         label = "thread " + str(tid_list[i]) + ": " + str(round(ans[i], 0)) + "/" + str(round(sub_total,0)) + "=" + str(round(ans[i]/sub_total,4))
         width = 0.35
