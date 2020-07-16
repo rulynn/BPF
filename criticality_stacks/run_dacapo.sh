@@ -7,7 +7,7 @@ rm -rf out
 mkdir out
 time=$1
 
-# -s large -n 2
+# -s large -n 5
 java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 avrora &
 sleep 1
 
