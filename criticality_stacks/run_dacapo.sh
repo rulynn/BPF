@@ -8,7 +8,7 @@ mkdir out
 time=$1
 
 java -XX:+PreserveFramePointer -jar ~/dacapo.jar -s large avrora &
-sleep 0.5
+sleep 1
 
 pid=$(pgrep -f "avrora")
 echo "program pid: "  $pid
