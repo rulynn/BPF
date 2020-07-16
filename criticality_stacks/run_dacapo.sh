@@ -8,8 +8,7 @@ mkdir out
 time=$1
 
 java -XX:+PreserveFramePointer -jar ~/dacapo.jar -s large avrora &
-
-
+#sleep 1
 pid=$(pgrep -f "avrora")
 echo "program pid: "  $pid
 
@@ -17,7 +16,6 @@ echo "program pid: "  $pid
 jstack $pid > out_stack.log &
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
-sleep 1
 
 chmod 777 locktime.py
 ./locktime.py $pid $time > out.log
