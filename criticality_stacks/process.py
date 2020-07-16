@@ -197,10 +197,6 @@ def plot():
 
 
 
-
-
-
-
 # delete: memory error
 #def calculation_single(mtx, single_data):
 #

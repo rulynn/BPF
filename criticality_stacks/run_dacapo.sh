@@ -9,7 +9,7 @@ time=$1
 
 # -s large -n 5
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar ~/dacapo.jar -n 1 avrora &
-sleep 1
+#sleep 1
 
 pid=$(pgrep -f "avrora")
 echo "program pid: "  $pid
