@@ -201,39 +201,6 @@ def plot():
     plt.legend()
     path = "out/critical.png"
     plt.savefig(path)
-    subplot(sub_tid, sub_total)
-
-def subplot(sub_tid, sub_total):
-
-    global tid_list
-    global ans
-
-    # plot
-    pre = []
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-
-    for i in sub_tid:
-        label = "thread " + str(tid_list[i]) + ": " + str(round(ans[i], 0)) + "/" + str(round(sub_total,0)) + "=" + str(round(ans[i]/sub_total,4))
-        width = 0.35
-
-        now = []
-        now.append(pre[0] + ans[i]/sub_total)
-        now.append(0)
-        now.append(0)
-        now.append(0)
-        now.append(0)
-        plt.bar((1,2,3,4,5), now, width, bottom=pre, label=label)
-
-        pre = now
-
-    plt.ylim(0,1)
-    plt.legend()
-    path = "out/critical-sub.png"
-    plt.savefig(path)
 
 
 # delete: memory error
