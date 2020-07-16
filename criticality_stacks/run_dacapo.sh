@@ -8,7 +8,7 @@ mkdir out
 time=$1
 
 # -s large -n 5
-java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 avrora &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar ~/dacapo.jar -n 5 avrora &
 sleep 1
 
 pid=$(pgrep -f "avrora")
