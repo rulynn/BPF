@@ -2,7 +2,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-def run():
+def run(tid_list, ans, total):
     plot_origin(tid_list, ans, total)
     plot_with_name(tid_list, ans, total)
 
