@@ -85,7 +85,7 @@ def plot_with_name(tid_list, ans, total):
 
     plt.ylim(0,1)
     plt.legend()
-    path = "out/critical-origin.png"
+    path = "out/critical-name.png"
     plt.savefig(path)
 
 def getVMThread():
