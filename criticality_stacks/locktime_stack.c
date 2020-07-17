@@ -6,10 +6,6 @@ struct thread_mutex_key_t {
     int lock_stack_id;
 };
 struct thread_mutex_val_t {
-//    u64 start_time_ns;
-//    u64 wait_time_ns;
-//    u64 lock_time_ns;
-//    u64 enter_count;
     u64 start_time_ns;   // time point
     u64 wait_time_ns;
     u64 spin_time_ns;

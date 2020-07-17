@@ -13,7 +13,7 @@ if len(sys.argv) < 3:
     exit()
 pid = sys.argv[1]
 time = sys.argv[2]
-isStack = True
+isStack = False
 
 # load BPF program
 

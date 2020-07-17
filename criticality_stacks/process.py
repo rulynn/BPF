@@ -30,9 +30,8 @@ def run(locks):
     output_data = preprocessed(locks)
     for k, v in output_data.items():
         calculation_single(k, v)
-
-#     print("ans: ", ans, total)
-    plot(tid_list, ans, total)
+    plot.run(tid_list, ans, total)
+    getVMThread()
 
 def preprocessed(locks):
 
@@ -131,6 +130,15 @@ def countHold(isHold):
         if item == True:
             count = count + 1
     return count
+
+
+def getVMThread():
+    with open('out_stack.log', 'r') as f:
+        jstack = f.readlines()
+    for i in range(0, len(jstack)):
+        if jstack[i][0] == "\"":
+            print(jstack[i])
+
 
 
 # delete: memory error

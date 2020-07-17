@@ -2,7 +2,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-def plot(tid_list, ans, total):
+def run(tid_list, ans, total):
 
     # plot
     pre = []
