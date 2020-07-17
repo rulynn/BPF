@@ -40,3 +40,11 @@ def run(tid_list, ans, total):
     path = "out/critical.png"
     plt.savefig(path)
 
+
+def getVMThread():
+    with open('out_stack.log', 'r') as f:
+        jstack = f.readlines()
+    for i in range(0, len(jstack)):
+        if jstack[i][0] == "\"":
+            x = jstack[i].split("#")
+            print(x[0], x[1])

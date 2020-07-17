@@ -132,14 +132,6 @@ def countHold(isHold):
     return count
 
 
-def getVMThread():
-    with open('out_stack.log', 'r') as f:
-        jstack = f.readlines()
-    for i in range(0, len(jstack)):
-        if jstack[i][0] == "\"":
-            print(jstack[i])
-
-
 
 # delete: memory error
 #def calculation_single(mtx, single_data):
