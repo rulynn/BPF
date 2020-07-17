@@ -69,8 +69,8 @@ def plot_with_name(tid_list, ans, total):
         if VMThread.get(tid_list[i]) == None:
             label = "thread " + str(tid_list[i]);
         else:
-            label = VMThread[tid_list[i]] + str(tid_list[i])
-        label = label + ": " + str(round(ans[i], 0)) + "/" + str(round(total,0)) + "=" + str(round(ans[i]/total,4))
+            label = VMThread[tid_list[i]] + " " + str(tid_list[i])
+        label = label + ": " + str(round(ans[i]/total,4))
         width = 0.35
 
         now = []
