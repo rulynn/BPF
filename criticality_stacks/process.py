@@ -5,6 +5,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
 import itertools
+import plot
 
 TIME_MIN = {}
 tid_list = []
@@ -31,7 +32,7 @@ def run(locks):
         calculation_single(k, v)
 
 #     print("ans: ", ans, total)
-    plot()
+    plot(tid_list, ans, total)
 
 def preprocessed(locks):
 
@@ -65,32 +66,6 @@ def preprocessed(locks):
              TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
     return output_data
-#
-#
-#     for k, v in locks.items():
-#
-#         if k not in tid_list:
-#             tid_list.append(k.tid)
-#
-#         tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
-# #         print("tid: %d" % (k.tid))
-# #         print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" %
-# #             (v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
-#
-#         # save data
-#         if output_data.get(k.mtx) == None:
-#             output_data[k.mtx] = {}
-#         if output_data[k.mtx].get(k.tid) == None:
-#             output_data[k.mtx][k.tid] = []
-#         output_data[k.mtx][k.tid].append(tmp)
-#
-#         # Used to calculate relative time: time - TIME_MIN
-#         if TIME_MIN.get(k.mtx) == None:
-#             TIME_MIN[k.mtx] = 999999999999999
-#         TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
-#
-#     return output_data
-
 
 def calculation_single(mtx, single_data):
 
@@ -115,8 +90,6 @@ def calculation_single(mtx, single_data):
     return calculation_single_inner(threadPointList)
 
 
-
-
 def calculation_single_inner(threadPointList):
 
     global ans
@@ -125,7 +98,6 @@ def calculation_single_inner(threadPointList):
     isHold = []
     lastStamp = 0
     maxTid = 0
-
 
     # TODO: update
     for i in range(0, len(tid_list)):
@@ -159,48 +131,6 @@ def countHold(isHold):
         if item == True:
             count = count + 1
     return count
-
-def plot():
-
-    global tid_list
-    global ans
-    global total
-
-    # plot
-    pre = []
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    pre.append(0)
-    sub_tid = []
-    sub_total = 0
-    for i in range(len(tid_list)):
-        if ans[i] == 0:
-            continue
-
-        if ans[i]/total < 0.2:
-            sub_tid.append(i)
-            sub_total += ans[i]
-
-        print("ans %d ::: total %d ::: ans/total %.2f" % (ans[i], total, ans[i]/total))
-        label = "thread " + str(tid_list[i]) + ": " + str(round(ans[i], 0)) + "/" + str(round(total,0)) + "=" + str(round(ans[i]/total,4))
-        width = 0.35
-
-        now = []
-        now.append(pre[0] + ans[i]/total)
-        now.append(0)
-        now.append(0)
-        now.append(0)
-        now.append(0)
-        plt.bar((1,2,3,4,5), now, width, bottom=pre, label=label)
-
-        pre = now
-
-    plt.ylim(0,1)
-    plt.legend()
-    path = "out/critical.png"
-    plt.savefig(path)
 
 
 # delete: memory error
