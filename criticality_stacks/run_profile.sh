@@ -12,9 +12,6 @@ java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVM
 pid=$(pgrep -f "avrora")
 echo "program pid: "  $pid
 
-# jstack
-jstack $pid > out_stack.log &
-
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 
 cd ../learn/tools
