@@ -20,7 +20,7 @@ output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 
 echo "start profile"
 cd ../learn/tools
-output=`profile.py -adf -p $pid $time > out.profile`
+output=`./profile.py -adf -p $pid $time > out.profile`
 
 echo "start flamegraph"
 output=`~/FlameGraph/flamegraph.pl < out.profile > out.svg`
