@@ -4,9 +4,9 @@
 rm -rf out
 mkdir out
 time=$1
-
+name="avrora"
 # -s large -n 5
-java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 avrora &
+java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
 
 pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
