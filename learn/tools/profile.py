@@ -138,7 +138,6 @@ bpf_text = """
 #include <uapi/linux/ptrace.h>
 #include <uapi/linux/bpf_perf_event.h>
 #include <linux/sched.h>
-
 struct key_t {
     u32 pid;
     u64 kernel_ip;
@@ -149,37 +148,28 @@ struct key_t {
 };
 BPF_HASH(counts, struct key_t);
 BPF_STACK_TRACE(stack_traces, STACK_STORAGE_SIZE);
-
 // This code gets a bit complex. Probably not suitable for casual hacking.
-
 int do_perf_event(struct bpf_perf_event_data *ctx) {
     u64 id = bpf_get_current_pid_tgid();
     u32 tgid = id >> 32;
     u32 pid = id;
-
     if (IDLE_FILTER)
         return 0;
-
     if (!(THREAD_FILTER))
         return 0;
-
     if (container_should_be_filtered()) {
         return 0;
     }
-
     // create map key
     struct key_t key = {.pid = tgid};
     bpf_get_current_comm(&key.name, sizeof(key.name));
-
     // get stacks
     key.user_stack_id = USER_STACK_GET;
     key.kernel_stack_id = KERNEL_STACK_GET;
-
     if (key.kernel_stack_id >= 0) {
         // populate extras to fix the kernel stack
         u64 ip = PT_REGS_IP(&ctx->regs);
         u64 page_offset;
-
         // if ip isn't sane, leave key ips as zero for later checking
 #if defined(CONFIG_X86_64) && defined(__PAGE_OFFSET_BASE)
         // x64, 4.16, ..., 4.11, etc., but some earlier kernel didn't have it
@@ -196,12 +186,10 @@ int do_perf_event(struct bpf_perf_event_data *ctx) {
         // arm64, s390, powerpc, x86_32
         page_offset = PAGE_OFFSET;
 #endif
-
         if (ip > page_offset) {
             key.kernel_ip = ip;
         }
     }
-
     counts.increment(key);
     return 0;
 }
@@ -305,17 +293,18 @@ def aksym(addr):
 
 # output stacks
 missing_stacks = 0
-has_enomem = False
+has_collision = False
 counts = b.get_table("counts")
 stack_traces = b.get_table("stack_traces")
 for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
     # handle get_stackid errors
     if not args.user_stacks_only and stack_id_err(k.kernel_stack_id):
         missing_stacks += 1
-        has_enomem = has_enomem or k.kernel_stack_id == -errno.ENOMEM
+        # hash collision (-EEXIST) suggests that the map size may be too small
+        has_collision = has_collision or k.kernel_stack_id == -errno.EEXIST
     if not args.kernel_stacks_only and stack_id_err(k.user_stack_id):
         missing_stacks += 1
-        has_enomem = has_enomem or k.user_stack_id == -errno.ENOMEM
+        has_collision = has_collision or k.user_stack_id == -errno.EEXIST
 
     user_stack = [] if k.user_stack_id < 0 else \
         stack_traces.walk(k.user_stack_id)
@@ -371,7 +360,7 @@ for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
 
 # check missing
 if missing_stacks > 0:
-    enomem_str = "" if not has_enomem else \
+    enomem_str = "" if not has_collision else \
         " Consider increasing --stack-storage-size."
     print("WARNING: %d stack traces could not be displayed.%s" %
         (missing_stacks, enomem_str),
