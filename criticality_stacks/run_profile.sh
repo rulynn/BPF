@@ -13,4 +13,4 @@ echo "program pid: "  $pid
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 output=`~/bcc/tools/profile.py -adf -p $pid $time > out/out.profile`
-output=`~/FlameGraph/flamegraph.pl < out.profile > out/out.svg`
+output=`~/FlameGraph/flamegraph.pl < out/out.profile > out/out.svg`
