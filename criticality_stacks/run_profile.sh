@@ -8,7 +8,7 @@ name="SingleFun"
 
 cd ../java
 javac $name.java
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
+java -XX:+PreserveFramePointer $name &
 
 pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
