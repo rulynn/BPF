@@ -6,7 +6,7 @@ mkdir out
 time=$1
 name="avrora"
 
-java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 $name &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar ~/dacapo.jar -n 3 $name &
 
 pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
