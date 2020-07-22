@@ -5,11 +5,8 @@ rm -rf out
 mkdir out
 time=$1
 
-name="SingleFun"
-
-echo "start running program..."
-cd ../java
-java -XX:+ExtendedDTraceProbes $name &
+# -s large -n 5
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -Xmx128M -jar ~/dacapo.jar -n 2 avrora &
 
 pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
