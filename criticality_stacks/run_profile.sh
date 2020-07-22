@@ -5,15 +5,22 @@ rm -rf out
 mkdir out
 time=$1
 
-# -s large -n 5
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -Xmx128M -jar ~/dacapo.jar -n 2 avrora &
-#sleep 1
+name="SingleFun"
 
-pid=$(pgrep -f "avrora")
+echo "start running program..."
+cd ../java
+java -XX:+ExtendedDTraceProbes $name &
+
+echo "start get pid..."
+pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
+echo "start perf map"
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid`
 
+echo "start profile"
 cd ../learn/tools
 output=`profile.py -adf -p $pid $time > out.profile`
+
+echo "start flamegraph"
 output=`~/FlameGraph/flamegraph.pl < out.profile > out.svg`
