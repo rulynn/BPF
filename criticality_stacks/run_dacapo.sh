@@ -18,10 +18,14 @@ echo "program pid: "  $pid
 jstack $pid > out_stack.log &
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
-
 chmod 777 locktime.py
-./locktime.py $pid $time > out.log
-echo "eBPF finish"
+./locktime.py $pid $time > out.log &
+
+# flamegraph
+output=`perf record -F 99 -p $pid -g -- sleep $time`
+perf script -i perf.data &> perf.unfold
+~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
+~/FlameGraph/flamegraph.pl perf.folded > perf.svg
 
 
 
