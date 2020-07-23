@@ -16,7 +16,7 @@ echo "program pid: "  $pid
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 
-output=`perf record -F 99 -p $time -g -- sleep $time`
+output=`perf record -F 99 -p $pid -g -- sleep $time`
 
 perf script -i perf.data &> perf.unfold
 ~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
