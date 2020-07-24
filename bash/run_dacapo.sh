@@ -6,6 +6,7 @@ time=$1
 name="avrora"
 out_path="../out"
 file_path="../criticality_stacks"
+bash_path="../bash"
 
 # out path
 rm -rf $out_path
@@ -28,7 +29,7 @@ chmod 777 $file_path/locktime.py
 $file_path/locktime.py $pid $time > out.log &
 
 #flamegraph
-sh run_flamegraph.sh $time $pid
+sh $bash_path/run_flamegraph.sh $time $pid
 
 
 
