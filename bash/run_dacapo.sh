@@ -26,12 +26,8 @@ output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedcl
 chmod 777 $file_path/locktime.py
 $file_path/locktime.py $pid $time > $out_path/out.log &
 
-# flamegraph
-output=`perf record -F 99 -p $pid -g -- sleep $time > $out_path/perf.data`
-perf script -i $out_path/perf.data &> $out_path/perf.unfold
-~/FlameGraph/stackcollapse-perf.pl $out_path/perf.unfold &> $out_path/perf.folded
-~/FlameGraph/flamegraph.pl $out_path/perf.folded > $out_path/perf.svg
-
+#flamegraph
+sh run_flamegraph.sh $time $pid
 
 
 
