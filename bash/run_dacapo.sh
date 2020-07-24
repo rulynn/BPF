@@ -8,8 +8,8 @@ out_path="../out"
 file_path="../criticality_stacks"
 
 # out path
-rm -rf out_path
-mkdir out_path
+rm -rf $out_path
+mkdir $out_path
 
 # -s large -n 5 -Xmx1024m
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &

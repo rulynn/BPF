@@ -7,7 +7,7 @@ time=$1
 pid=$2
 
 # flamegraph
-cd out_path
+cd $out_path
 output=`perf record -F 99 -p $pid -g -- sleep $time`
 perf script -i perf.data &> perf.unfold
 ~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
