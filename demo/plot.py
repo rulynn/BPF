@@ -122,7 +122,7 @@ def plot_sub(tid_list, ans, total):
 
 def getVMThread():
     VMThread = {}
-    with open('out_stack.log', 'r') as f:
+    with open('out/out_stack.log', 'r') as f:
         jstack = f.readlines()
     for i in range(0, len(jstack)):
         if jstack[i][0] == "\"":
