@@ -7,6 +7,8 @@ rm -rf out
 mkdir out
 time=$1
 name="avrora"
+out_path="../out"
+file_path="../criticality_stacks"
 
 # -s large -n 5 -Xmx1024m
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
@@ -16,18 +18,17 @@ pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
 # jstack
-jstack $pid > out_stack.log &
+jstack $pid > $out_path/out_stack.log &
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
-chmod 777 locktime.py
-./locktime.py $pid $time > out.log &
+chmod 777 $file_path/locktime.py
+$file_path/locktime.py $pid $time > $out_path/out.log &
 
 # flamegraph
-cd out
-output=`perf record -F 99 -p $pid -g -- sleep $time`
-perf script -i perf.data &> perf.unfold
-~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
-~/FlameGraph/flamegraph.pl perf.folded > perf.svg
+output=`perf record -F 99 -p $pid -g -- sleep $time > $out_path/perf.data`
+perf script -i $out_path/perf.data &> $out_path/perf.unfold
+~/FlameGraph/stackcollapse-perf.pl $out_path/perf.unfold &> $out_path/perf.folded
+~/FlameGraph/flamegraph.pl $out_path/perf.folded > $out_path/perf.svg
 
 
 
