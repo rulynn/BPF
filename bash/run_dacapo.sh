@@ -6,20 +6,21 @@
 rm -rf out
 mkdir out
 time=$1
+name="avrora"
 
 # -s large -n 5 -Xmx1024m
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 avrora &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
 sleep 1
 
-pid=$(pgrep -f "avrora")
+pid=$(pgrep -f "$name")
 echo "program pid: "  $pid
 
 # jstack
-jstack $pid > out/out_stack.log &
+jstack $pid > out_stack.log &
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 chmod 777 locktime.py
-./locktime.py $pid $time > out/out.log &
+./locktime.py $pid $time > out.log &
 
 # flamegraph
 cd out
