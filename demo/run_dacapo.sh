@@ -16,6 +16,7 @@ echo "program pid: "  $pid
 
 # jstack
 jstack $pid > out/out_stack.log &
+sleep 1
 
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 chmod 777 locktime.py
