@@ -18,7 +18,7 @@ java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 
 sleep 1
 
 pid=$(pgrep -f "$name")
-echo "program pid: "  $pid
+echo "program pid: "  $pid " ::: time: " $time
 
 # jstack
 output=`jstack $pid > out_stack.log`
@@ -30,6 +30,7 @@ $file_path/locktime.py $pid $time > out.log &
 
 #flamegraph
 output=`perf record -F 99 -p $pid -g -- sleep $time`
+
 perf script -i perf.data &> perf.unfold
 ~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
 ~/FlameGraph/flamegraph.pl perf.folded > perf.svg
