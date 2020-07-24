@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# sh run_dacapo.sh 5
+# sh run_dacapo.sh 30
 
-# dir
-rm -rf out
-mkdir out
 time=$1
 name="avrora"
 out_path="../out"
 file_path="../criticality_stacks"
+
+# out path
+rm -rf out_path
+mkdir out_path
 
 # -s large -n 5 -Xmx1024m
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
