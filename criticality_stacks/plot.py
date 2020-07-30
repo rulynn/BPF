@@ -168,7 +168,7 @@ def getVMThread():
                 nid += jstack[i][j]
             nid_int = int(nid.upper(), 16)
             VMThread[nid_int] = x[1]
-            print(x[1], nid_int)
+            #print(x[1], nid_int)
     return VMThread
 
 

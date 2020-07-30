@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources/burn" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/resources/d3-flame-graph" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test/D3_demo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test/d3-flame-graphs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/test/python-flamegraph" vcs="Git" />
   </component>
 </project>

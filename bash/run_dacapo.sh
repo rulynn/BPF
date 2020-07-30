@@ -29,11 +29,11 @@ chmod 777 $file_path/locktime.py
 $file_path/locktime.py $pid $time > out.log &
 
 #flamegraph
-output=`perf record -F 99 -p $pid -g -- sleep $time`
-
-perf script -i perf.data &> perf.unfold
-~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
-~/FlameGraph/flamegraph.pl perf.folded > perf.svg
+#output=`perf record -F 99 -p $pid -g -- sleep $time`
+#
+#perf script -i perf.data &> perf.unfold
+#~/FlameGraph/stackcollapse-perf.pl perf.unfold &> perf.folded
+#~/FlameGraph/flamegraph.pl perf.folded > perf.svg
 
 
 

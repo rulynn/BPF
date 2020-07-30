@@ -1,8 +1,8 @@
-import Chart from "../../chart.js";
+import Chart from "./chart.js";
 
-d3.csv('./data.csv', function(d){
+d3.csv('data.csv', function(d){
     return {
-        date: d.date,
+        date: +d.date,
         food: +d.food,
         transportation: +d.transportation,
         education: +d.education
@@ -15,9 +15,9 @@ d3.csv('./data.csv', function(d){
         barPadding: 0.15,
         margins: {top: 80, left: 80, bottom: 50, right: 80},
         textColor: 'black',
-        gridColor: 'gray',
+        //gridColor: 'gray',
         tickShowGrid: [60, 120, 180],
-        title: '堆叠直方图',
+        //title: '堆叠直方图',
         hoverColor: 'white',
         animateDuration: 1000
     }
@@ -214,8 +214,8 @@ d3.csv('./data.csv', function(d){
     }
 
     chart.renderChart();
-    
-        
+
+
 });
 
 

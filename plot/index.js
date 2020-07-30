@@ -1,6 +1,7 @@
 import Chart from "./chart.js";
+import FlameGraph from "./flamegraph.js";
 
-d3.csv('../../out/data.csv', function(d){
+d3.csv('../out/data.csv', function(d){
     return {
         name: d.name,
         sum: +d.sum,
@@ -172,12 +173,25 @@ d3.csv('../../out/data.csv', function(d){
                 d3.select('.tip').remove();
             })
             .on('mousemove', debounce(function(){
-                    const position = d3.mouse(chart.svg().node());
-                    d3.select('.tip')
-                        .attr('x', position[0]+5)
-                        .attr('y', position[1]-5);
-                }, 6)
-            );
+                const position = d3.mouse(chart.svg().node());
+                d3.select('.tip')
+                    .attr('x', position[0]+5)
+                    .attr('y', position[1]-5);
+            }, 6))
+            .on('click', function (d) {
+                const e = d3.event;
+                const position = d3.mouse(chart.svg().node());
+
+                d3.select(e.target)
+                    .attr('fill', 'blue');
+
+                // FlameGraph
+                const flamegraph = new FlameGraph();
+                flamegraph.f(position);
+            });
+
+
+
     }
 
     chart.render = function(){
@@ -199,10 +213,6 @@ d3.csv('../../out/data.csv', function(d){
 
 
 });
-
-
-
-
 
 
 

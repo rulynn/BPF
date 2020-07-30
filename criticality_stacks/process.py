@@ -41,15 +41,15 @@ def preprocessed(locks):
     sorted_by_thread = sorted(locks.items(), key=grouper)
     locks_by_thread = itertools.groupby(sorted_by_thread, grouper)
     for tid, items in locks_by_thread:
-        print("thread %d" % tid)
+        #print("thread %d" % tid)
         for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
 
              if k not in tid_list:
                 tid_list.append(k.tid)
 
              tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
-             print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: spin %.2fus ::: hold %.2fus ::: enter count %d" %
-                (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+             #print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: spin %.2fus ::: hold %.2fus ::: enter count %d" %
+             #   (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
              # save data
              if output_data.get(k.mtx) == None:

@@ -34,3 +34,4 @@ if isStack == True:
     init_stacks = bpf["init_stacks"]
     stacks = bpf["stacks"]
     stack.run(bpf, int(pid), locks, init_stacks, stacks)
+    stacks.test_stack(bpf)
