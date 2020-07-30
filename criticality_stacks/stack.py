@@ -47,7 +47,12 @@ def test_stack(bpf):
 
         user_stack = list(user_stack)
         kernel_stack = list(kernel_stack)
-        print(user_stack)
+        line = [k.name]
+        # if we failed to get the stack is, such as due to no space (-ENOMEM) or
+        # hash collision (-EEXIST), we still print a placeholder for consistency
+        line.extend([b.sym(addr, k.pid) for addr in reversed(user_stack)])
+        line.extend([aksym(addr) for addr in reversed(kernel_stack)])
+        print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 #         line = [k.name]
 #         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
 #         # hash collision (-EEXIST), we still print a placeholder for consistency
