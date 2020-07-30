@@ -75,7 +75,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     struct key_t key = {.pid = tgid};
     bpf_get_current_comm(&key.name, sizeof(key.name));
     // get stacks
-    key.user_stack_id = stack_traces.get_stackid(ctx, BPF_F_USER_STACK);
+    key.user_stack_id = stack_traces.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
     key.kernel_stack_id = stack_traces.get_stackid(ctx, 0);
     counts.increment(key);
 
