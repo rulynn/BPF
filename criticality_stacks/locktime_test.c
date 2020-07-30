@@ -33,7 +33,7 @@ struct key_t {
     char name[TASK_COMM_LEN];
 };
 BPF_HASH(counts, struct key_t);
-BPF_STACK_TRACE(stack_traces, STACK_STORAGE_SIZE);
+BPF_STACK_TRACE(stack_traces, 4096);
 // Mutex to the stack id which initialized that mutex
 BPF_HASH(init_stacks, u64, int);
 // Main info database about mutex and thread pairs
