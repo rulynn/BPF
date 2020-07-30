@@ -31,41 +31,23 @@ def run(bpf, pid, locks, init_stacks, stacks):
             print("")
 
 
-# def test_stack(bpf):
-#
-#     # output stacks
-#     missing_stacks = 0
-#     has_collision = False
-#     counts = bpf.get_table("counts")
-#     stack_traces = bpf.get_table("stack_traces")
-#
-#     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
-#         # handle get_stackid errors
-#         if not args.user_stacks_only and stack_id_err(k.kernel_stack_id):
-#             missing_stacks += 1
-#             # hash collision (-EEXIST) suggests that the map size may be too small
-#             has_collision = has_collision or k.kernel_stack_id == -errno.EEXIST
-#         if not args.kernel_stacks_only and stack_id_err(k.user_stack_id):
-#             missing_stacks += 1
-#             has_collision = has_collision or k.user_stack_id == -errno.EEXIST
-#
-#         user_stack = [] if k.user_stack_id < 0 else \
-#             stack_traces.walk(k.user_stack_id)
-#         kernel_tmp = [] if k.kernel_stack_id < 0 else \
-#             stack_traces.walk(k.kernel_stack_id)
-#
-# #         # fix kernel stack
-# #         kernel_stack = []
-# #         if k.kernel_stack_id >= 0:
-# #             for addr in kernel_tmp:
-# #                 kernel_stack.append(addr)
-# #             # the later IP checking
-# #             if k.kernel_ip:
-# #                 kernel_stack.insert(0, k.kernel_ip)
-#         #if args.folded:
-#         # print folded stack output
-#         user_stack = list(user_stack)
-#         kernel_stack = list(kernel_stack)
+def test_stack(bpf):
+
+    # output stacks
+    missing_stacks = 0
+    has_collision = False
+    counts = bpf.get_table("counts")
+    stack_traces = bpf.get_table("stack_traces")
+
+    for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
+        user_stack = [] if k.user_stack_id < 0 else \
+            stack_traces.walk(k.user_stack_id)
+        kernel_tmp = [] if k.kernel_stack_id < 0 else \
+            stack_traces.walk(k.kernel_stack_id)
+
+        user_stack = list(user_stack)
+        kernel_stack = list(kernel_stack)
+        print(user_stack)
 #         line = [k.name]
 #         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
 #         # hash collision (-EEXIST), we still print a placeholder for consistency
@@ -81,28 +63,3 @@ def run(bpf, pid, locks, init_stacks, stacks):
 #             else:
 #                 line.extend([aksym(addr) for addr in reversed(kernel_stack)])
 #         print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
-# #         else:
-# #             # print default multi-line stack output
-# #             if not args.user_stacks_only:
-# #                 if stack_id_err(k.kernel_stack_id):
-# #                     print("    [Missed Kernel Stack]")
-# #                 else:
-# #                     for addr in kernel_stack:
-# #                         print("    %s" % aksym(addr))
-# #             if not args.kernel_stacks_only:
-# #                 if need_delimiter and k.user_stack_id >= 0 and k.kernel_stack_id >= 0:
-# #                     print("    --")
-# #                 if stack_id_err(k.user_stack_id):
-# #                     print("    [Missed User Stack]")
-# #                 else:
-# #                     for addr in user_stack:
-# #                         print("    %s" % b.sym(addr, k.pid).decode('utf-8', 'replace'))
-# #             print("    %-16s %s (%d)" % ("-", k.name.decode('utf-8', 'replace'), k.pid))
-# #             print("        %d\n" % v.value)
-#
-#     # check missing
-#     if missing_stacks > 0:
-#         enomem_str = "" if not has_collision else \
-#             " Consider increasing --stack-storage-size."
-#         print("WARNING: %d stack traces could not be displayed.%s" %
-#             (missing_stacks, enomem_str),
