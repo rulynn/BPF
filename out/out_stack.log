@@ -1,38 +1,17 @@
-2020-07-24 08:05:54
+2020-07-30 18:01:35
 Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 
-"Attach Listener" #15 daemon prio=9 os_prio=0 tid=0x00007fe4e8001800 nid=0x6616 waiting on condition [0x0000000000000000]
+"Attach Listener" #15 daemon prio=9 os_prio=0 tid=0x00007efd10002800 nid=0x71da waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"node-0" #9 prio=5 os_prio=0 tid=0x00007fe5103a0800 nid=0x6609 in Object.wait() [0x00007fe4fe5da000]
-   java.lang.Thread.State: BLOCKED (on object monitor)
-	at java.lang.Object.wait(Native Method)
-	at java.lang.Object.wait(Object.java:502)
-	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
-	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
-	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
-	- locked <0x00000000c676dca0> (a avrora.sim.clock.RippleSynchronizer)
-	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
-	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
-	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
-	at avrora.sim.radio.Medium$Receiver$Ticker.fire(Medium.java:317)
-	at avrora.sim.clock.DeltaQueue$Link.fire(DeltaQueue.java:124)
-	at avrora.sim.clock.DeltaQueue.skipAhead(DeltaQueue.java:268)
-	at avrora.sim.clock.MainClock.skipAhead(MainClock.java:118)
-	at avrora.arch.legacy.LegacyInterpreter.sleepLoop(LegacyInterpreter.java:246)
-	at avrora.arch.legacy.LegacyInterpreter.runLoop(LegacyInterpreter.java:111)
-	at avrora.sim.AtmelInterpreter.start(AtmelInterpreter.java:382)
-	at avrora.sim.Simulator.start(Simulator.java:523)
-	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
-
-"node-3" #12 prio=5 os_prio=0 tid=0x00007fe51039f000 nid=0x6608 in Object.wait() [0x00007fe4fe6db000]
+"node-0" #9 prio=5 os_prio=0 tid=0x00007efd383a1000 nid=0x71cc in Object.wait() [0x00007efd1549e000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	at java.lang.Object.wait(Object.java:502)
 	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
 	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
 	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
-	- locked <0x00000000c676dca0> (a avrora.sim.clock.RippleSynchronizer)
+	- locked <0x00000000c676db88> (a avrora.sim.clock.RippleSynchronizer)
 	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
 	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
 	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
@@ -46,14 +25,14 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at avrora.sim.Simulator.start(Simulator.java:523)
 	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
 
-"node-2" #11 prio=5 os_prio=0 tid=0x00007fe51039d000 nid=0x6607 in Object.wait() [0x00007fe4fe7dc000]
+"node-3" #12 prio=5 os_prio=0 tid=0x00007efd3839f000 nid=0x71cb in Object.wait() [0x00007efd1559f000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	at java.lang.Object.wait(Object.java:502)
 	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
 	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
 	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
-	- locked <0x00000000c676dca0> (a avrora.sim.clock.RippleSynchronizer)
+	- locked <0x00000000c676db88> (a avrora.sim.clock.RippleSynchronizer)
 	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
 	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
 	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
@@ -67,14 +46,14 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at avrora.sim.Simulator.start(Simulator.java:523)
 	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
 
-"node-1" #10 prio=5 os_prio=0 tid=0x00007fe5103c1000 nid=0x6606 in Object.wait() [0x00007fe4fe8dd000]
+"node-2" #11 prio=5 os_prio=0 tid=0x00007efd3839d800 nid=0x71ca in Object.wait() [0x00007efd156a0000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	at java.lang.Object.wait(Object.java:502)
 	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
 	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
 	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
-	- locked <0x00000000c676dca0> (a avrora.sim.clock.RippleSynchronizer)
+	- locked <0x00000000c676db88> (a avrora.sim.clock.RippleSynchronizer)
 	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
 	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
 	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
@@ -88,14 +67,14 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at avrora.sim.Simulator.start(Simulator.java:523)
 	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
 
-"node-5" #14 prio=5 os_prio=0 tid=0x00007fe5103bf800 nid=0x6605 in Object.wait() [0x00007fe4fe9de000]
+"node-1" #10 prio=5 os_prio=0 tid=0x00007efd383b7800 nid=0x71c9 in Object.wait() [0x00007efd157a1000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	at java.lang.Object.wait(Object.java:502)
 	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
 	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
 	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
-	- locked <0x00000000c676dca0> (a avrora.sim.clock.RippleSynchronizer)
+	- locked <0x00000000c676db88> (a avrora.sim.clock.RippleSynchronizer)
 	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
 	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
 	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
@@ -109,14 +88,14 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at avrora.sim.Simulator.start(Simulator.java:523)
 	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
 
-"node-4" #13 prio=5 os_prio=0 tid=0x00007fe5103be000 nid=0x6604 in Object.wait() [0x00007fe4feadf000]
+"node-5" #14 prio=5 os_prio=0 tid=0x00007efd383b5800 nid=0x71c8 in Object.wait() [0x00007efd158a2000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	at java.lang.Object.wait(Object.java:502)
 	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
 	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
 	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
-	- locked <0x00000000c676dca0> (a avrora.sim.clock.RippleSynchronizer)
+	- locked <0x00000000c676db88> (a avrora.sim.clock.RippleSynchronizer)
 	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
 	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
 	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
@@ -130,19 +109,40 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at avrora.sim.Simulator.start(Simulator.java:523)
 	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
 
-"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007fe51013d800 nid=0x6600 runnable [0x0000000000000000]
+"node-4" #13 prio=5 os_prio=0 tid=0x00007efd383b4800 nid=0x71c7 in Object.wait() [0x00007efd281e7000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+	at avrora.sim.clock.RippleSynchronizer.waitForLink(RippleSynchronizer.java:181)
+	at avrora.sim.clock.RippleSynchronizer.waitFor(RippleSynchronizer.java:156)
+	at avrora.sim.clock.RippleSynchronizer.waitForNeighbors(RippleSynchronizer.java:315)
+	- locked <0x00000000c676db88> (a avrora.sim.clock.RippleSynchronizer)
+	at avrora.sim.radio.Medium$Receiver.waitForNeighbors(Medium.java:537)
+	at avrora.sim.radio.Medium$Receiver.access$000(Medium.java:260)
+	at avrora.sim.radio.Medium$Receiver$Ticker.fireUnlocked(Medium.java:331)
+	at avrora.sim.radio.Medium$Receiver$Ticker.fire(Medium.java:317)
+	at avrora.sim.clock.DeltaQueue$Link.fire(DeltaQueue.java:124)
+	at avrora.sim.clock.DeltaQueue.skipAhead(DeltaQueue.java:268)
+	at avrora.sim.clock.MainClock.skipAhead(MainClock.java:118)
+	at avrora.arch.legacy.LegacyInterpreter.sleepLoop(LegacyInterpreter.java:246)
+	at avrora.arch.legacy.LegacyInterpreter.runLoop(LegacyInterpreter.java:111)
+	at avrora.sim.AtmelInterpreter.start(AtmelInterpreter.java:382)
+	at avrora.sim.Simulator.start(Simulator.java:523)
+	at avrora.sim.SimulatorThread.run(SimulatorThread.java:99)
+
+"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007efd3813f800 nid=0x71c5 runnable [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"C1 CompilerThread1" #6 daemon prio=9 os_prio=0 tid=0x00007fe51013a800 nid=0x65ff waiting on condition [0x0000000000000000]
+"C1 CompilerThread1" #6 daemon prio=9 os_prio=0 tid=0x00007efd3813c800 nid=0x71c4 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007fe510138800 nid=0x65fe waiting on condition [0x0000000000000000]
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007efd38130800 nid=0x71c3 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Signal Dispatcher" #4 daemon prio=9 os_prio=0 tid=0x00007fe51012c000 nid=0x65fd runnable [0x0000000000000000]
+"Signal Dispatcher" #4 daemon prio=9 os_prio=0 tid=0x00007efd3812e800 nid=0x71c2 runnable [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Finalizer" #3 daemon prio=8 os_prio=0 tid=0x00007fe510101000 nid=0x65fc in Object.wait() [0x00007fe4ff511000]
+"Finalizer" #3 daemon prio=8 os_prio=0 tid=0x00007efd38101000 nid=0x71c1 in Object.wait() [0x00007efd3c2e3000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000d9958008> (a java.lang.ref.ReferenceQueue$Lock)
@@ -151,7 +151,7 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
 	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:216)
 
-"Reference Handler" #2 daemon prio=10 os_prio=0 tid=0x00007fe5100fc800 nid=0x65fb in Object.wait() [0x00007fe4ff612000]
+"Reference Handler" #2 daemon prio=10 os_prio=0 tid=0x00007efd380fc800 nid=0x71c0 in Object.wait() [0x00007efd3c3e4000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000d9956598> (a java.lang.ref.Reference$Lock)
@@ -160,16 +160,16 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	- locked <0x00000000d9956598> (a java.lang.ref.Reference$Lock)
 	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
 
-"main" #1 prio=5 os_prio=0 tid=0x00007fe51004b800 nid=0x65f9 in Object.wait() [0x00007fe5169a8000]
+"main" #1 prio=5 os_prio=0 tid=0x00007efd3804b800 nid=0x71be in Object.wait() [0x00007efd3ff0f000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
-	- waiting on <0x00000000c6d3f230> (a avrora.sim.SimulatorThread)
+	- waiting on <0x00000000c6d3eec8> (a avrora.sim.SimulatorThread)
 	at java.lang.Thread.join(Thread.java:1252)
-	- locked <0x00000000c6d3f230> (a avrora.sim.SimulatorThread)
+	- locked <0x00000000c6d3eec8> (a avrora.sim.SimulatorThread)
 	at java.lang.Thread.join(Thread.java:1326)
 	at avrora.sim.clock.RippleSynchronizer.join(RippleSynchronizer.java:225)
 	at avrora.sim.Simulation.join(Simulation.java:506)
-	- locked <0x00000000c66f9130> (a avrora.sim.types.SensorSimulation)
+	- locked <0x00000000c66f9018> (a avrora.sim.types.SensorSimulation)
 	at avrora.actions.SimAction.run(SimAction.java:97)
 	at avrora.Main.runAction(Main.java:140)
 	at avrora.Main.main(Main.java:120)
@@ -187,9 +187,9 @@ Full thread dump OpenJDK 64-Bit Server VM (25.252-b09 mixed mode):
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at Harness.main(Unknown Source)
 
-"VM Thread" os_prio=0 tid=0x00007fe5100f2800 nid=0x65fa runnable 
+"VM Thread" os_prio=0 tid=0x00007efd380f2800 nid=0x71bf runnable 
 
-"VM Periodic Task Thread" os_prio=0 tid=0x00007fe510140800 nid=0x6601 waiting on condition 
+"VM Periodic Task Thread" os_prio=0 tid=0x00007efd38142800 nid=0x71c6 waiting on condition 
 
 JNI global references: 5
 

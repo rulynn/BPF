@@ -172,7 +172,7 @@ def getVMThread():
     return VMThread
 
 
-tid_list = [12324, 14545, 26135, 26134]
-ans = [10, 20, 30, 40]
-total = 100
-outputCSV(tid_list, ans, total)
+# tid_list = [12324, 14545, 26135, 26134]
+# ans = [10, 20, 30, 40]
+# total = 100
+# outputCSV(tid_list, ans, total)
