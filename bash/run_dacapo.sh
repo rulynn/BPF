@@ -24,10 +24,11 @@ echo "program pid: "  $pid " ::: time: " $time
 output=`jstack $pid > out_stack.log`
 # perf map
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
+#burn
+curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn &
 # eBPF
 chmod 777 $file_path/locktime.py
 output=`$file_path/locktime.py $pid $time > out.log`
-output='curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn'
 chmod 777 burn
 ./burn convert out.log
 
