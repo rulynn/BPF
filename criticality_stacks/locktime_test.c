@@ -75,8 +75,8 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     struct key_t key = {.pid = tgid};
     bpf_get_current_comm(&key.name, sizeof(key.name));
     // get stacks
-    key.user_stack_id = USER_STACK_GET;
-    key.kernel_stack_id = KERNEL_STACK_GET;
+    key.user_stack_id = stack_traces.get_stackid(&ctx->regs, BPF_F_USER_STACK);
+    key.kernel_stack_id = stack_traces.get_stackid(&ctx->regs, 0);
     counts.increment(key);
 
     // If pthread_mutex_lock() returned 0, we have the lock
