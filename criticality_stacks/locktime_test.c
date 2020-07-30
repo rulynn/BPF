@@ -69,7 +69,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     if (entry == 0)
         return 0;   // Missed the entry
     u64 spin_time = now - entry->timestamp;
-    //int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
+    int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
 
     // create map key
     struct key_t key = {.pid = tgid};
