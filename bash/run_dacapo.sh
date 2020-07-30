@@ -26,7 +26,13 @@ output=`jstack $pid > out_stack.log`
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 $file_path/locktime.py
-$file_path/locktime.py $pid $time > out.log &
+output=`$file_path/locktime.py $pid $time > out.log`
+output='curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn'
+chmod 777 burn
+./burn out.log
+
+
+
 
 #flamegraph
 #output=`perf record -F 99 -p $pid -g -- sleep $time`
