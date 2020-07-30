@@ -42,7 +42,7 @@ def test_stack(bpf):
     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
         user_stack = [] if k.user_stack_id < 0 else \
             stack_traces.walk(k.user_stack_id)
-        kernel_tmp = [] if k.kernel_stack_id < 0 else \
+        kernel_stack = [] if k.kernel_stack_id < 0 else \
             stack_traces.walk(k.kernel_stack_id)
 
         user_stack = list(user_stack)
