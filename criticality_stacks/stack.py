@@ -51,6 +51,6 @@ def test_stack(bpf):
         #print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 
         for addr in user_stack:
-            print("    %s" % b.sym(addr, k.pid).decode('utf-8', 'replace'))
+            print("    %s" % bpf.sym(addr, k.pid).decode('utf-8', 'replace'))
         print("    %-16s %s (%d)" % ("-", k.name.decode('utf-8', 'replace'), k.pid))
         print("        %d\n" % v.value)
