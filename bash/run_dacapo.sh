@@ -29,7 +29,9 @@ chmod 777 $file_path/locktime.py
 output=`$file_path/locktime.py $pid $time > out.log`
 output='curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn'
 chmod 777 burn
-./burn out.log
+./burn convert --folded out.log
+./burn convert --folded out.log
+burn convert
 
 
 
