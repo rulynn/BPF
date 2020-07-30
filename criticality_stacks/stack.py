@@ -42,16 +42,12 @@ def test_stack(bpf):
     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
         user_stack = [] if k.user_stack_id < 0 else \
             stack_traces.walk(k.user_stack_id)
-        kernel_stack = [] if k.kernel_stack_id < 0 else \
-            stack_traces.walk(k.kernel_stack_id)
 
         user_stack = list(user_stack)
-        kernel_stack = list(kernel_stack)
         line = [k.name]
         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
         # hash collision (-EEXIST), we still print a placeholder for consistency
-        line.extend([b.sym(addr, k.pid) for addr in reversed(user_stack)])
-        line.extend([aksym(addr) for addr in reversed(kernel_stack)])
+        line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
         print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 #         line = [k.name]
 #         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
