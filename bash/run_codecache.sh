@@ -26,7 +26,7 @@ end_seconds=$(date --date="$endtime" +%s);
 end_timeStamp=$((end_seconds*1000+`date "+%N"`/1000000))
 echo "end time: "$end_timeStamp
 
-echo "runtime: "$((start_timeStamp-end_timeStamp))
+echo "runtime: "$((end_timeStamp-start_timeStamp))
 
 
 
