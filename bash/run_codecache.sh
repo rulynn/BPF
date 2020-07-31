@@ -19,7 +19,7 @@ start_seconds=$(date --date="$starttime" +%s);
 start_timeStamp=$((start_seconds*1000+`date "+%N"`/1000000))
 echo "start time: " $start_timeStamp "ms"
 
-output=`java -XX:+PrintCodeCache -XX:ReservedCodeCacheSize=4M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name`
+output=`java -XX:+PrintCodeCache -XX:ReservedCodeCacheSize=2M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name`
 
 endtime=`date +'%Y-%m-%d %H:%M:%S'`
 end_seconds=$(date --date="$endtime" +%s);
