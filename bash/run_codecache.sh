@@ -15,7 +15,7 @@ cd $out_path
 
 # Dacapo -s large -n 5 -Xmx1024m
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
-begin=$((timeStamp*1000+10#`date "+%N"`/1000000))
+output=`java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:ReservedCodeCacheSize=512M -jar ~/dacapo.jar -n 2 $name`
 endtime=`date +'%Y-%m-%d %H:%M:%S'`
 start_seconds=$(date --date="$starttime" +%s);
 end_seconds=$(date --date="$endtime" +%s);
