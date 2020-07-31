@@ -14,23 +14,23 @@ mkdir $out_path
 cd $out_path
 
 # Dacapo -s large -n 5 -Xmx1024m
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:ReservedCodeCacheSize=256M -jar ~/dacapo.jar -n 2 $name &
 sleep 1
 
 pid=$(pgrep -f "$name")
-echo "program pid: "  $pid " ::: time: " $time
+echo "program pid: " $pid
 
 # jstack
 output=`jstack $pid > out_stack.log`
 # perf map
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 #burn
-curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn &
+#curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn &
 # eBPF
 chmod 777 $file_path/locktime.py
 output=`$file_path/locktime.py $pid $time > out.log`
-chmod 777 burn
-./burn convert out.log
+#chmod 777 burn
+#./burn convert out.log
 
 
 
