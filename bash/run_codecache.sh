@@ -17,13 +17,16 @@ cd $out_path
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
 start_seconds=$(date --date="$starttime" +%s);
 start_timeStamp=$((start_seconds*1000+`date "+%N"`/1000000))
+echo "start time: "$start_timeStamp
 
 output=`java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:ReservedCodeCacheSize=512M -jar ~/dacapo.jar -n 2 $name`
 
 endtime=`date +'%Y-%m-%d %H:%M:%S'`
 end_seconds=$(date --date="$endtime" +%s);
 end_timeStamp=$((end_seconds*1000+`date "+%N"`/1000000))
-echo "runtime:"$((start_timeStamp-end_timeStamp))"s"
+echo "end time: "$end_timeStamp
+
+echo "runtime: "$((start_timeStamp-end_timeStamp))
 
 
 
