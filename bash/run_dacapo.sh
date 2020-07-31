@@ -14,7 +14,7 @@ mkdir $out_path
 cd $out_path
 
 # Dacapo -s large -n 5 -Xmx1024m
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:ReservedCodeCacheSize=512M -jar ~/dacapo.jar -n 2 $name &
+java -XX:ReservedCodeCacheSize=64M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:ReservedCodeCacheSize=512M -jar ~/dacapo.jar -n 2 $name &
 sleep 1
 
 pid=$(pgrep -f "$name")
