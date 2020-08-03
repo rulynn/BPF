@@ -33,16 +33,13 @@ struct key_t {
     char name[TASK_COMM_LEN];
 };
 BPF_HASH(counts, struct key_t);
-//BPF_STACK_TRACE(stack_traces, 4096);
-// Mutex to the stack id which initialized that mutex
 BPF_HASH(init_stacks, u64, int);
-// Main info database about mutex and thread pairs
-BPF_HASH(locks, struct thread_mutex_key_t, struct thread_mutex_val_t);
-// Pid to the mutex address and timestamp of when the wait started
-BPF_HASH(lock_start, u32, struct mutex_timestamp_t);
-// Pid and mutex address to the timestamp of when the wait ended (mutex acquired) and the stack id
-BPF_HASH(lock_end, struct mutex_lock_time_key_t, struct mutex_lock_time_val_t);
 BPF_STACK_TRACE(stacks, 4096);
+
+BPF_HASH(locks, struct thread_mutex_key_t, struct thread_mutex_val_t);
+BPF_HASH(lock_start, u32, struct mutex_timestamp_t);
+BPF_HASH(lock_end, struct mutex_lock_time_key_t, struct mutex_lock_time_val_t);
+
 
 int probe_mutex_lock(struct pt_regs *ctx)
 {
@@ -88,6 +85,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
         struct mutex_lock_time_val_t val = {};
         val.timestamp = now;
         val.stack_id = stack_id;
+        //bpf_get_current_comm(&val.name, sizeof(val.name));
         lock_end.update(&key, &val);
     }
 
@@ -107,6 +105,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
         existing_tm_val->start_time_ns = entry->timestamp;
         existing_tm_val->wait_time_ns = now - entry->timestamp;
         existing_tm_val->spin_time_ns -= existing_tm_val->wait_time_ns;
+        //bpf_get_current_comm(&existing_tm_val->name, sizeof(existing_tm_val->name));
     }
 
     lock_start.delete(&pid);
