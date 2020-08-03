@@ -61,7 +61,7 @@ def dealStack(bpf, stacks, stack_id):
 
     user_stack = list(user_stack)
     #line = [k.name]
-    line = ""
+    line = []
     line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
     print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 
@@ -78,7 +78,7 @@ def test_stack(bpf):
 
         user_stack = list(user_stack)
         #line = [k.name]
-        line = ""
+        line = []
         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
         # hash collision (-EEXIST), we still print a placeholder for consistency
         line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
