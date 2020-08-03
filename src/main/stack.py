@@ -46,7 +46,7 @@ def run2(bpf, pid, locks, init_stacks, stacks):
        #print("thread %d" % tid)
        for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
            #print("\tmutex %s ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
-                 (k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+           #      (k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
            #print_stack(bpf, pid, stacks, k.lock_stack_id)
            dealStack(bpf, k.lock_stack_id)
            print("")
