@@ -1,17 +1,15 @@
 #!/bin/bash
 
-# sh run_dacapo.sh 30
+# Test Code Cache
 
 time=$1
 name="avrora"
-out_path="../out"
-file_path="../criticality_stacks"
-bash_path="../bash"
+dacapo_path="~"
 
 # out path
 rm -rf $out_path
 mkdir $out_path
-cd $out_path
+cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m
 starttime=`date +'%Y-%m-%d %H:%M:%S'`
@@ -19,7 +17,7 @@ start_seconds=$(date --date="$starttime" +%s);
 start_timeStamp=$((start_seconds*1000+`date "+%N"`/1000000))
 echo "start time: " $start_timeStamp "ms"
 
-output=`java -XX:+PrintCodeCache -XX:ReservedCodeCacheSize=64M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name`
+output=`java -XX:+PrintCodeCache -XX:ReservedCodeCacheSize=64M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar $dacapo_path/dacapo.jar -n 2 $name`
 
 endtime=`date +'%Y-%m-%d %H:%M:%S'`
 end_seconds=$(date --date="$endtime" +%s);

@@ -4,31 +4,30 @@
 
 time=$1
 name="avrora"
-out_path="../out"
-file_path="../criticality_stacks"
-bash_path="../bash"
+perf_path="~"
+dacapo_path="~"
 
 # out path
 rm -rf $out_path
 mkdir $out_path
-cd $out_path
+cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar ~/dacapo.jar -n 2 $name &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints -jar $dacapo_path/dacapo.jar -n 2 $name &
 #sleep 1
 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
 
 # jstack
-output=`jstack $pid > out_stack.log`
+output=`jstack $pid > output/out_stack.log`
 # perf map
-output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
+output=`sh $perf_path/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 #burn
 #curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn &
 # eBPF
-chmod 777 $file_path/locktime.py
-output=`$file_path/locktime.py $pid $time > out.log`
+chmod 777 main/locktime.py
+output=`main/locktime.py $pid $time > output/out.log`
 #chmod 777 burn
 #./burn convert out.log
 
