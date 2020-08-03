@@ -37,7 +37,7 @@ def run2(bpf, pid, locks, init_stacks, stacks):
        mutex_id = "#%d" % next_mutex_id
        next_mutex_id += 1
        mutex_ids[k.value] = mutex_id
-       dealStack(bpf, v.value)
+       dealStack(bpf, stacks, v.value)
        print("")
     grouper = lambda (k, v): k.tid
     sorted_by_thread = sorted(locks.items(), key=grouper)
@@ -48,11 +48,11 @@ def run2(bpf, pid, locks, init_stacks, stacks):
            #print("\tmutex %s ::: wait time %.2fus ::: hold time %.2fus ::: enter count %d" %
            #      (k.mtx, v.wait_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
            #print_stack(bpf, pid, stacks, k.lock_stack_id)
-           dealStack(bpf, k.lock_stack_id)
+           dealStack(bpf, stacks, k.lock_stack_id)
            print("")
 
-def dealStack(bpf, stack_id):
-    user_stack = [] if stack_id < 0 else stack_traces.walk(stack_id)
+def dealStack(bpf, stacks, stack_id):
+    user_stack = [] if stack_id < 0 else stacks.walk(stack_id)
 
     user_stack = list(user_stack)
     line = [k.name]
