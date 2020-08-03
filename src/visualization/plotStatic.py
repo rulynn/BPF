@@ -17,7 +17,7 @@ def outputCSV(tid_list, ans, total):
 
     VMThread = getVMThread()
     # CSV data
-    csvfile = open('../out/data.csv', 'wb')
+    csvfile = open('../output/data.csv', 'wb')
     writer = csv.writer(csvfile)
     writer.writerow(['id','name','height','sum'])
 
