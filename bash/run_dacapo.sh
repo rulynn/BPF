@@ -5,8 +5,10 @@
 time=$1
 name="avrora"
 burn_path="../resources"
+out_output="../src/output"
 
-
+rm -rf $out_path
+mkdir $out_path
 cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
