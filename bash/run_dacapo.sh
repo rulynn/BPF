@@ -4,7 +4,7 @@
 
 time=$1
 name="avrora"
-perf_path="~"
+perf_map="~/perf-map-agent/bin/create-java-perf-map.sh"
 dacapo="~/dacapo.jar"
 burn_path="../resources"
 
@@ -22,7 +22,7 @@ echo "program pid: " $pid
 # jstack
 output=`jstack $pid > output/out_stack.log`
 # perf map
-output=`sh $perf_path/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
+output=`sh $perf_map $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 main/locktime.py
 output=`main/locktime.py $pid $time > output/out.log`
