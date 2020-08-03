@@ -5,7 +5,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy
 import itertools
-import plot
+import plotStatic as plot
 
 TIME_MIN = {}
 tid_list = []
