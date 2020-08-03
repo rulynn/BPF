@@ -8,9 +8,7 @@ perf_map="~/perf-map-agent/bin/create-java-perf-map.sh"
 dacapo="~/dacapo.jar"
 burn_path="../resources"
 
-# out path
-rm -rf $out_path
-mkdir $out_path
+
 cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
