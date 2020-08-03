@@ -38,8 +38,6 @@ def outputCSV(tid_list, ans, total):
     csvfile.close()
 
 
-
-
 def plot_origin(tid_list, ans, total):
     plt.figure(1)
     # plot
@@ -71,7 +69,7 @@ def plot_origin(tid_list, ans, total):
 
     plt.ylim(0,1)
     plt.legend()
-    path = "../out/critical-origin.png"
+    path = "../output/critical-origin.png"
     plt.savefig(path)
 
 def plot_with_name(tid_list, ans, total):
@@ -110,7 +108,7 @@ def plot_with_name(tid_list, ans, total):
 
     plt.ylim(0,1)
     plt.legend()
-    path = "../out/critical-name.png"
+    path = "../output/critical-name.png"
     plt.savefig(path)
 
 def plot_sub(tid_list, ans, total):
@@ -149,13 +147,13 @@ def plot_sub(tid_list, ans, total):
 
     plt.ylim(0,1)
     plt.legend()
-    path = "../out/critical-sub.png"
+    path = "../output/critical-sub.png"
     plt.savefig(path)
 
 
 def getVMThread():
     VMThread = {}
-    with open('../out/out_stack.log', 'r') as f:
+    with open('../output/out_stack.log', 'r') as f:
         jstack = f.readlines()
     for i in range(0, len(jstack)):
         if jstack[i][0] == "\"":
