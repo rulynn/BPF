@@ -31,8 +31,7 @@ locks = bpf["locks"]
 sleep(int(time))
 process.run(locks)
 if isStack == True:
-    init_stacks = bpf["init_stacks"]
-    stacks = bpf["stacks"]
-    stack.run2(bpf, int(pid), locks, init_stacks, stacks)
+
+    stack.run2(bpf, int(pid), locks)
     #stack.run(bpf, int(pid), locks, init_stacks, stacks)
     #stack.test_stack(bpf)

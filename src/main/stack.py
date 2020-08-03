@@ -30,7 +30,12 @@ def run(bpf, pid, locks, init_stacks, stacks):
             print_stack(bpf, pid, stacks, k.lock_stack_id)
             print("")
 
-def run2(bpf, pid, locks, init_stacks, stacks):
+def run2(bpf, pid, locks):
+
+    init_stacks = bpf["init_stacks"]
+    stacks = bpf["stacks"]
+    counts = bpf["counts"]
+
     mutex_ids = {}
     next_mutex_id = 1
     for k, v in init_stacks.items():
@@ -71,7 +76,8 @@ def test_stack(bpf):
             stack_traces.walk(k.user_stack_id)
 
         user_stack = list(user_stack)
-        line = [k.name]
+        #line = [k.name]
+        line = ""
         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
         # hash collision (-EEXIST), we still print a placeholder for consistency
         line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
