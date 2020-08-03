@@ -60,7 +60,8 @@ def dealStack(bpf, stacks, stack_id):
     user_stack = [] if stack_id < 0 else stacks.walk(stack_id)
 
     user_stack = list(user_stack)
-    line = [k.name]
+    #line = [k.name]
+    line = ""
     line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
     print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 
