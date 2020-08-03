@@ -6,6 +6,7 @@ time=$1
 name="avrora"
 perf_path="~"
 dacapo_path="~"
+burn_path="../resources/"
 
 # out path
 rm -rf $out_path
@@ -23,13 +24,11 @@ echo "program pid: " $pid
 output=`jstack $pid > output/out_stack.log`
 # perf map
 output=`sh $perf_path/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
-#burn
-#curl -L "https://dl.bintray.com/mspier/binaries/burn/1.0.1/linux/amd64/burn" -o burn &
 # eBPF
 chmod 777 main/locktime.py
 output=`main/locktime.py $pid $time > output/out.log`
-#chmod 777 burn
-#./burn convert out.log
+chmod 777 burn
+$burn_path/burn convert --type=folded out.log > out.json
 
 
 
