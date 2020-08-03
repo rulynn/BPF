@@ -31,29 +31,24 @@ def run(bpf, pid, locks, init_stacks, stacks):
             print("")
 
 
-# def test_stack(bpf):
-#
-#     # output stacks
-#     missing_stacks = 0
-#     has_collision = False
-#     counts = bpf.get_table("counts")
-#     stack_traces = bpf.get_table("stack_traces")
-#
-#     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
-#         user_stack = [] if k.user_stack_id < 0 else \
-#             stack_traces.walk(k.user_stack_id)
-#
-#         user_stack = list(user_stack)
-#         line = [k.name]
-#         # if we failed to get the stack is, such as due to no space (-ENOMEM) or
-#         # hash collision (-EEXIST), we still print a placeholder for consistency
-#         #line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
-#         #print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
-#
-#         for addr in user_stack:
-#             print("    %s" % bpf.sym(addr, k.pid).decode('utf-8', 'replace'))
-#         print("    %-16s %s (%d)" % ("-", k.name.decode('utf-8', 'replace'), k.pid))
-#         print("        %d\n" % v.value)
+def test_stack(bpf):
+
+    # output stacks
+    missing_stacks = 0
+    has_collision = False
+    counts = bpf.get_table("counts")
+    stack_traces = bpf.get_table("stack_traces")
+
+    for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
+        user_stack = [] if k.user_stack_id < 0 else \
+            stack_traces.walk(k.user_stack_id)
+
+        user_stack = list(user_stack)
+        line = [k.name]
+        # if we failed to get the stack is, such as due to no space (-ENOMEM) or
+        # hash collision (-EEXIST), we still print a placeholder for consistency
+        line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
+        print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 
 
 # # output stacks
