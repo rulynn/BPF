@@ -6,7 +6,7 @@ time=$1
 name="avrora"
 perf_path="~"
 dacapo_path="~"
-burn_path="../resources/"
+burn_path="../resources"
 
 # out path
 rm -rf $out_path
