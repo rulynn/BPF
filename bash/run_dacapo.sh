@@ -12,7 +12,7 @@ burn_path="../resources"
 cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer  -jar $dacapo -n 2 $name &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 $name &
 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
