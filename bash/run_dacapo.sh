@@ -27,7 +27,7 @@ output=`sh $perf_path/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall
 chmod 777 main/locktime.py
 output=`main/locktime.py $pid $time > output/out.log`
 # burn: convert data to json
-chmod 777 burn
+chmod 777 $burn_path/burn
 $burn_path/burn convert --type=folded output/out.log > output/out.json
 
 
