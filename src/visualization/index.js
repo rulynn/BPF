@@ -1,18 +1,12 @@
 import Chart from "./chart.js";
 import FlameGraph from "./flamegraph.js";
 
-d3.csv('../out/data.csv', function(d){
-    return {
-        name: d.name,
-        sum: +d.sum,
-        height: +d.height,
-        id: +d.id
-    };
-}).then(function(data){
-
+d3.csv('../output/data.csv', function(error, data){
 
     /* ----------------------------配置参数------------------------  */
     const chart = new Chart();
+    const flamegraph = new FlameGraph();
+
     const config = {
         barPadding: 0.15,
         margins: {top: 80, left: 80, bottom: 50, right: 80},
@@ -50,13 +44,13 @@ d3.csv('../out/data.csv', function(d){
             .append('rect')
             .attr('class','bar')
             .merge(bars)
-            .attr('x', (d) => chart.scaleX(d.name))
+            .attr('x', (data) => chart.scaleX(data.name))
             // .attr('y', chart.scaleY(0))
             .attr('width', chart.scaleX.bandwidth())
             // .attr('height', 0)
-            .attr('fill', (d,i) => chart._colors(d.id))
-            .attr('height', (d) => chart.getBodyHeight() - chart.scaleY(d.sum))
-            .attr('y', (d) => chart.scaleY(d.sum));
+            .attr('fill', (data,i) => chart._colors(data.id))
+            .attr('height', (data) => chart.getBodyHeight() - chart.scaleY(data.sum))
+            .attr('y', (data) => chart.scaleY(data.sum));
 
         bars.exit().remove();
     }
@@ -186,8 +180,7 @@ d3.csv('../out/data.csv', function(d){
                     .attr('fill', 'blue');
 
                 // FlameGraph
-                const flamegraph = new FlameGraph();
-                flamegraph.f(position);
+                flamegraph.f(d.thread);
             });
 
 
@@ -209,8 +202,7 @@ d3.csv('../out/data.csv', function(d){
         chart.renderTitle();
     }
 
-    chart.renderChart();
-
+    chart.renderChart("stack");
 
 });
 

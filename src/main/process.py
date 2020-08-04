@@ -30,7 +30,7 @@ def run(locks):
     output_data = preprocessed(locks)
     for k, v in output_data.items():
         calculation_single(k, v)
-    #plot.run(tid_list, ans, total)
+    plot.run(tid_list, ans, total)
 
 def preprocessed(locks):
 

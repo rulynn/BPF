@@ -5,12 +5,10 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import csv
 
-
-
 def run(tid_list, ans, total):
-    plot_origin(tid_list, ans, total)
-    plot_with_name(tid_list, ans, total)
-    plot_sub(tid_list, ans, total)
+#     plot_origin(tid_list, ans, total)
+#     plot_with_name(tid_list, ans, total)
+#     plot_sub(tid_list, ans, total)
     outputCSV(tid_list, ans, total)
 
 def outputCSV(tid_list, ans, total):
@@ -19,7 +17,7 @@ def outputCSV(tid_list, ans, total):
     # CSV data
     csvfile = open('../output/data.csv', 'wb')
     writer = csv.writer(csvfile)
-    writer.writerow(['id','name','height','sum'])
+    writer.writerow(['id','name', 'thread', 'height','sum'])
 
     pre = 1
     for i in range(len(tid_list)):
@@ -27,11 +25,11 @@ def outputCSV(tid_list, ans, total):
         if ans[i] == 0:
             continue
         if VMThread.get(tid_list[i]) == None:
-            label = "Thread " + str(tid_list[i]);
+            label = "Thread " + str(tid_list[i])
         else:
             label = VMThread[tid_list[i]] + " " + str(tid_list[i])
 
-        data = [i+1, label, round(ans[i]*1.0/total,4), pre]
+        data = [i+1, label, str(tid_list[i]), round(ans[i]*1.0/total,4), pre]
         pre = round(pre - ans[i]*1.0/total, 4)
         writer.writerow(data)
 

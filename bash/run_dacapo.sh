@@ -27,13 +27,11 @@ chmod 777 main/locktime.py
 output=`main/locktime.py $pid $time > output/out.log`
 # burn: convert data to json
 chmod 777 $burn_path/burn
-
 for file in output/stack/*; do
     echo $file
     $burn_path/burn convert --type=folded $file > $file.json
 done
 
-#$burn_path/burn convert --type=folded output/out.log > output/out.json
 
 
 
