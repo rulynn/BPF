@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import itertools
+import io
 
 def print_frame(bpf, pid, addr):
     print("\t\t%16s (%x)" % (bpf.sym(addr, pid, show_module=True, show_offset=True), addr))
@@ -72,7 +73,7 @@ def run2(bpf, pid, locks):
         print(k.tid)
         print(k.pid)
         file = str(k.tid) + ".json"
-        with open(file, 'a', encoding="utf-8") as f:
+        with io.open(file, 'a', encoding="utf-8") as f:
             s = ";".join(line).decode('utf-8', 'replace') + " " + v.value
             f.write(str_data)
 
