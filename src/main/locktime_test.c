@@ -26,6 +26,7 @@ struct mutex_lock_time_val_t {
 };
 struct key_t {
     u32 pid;
+    u32 tid;
     u64 kernel_ip;
     u64 kernel_ret_ip;
     int user_stack_id;
@@ -74,6 +75,8 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     // get stacks
     key.user_stack_id = stack_id;
     key.kernel_stack_id = stacks.get_stackid(ctx, 0);
+    // not sure
+    key.tid = pid;
     counts.increment(key);
 
     // If pthread_mutex_lock() returned 0, we have the lock
