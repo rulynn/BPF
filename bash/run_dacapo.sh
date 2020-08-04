@@ -29,7 +29,7 @@ chmod 777 $burn_path/burn
 
 for file in output/stack/*; do
     echo $file
-    $burn_path/burn convert --type=folded $file > output/stack/$file.json
+    $burn_path/burn convert --type=folded $file > $file.json
 done
 
 #$burn_path/burn convert --type=folded output/out.log > output/out.json
