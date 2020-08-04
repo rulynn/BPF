@@ -74,7 +74,7 @@ def run2(bpf, pid, locks):
         print(k.pid)
         file = str(k.tid) + ".json"
         with io.open(file, 'a', encoding="utf-8") as f:
-            s = ";".join(line).decode('utf-8', 'replace') + " " + str(v.value)
+            str_data = ";".join(line).decode('utf-8', 'replace') + " " + str(v.value)
             f.write(str_data)
 
         #print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
