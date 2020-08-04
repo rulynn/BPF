@@ -70,6 +70,7 @@ def run2(bpf, pid, locks):
         line = [k.name]
         line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
         print(k.tid)
+        print(k.pid)
         file = str(k.tid) + ".json"
         with open(file, 'a', encoding="utf-8") as f:
             s = ";".join(line).decode('utf-8', 'replace') + " " + v.value
