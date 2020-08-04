@@ -9,6 +9,7 @@ out_path="../src/output"
 
 rm -rf $out_path
 mkdir $out_path
+mkdir $out_path/stack
 cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
