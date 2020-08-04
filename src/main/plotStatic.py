@@ -15,7 +15,7 @@ def outputCSV(tid_list, ans, total):
 
     VMThread = getVMThread()
     # CSV data
-    csvfile = open('../output/data.csv', 'wb')
+    csvfile = open('output/data.csv', 'wb')
     writer = csv.writer(csvfile)
     writer.writerow(['id','name', 'thread', 'height','sum'])
 
@@ -151,7 +151,7 @@ def plot_sub(tid_list, ans, total):
 
 def getVMThread():
     VMThread = {}
-    with open('../output/out_stack.log', 'r') as f:
+    with open('output/out_stack.log', 'r') as f:
         jstack = f.readlines()
     for i in range(0, len(jstack)):
         if jstack[i][0] == "\"":
