@@ -72,9 +72,9 @@ def run2(bpf, pid, locks):
         line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
         print(k.tid)
         print(k.pid)
-        file = str(k.tid) + ".json"
+        file = "output/stack" +str(k.tid) + ".log"
         with io.open(file, 'a', encoding="utf-8") as f:
-            str_data = ";".join(line).decode('utf-8', 'replace') + " " + str(v.value)
+            str_data = ";".join(line).decode('utf-8', 'replace') + " " + str(v.value) + "\n"
             f.write(str_data)
 
         #print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
