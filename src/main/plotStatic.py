@@ -9,7 +9,8 @@ def run(tid_list, ans, total):
 #     plot_origin(tid_list, ans, total)
 #     plot_with_name(tid_list, ans, total)
 #     plot_sub(tid_list, ans, total)
-#    outputCSV(tid_list, ans, total)
+    outputCSV(tid_list, ans, total)
+
 
 def outputCSV(tid_list, ans, total):
 
