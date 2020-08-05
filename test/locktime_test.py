@@ -40,7 +40,7 @@ if isStack == True:
     print("start to print threads")
     threads = bpf["threads"]
     print(threads)
-    for k, event in threads:
+    for k, event in threads.items():
         print(k, event)
         name = event.name
         if event.type == "pthread":
