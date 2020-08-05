@@ -52,7 +52,7 @@ class ThreadEvent(ct.Structure):
         ]
 
 
-sleep(int(time))
+sleep(int(sleeptime))
 start_ts = time.time()
 
 print("start to print threads")
