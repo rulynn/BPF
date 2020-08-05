@@ -15,7 +15,7 @@ pid = sys.argv[1]
 time = sys.argv[2]
 isStack = True
 
-usdt = USDT(pid=pid)
+usdt = USDT(pid=int(pid))
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
 usdt.enable_probe_or_bail("thread__start", "trace_start")
 usdt.enable_probe_or_bail("thread__stop", "trace_stop")
@@ -35,7 +35,7 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mut
 locks = bpf["locks"]
 
 sleep(int(time))
-process.run(locks)
+#process.run(locks)
 if isStack == True:
     print("start to print threads")
     threads = bpf["threads"]
