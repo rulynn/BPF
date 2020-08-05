@@ -16,6 +16,7 @@ import argparse
 from bcc import BPF, USDT, utils
 import ctypes as ct
 import time
+import sys
 import os
 
 languages = ["c", "java"]
