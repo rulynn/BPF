@@ -7,12 +7,13 @@ from bcc import BPF, USDT
 import process
 import stack
 import itertools
+import time
 
 if len(sys.argv) < 3:
     print("USAGE: need PID and time")
     exit()
 pid = sys.argv[1]
-time = sys.argv[2]
+sleeptime = sys.argv[2]
 isStack = True
 usdt = USDT(pid=int(pid))
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
@@ -31,14 +32,6 @@ print("Tracing thread events in process %d (language: %s)... Ctrl-C to quit." %
       (int(pid), language or "none"))
 print("%-8s %-16s %-8s %-30s" % ("TIME", "ID", "TYPE", "DESCRIPTION"))
 
-class ThreadEvent(ct.Structure):
-    _fields_ = [
-        ("runtime_id", ct.c_ulonglong),
-        ("native_id", ct.c_ulonglong),
-        ("type", ct.c_char * 8),
-        ("name", ct.c_char * 80),
-        ]
-
 # load BPF program
 if isStack == True:
     bpf = BPF(src_file = "locktime_test.c", usdt_contexts=[usdt])
@@ -53,7 +46,7 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mut
 
 locks = bpf["locks"]
 
-sleep(int(time))
+sleep(int(sleeptime))
 #process.run(locks)
 if isStack == True:
     start_ts = time.time()
