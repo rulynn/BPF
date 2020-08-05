@@ -18,10 +18,11 @@ import ctypes as ct
 import time
 import sys
 import os
+import time
 
 languages = ["c", "java"]
 pid = sys.argv[1]
-time = sys.argv[2]
+sleeptime = sys.argv[2]
 
 
 usdt = USDT(pid=int(pid))
