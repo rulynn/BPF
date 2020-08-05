@@ -19,31 +19,14 @@ import time
 import os
 
 languages = ["c", "java"]
+pid = sys.argv[1]
+time = sys.argv[2]
 
-examples = """examples:
-    ./uthreads -l java 185    # trace Java threads in process 185
-    ./uthreads -l none 12245  # trace only pthreads in process 12245
-"""
-parser = argparse.ArgumentParser(
-    description="Trace thread creation/destruction events in " +
-                "high-level languages.",
-    formatter_class=argparse.RawDescriptionHelpFormatter,
-    epilog=examples)
-parser.add_argument("-l", "--language", choices=languages + ["none"],
-    help="language to trace (none for pthreads only)")
-parser.add_argument("pid", type=int, help="process id to attach to")
-parser.add_argument("-v", "--verbose", action="store_true",
-    help="verbose mode: print the BPF program (for debugging purposes)")
-parser.add_argument("--ebpf", action="store_true",
-    help=argparse.SUPPRESS)
-args = parser.parse_args()
 
-usdt = USDT(pid=args.pid)
+usdt = USDT(pid=int(pid))
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
 
-language = args.language
-if not language:
-    language = utils.detect_language(languages, args.pid)
+language = "java"
 
 if language == "c":
     # Nothing to add
@@ -52,16 +35,9 @@ elif language == "java":
     usdt.enable_probe_or_bail("thread__start", "trace_start")
     usdt.enable_probe_or_bail("thread__stop", "trace_stop")
 
-if args.ebpf or args.verbose:
-    if args.verbose:
-        print(usdt.get_text())
-    print(program)
-    if args.ebpf:
-        exit()
-
 bpf = BPF(src_file = "test.c", usdt_contexts=[usdt])
 print("Tracing thread events in process %d (language: %s)... Ctrl-C to quit." %
-      (args.pid, language or "none"))
+      (int(pid), language or "none"))
 print("%-8s %-16s %-8s %-30s" % ("TIME", "ID", "TYPE", "DESCRIPTION"))
 
 class ThreadEvent(ct.Structure):
@@ -78,7 +54,7 @@ def print_event(cpu, data, size):
     event = ct.cast(data, ct.POINTER(ThreadEvent)).contents
     name = event.name
     if event.type == "pthread":
-        name = bpf.sym(event.runtime_id, args.pid, show_module=True)
+        name = bpf.sym(event.runtime_id, int(pid), show_module=True)
         tid = event.native_id
     else:
         tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
