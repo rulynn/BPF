@@ -63,14 +63,14 @@ for k, event in threads.items():
     #event = ct.cast(event, ct.POINTER(ThreadEvent)).contents
     print(k.runtime_id)
     #print(event.value)
-    name = event.name
-    if event.type == "pthread":
-        name = bpf.sym(event.runtime_id, args.pid, show_module=True)
-        tid = event.native_id
-    else:
-        tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
-    print("%-8.3f %-16s %-8s %-30s" % (
-        time.time() - start_ts, tid, event.type, name))
+#     name = event.name
+#     if event.type == "pthread":
+#         name = bpf.sym(event.runtime_id, args.pid, show_module=True)
+#         tid = event.native_id
+#     else:
+#         tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
+#     print("%-8.3f %-16s %-8s %-30s" % (
+#         time.time() - start_ts, tid, event.type, name))
 
 # def print_event(cpu, data, size):
 #     event = ct.cast(data, ct.POINTER(ThreadEvent)).contents

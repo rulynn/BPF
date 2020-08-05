@@ -1,4 +1,6 @@
 struct thread_event_t {
+    u32 pid;
+    u32 tid;
     u64 runtime_id;
     u64 native_id;
     char type[8];
@@ -18,7 +20,9 @@ int trace_pthread(struct pt_regs *ctx) {
     __builtin_memcpy(&te.type, type, sizeof(te.type));
     //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
-    threads.increment(te);
+        te.tid = pid;
+        te.time = bpf_ktime_get_ns();
+        threads.increment(te);
     return 0;
 }
 
@@ -35,7 +39,9 @@ int trace_start(struct pt_regs *ctx) {
     __builtin_memcpy(&te.type, type, sizeof(te.type));
     //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
-    threads.increment(te);
+        te.tid = pid;
+        te.time = bpf_ktime_get_ns();
+        threads.increment(te);
     return 0;
 }
 
@@ -52,6 +58,8 @@ int trace_stop(struct pt_regs *ctx) {
     __builtin_memcpy(&te.type, type, sizeof(te.type));
     //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
-    threads.increment(te);
+        te.tid = pid;
+        te.time = bpf_ktime_get_ns();
+        threads.increment(te);
     return 0;
 }
