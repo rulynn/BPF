@@ -60,6 +60,7 @@ threads = bpf["threads"]
 print(threads)
 print(len(threads))
 for k, event in threads.items():
+    event = ct.cast(event, ct.POINTER(ThreadEvent)).contents
     print(k, event)
     name = event.name
     if event.type == "pthread":
