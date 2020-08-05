@@ -41,6 +41,7 @@ if isStack == True:
     threads = bpf["threads"]
     print(threads)
     for k, event in threads:
+        print(k, event)
         name = event.name
         if event.type == "pthread":
             name = bpf.sym(event.runtime_id, args.pid, show_module=True)
