@@ -24,12 +24,6 @@ struct mutex_lock_time_val_t {
     u64 timestamp;
     int stack_id;
 };
-struct thread_event_t {
-    u64 runtime_id;
-    u64 native_id;
-    char type[8];
-    char name[80];
-};
 
 struct key_t {
     u32 pid;
