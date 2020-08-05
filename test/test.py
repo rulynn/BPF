@@ -59,7 +59,7 @@ if args.ebpf or args.verbose:
     if args.ebpf:
         exit()
 
-bpf = BPF(text=program, usdt_contexts=[usdt])
+bpf = BPF(src_file = "test.c", usdt_contexts=[usdt])
 print("Tracing thread events in process %d (language: %s)... Ctrl-C to quit." %
       (args.pid, language or "none"))
 print("%-8s %-16s %-8s %-30s" % ("TIME", "ID", "TYPE", "DESCRIPTION"))
