@@ -156,7 +156,17 @@ int probe_mutex_init(struct pt_regs *ctx)
  return 0;
 }
 
+struct thread_event_t {
+    u32 tid;
+    u64 time;
+    u64 runtime_id;
+    u64 native_id;
+    char type[8];
+    char name[80];
+};
+
 BPF_HASH(threads, struct thread_event_t);
+
 int trace_pthread(struct pt_regs *ctx) {
     struct thread_event_t te = {};
     u64 start_routine = 0;
@@ -167,6 +177,8 @@ int trace_pthread(struct pt_regs *ctx) {
     __builtin_memcpy(&te.type, type, sizeof(te.type));
     //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
+    te.tid = pid;
+    te.time = bpf_ktime_get_ns();
     threads.increment(te);
     return 0;
 }
@@ -184,6 +196,8 @@ int trace_start(struct pt_regs *ctx) {
     __builtin_memcpy(&te.type, type, sizeof(te.type));
     //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
+    te.tid = pid;
+    te.time = bpf_ktime_get_ns();
     threads.increment(te);
     return 0;
 }
@@ -201,6 +215,8 @@ int trace_stop(struct pt_regs *ctx) {
     __builtin_memcpy(&te.type, type, sizeof(te.type));
     //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
+    te.tid = pid;
+    te.time = bpf_ktime_get_ns();
     threads.increment(te);
     return 0;
 }
