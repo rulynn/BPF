@@ -39,27 +39,6 @@ parser.add_argument("--ebpf", action="store_true",
 args = parser.parse_args()
 
 usdt = USDT(pid=args.pid)
-
-program = """
-struct thread_event_t {
-    u64 runtime_id;
-    u64 native_id;
-    char type[8];
-    char name[80];
-};
-BPF_PERF_OUTPUT(threads);
-int trace_pthread(struct pt_regs *ctx) {
-    struct thread_event_t te = {};
-    u64 start_routine = 0;
-    char type[] = "pthread";
-    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
-    bpf_usdt_readarg(2, ctx, &start_routine);
-    te.runtime_id = start_routine;  // This is really a function pointer
-    __builtin_memcpy(&te.type, type, sizeof(te.type));
-    threads.perf_submit(ctx, &te, sizeof(te));
-    return 0;
-}
-"""
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
 
 language = args.language
@@ -70,24 +49,6 @@ if language == "c":
     # Nothing to add
     pass
 elif language == "java":
-    template = """
-int %s(struct pt_regs *ctx) {
-    char type[] = "%s";
-    struct thread_event_t te = {};
-    u64 nameptr = 0, id = 0, native_id = 0;
-    bpf_usdt_readarg(1, ctx, &nameptr);
-    bpf_usdt_readarg(3, ctx, &id);
-    bpf_usdt_readarg(4, ctx, &native_id);
-    bpf_probe_read_user(&te.name, sizeof(te.name), (void *)nameptr);
-    te.runtime_id = id;
-    te.native_id = native_id;
-    __builtin_memcpy(&te.type, type, sizeof(te.type));
-    threads.perf_submit(ctx, &te, sizeof(te));
-    return 0;
-}
-    """
-    program += template % ("trace_start", "start")
-    program += template % ("trace_stop", "stop")
     usdt.enable_probe_or_bail("thread__start", "trace_start")
     usdt.enable_probe_or_bail("thread__stop", "trace_stop")
 
@@ -98,7 +59,7 @@ if args.ebpf or args.verbose:
     if args.ebpf:
         exit()
 
-bpf = BPF(text=program, usdt_contexts=[usdt])
+bpf = BPF(src_file = "test.c", usdt_contexts=[usdt])
 print("Tracing thread events in process %d (language: %s)... Ctrl-C to quit." %
       (args.pid, language or "none"))
 print("%-8s %-16s %-8s %-30s" % ("TIME", "ID", "TYPE", "DESCRIPTION"))
