@@ -61,7 +61,7 @@ print(threads)
 print(len(threads))
 for k, event in threads.items():
     #event = ct.cast(event, ct.POINTER(ThreadEvent)).contents
-    print(TYPE(event))
+    print(type(event))
     name = event.name
     if event.type == "pthread":
         name = bpf.sym(event.runtime_id, args.pid, show_module=True)
