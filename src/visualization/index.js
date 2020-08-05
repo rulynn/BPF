@@ -203,6 +203,7 @@ d3.csv('../output/data.csv', function(error, data){
     }
 
     chart.renderChart("stack");
+    flamegraph.f();
 
 });
 

@@ -30,6 +30,7 @@ export default class FlameGraph {
         console.log(tid)
         var flameGraph = d3.flamegraph()
             .width(this._width)
+            .width(this._height)
             .cellHeight(18)
             .transitionDuration(750)
             .minFrameSize(5)
@@ -40,7 +41,10 @@ export default class FlameGraph {
             .differential(false)
             .selfValue(false);
 
-        var file = "../output/stack/" + tid + ".json"
+        var file = "../output/stack/" + tid + ".log.json";
+
+        if (tid == null) file = "../output/stacks.json";
+
         d3.json(file, function (error, data) {
             if (error) return console.warn(error);
             d3.select("#flamegraph")

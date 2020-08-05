@@ -15,22 +15,39 @@ pid = sys.argv[1]
 time = sys.argv[2]
 isStack = True
 
-# load BPF program
+usdt = USDT(pid=args.pid)
+usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
+usdt.enable_probe_or_bail("thread__start", "trace_start")
+usdt.enable_probe_or_bail("thread__stop", "trace_stop")
 
+# load BPF program
 if isStack == True:
-    bpf = BPF(src_file = "locktime_stack.c")
+    bpf = BPF(src_file = "locktime_test.c", usdt_contexts=[usdt])
     bpf.attach_uprobe(name="pthread", sym="pthread_mutex_init", fn_name="probe_mutex_init", pid=int(pid))
 else:
     bpf = BPF(src_file = "locktime.c")
+
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock", pid=int(pid))
 bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock_return", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=int(pid))
+
 
 locks = bpf["locks"]
 
 sleep(int(time))
 process.run(locks)
 if isStack == True:
-    stack.run2(bpf, int(pid), locks)
+    threads = bpf["threads"]
+    for k, event in threads:
+        name = event.name
+        if event.type == "pthread":
+            name = bpf.sym(event.runtime_id, args.pid, show_module=True)
+            tid = event.native_id
+        else:
+            tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
+        print("%-8.3f %-16s %-8s %-30s" % (
+            time.time() - start_ts, tid, event.type, name))
+
+    #stack.run2(bpf, int(pid), locks)
     #stack.run(bpf, int(pid), locks, init_stacks, stacks)
     #stack.test_stack(bpf)

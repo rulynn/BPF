@@ -24,16 +24,23 @@ struct mutex_lock_time_val_t {
     u64 timestamp;
     int stack_id;
 };
-
-// Mutex to the stack id which initialized that mutex
+struct key_t {
+    u32 pid;
+    u32 tid;
+    u64 kernel_ip;
+    u64 kernel_ret_ip;
+    int user_stack_id;
+    int kernel_stack_id;
+    char name[TASK_COMM_LEN];
+};
+BPF_HASH(counts, struct key_t);
 BPF_HASH(init_stacks, u64, int);
-// Main info database about mutex and thread pairs
-BPF_HASH(locks, struct thread_mutex_key_t, struct thread_mutex_val_t);
-// Pid to the mutex address and timestamp of when the wait started
-BPF_HASH(lock_start, u32, struct mutex_timestamp_t);
-// Pid and mutex address to the timestamp of when the wait ended (mutex acquired) and the stack id
-BPF_HASH(lock_end, struct mutex_lock_time_key_t, struct mutex_lock_time_val_t);
 BPF_STACK_TRACE(stacks, 4096);
+
+BPF_HASH(locks, struct thread_mutex_key_t, struct thread_mutex_val_t);
+BPF_HASH(lock_start, u32, struct mutex_timestamp_t);
+BPF_HASH(lock_end, struct mutex_lock_time_key_t, struct mutex_lock_time_val_t);
+
 
 int probe_mutex_lock(struct pt_regs *ctx)
 {
@@ -50,13 +57,26 @@ int probe_mutex_lock(struct pt_regs *ctx)
 int probe_mutex_lock_return(struct pt_regs *ctx)
 {
     u64 now = bpf_ktime_get_ns();
-    u32 pid = bpf_get_current_pid_tgid();
+
+    u64 id = bpf_get_current_pid_tgid();
+    u32 tgid = id >> 32;
+    u32 pid = id;
 
     struct mutex_timestamp_t *entry = lock_start.lookup(&pid);
     if (entry == 0)
         return 0;   // Missed the entry
     u64 spin_time = now - entry->timestamp;
     int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
+
+    // create map key
+    struct key_t key = {.pid = tgid};
+    bpf_get_current_comm(&key.name, sizeof(key.name));
+    // get stacks
+    key.user_stack_id = stack_id;
+    key.kernel_stack_id = stacks.get_stackid(ctx, 0);
+    // not sure
+    key.tid = pid;
+    counts.increment(key);
 
     // If pthread_mutex_lock() returned 0, we have the lock
     if (PT_REGS_RC(ctx) == 0) {
@@ -67,6 +87,7 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
         struct mutex_lock_time_val_t val = {};
         val.timestamp = now;
         val.stack_id = stack_id;
+        //bpf_get_current_comm(&val.name, sizeof(val.name));
         lock_end.update(&key, &val);
     }
 
