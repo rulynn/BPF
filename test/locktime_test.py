@@ -15,7 +15,7 @@ pid = sys.argv[1]
 time = sys.argv[2]
 isStack = True
 
-usdt = USDT(pid=args.pid)
+usdt = USDT(pid=pid)
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
 usdt.enable_probe_or_bail("thread__start", "trace_start")
 usdt.enable_probe_or_bail("thread__stop", "trace_stop")
