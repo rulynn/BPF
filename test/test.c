@@ -1,5 +1,5 @@
 struct thread_event_t {
-    u32 pid;
+    u32 time;
     u32 tid;
     u64 runtime_id;
     u64 native_id;
