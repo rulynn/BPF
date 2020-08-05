@@ -40,8 +40,6 @@ BPF_STACK_TRACE(stacks, 4096);
 BPF_HASH(locks, struct thread_mutex_key_t, struct thread_mutex_val_t);
 BPF_HASH(lock_start, u32, struct mutex_timestamp_t);
 BPF_HASH(lock_end, struct mutex_lock_time_key_t, struct mutex_lock_time_val_t);
-
-
 int probe_mutex_lock(struct pt_regs *ctx)
 {
     u64 now = bpf_ktime_get_ns();

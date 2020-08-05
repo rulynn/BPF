@@ -13,7 +13,8 @@ mkdir $out_path/stack
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
 # java -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 avrora
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -Xmx256m -XX:ReservedCodeCacheSize=64M -jar ~/dacapo.jar -n 5 $name &
+# -XX:+ExtendedDTraceProbes
+java  -XX:+PreserveFramePointer -Xmx256m -XX:ReservedCodeCacheSize=64M -jar ~/dacapo.jar -n 5 $name &
 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
