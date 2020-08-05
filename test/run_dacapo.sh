@@ -5,7 +5,7 @@
 time=$1
 name="avrora"
 burn_path="../resources"
-out_path="/output"
+out_path="output"
 
 rm -rf $out_path
 mkdir $out_path
