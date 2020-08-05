@@ -25,5 +25,5 @@ output=`jstack $pid > output/out_stack.log`
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 test.py
-output=`./test.py $pid $time > output/out.log`
+output=`./test.py $pid $time`
 
