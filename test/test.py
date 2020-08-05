@@ -50,22 +50,39 @@ class ThreadEvent(ct.Structure):
         ("name", ct.c_char * 80),
         ]
 
+
+sleep(int(time))
 start_ts = time.time()
 
-def print_event(cpu, data, size):
-    event = ct.cast(data, ct.POINTER(ThreadEvent)).contents
+print("start to print threads")
+threads = bpf["threads"]
+print(threads)
+print(len(threads))
+for k, event in threads.items():
+    print(k, event)
     name = event.name
     if event.type == "pthread":
-        name = bpf.sym(event.runtime_id, int(pid), show_module=True)
+        name = bpf.sym(event.runtime_id, args.pid, show_module=True)
         tid = event.native_id
     else:
         tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
     print("%-8.3f %-16s %-8s %-30s" % (
         time.time() - start_ts, tid, event.type, name))
 
-bpf["threads"].open_perf_buffer(print_event)
-while 1:
-    try:
-        bpf.perf_buffer_poll()
-    except KeyboardInterrupt:
-        exit()
+# def print_event(cpu, data, size):
+#     event = ct.cast(data, ct.POINTER(ThreadEvent)).contents
+#     name = event.name
+#     if event.type == "pthread":
+#         name = bpf.sym(event.runtime_id, int(pid), show_module=True)
+#         tid = event.native_id
+#     else:
+#         tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
+#     print("%-8.3f %-16s %-8s %-30s" % (
+#         time.time() - start_ts, tid, event.type, name))
+#
+# bpf["threads"].open_perf_buffer(print_event)
+# while 1:
+#     try:
+#         bpf.perf_buffer_poll()
+#     except KeyboardInterrupt:
+#         exit()

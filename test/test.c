@@ -5,8 +5,8 @@ struct thread_event_t {
     char name[80];
 };
 
-//BPF_HASH(threads, struct thread_event_t);
-BPF_PERF_OUTPUT(threads);
+BPF_HASH(threads, struct thread_event_t);
+//BPF_PERF_OUTPUT(threads);
 
 int trace_pthread(struct pt_regs *ctx) {
     struct thread_event_t te = {};
@@ -16,9 +16,9 @@ int trace_pthread(struct pt_regs *ctx) {
     bpf_usdt_readarg(2, ctx, &start_routine);
     te.runtime_id = start_routine;  // This is really a function pointer
     __builtin_memcpy(&te.type, type, sizeof(te.type));
-    threads.perf_submit(ctx, &te, sizeof(te));
+    //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
-    //threads.increment(te);
+    threads.increment(te);
     return 0;
 }
 
@@ -33,9 +33,9 @@ int trace_start(struct pt_regs *ctx) {
     te.runtime_id = id;
     te.native_id = native_id;
     __builtin_memcpy(&te.type, type, sizeof(te.type));
-    threads.perf_submit(ctx, &te, sizeof(te));
+    //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
-    //threads.increment(te);
+    threads.increment(te);
     return 0;
 }
 
@@ -50,8 +50,8 @@ int trace_stop(struct pt_regs *ctx) {
     te.runtime_id = id;
     te.native_id = native_id;
     __builtin_memcpy(&te.type, type, sizeof(te.type));
-    threads.perf_submit(ctx, &te, sizeof(te));
+    //threads.perf_submit(ctx, &te, sizeof(te));
     u32 pid = bpf_get_current_pid_tgid();
-    //threads.increment(te);
+    threads.increment(te);
     return 0;
 }
