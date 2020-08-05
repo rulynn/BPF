@@ -37,7 +37,9 @@ locks = bpf["locks"]
 sleep(int(time))
 process.run(locks)
 if isStack == True:
+    print("start to print threads")
     threads = bpf["threads"]
+    print(threads)
     for k, event in threads:
         name = event.name
         if event.type == "pthread":
