@@ -57,23 +57,21 @@ sleep(int(time))
 #process.run(locks)
 if isStack == True:
     start_ts = time.time()
-
     print("start to print threads")
     threads = bpf["threads"]
-    print(threads)
     print(len(threads))
     for k, event in threads.items():
         #event = ct.cast(event, ct.POINTER(ThreadEvent)).contents
-        print(k.runtime_id)
+        print(k.tid, k.time)
         #print(event.value)
-        name = event.name
-        if event.type == "pthread":
-            name = bpf.sym(event.runtime_id, args.pid, show_module=True)
-            tid = event.native_id
-        else:
-            tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
-        print("%-8.3f %-16s %-8s %-30s" % (
-            time.time() - start_ts, tid, event.type, name))
+#         name = event.name
+#         if event.type == "pthread":
+#             name = bpf.sym(event.runtime_id, args.pid, show_module=True)
+#             tid = event.native_id
+#         else:
+#             tid = "R=%s/N=%s" % (event.runtime_id, event.native_id)
+#         print("%-8.3f %-16s %-8s %-30s" % (
+#             time.time() - start_ts, tid, event.type, name))
     #stack.run2(bpf, int(pid), locks)
     #stack.run(bpf, int(pid), locks, init_stacks, stacks)
     #stack.test_stack(bpf)
