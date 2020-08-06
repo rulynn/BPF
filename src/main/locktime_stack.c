@@ -138,26 +138,25 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     lock_end.delete(&lock_key);
     return 0;
 }
- int probe_mutex_init(struct pt_regs *ctx)
- {
-     int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
-     u64 mutex_addr = PT_REGS_PARM1(ctx);
-     init_stacks.update(&mutex_addr, &stack_id);
-     return 0;
- }
-
-
-BPF_HASH(test, u64);
-int probe_create(struct pt_regs *ctx)
+int probe_mutex_init(struct pt_regs *ctx)
 {
-    u64 now = bpf_ktime_get_ns();
-    test.increment(now);
-    return 0;
+ int stack_id = stacks.get_stackid(ctx, BPF_F_REUSE_STACKID|BPF_F_USER_STACK);
+ u64 mutex_addr = PT_REGS_PARM1(ctx);
+ init_stacks.update(&mutex_addr, &stack_id);
+ return 0;
 }
 
-int probe_exit(struct pt_regs *ctx)
-{
-    u64 now = bpf_ktime_get_ns();
-    test.increment(now);
-    return 0;
-}
+//BPF_HASH(test, u64);
+//int probe_create(struct pt_regs *ctx)
+//{
+//    u64 now = bpf_ktime_get_ns();
+//    test.increment(now);
+//    return 0;
+//}
+//
+//int probe_exit(struct pt_regs *ctx)
+//{
+//    u64 now = bpf_ktime_get_ns();
+//    test.increment(now);
+//    return 0;
+//}
