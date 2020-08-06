@@ -43,7 +43,7 @@ export default class FlameGraph {
 
         var file = "../output/stack/" + tid + ".log.json";
 
-        if (tid == null) file = "../output/stacks.json";
+        if (tid == null) file = "../output/all.log.json";
 
         d3.json(file, function (error, data) {
             if (error) return console.warn(error);
