@@ -1,7 +1,7 @@
 export default class FlameGraph {
 
     constructor(){
-        this._width = 600;
+        this._width = 700;
         this._height = 400;
         this._margins = {top:30, left:30, right:30, bottom:30};
         this._data = [];
@@ -42,8 +42,6 @@ export default class FlameGraph {
             .selfValue(false);
 
         var file = "../output/stack/" + tid + ".log.json";
-
-        if (tid == null) file = "../output/all.log.json";
 
         d3.json(file, function (error, data) {
             if (error) return console.warn(error);
