@@ -95,10 +95,10 @@ def calculation_single(mtx, single_data):
     global TIME_MIN
     global tid_list
     threadPointList = []
-    pre_time = 0
     # k: tid; v: unit
     for k, v in single_data.items():
         #print("tid: %d" % (k))
+        pre_time = 0
         for item in v:
             threadPointList.append(TIME(0, k, pre_time))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx]))
