@@ -93,12 +93,15 @@ def calculation_single(mtx, single_data):
 
     #print("------------------- Single MTX start: %d -------------------\n" % (mtx))
     global TIME_MIN
+    global TIME_MAX
     global tid_list
     threadPointList = []
     # k: tid; v: unit
     for k, v in single_data.items():
         #print("tid: %d" % (k))
         pre_time = 0
+        grouper = lambda k: k.start_time
+        v.sort(key=grouper)
         for item in v:
             threadPointList.append(TIME(0, k, pre_time))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx]))
