@@ -11,6 +11,7 @@ TIME_MIN = {}
 tid_list = []
 ans = []
 total = 0
+TIME_MAX = 0
 class UNIT:
     def __init__(self, start_time, wait_time, hold_time, enter_count):
         self.start_time = start_time
@@ -34,6 +35,7 @@ def run(locks):
 def preprocessed(locks):
 
     global TIME_MIN
+    global TIME_MAX
     output_data = {}
 
     grouper = lambda (k, v): k.tid
@@ -61,6 +63,7 @@ def preprocessed(locks):
              if TIME_MIN.get(k.mtx) == None:
                  TIME_MIN[k.mtx] = 999999999999999
              TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
+             TIME_MAX = max(TIME_MAX, tmp.start_time + tmp.wait_time + tmp.hold_time)
 
     return output_data
 
@@ -99,8 +102,13 @@ def calculation_single(mtx, single_data):
         for item in v:
             threadPointList.append(TIME(0, k, pre_time))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx]))
-            threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx] + item.wait_time))
-            threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
+
+            pre_time = item.start_time - TIME_MIN[mtx] + item.wait_time
+#             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx] + item.wait_time))
+#             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
+        # TODO solve end time
+        threadPointList.append(TIME(0, k, pre_time))
+        threadPointList.append(TIME(1, k, TIME_MAX - TIME_MIN[mtx]))
 
     threadPointList.sort(key=lambda pair: pair.time)
 
