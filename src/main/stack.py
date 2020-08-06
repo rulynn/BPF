@@ -32,7 +32,6 @@ def run(bpf, pid, locks, init_stacks, stacks):
             print("")
 
 def run_sub(bpf, pid, locks):
-    print("start stack")
     init_stacks = bpf["init_stacks"]
     stacks = bpf["stacks"]
     counts = bpf["counts"]
