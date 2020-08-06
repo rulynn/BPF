@@ -25,6 +25,10 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex
 bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock_return", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=int(pid))
 
+# new
+bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", pid=int(pid))
+bpf.attach_uprobe(name="pthread", sym="pthread_exit", fn_name="probe_exit", pid=int(pid))
+
 locks = bpf["locks"]
 
 sleep(int(time))

@@ -145,3 +145,19 @@ int probe_mutex_unlock(struct pt_regs *ctx)
      init_stacks.update(&mutex_addr, &stack_id);
      return 0;
  }
+
+
+
+
+BPF_HASH(test, u64);
+int probe__create()
+{
+    u64 now = bpf_ktime_get_ns();
+    test.increment(now);
+}
+
+int probe_exit()
+{
+    u64 now = bpf_ktime_get_ns();
+    test.increment(now);
+}
