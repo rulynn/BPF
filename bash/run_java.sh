@@ -16,7 +16,7 @@ mkdir $out_path/stack
 name="ThreadsWithLock" #ThreadsWithLock
 javac $name.java
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer $name &
-#sleep 1
+sleep 1
 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
