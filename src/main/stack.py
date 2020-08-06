@@ -44,8 +44,8 @@ def run_sub(bpf, pid, locks):
         line = [k.name]
         line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
         str_data = ";".join(line).decode('utf-8', 'replace') + " " + str(v.value) + "\n"
-        file = "output/stack/" +str(k.tid) + ".log"
+        file = "../output/stack/" +str(k.tid) + ".log"
         with io.open(file, 'a', encoding="utf-8") as f:
             f.write(str_data)
-        with io.open("output/stack/all.log", 'a', encoding="utf-8") as f:
+        with io.open("../output/stack/all.log", 'a', encoding="utf-8") as f:
             f.write(str_data)
