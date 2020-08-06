@@ -35,9 +35,6 @@ for file in output/stack/*; do
 done
 
 
-
-
-
 #flamegraph
 #output=`perf record -F 99 -p $pid -g -- sleep $time`
 #

@@ -2,10 +2,13 @@
 
 # sh run_splash.sh 5
 
-# dir
-rm -rf out
-mkdir out
 time=$1
+burn_path="../resources"
+out_path="../src/output"
+
+rm -rf $out_path
+mkdir $out_path
+cd ../src
 
 #~/splash2/codes/kernels/fft/FFT -p8 -m26 &
 #pid=$(pgrep -f "FFT")
@@ -15,10 +18,9 @@ time=$1
 
 ~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p8 -n4096 &
 pid=$(pgrep -f "LU")
+echo "program pid: " $pid
 
-
-echo "program pid: "  $pid
-chmod 777 locktime.py
-./locktime.py $pid $time > out.log
+chmod 777 main/locktime.py
+output=`main/locktime.py $pid $time > output/out.log`
 
 
