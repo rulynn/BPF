@@ -34,5 +34,12 @@ locks = bpf["locks"]
 sleep(int(time))
 process.run(locks)
 if isStack == True:
-    stack.run_sub(bpf, int(pid), locks)
+    #stack.run_sub(bpf, int(pid), locks)
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
+    test = bpf["test"]
+    print(test)
+    print(len(test))
+    for k, v in test.items():
+        #event = ct.cast(event, ct.POINTER(ThreadEvent)).contents
+        print(k.value)
+        print(v.value)
