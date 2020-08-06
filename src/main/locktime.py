@@ -26,8 +26,8 @@ bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mu
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=int(pid))
 
 # new
-# bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", pid=int(pid))
-# bpf.attach_uprobe(name="pthread", sym="pthread_exit", fn_name="probe_exit", pid=int(pid))
+bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", pid=int(pid))
+bpf.attach_uprobe(name="pthread", sym="pthread_exit", fn_name="probe_exit", pid=int(pid))
 
 locks = bpf["locks"]
 
@@ -35,4 +35,4 @@ sleep(int(time))
 process.run(locks)
 if isStack == True:
     stack.run_sub(bpf, int(pid), locks)
-    #stack.run(bpf, int(pid), locks, init_stacks, stacks)
+#     stack.run(bpf, int(pid), locks, init_stacks, stacks)

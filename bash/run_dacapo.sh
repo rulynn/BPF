@@ -7,11 +7,11 @@ name="avrora"
 burn_path="../resources"
 out_path="../src/output"
 
-cd ../src
-rm -rf output
-mkdir output
-mkdir output/stack
 
+rm -rf $out_path
+mkdir $out_path
+mkdir $out_path/stack
+cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 $name &
@@ -26,6 +26,7 @@ output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedcl
 # eBPF
 chmod 777 main/locktime.py
 output=`main/locktime.py $pid $time > output/out.log`
+
 # burn: convert data to json
 chmod 777 $burn_path/burn
 for file in output/stack/*; do
