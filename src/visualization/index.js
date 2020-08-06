@@ -25,7 +25,7 @@ d3.csv('../output/data.csv', function(error, data){
 
     /* ----------------------------尺度转换------------------------  */
     chart.scaleX = d3.scaleBand()
-        .domain(d3.range(data.length))
+        .domain(d3.range(8))
         .range([0, chart.getBodyWidth()])
         .padding(config.barPadding);
 
