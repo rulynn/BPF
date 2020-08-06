@@ -109,7 +109,7 @@ def calculation_single(mtx, single_data):
         # TODO solve end time thread exit time
         threadPointList.append(TIME(0, k, pre_time))
         threadPointList.append(TIME(1, k, TIME_MAX - TIME_MIN[mtx]))
-        print("start time %d ::: end time %d" % (pre_time, TIME_MAX - TIME_MIN[mtx]))
+        #print("start time %d ::: end time %d" % (pre_time, TIME_MAX - TIME_MIN[mtx]))
 
     threadPointList.sort(key=lambda pair: pair.time)
 
