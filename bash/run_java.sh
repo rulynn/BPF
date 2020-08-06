@@ -13,7 +13,7 @@ mkdir $out_path/stack
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
-name="SingleFun" #ThreadsWithLock
+name="ThreadsWithLock" #ThreadsWithLock
 javac $name.java
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer $name &
 #sleep 1
