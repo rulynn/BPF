@@ -36,7 +36,7 @@ def run_sub(bpf, pid, locks):
     init_stacks = bpf["init_stacks"]
     stacks = bpf["stacks"]
     counts = bpf["counts"]
-
+    print(len(counts))
     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
         user_stack = [] if k.user_stack_id < 0 else stacks.walk(k.user_stack_id)
 
