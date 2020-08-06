@@ -15,7 +15,6 @@ class UNIT:
     def __init__(self, start_time, wait_time, spin_time, hold_time, enter_count):
         self.start_time = start_time
         self.wait_time = wait_time
-        self.spin_time = spin_time
         self.hold_time = hold_time
         self.enter_count = enter_count
 
@@ -47,7 +46,7 @@ def preprocessed(locks):
              if k not in tid_list:
                 tid_list.append(k.tid)
 
-             tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
+             tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
              #print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: spin %.2fus ::: hold %.2fus ::: enter count %d" %
              #   (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
@@ -65,25 +64,49 @@ def preprocessed(locks):
 
     return output_data
 
+# def calculation_single(mtx, single_data):
+#
+#     #print("------------------- Single MTX start: %d -------------------\n" % (mtx))
+#     global TIME_MIN
+#     global tid_list
+#     threadPointList = []
+#     # k: tid; v: unit
+#     for k, v in single_data.items():
+#         #print("tid: %d" % (k))
+#         for item in v:
+#             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
+#             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
+#             #print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" % (item.start_time - TIME_MIN[mtx],
+#             #item.wait_time, item.spin_time, item.hold_time, item.enter_count))
+#     threadPointList.sort(key=lambda pair: pair.time)
+#
+# #     print("................... thread point list ...................")
+# #     for item in threadPointList:
+# #         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
+#
+#     return calculation_single_inner(threadPointList)
+
 def calculation_single(mtx, single_data):
 
     #print("------------------- Single MTX start: %d -------------------\n" % (mtx))
     global TIME_MIN
     global tid_list
     threadPointList = []
+    pre_time = 0
     # k: tid; v: unit
     for k, v in single_data.items():
         #print("tid: %d" % (k))
         for item in v:
-            threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
+            threadPointList.append(TIME(0, k, pre_time))
+            threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx]))
+            threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx] + item.wait_time))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-            #print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" % (item.start_time - TIME_MIN[mtx],
-            #item.wait_time, item.spin_time, item.hold_time, item.enter_count))
+
     threadPointList.sort(key=lambda pair: pair.time)
 
-#     print("................... thread point list ...................")
-#     for item in threadPointList:
-#         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
+    print("................... thread point list ...................")
+    for item in threadPointList:
+        print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
 
     return calculation_single_inner(threadPointList)
 
