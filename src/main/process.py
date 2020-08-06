@@ -12,7 +12,7 @@ tid_list = []
 ans = []
 total = 0
 class UNIT:
-    def __init__(self, start_time, wait_time, spin_time, hold_time, enter_count):
+    def __init__(self, start_time, wait_time, hold_time, enter_count):
         self.start_time = start_time
         self.wait_time = wait_time
         self.hold_time = hold_time
