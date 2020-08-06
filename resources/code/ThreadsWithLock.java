@@ -11,7 +11,7 @@ public class ThreadsWithLock {
     private static Lock lock = new ReentrantLock();
 
     public static void main(String[] args) throws InterruptedException {
-        int times = 1;
+        int times = 5;
         while(times > 0) {
             times--;
             TestThread testThread = new TestThread();
