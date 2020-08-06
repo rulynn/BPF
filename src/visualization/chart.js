@@ -119,11 +119,11 @@ export default class Chart {
         this.render();
     }
 
-    renderChart(){
+    renderChart(name){
         if (!this._box){
             this._box = d3.select('body')
                             .append('div')
-                            .attr('class','box');
+                            .attr('class',name);
         }
 
         if (!this._svg){

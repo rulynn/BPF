@@ -1,11 +1,10 @@
 import Chart from "./chart.js";
-import FlameGraph from "./flamegraph.js";
+
 
 d3.csv('../output/data.csv', function(error, data){
 
     /* ----------------------------配置参数------------------------  */
     const chart = new Chart();
-    const flamegraph = new FlameGraph();
 
     const config = {
         barPadding: 0.15,
@@ -180,7 +179,7 @@ d3.csv('../output/data.csv', function(error, data){
                     .attr('fill', 'blue');
 
                 // FlameGraph
-                flamegraph.f(d.thread);
+                f(d.thread);
             });
 
 
@@ -203,12 +202,6 @@ d3.csv('../output/data.csv', function(error, data){
     }
 
     chart.renderChart("stack");
-    flamegraph.f("all");
+    f("all");
 
 });
-
-
-
-
-
-
