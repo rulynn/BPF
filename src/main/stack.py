@@ -74,7 +74,7 @@ def run2(bpf, pid, locks):
         file = "output/stack/" +str(k.tid) + ".log"
         with io.open(file, 'a', encoding="utf-8") as f:
             f.write(str_data)
-        with io.open("output/stack/all.log")
+        with io.open("output/stack/all.log", encoding="utf-8") as f:
             f.write(str_data)
         #print("%s %d" % (b";".join(line).decode('utf-8', 'replace'), v.value))
 
