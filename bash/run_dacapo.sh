@@ -14,7 +14,7 @@ mkdir $out_path/stack
 cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
-java -Xmx64m -XX:ReservedCodeCacheSize=16M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 1 -s large $name &
+java -Xmx32m -XX:ReservedCodeCacheSize=16M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 1 -s large $name &
 sleep 1
 
 pid=$(pgrep -f "$name")
