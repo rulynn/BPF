@@ -169,6 +169,7 @@ def getVMThread():
                 #print(x[1], nid_int)
     except IOError:
         print "Error: Not find output/out_stack.log"
+        return VMThread
 
     return VMThread
 
