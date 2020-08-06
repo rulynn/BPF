@@ -151,6 +151,7 @@ int probe_mutex_init(struct pt_regs *ctx)
 }
 
 struct thread_event_t {
+
     u32 tid;
     u64 time;
     u64 runtime_id;
