@@ -148,7 +148,7 @@ int probe_mutex_unlock(struct pt_regs *ctx)
 
 
 BPF_HASH(test, u64);
-int probe__create(struct pt_regs *ctx)
+int probe_create(struct pt_regs *ctx)
 {
     u64 now = bpf_ktime_get_ns();
     test.increment(now);
