@@ -34,7 +34,21 @@
         .container {
             max-width: 990px;
         }
-        div{ display:inline}
+        .flamegraph_container{
+            height: 800px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .flamegraph_container svg{
+            overflow: scroll;
+        }
+        .stack{
+            display: inline-flex;
+            height: 800px;
+            justify-content: center;
+            align-items: flex-end;
+        }
     </style>
 
     <title>d3-flame-graph</title>

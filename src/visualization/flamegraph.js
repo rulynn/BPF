@@ -1,5 +1,5 @@
-const _width = 800;
-const _height = 1000;
+const _width = 600;
+const _height = 800;
 var _box = null;
 var _svg = null;
 function f(tid) {
@@ -7,6 +7,8 @@ function f(tid) {
 
     if (!_box){
         _box = d3.select('body')
+            .append("div")
+            .attr('class', 'flamegraph_container')
             .append('div')
             .attr('class',"flamegrpah");
     }
@@ -19,8 +21,8 @@ function f(tid) {
 
     console.log(tid)
     var flameGraph = d3.flamegraph()
-        .width(_width)
-        .height(_height)
+        .width(_width-30)
+        .height(_height-30)
         .cellHeight(18)
         .transitionDuration(750)
         .minFrameSize(5)
