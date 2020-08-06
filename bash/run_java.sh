@@ -5,10 +5,11 @@ burn_path="../"
 out_path="../../src/output"
 main_path="../../src/main"
 
+cd ../resources/code
 rm -rf $out_path
 mkdir $out_path
 mkdir $out_path/stack
-cd ../resources/code
+
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
