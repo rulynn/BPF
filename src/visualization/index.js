@@ -92,7 +92,7 @@ d3.csv('../output/data.csv', function(error, data){
             .attr('transform', 'rotate(-90)')
             .attr('dy', -40)
             .attr('text-anchor','end')
-            .text('比例');
+            //.text('比例');
     }
 
     /* ----------------------------渲染网格线------------------------  */

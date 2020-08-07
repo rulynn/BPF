@@ -117,11 +117,6 @@ def calculation_single(mtx, single_data):
         print("start time %d ::: end time %d" % (pre_time, last_time))
 
     threadPointList.sort(key=lambda pair: pair.time)
-
-#     print("................... thread point list ...................")
-#     for item in threadPointList:
-#         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
-
     return calculation_single_inner(threadPointList)
 
 
