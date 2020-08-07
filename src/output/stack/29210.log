@@ -1,2 +1,0 @@
-C1 CompilerThre;start_thread;java_start(Thread*);JavaThread::thread_main_inner();CompileBroker::compiler_thread_loop();CompileQueue::get();Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::unpark() 1
-C1 CompilerThre;start_thread;java_start(Thread*);JavaThread::thread_main_inner();CompileBroker::compiler_thread_loop();CompileQueue::get();Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::park(long) 3
