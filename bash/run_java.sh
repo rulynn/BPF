@@ -1,11 +1,11 @@
 #!/bin/bash
 
 time=$1
-burn_path="../"
-out_path="../../src/output"
-main_path="../../src/main"
+burn_path="../resources"
+out_path="../src/output"
+main_path="../src/main"
+java_path="../resources/code/"
 
-cd ../resources/code
 rm -rf $out_path
 mkdir $out_path
 mkdir $out_path/stack
@@ -14,7 +14,7 @@ mkdir $out_path/stack
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
 name="ThreadsWithLock" #ThreadsWithLock
-javac $name.java
+javac $java_path$name.java
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer $name &
 sleep 1
 
