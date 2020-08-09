@@ -13,11 +13,12 @@ cd ../src
 #~/splash2/codes/kernels/fft/FFT -p8 -m26 &
 #pid=$(pgrep -f "FFT")
 
-#~/splash2/codes/kernels/cholesky/CHOLESKY -p8 < inputs/tk29.O &
-#pid=$(pgrep -f "CHOLESKY")
+~/splash2/codes/kernels/cholesky/CHOLESKY -p8 < inputs/tk29.O &
+pid=$(pgrep -f "CHOLESKY")
 
-~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p8 -n4096 &
-pid=$(pgrep -f "LU")
+#~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p8 -n4096 &
+#pid=$(pgrep -f "LU")
+
 echo "program pid: " $pid
 
 chmod 777 main/locktime.py
