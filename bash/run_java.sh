@@ -21,10 +21,10 @@ sleep 1
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
 
-# jstack
-output=`jstack $pid > $out_path/out_stack.log`
-# perf map
-output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
+## jstack
+#output=`jstack $pid > $out_path/out_stack.log`
+## perf map
+#output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 $main_path/locktime.py
 output=`$main_path/locktime.py $pid $time > $out_path/out.log`
