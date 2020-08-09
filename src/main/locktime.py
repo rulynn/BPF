@@ -32,7 +32,9 @@ bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mut
 locks = bpf["locks"]
 
 sleep(int(time))
-process.run(locks)
 if isStack == True:
+    process.run(locks, True)
     stack.run_sub(bpf, int(pid), locks)
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
+else:
+    process.run(locks, False)

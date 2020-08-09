@@ -5,11 +5,11 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import csv
 
-def run(tid_list, ans, total):
+def run(tid_list, ans, total, status):
 #     plot_origin(tid_list, ans, total)
 #     plot_with_name(tid_list, ans, total)
 #     plot_sub(tid_list, ans, total)
-    outputCSV(tid_list, ans, total)
+    outputCSV(tid_list, ans, total, status)
 
 
 def outputCSV(tid_list, ans, total):
@@ -150,26 +150,26 @@ def plot_sub(tid_list, ans, total):
     plt.savefig(path)
 
 
-def getVMThread():
+def getVMThread(status):
     VMThread = {}
-    try:
-        with open('output/out_stack.log', 'r') as f:
-            jstack = f.readlines()
-        for i in range(0, len(jstack)):
-            if jstack[i][0] == "\"":
-                x = jstack[i].split("\"")
-                idx = jstack[i].find("nid")
-                nid = ""
-                for j in range(idx+6, len(jstack[i])):
-                    if jstack[i][j] == ' ':
-                        break
-                    nid += jstack[i][j]
-                nid_int = int(nid.upper(), 16)
-                VMThread[nid_int] = x[1]
-                #print(x[1], nid_int)
-    except IOError:
-        print "Error: Not find output/out_stack.log"
-
+    if (status == True):
+        try:
+            with open('output/out_stack.log', 'r') as f:
+                jstack = f.readlines()
+            for i in range(0, len(jstack)):
+                if jstack[i][0] == "\"":
+                    x = jstack[i].split("\"")
+                    idx = jstack[i].find("nid")
+                    nid = ""
+                    for j in range(idx+6, len(jstack[i])):
+                        if jstack[i][j] == ' ':
+                            break
+                        nid += jstack[i][j]
+                    nid_int = int(nid.upper(), 16)
+                    VMThread[nid_int] = x[1]
+                    #print(x[1], nid_int)
+        except IOError:
+            print "Error: Not find output/out_stack.log"
     return VMThread
 
 

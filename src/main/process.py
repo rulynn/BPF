@@ -26,11 +26,11 @@ class TIME:
         self.time = time
 
 
-def run(locks):
+def run(locks, status):
     output_data = preprocessed(locks)
     for k, v in output_data.items():
         calculation_single(k, v)
-    plot.run(tid_list, ans, total)
+    plot.run(tid_list, ans, total, status)
 
 def preprocessed(locks):
 
