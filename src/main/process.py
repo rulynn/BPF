@@ -42,7 +42,7 @@ def preprocessed(locks):
     sorted_by_thread = sorted(locks.items(), key=grouper)
     locks_by_thread = itertools.groupby(sorted_by_thread, grouper)
     for tid, items in locks_by_thread:
-        #print("thread %d" % tid)
+        print("thread %d" % tid)
         for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
 
              if k not in tid_list:
