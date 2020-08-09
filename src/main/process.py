@@ -49,8 +49,8 @@ def preprocessed(locks):
                 tid_list.append(k.tid)
 
              tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
-             print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: spin %.2fus ::: hold %.2fus ::: enter count %d" %
-                (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+#              print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: spin %.2fus ::: hold %.2fus ::: enter count %d" %
+#                 (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0, v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
              # save data
              if output_data.get(k.mtx) == None:
@@ -98,12 +98,13 @@ def calculation_single(mtx, single_data):
     threadPointList = []
     # k: tid; v: unit
     for k, v in single_data.items():
-        #print("tid: %d" % (k))
+        print("tid: %d" % (k))
         pre_time = 0
         last_time = 0
         grouper = lambda k: k.start_time
         v.sort(key=grouper)
         for item in v:
+            print("start time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN[mtx], item.wait_time, item.hold_time))
             threadPointList.append(TIME(0, k, pre_time))
             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx]))
             print("start time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN[mtx]))
