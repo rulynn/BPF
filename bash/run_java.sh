@@ -30,8 +30,8 @@ chmod 777 $main_path/locktime.py
 output=`$main_path/locktime.py $pid $time > $out_path/out.log`
 
 # burn: convert data to json
-chmod 777 $burn_path/burn
-for file in $out_path/stack/*; do
-    echo $file
-    $burn_path/burn convert --type=folded $file > $file.json
-done
+#chmod 777 $burn_path/burn
+#for file in $out_path/stack/*; do
+#    echo $file
+#    $burn_path/burn convert --type=folded $file > $file.json
+#done
