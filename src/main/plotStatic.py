@@ -12,9 +12,9 @@ def run(tid_list, ans, total, status):
     outputCSV(tid_list, ans, total, status)
 
 
-def outputCSV(tid_list, ans, total):
+def outputCSV(tid_list, ans, total, status):
 
-    VMThread = getVMThread()
+    VMThread = getVMThread(status)
     # CSV data
     csvfile = open('output/data.csv', 'wb')
     writer = csv.writer(csvfile)
