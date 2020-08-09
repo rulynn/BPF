@@ -9,7 +9,7 @@ time=$1
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
 
-cd ../java
+cd ../
 g++ Threads.c -o Threads -lpthread
 ./Threads &
 
