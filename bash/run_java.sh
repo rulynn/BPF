@@ -15,8 +15,8 @@ mkdir $out_path/stack
 # java program shows in ../java/
 name="Threads" #ThreadsWithLock
 javac $name.java
-java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer $name &
-sleep 1
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
+#sleep 1
 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
