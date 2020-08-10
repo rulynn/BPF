@@ -14,7 +14,7 @@ void icrement () {
     mut.lock ();
     std::thread::id tid = std::this_thread::get_id();
     cout << tid << endl;
-    for (int i = 0; i < 5000000000; i++) {
+    for (int i = 0; i < 2000000000; i++) {
         val++;
     }
     mut.unlock ();
