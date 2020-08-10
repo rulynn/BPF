@@ -87,8 +87,7 @@ def calculation_single(mtx, single_data, start_times, stop_times):
     for k, v in single_data.items():
 
         pre_time = max(start_times.get(k) - TIME_MIN[mtx], 0)
-
-        print("tid: %d ::: start time" % (k, pre_time))
+        print("tid: %d ::: start time %d" % (k, pre_time))
         last_time = 0
         grouper = lambda k: k.start_time
         v.sort(key=grouper)
