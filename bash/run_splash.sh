@@ -11,7 +11,7 @@ mkdir $out_path
 cd ../src
 
 ~/splash2/codes/kernels/fft/FFT -p8 -m26 &
-sleep 1
+#sleep 1
 pid=$(pgrep -f "FFT")
 
 #~/splash2/codes/kernels/cholesky/CHOLESKY -p8 < ~/splash2/codes/kernels/cholesky/inputs/tk29.O &
