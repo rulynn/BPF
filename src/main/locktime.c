@@ -106,16 +106,18 @@ int probe_mutex_unlock(struct pt_regs *ctx)
 
 struct test_unit {
     u64 mtx;
+    u32 tid;
     u64 timestamp;
     u64 type;
 };
 
-BPF_HASH(test, u64);
+BPF_HASH(test, struct test_unit);
 int probe_create(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
 
     struct test_unit unit = {}
     unit.timestamp = now;
+    unit.pid = bpf_get_current_pid_tgid();
     unit.mtx = PT_REGS_PARM1(ctx);
     unit.type = 1;
     test.increment(unit);
@@ -126,6 +128,7 @@ int probe_exit(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
     struct test_unit unit = {}
     unit.timestamp = now;
+    unit.pid = bpf_get_current_pid_tgid();
     unit.mtx = PT_REGS_PARM1(ctx);
     unit.type = 2;
     test.increment(unit);
@@ -135,6 +138,7 @@ int probe_mutex_trylock(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
     struct test_unit unit = {}
     unit.timestamp = now;
+    unit.pid = bpf_get_current_pid_tgid();
     unit.mtx = PT_REGS_PARM1(ctx);
     unit.type = 3;
     test.increment(unit);
