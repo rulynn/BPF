@@ -138,7 +138,7 @@ int probe_mutex_trylock(struct pt_regs *ctx){
     struct test_unit unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.mtx = PT_REGS_P(ctx);
+    unit.mtx = PT_REGS_PARM1(ctx);
     unit.type = 3;
     test.increment(unit);
     return 0;
