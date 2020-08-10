@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# sh run_c.sh 15
 time=$1
 burn_path="../resources"
 out_path="../src/output"
