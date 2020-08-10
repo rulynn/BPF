@@ -118,7 +118,7 @@ int probe_create(struct pt_regs *ctx){
     struct test_unit unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.mtx = PT_REGS_PARM3(ctx);
     //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
     unit.type = 1;
     test.increment(unit);
