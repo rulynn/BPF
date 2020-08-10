@@ -49,6 +49,8 @@ int probe_mutex_lock(struct pt_regs *ctx)
     val.mtx = PT_REGS_PARM1(ctx);
     val.timestamp = now;
     lock_start.update(&pid, &val);
+
+    test.increment(now);
     return 0;
 }
 
@@ -108,6 +110,8 @@ int probe_mutex_lock_return(struct pt_regs *ctx)
     }
 
     lock_start.delete(&pid);
+
+    test.increment(now);
     return 0;
 }
 int probe_mutex_unlock(struct pt_regs *ctx)
@@ -136,6 +140,8 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     existing_tm_val->lock_time_ns += hold_time;
 
     lock_end.delete(&lock_key);
+
+    test.increment(now);
     return 0;
 }
 int probe_mutex_init(struct pt_regs *ctx)
