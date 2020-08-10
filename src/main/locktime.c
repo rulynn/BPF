@@ -110,7 +110,7 @@ struct time_k {
     char type[8];
 };
 
-BPF_HASH(start, struct time_k);
+BPF_HASH(times, struct time_k);
 
 int trace_pthread(struct pt_regs *ctx) {
     char type[] = "pthread";
@@ -119,7 +119,7 @@ int trace_pthread(struct pt_regs *ctx) {
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
-    start.increment(unit);
+    times.increment(unit);
     return 0;
 }
 
