@@ -155,3 +155,14 @@ int probe_join(struct pt_regs *ctx){
     test.increment(unit);
     return 0;
 }
+
+int probe_cancel(struct pt_regs *ctx){
+    u64 now = bpf_ktime_get_ns();
+    struct test_unit unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.type = 5;
+    test.increment(unit);
+    return 0;
+}
