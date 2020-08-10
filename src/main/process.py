@@ -25,13 +25,12 @@ class TIME:
         self.time = time
 
 
-def run(locks, status):
+def run(locks, times, status):
 
     # deal data
     output_data = preprocessed(locks)
 
     # deal start time and stop time
-    times = bpf["times"]
     start_times = {}
     stop_times = {}
     for k, v in times.items():
