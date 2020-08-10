@@ -54,7 +54,7 @@ if isStack == True:
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
     process.run(locks, False)
-    test = bpf["test"]
+    test = bpf["start"]
     print(len(test))
     for k, v in test.items():
         print(k.tid, k.timestamp, k.type)
