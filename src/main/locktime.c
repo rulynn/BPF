@@ -114,11 +114,10 @@ struct test_unit {
 BPF_HASH(test, struct test_unit);
 int probe_create(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
-
     struct test_unit unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.mtx = PT_REGS_RC(ctx);
     unit.type = 1;
     test.increment(unit);
     return 0;
@@ -139,7 +138,7 @@ int probe_mutex_trylock(struct pt_regs *ctx){
     struct test_unit unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.mtx = PT_REGS_P(ctx);
     unit.type = 3;
     test.increment(unit);
     return 0;
@@ -150,7 +149,7 @@ int probe_join(struct pt_regs *ctx){
     struct test_unit unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.mtx = PT_REGS_PARM2(ctx);
+    unit.mtx = PT_REGS_PARM1(ctx);
     unit.type = 4;
     test.increment(unit);
     return 0;
