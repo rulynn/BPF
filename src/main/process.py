@@ -85,8 +85,7 @@ def calculation_single(mtx, single_data, start_times, stop_times):
     threadPointList = []
     # k: tid; v: unit
     for k, v in single_data.items():
-
-        pre_time = max(start_times.get(k) - TIME_MIN[mtx], 0)
+        pre_time = max(int(start_times.get(k)) - TIME_MIN[mtx], 0)
         print("tid: %d ::: start time %d" % (k, pre_time))
         last_time = 0
         grouper = lambda k: k.start_time
