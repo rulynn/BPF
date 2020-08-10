@@ -15,12 +15,17 @@ pid = sys.argv[1]
 time = sys.argv[2]
 isStack = False
 
+usdt = USDT(pid=int(pid))
+usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
+usdt.enable_probe_or_bail("thread__start", "trace_start")
+usdt.enable_probe_or_bail("thread__stop", "trace_stop")
+
 # load BPF program
 if isStack == True:
-    bpf = BPF(src_file = "locktime_stack.c")
+    bpf = BPF(src_file = "locktime_stack.c", usdt_contexts=[usdt])
     bpf.attach_uprobe(name="pthread", sym="pthread_mutex_init", fn_name="probe_mutex_init", pid=int(pid))
 else:
-    bpf = BPF(src_file = "locktime.c")
+    bpf = BPF(src_file = "locktime.c", usdt_contexts=[usdt])
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock", pid=int(pid))
 bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock_return", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=int(pid))

@@ -136,18 +136,20 @@ int probe_exit(struct pt_regs *ctx){
     test.increment(unit);
     return 0;
 }
-//int probe_mutex_trylock(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    struct test_unit unit = {};
-//    unit.timestamp = now;
-//    unit.tid = bpf_get_current_pid_tgid();
-//    unit.mtx = PT_REGS_PARM1(ctx);
-//    unit.type = 3;
-//    test.increment(unit);
-//    return 0;
-//}
 
 int probe_join(struct pt_regs *ctx){
+    u64 now = bpf_ktime_get_ns();
+    struct test_unit unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    unit.mtx = PT_REGS_PARM1(ctx);
+    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
+    unit.type = 3;
+    test.increment(unit);
+    return 0;
+}
+
+int trace_pthread(struct pt_regs *ctx) {
     u64 now = bpf_ktime_get_ns();
     struct test_unit unit = {};
     unit.timestamp = now;
@@ -159,24 +161,49 @@ int probe_join(struct pt_regs *ctx){
     return 0;
 }
 
-//int probe_cancel(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    struct test_unit unit = {};
-//    unit.timestamp = now;
-//    unit.tid = bpf_get_current_pid_tgid();
-//    unit.mtx = PT_REGS_PARM1(ctx);
-//    unit.type = 5;
-//    test.increment(unit);
-//    return 0;
-//}
-//
-//int probe_barrier_init(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    struct test_unit unit = {};
-//    unit.timestamp = now;
-//    unit.tid = bpf_get_current_pid_tgid();
-//    unit.mtx = PT_REGS_PARM1(ctx);
-//    unit.type = 6;
-//    test.increment(unit);
-//    return 0;
-//}
+int trace_start(struct pt_regs *ctx) {
+//    char type[] = "%s";
+//    struct thread_event_t te = {};
+//    u64 nameptr = 0, id = 0, native_id = 0;
+//    bpf_usdt_readarg(1, ctx, &nameptr);
+//    bpf_usdt_readarg(3, ctx, &id);
+//    bpf_usdt_readarg(4, ctx, &native_id);
+//    bpf_probe_read_user(&te.name, sizeof(te.name), (void *)nameptr);
+//    te.runtime_id = id;
+//    te.native_id = native_id;
+//    __builtin_memcpy(&te.type, type, sizeof(te.type));
+//    threads.perf_submit(ctx, &te, sizeof(te));
+    u64 now = bpf_ktime_get_ns();
+    struct test_unit unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    unit.mtx = PT_REGS_PARM1(ctx);
+    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
+    unit.type = 5;
+    test.increment(unit);
+    return 0;
+}
+
+int trace_stop(struct pt_regs *ctx) {
+//    char type[] = "%s";
+//    struct thread_event_t te = {};
+//    u64 nameptr = 0, id = 0, native_id = 0;
+//    bpf_usdt_readarg(1, ctx, &nameptr);
+//    bpf_usdt_readarg(3, ctx, &id);
+//    bpf_usdt_readarg(4, ctx, &native_id);
+//    bpf_probe_read_user(&te.name, sizeof(te.name), (void *)nameptr);
+//    te.runtime_id = id;
+//    te.native_id = native_id;
+//    __builtin_memcpy(&te.type, type, sizeof(te.type));
+//    threads.perf_submit(ctx, &te, sizeof(te));
+    u64 now = bpf_ktime_get_ns();
+    struct test_unit unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    unit.mtx = PT_REGS_PARM1(ctx);
+    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
+    unit.type = 6;
+    test.increment(unit);
+    return 0;
+}
+
