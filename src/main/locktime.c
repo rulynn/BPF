@@ -150,7 +150,7 @@ int probe_join(struct pt_regs *ctx){
     struct test_unit unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.mtx = PT_REGS_PARM2(ctx);
     unit.type = 4;
     test.increment(unit);
     return 0;
