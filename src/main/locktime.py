@@ -31,7 +31,7 @@ bpf.attach_uprobe(name="pthread", sym="pthread_exit", fn_name="probe_exit", pid=
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_trylock", fn_name="probe_mutex_trylock", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_join", fn_name="probe_join", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_cancel", fn_name="probe_cancel", pid=int(pid))
-
+bpf.attach_uprobe(name="pthread", sym="pthread_barrier_init", fn_name="probe_barrier_init", pid=int(pid))
 
 
 locks = bpf["locks"]
