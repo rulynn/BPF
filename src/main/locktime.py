@@ -17,6 +17,7 @@ isStack = False
 
 usdt = USDT(pid=int(pid))
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
+usdt.enable_probe_or_bail("pthread_stop", "trace_pthread_stop")
 # usdt.enable_probe_or_bail("thread__start", "trace_start")
 # usdt.enable_probe_or_bail("thread__stop", "trace_stop")
 
