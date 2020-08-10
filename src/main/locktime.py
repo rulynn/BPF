@@ -3,7 +3,7 @@
 import sys
 import itertools
 from time import sleep
-from bcc import BPF
+from bcc import BPF, USDT
 import process
 import stack
 import itertools
