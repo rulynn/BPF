@@ -46,15 +46,15 @@ sleep(int(time))
 if isStack == True:
     process.run(locks, times, True)
     stack.run_sub(bpf, int(pid), locks)
-    test = bpf["test"]
-    print(len(test))
-    for k, v in test.items():
-        print(k.value, v.value)
+    times = bpf["times"]
+    print(len(times))
+    for k, v in times.items():
+        print(k.tid, k.timestamp, k.type)
 
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
     process.run(locks, times, False)
-    test = bpf["start"]
-    print(len(test))
-    for k, v in test.items():
+    times = bpf["times"]
+    print(len(times))
+    for k, v in times.items():
         print(k.tid, k.timestamp, k.type)
