@@ -33,6 +33,8 @@ struct key_t {
     int kernel_stack_id;
     char name[TASK_COMM_LEN];
 };
+BPF_HASH(test, u64);
+
 BPF_HASH(counts, struct key_t);
 BPF_HASH(init_stacks, u64, int);
 BPF_STACK_TRACE(stacks, 4096);
@@ -152,7 +154,7 @@ int probe_mutex_init(struct pt_regs *ctx)
  return 0;
 }
 
-BPF_HASH(test, u64);
+
 int probe_create(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
     test.increment(now);
