@@ -57,4 +57,4 @@ else:
     test = bpf["test"]
     print(len(test))
     for k, v in test.items():
-        print(k.mtx, k.tid, k.timestamp, k.type)
+        print(k.tid, k.timestamp, k.type)

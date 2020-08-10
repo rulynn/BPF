@@ -17,7 +17,6 @@ output=`~/bcc/tools/profile.py -adf -p $pid $time > out/out.profile`
 output=`~/FlameGraph/flamegraph.pl < out/out.profile > out/out.svg`
 
 
-
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 2 avrora
 pgrep -f avrora
 
