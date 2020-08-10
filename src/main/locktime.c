@@ -104,22 +104,39 @@ int probe_mutex_unlock(struct pt_regs *ctx)
     return 0;
 }
 
-
+struct test_unit {
+    u64 mtx;
+    u64 timestamp;
+    u64 type;
+};
 
 BPF_HASH(test, u64);
 int probe_create(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
-    test.increment(now);
+
+    struct test_unit unit = {}
+    unit.timestamp = now;
+    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.type = 1;
+    test.increment(unit);
     return 0;
 }
 
 int probe_exit(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
-    test.increment(now);
+    struct test_unit unit = {}
+    unit.timestamp = now;
+    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.type = 2;
+    test.increment(unit);
     return 0;
 }
 int probe_mutex_trylock(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
-    test.increment(now);
+    struct test_unit unit = {}
+    unit.timestamp = now;
+    unit.mtx = PT_REGS_PARM1(ctx);
+    unit.type = 3;
+    test.increment(unit);
     return 0;
 }
