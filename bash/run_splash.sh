@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# sh run_splash.sh 5
+# sh run_splash.sh 37
 
 time=$1
 burn_path="../resources"
@@ -16,8 +16,8 @@ cd ../src
 #~/splash2/codes/kernels/cholesky/CHOLESKY -p8 < ~/splash2/codes/kernels/cholesky/inputs/tk29.O &
 #pid=$(pgrep -f "CHOLESKY")
 
-#~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p8 -n4096 &
-#pid=$(pgrep -f "LU")
+~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p8 -n4096 &
+pid=$(pgrep -f "LU")
 
 echo "program pid: " $pid
 
