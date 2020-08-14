@@ -166,6 +166,12 @@ int probe_mutex_init(struct pt_regs *ctx)
 //    return 0;
 //}
 
+struct time_k {
+    u32 tid;
+    u64 timestamp;
+    char type[8];
+};
+
 BPF_HASH(times, struct time_k);
 
 int trace_pthread(struct pt_regs *ctx) {
