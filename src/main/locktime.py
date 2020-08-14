@@ -13,7 +13,7 @@ if len(sys.argv) < 3:
     exit()
 pid = sys.argv[1]
 time = sys.argv[2]
-isStack = False
+isStack = True
 
 usdt = USDT(pid=int(pid))
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
