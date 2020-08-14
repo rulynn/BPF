@@ -148,20 +148,56 @@ int probe_mutex_init(struct pt_regs *ctx)
  return 0;
 }
 
-BPF_HASH(test, u64);
-int probe_create(struct pt_regs *ctx){
+//BPF_HASH(test, u64);
+//int probe_create(struct pt_regs *ctx){
+//    u64 now = bpf_ktime_get_ns();
+//    test.increment(now);
+//    return 0;
+//}
+//
+//int probe_exit(struct pt_regs *ctx){
+//    u64 now = bpf_ktime_get_ns();
+//    test.increment(now);
+//    return 0;
+//}
+//int probe_mutex_trylock(struct pt_regs *ctx){
+//    u64 now = bpf_ktime_get_ns();
+//    test.increment(now);
+//    return 0;
+//}
+
+BPF_HASH(times, struct time_k);
+
+int trace_pthread(struct pt_regs *ctx) {
+    char type[] = "pthread";
     u64 now = bpf_ktime_get_ns();
-    test.increment(now);
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
     return 0;
 }
 
-int probe_exit(struct pt_regs *ctx){
-    u64 now = bpf_ktime_get_ns();
-    test.increment(now);
-    return 0;
+int trace_start(struct pt_regs *ctx) {
+   char type[] = "start";
+   u64 now = bpf_ktime_get_ns();
+   struct time_k unit = {};
+   unit.timestamp = now;
+   unit.tid = bpf_get_current_pid_tgid();
+   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+   times.increment(unit);
+   return 0;
 }
-int probe_mutex_trylock(struct pt_regs *ctx){
-    u64 now = bpf_ktime_get_ns();
-    test.increment(now);
-    return 0;
+
+
+int trace_stop(struct pt_regs *ctx) {
+   char type[] = "stop";
+   u64 now = bpf_ktime_get_ns();
+   struct time_k unit = {};
+   unit.timestamp = now;
+   unit.tid = bpf_get_current_pid_tgid();
+   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+   times.increment(unit);
+   return 0;
 }
