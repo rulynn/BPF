@@ -12,7 +12,7 @@ d3.csv('../output/data.csv', function(error, data){
         textColor: 'black',
         //gridColor: 'gray',
         tickShowGrid: [60, 120, 180],
-        //title: '堆叠直方图',
+        title: 'Criticality stacks',
         hoverColor: 'red',
         rectHeight: 25,
         animateDuration: 1000,
@@ -52,6 +52,30 @@ d3.csv('../output/data.csv', function(error, data){
             .attr('y', (data) => chart.scaleY(data.sum));
 
         bars.exit().remove();
+    }
+
+    /* ----------------------------渲染图例------------------------  */
+    chart.renderLegend = function(){
+
+        var legendWrap = chart.svg().append("g");
+        var series = legendWrap.append("g").attr("class", "series");
+
+        for (var i=1;i <= data.length;i++) {
+            series.append("circle")
+                //.attr("stroke-width", 2)
+                .attr("fill", chart._colors(i))
+                //.attr("stroke", chart._colors(i))
+                .attr("r", 6)
+                .attr("cx", 360)
+                .attr("cy", 34 + 20 * i);
+
+            series.append("text")
+                .attr("font-size", "1em")
+                .attr("text-anchor", "start")
+                .attr("dy", 40 + 20 * i)
+                .attr("dx", 390)
+                .text(data[i-1].name + ": " + data[i-1].height);
+        }
     }
 
     /* ----------------------------渲染坐标轴------------------------  */
@@ -199,6 +223,8 @@ d3.csv('../output/data.csv', function(error, data){
         chart.addMouseOn();
 
         chart.renderTitle();
+
+        chart.renderLegend();
     }
 
     chart.renderChart("stack");
