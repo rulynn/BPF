@@ -124,17 +124,16 @@ int trace_pthread(struct pt_regs *ctx) {
 }
 
 
-//int probe_create(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    struct test_unit unit = {};
-//    unit.timestamp = now;
-//    unit.tid = bpf_get_current_pid_tgid();
-//    unit.mtx = PT_REGS_PARM3(ctx);
-//    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
-//    unit.type = 1;
-//    test.increment(unit);
-//    return 0;
-//}
+int probe_create(struct pt_regs *ctx){
+    char type[] = "create";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
 //
 //int probe_exit(struct pt_regs *ctx){
 //    u64 now = bpf_ktime_get_ns();
@@ -148,16 +147,16 @@ int trace_pthread(struct pt_regs *ctx) {
 //    return 0;
 //}
 //
-//int probe_join(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    struct test_unit unit = {};
-//    unit.timestamp = now;
-//    unit.tid = bpf_get_current_pid_tgid();
-//    unit.mtx = PT_REGS_PARM1(ctx);
-//    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
-//    unit.type = 3;
-//    test.increment(unit);
-//    return 0;
-//}
+
+int probe_join(struct pt_regs *ctx){
+    char type[] = "join";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
 
 
