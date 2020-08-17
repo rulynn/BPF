@@ -89,6 +89,7 @@ def calculation_single(mtx, single_data, start_times, stop_times):
     for k, v in single_data.items():
         pre_time = max(int(start_times.get(k) or 0) - TIME_MIN[mtx], 0)
         print("tid: %d ::: thread start time %d - time min %d = start time %d" % (k, int(start_times.get(k) or 0), TIME_MIN[mtx], pre_time))
+        print("tid: %d ::: thread stop time %d - time min %d = stop time %d" % (k, int(stop_times.get(k) or 0), TIME_MIN[mtx], max(int(stop_times.get(k) or 0) - TIME_MIN[mtx], 0)))
         last_time = 0
         grouper = lambda k: k.start_time
         v.sort(key=grouper)
@@ -103,7 +104,7 @@ def calculation_single(mtx, single_data, start_times, stop_times):
         threadPointList.append(TIME(0, k, pre_time))
 
         threadPointList.append(TIME(1, k, max(int(stop_times.get(k) or 0) - TIME_MIN[mtx], last_time))
-        print("\tstart time %d ::: end time %d ::: stop time %d" % (pre_time, last_time, int(stop_times.get(k) or 0)))
+        print("\tstart time %d ::: end time %d" % (pre_time, last_time))
 
     threadPointList.sort(key=lambda pair: pair.time)
     return calculation_single_inner(threadPointList)
