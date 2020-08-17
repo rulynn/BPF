@@ -102,8 +102,8 @@ def calculation_single(mtx, single_data, start_times, stop_times):
         # TODO solve end time thread exit time
         threadPointList.append(TIME(0, k, pre_time))
 
-        threadPointList.append(TIME(1, k, max(int(start_times.get(k) or 0) - TIME_MIN[mtx], last_time))
-        print("\tstart time %d ::: end time %d ::: stop time %d" % (pre_time, last_time, max(int(start_times.get(k) or 0) - TIME_MIN[mtx], 0)))
+        threadPointList.append(TIME(1, k, max(int(stop_times.get(k) or 0) - TIME_MIN[mtx], last_time))
+        print("\tstart time %d ::: end time %d ::: stop time %d" % (pre_time, last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx]))
 
     threadPointList.sort(key=lambda pair: pair.time)
     return calculation_single_inner(threadPointList)
