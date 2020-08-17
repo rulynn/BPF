@@ -207,3 +207,38 @@ int trace_stop(struct pt_regs *ctx) {
    times.increment(unit);
    return 0;
 }
+
+int probe_create(struct pt_regs *ctx){
+    char type[] = "create";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+//
+//int probe_exit(struct pt_regs *ctx){
+//    u64 now = bpf_ktime_get_ns();
+//    struct test_unit unit = {};
+//    unit.timestamp = now;
+//    unit.tid = bpf_get_current_pid_tgid();
+//    unit.mtx = PT_REGS_PARM1(ctx);
+//    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
+//    unit.type = 2;
+//    test.increment(unit);
+//    return 0;
+//}
+//
+
+int probe_join(struct pt_regs *ctx){
+    char type[] = "join";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
