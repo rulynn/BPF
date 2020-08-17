@@ -36,9 +36,9 @@ def run(locks, times, status):
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type)
         if (k.type == "pthread" or k.type == "start"):
-            start_times[k.tid] = k.timestamp/1000.0
+            start_times[k.tid] = k.timestamp/1000
         if (k.type == "stop"):
-            stop_times[k.tid] = k.timestamp/1000.0
+            stop_times[k.tid] = k.timestamp/1000
 
     # start calculate
     for k, v in output_data.items():
