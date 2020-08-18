@@ -45,6 +45,7 @@ if not language:
 
 usdt = USDT(pid=args.pid)
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
+usdt.enable_probe_or_bail("pthread_join_ret", "trace_join")
 
 # load BPF program
 if language == "java":
@@ -64,7 +65,6 @@ bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", 
 # bpf.attach_uprobe(name="pthread", sym="pthread_exit", fn_name="probe_exit", pid=int(pid))
 # bpf.attach_uprobe(name="pthread", sym="pthread_mutex_trylock", fn_name="probe_mutex_trylock", pid=int(pid))
 bpf.attach_uprobe(name="pthread", sym="pthread_join", fn_name="probe_join", pid=args.pid)
-bpf.attach_uprobe(name="pthread", sym="pthread_join_ret", fn_name="trace_join", pid=args.pid)
 # bpf.attach_uprobe(name="pthread", sym="pthread_cancel", fn_name="probe_cancel", pid=int(pid))
 # bpf.attach_uprobe(name="pthread", sym="pthread_barrier_init", fn_name="probe_barrier_init", pid=int(pid))
 
