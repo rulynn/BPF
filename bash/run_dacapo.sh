@@ -25,7 +25,7 @@ output=`jstack $pid > output/out_stack.log`
 output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 main/locktime.py
-output=`main/locktime.py $pid $time > output/out.log`
+output=`main/locktime.py -l java -p $pid -t $time> output/out.log`
 
 # burn: convert data to json
 chmod 777 $burn_path/burn

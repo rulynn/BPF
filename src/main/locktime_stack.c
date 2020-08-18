@@ -167,12 +167,15 @@ int probe_mutex_init(struct pt_regs *ctx)
 //}
 
 struct time_k {
+    u64 val;
     u32 tid;
+    u64 runtime_id;
     u64 timestamp;
     char type[8];
 };
 
 BPF_HASH(times, struct time_k);
+
 
 int trace_pthread(struct pt_regs *ctx) {
     char type[] = "pthread";
@@ -180,57 +183,17 @@ int trace_pthread(struct pt_regs *ctx) {
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
+
+//    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
+    u64 start_routine = 0;
+    bpf_usdt_readarg(2, ctx, &start_routine);
+    unit.runtime_id = start_routine;  // This is really a function pointer
+    //unit.runtime_id = PT_REGS_PARM1(ctx);
+
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
 }
-
-int trace_start(struct pt_regs *ctx) {
-   char type[] = "start";
-   u64 now = bpf_ktime_get_ns();
-   struct time_k unit = {};
-   unit.timestamp = now;
-   unit.tid = bpf_get_current_pid_tgid();
-   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
-   times.increment(unit);
-   return 0;
-}
-
-
-int trace_stop(struct pt_regs *ctx) {
-   char type[] = "stop";
-   u64 now = bpf_ktime_get_ns();
-   struct time_k unit = {};
-   unit.timestamp = now;
-   unit.tid = bpf_get_current_pid_tgid();
-   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
-   times.increment(unit);
-   return 0;
-}
-
-int probe_create(struct pt_regs *ctx){
-    char type[] = "create";
-    u64 now = bpf_ktime_get_ns();
-    struct time_k unit = {};
-    unit.timestamp = now;
-    unit.tid = bpf_get_current_pid_tgid();
-    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
-    times.increment(unit);
-    return 0;
-}
-//
-//int probe_exit(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    struct test_unit unit = {};
-//    unit.timestamp = now;
-//    unit.tid = bpf_get_current_pid_tgid();
-//    unit.mtx = PT_REGS_PARM1(ctx);
-//    //bpf_probe_read(&unit.mtx, sizeof(unit.mtx), (void *)PT_REGS_PARM1(ctx));
-//    unit.type = 2;
-//    test.increment(unit);
-//    return 0;
-//}
-//
 
 int probe_join(struct pt_regs *ctx){
     char type[] = "join";
@@ -238,6 +201,66 @@ int probe_join(struct pt_regs *ctx){
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
+    unit.runtime_id = PT_REGS_PARM1(ctx);
+    //unit.val = PT_REGS_PARM1(ctx);
+
+
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+
+
+int probe_create(struct pt_regs *ctx){
+    char type[] = "create";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+    unit.runtime_id = PT_REGS_PARM1(ctx);
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+
+
+int trace_start(struct pt_regs *ctx) {
+    char type[] = "start";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+
+    u64 nameptr = 0, id = 0, native_id = 0;
+    bpf_usdt_readarg(1, ctx, &nameptr);
+    bpf_usdt_readarg(3, ctx, &id);
+    bpf_usdt_readarg(4, ctx, &native_id);
+    unit.val = nameptr;
+
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+
+
+int trace_stop(struct pt_regs *ctx) {
+    char type[] = "stop";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+    u64 nameptr = 0, id = 0, native_id = 0;
+    bpf_usdt_readarg(1, ctx, &nameptr);
+    bpf_usdt_readarg(3, ctx, &id);
+    bpf_usdt_readarg(4, ctx, &native_id);
+    unit.val = nameptr;
+
+
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
