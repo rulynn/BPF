@@ -107,7 +107,7 @@ int probe_mutex_unlock(struct pt_regs *ctx)
 struct time_k {
     u64 val;
     u32 tid;
-    u32 runtime_id;
+    u64 runtime_id;
     u64 timestamp;
     char type[8];
 };
@@ -119,10 +119,10 @@ int trace_pthread(struct pt_regs *ctx) {
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
     unit.timestamp = now;
-    unit.tid = bpf_get_current_pid_tgid();
+    unit.tid = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
 
 //    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
-    u32 start_routine = 0;
+    u64 start_routine = 0;
     bpf_usdt_readarg(2, ctx, &start_routine);
     unit.runtime_id = start_routine;  // This is really a function pointer
 
