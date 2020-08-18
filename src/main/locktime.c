@@ -154,7 +154,8 @@ int probe_join(struct pt_regs *ctx){
     struct time_k unit = {};
     unit.timestamp = now;
     //unit.tid = bpf_get_current_pid_tgid();
-    unit.tid = PT_REGS_PARM1(ctx);
+    int *tmp = PT_REGS_PARM1(ctx);
+    unit.tid = tmp;
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
