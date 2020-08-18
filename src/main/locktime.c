@@ -122,10 +122,10 @@ int trace_pthread(struct pt_regs *ctx) {
     unit.tid = bpf_get_current_pid_tgid();
 
 //    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
-//    u64 start_routine = 0;
-//    bpf_usdt_readarg(2, ctx, &start_routine);
-//    unit.runtime_id = start_routine;  // This is really a function pointer
-    unit.runtime_id = PT_REGS_PARM1(ctx);
+    u64 start_routine = 0;
+    bpf_usdt_readarg(2, ctx, &start_routine);
+    unit.runtime_id = start_routine;  // This is really a function pointer
+    //unit.runtime_id = PT_REGS_PARM1(ctx);
 
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
@@ -138,7 +138,7 @@ int trace_join_ret(struct pt_regs *ctx){
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    unit.runtime_id = PT_REGS_PARM1(ctx);
+    //unit.runtime_id = PT_REGS_PARM1(ctx);
     //unit.tid = PT_REGS_PARM1(ctx);
 
 
@@ -147,6 +147,10 @@ int trace_join_ret(struct pt_regs *ctx){
     //bpf_usdt_readarg(3, ctx, &id);
     //bpf_usdt_readarg(4, ctx, &native_id);
  //   unit.val = native_id;
+
+   u64 start_routine = 0;
+   bpf_usdt_readarg(2, ctx, &start_routine);
+   unit.runtime_id = start_routine;  // This is really a function pointer
 
 
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
@@ -161,7 +165,11 @@ int trace_join(struct pt_regs *ctx){
   struct time_k unit = {};
   unit.timestamp = now;
   unit.tid = bpf_get_current_pid_tgid();
-  unit.runtime_id = PT_REGS_PARM1(ctx);
+  //unit.runtime_id = PT_REGS_PARM1(ctx);
+
+  u64 start_routine = 0;
+  bpf_usdt_readarg(2, ctx, &start_routine);
+  unit.runtime_id = start_routine;  // This is really a function pointer
 
   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
   times.increment(unit);
