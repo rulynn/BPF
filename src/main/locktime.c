@@ -132,7 +132,7 @@ int trace_pthread(struct pt_regs *ctx) {
     return 0;
 }
 
-int trace_join_ret(struct pt_regs *ctx){
+int trace_join(struct pt_regs *ctx){
     char type[] = "join";
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
@@ -149,7 +149,7 @@ int trace_join_ret(struct pt_regs *ctx){
  //   unit.val = native_id;
 
    u64 start_routine = 0;
-   bpf_usdt_readarg(2, ctx, &start_routine);
+   bpf_usdt_readarg(1, ctx, &start_routine);
    unit.runtime_id = start_routine;  // This is really a function pointer
 
 
@@ -159,7 +159,7 @@ int trace_join_ret(struct pt_regs *ctx){
 }
 
 
-int trace_join(struct pt_regs *ctx){
+int trace_join_ret(struct pt_regs *ctx){
   char type[] = "join_ret";
   u64 now = bpf_ktime_get_ns();
   struct time_k unit = {};
