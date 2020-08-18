@@ -168,7 +168,7 @@ int trace_join(struct pt_regs *ctx){
   //unit.runtime_id = PT_REGS_PARM1(ctx);
 
   u64 start_routine = 0;
-  bpf_usdt_readarg(2, ctx, &start_routine);
+  bpf_usdt_readarg(1, ctx, &start_routine);
   unit.runtime_id = start_routine;  // This is really a function pointer
 
   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
