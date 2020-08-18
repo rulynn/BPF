@@ -74,7 +74,7 @@ sleep(args.time)
 
 if language == "java":
     process.run(locks, times, True)
-    stack.run_sub(bpf, int(pid), locks)
+    stack.run_sub(bpf, args.pid, locks)
     times = bpf["times"]
     print(len(times))
     for k, v in times.items():
