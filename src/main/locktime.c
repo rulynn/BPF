@@ -122,9 +122,10 @@ int trace_pthread(struct pt_regs *ctx) {
     unit.tid = bpf_get_current_pid_tgid();
 
 //    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
-    u64 start_routine = 0;
-    bpf_usdt_readarg(2, ctx, &start_routine);
-    unit.runtime_id = start_routine;  // This is really a function pointer
+//    u64 start_routine = 0;
+//    bpf_usdt_readarg(2, ctx, &start_routine);
+//    unit.runtime_id = start_routine;  // This is really a function pointer
+    unit.runtime_id = PT_REGS_PARM1(ctx);
 
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
