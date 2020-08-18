@@ -160,9 +160,8 @@ int probe_join(struct pt_regs *ctx){
 
     u64 nameptr = 0, id = 0, native_id = 0;
     bpf_usdt_readarg(1, ctx, &nameptr);
-    bpf_usdt_readarg(3, ctx, &id);
-    bpf_usdt_readarg(4, ctx, &native_id);
-
+//    bpf_usdt_readarg(3, ctx, &id);
+//    bpf_usdt_readarg(4, ctx, &native_id);
     unit.val = nameptr;
 
 
