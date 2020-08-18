@@ -46,7 +46,7 @@ if not language:
 usdt = USDT(pid=args.pid)
 usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
 usdt.enable_probe_or_bail("pthread_join_ret", "trace_join")
-usdt.enable_probe_or_bail("pthread_join", "probe_join")
+usdt.enable_probe_or_bail("pthread_join", "trace_join_ret")
 
 # load BPF program
 if language == "java":
