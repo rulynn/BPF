@@ -16,7 +16,7 @@ cd ../src
 #~/splash2/codes/kernels/cholesky/CHOLESKY -p8 < ~/splash2/codes/kernels/cholesky/inputs/tk29.O &
 #pid=$(pgrep -f "CHOLESKY")
 
-~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p8 -n4096 &
+~/splash2/codes/kernels/lu/non_contiguous_blocks/LU -p16 -n4096 &
 pid=$(pgrep -f "LU")
 
 echo "program pid: " $pid
