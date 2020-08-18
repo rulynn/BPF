@@ -88,4 +88,4 @@ else:
     times = bpf["times"]
     print(len(times))
     for k, v in times.items():
-        print(k.tid, k.timestamp, k.type, k.val)
+        print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)

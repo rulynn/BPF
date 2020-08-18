@@ -107,7 +107,7 @@ int probe_mutex_unlock(struct pt_regs *ctx)
 struct time_k {
     u64 val;
     u32 tid;
-    u32 runtime_id;
+    u64 runtime_id;
     u64 timestamp;
     char type[8];
 };
