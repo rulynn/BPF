@@ -22,6 +22,6 @@ pid=$(pgrep -f "FFT")
 echo "program pid: " $pid
 
 chmod 777 main/locktime.py
-output=`main/locktime.py $pid $time > output/out.log`
+output=`main/locktime.py -l c -p $pid -t $time > output/out.log`
 
 
