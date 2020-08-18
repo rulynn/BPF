@@ -8,6 +8,7 @@ import itertools
 import plotStatic as plot
 
 TIME_MIN = {}
+TIME_MAX = {}
 tid_list = []
 ans = []
 total = 0
@@ -50,6 +51,7 @@ def run(locks, times, status):
 def preprocessed(locks):
 
     global TIME_MIN
+    global TIME_MAX
     output_data = {}
 
     grouper = lambda (k, v): k.tid
@@ -77,12 +79,17 @@ def preprocessed(locks):
                  TIME_MIN[k.mtx] = 999999999999999
              TIME_MIN[k.mtx] = min(TIME_MIN[k.mtx], tmp.start_time)
 
+             if TIME_MAX.get(k.mtx) == None:
+                TIME_MAX[k.mtx] = 0
+             TIME_MAX[k.mtx] = max(TIME_MAX[k.mtx], tmp.start_time + tmp.wait_time + tmp.hold_time)
+
     return output_data
 
 def calculation_single(mtx, single_data, start_times, stop_times):
 
     #print("------------------- Single MTX start: %d -------------------\n" % (mtx))
     global TIME_MIN
+    global TIME_MAX
     global tid_list
     threadPointList = []
     # k: tid; v: unit
@@ -101,12 +108,11 @@ def calculation_single(mtx, single_data, start_times, stop_times):
             pre_time = item.start_time - TIME_MIN[mtx] + item.wait_time
             last_time = item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time
         # TODO solve end time thread exit time
+        last_time = max(max(last_time,  TIME_MAX[mtx]),int(stop_times.get(k) or 0) - TIME_MIN[mtx])
         threadPointList.append(TIME(0, k, pre_time))
-        threadPointList.append(TIME(1, k, max(int(stop_times.get(k) or 0) - TIME_MIN[mtx], last_time)))
+        threadPointList.append(TIME(1, k, last_time)
         print("\tstart time %d ::: end time %d" % (pre_time, last_time))
-        print("\tlast time %d ::: stop time %d" % (last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx]))
-        #print("\tstart time %d ::: end time %d ::: stop time %d" % (pre_time, last_time, max(int(stop_times.get(k) or 0) - TIME_MIN[mtx])))
-
+        print("\tlast time %d ::: stop time %d ::: mtx max time" % (last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx], TIME_MAX[mtx]))
     threadPointList.sort(key=lambda pair: pair.time)
     return calculation_single_inner(threadPointList)
 
