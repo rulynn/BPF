@@ -160,3 +160,14 @@ int probe_join(struct pt_regs *ctx){
 }
 
 
+int trace_join(struct pt_regs *ctx){
+  char type[] = "join_ret";
+  u64 now = bpf_ktime_get_ns();
+  struct time_k unit = {};
+  unit.timestamp = now;
+  unit.tid = bpf_get_current_pid_tgid();
+  __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+  times.increment(unit);
+  return 0;
+}
+
