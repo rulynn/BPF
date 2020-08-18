@@ -105,6 +105,7 @@ int probe_mutex_unlock(struct pt_regs *ctx)
 }
 
 struct time_k {
+    u64 val;
     u32 tid;
     u64 timestamp;
     char type[8];
@@ -168,9 +169,14 @@ int trace_join(struct pt_regs *ctx){
   unit.timestamp = now;
   // unit.tid = bpf_get_current_pid_tgid();
   //unit.tid = PT_REGS_PARM1(ctx);
-  u32 tid;
-  bpf_usdt_readarg(1, ctx, &tid);
-  unit.tid = tid;
+
+  u64 nameptr = 0, id = 0, native_id = 0;
+  bpf_usdt_readarg(1, ctx, &nameptr);
+  bpf_usdt_readarg(3, ctx, &id);
+  bpf_usdt_readarg(4, ctx, &native_id);
+
+  unit.nameptr = nameptr;
+
   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
   times.increment(unit);
   return 0;

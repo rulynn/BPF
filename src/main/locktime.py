@@ -79,7 +79,7 @@ if language == "java":
     times = bpf["times"]
     print(len(times))
     for k, v in times.items():
-        print(k.tid, k.timestamp, k.type)
+        print(k.tid, k.timestamp, k.type, k.val)
 
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
@@ -87,4 +87,4 @@ else:
     times = bpf["times"]
     print(len(times))
     for k, v in times.items():
-        print(k.tid, k.timestamp, k.type)
+        print(k.tid, k.timestamp, k.type, k.val)
