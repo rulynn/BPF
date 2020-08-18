@@ -112,7 +112,7 @@ def calculation_single(mtx, single_data, start_times, stop_times):
         threadPointList.append(TIME(0, k, pre_time))
         threadPointList.append(TIME(1, k, last_time))
         print("\tstart time %d ::: end time %d" % (pre_time, last_time))
-        print("\tlast time %d ::: stop time %d ::: mtx max time" % (last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx], TIME_MAX[mtx]))
+        print("\tlast time %d ::: stop time %d ::: mtx max time %d" % (last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx], TIME_MAX[mtx]))
     threadPointList.sort(key=lambda pair: pair.time)
     return calculation_single_inner(threadPointList)
 
