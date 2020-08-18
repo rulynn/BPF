@@ -154,8 +154,18 @@ int probe_join(struct pt_regs *ctx){
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
     unit.timestamp = now;
-    unit.tid = bpf_get_current_pid_tgid();
+    //unit.tid = bpf_get_current_pid_tgid();
     //unit.tid = PT_REGS_PARM1(ctx);
+
+
+    u64 nameptr = 0, id = 0, native_id = 0;
+    bpf_usdt_readarg(1, ctx, &nameptr);
+    bpf_usdt_readarg(3, ctx, &id);
+    bpf_usdt_readarg(4, ctx, &native_id);
+
+    unit.val = nameptr;
+
+
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
@@ -167,15 +177,10 @@ int trace_join(struct pt_regs *ctx){
   u64 now = bpf_ktime_get_ns();
   struct time_k unit = {};
   unit.timestamp = now;
-  // unit.tid = bpf_get_current_pid_tgid();
+  unit.tid = bpf_get_current_pid_tgid();
   //unit.tid = PT_REGS_PARM1(ctx);
 
-  u64 nameptr = 0, id = 0, native_id = 0;
-  bpf_usdt_readarg(1, ctx, &nameptr);
-  bpf_usdt_readarg(3, ctx, &id);
-  bpf_usdt_readarg(4, ctx, &native_id);
 
-  unit.val = nameptr;
 
   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
   times.increment(unit);
