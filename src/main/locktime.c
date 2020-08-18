@@ -175,7 +175,7 @@ int trace_join(struct pt_regs *ctx){
   bpf_usdt_readarg(3, ctx, &id);
   bpf_usdt_readarg(4, ctx, &native_id);
 
-  unit.nameptr = nameptr;
+  unit.val = nameptr;
 
   __builtin_memcpy(&unit.type, type, sizeof(unit.type));
   times.increment(unit);
