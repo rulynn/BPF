@@ -41,7 +41,7 @@ def run(locks, times, status):
             start_times[k.tid] = k.timestamp/1000.0
         if (k.type == "stop"):
             stop_times[k.tid] = k.timestamp/1000.0
-        if (k.type == 'join')
+        if (k.type == 'join'):
             join_times.append( k.timestamp/1000.0)
 
     # start calculate
