@@ -34,17 +34,19 @@ def run(locks, times, status):
     # deal start time and stop time
     start_times = {}
     stop_times = {}
+    join_times = []
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type)
         if (k.type == "pthread" or k.type == "start"):
             start_times[k.tid] = k.timestamp/1000.0
-        if (k.type == "stop" or k.type == 'join'):
+        if (k.type == "stop"):
             stop_times[k.tid] = k.timestamp/1000.0
-
+        if (k.type == 'join')
+            join_times.append( k.timestamp/1000.0)
 
     # start calculate
     for k, v in output_data.items():
-        calculation_single(k, v, start_times, stop_times)
+        calculation_single(k, v, start_times, stop_times, join_times)
 
     # start plot
     plot.run(tid_list, ans, total, status)
@@ -86,13 +88,14 @@ def preprocessed(locks):
 
     return output_data
 
-def calculation_single(mtx, single_data, start_times, stop_times):
+def calculation_single(mtx, single_data, start_times, stop_times, join_times):
 
     #print("------------------- Single MTX start: %d -------------------\n" % (mtx))
     global TIME_MIN
     global TIME_MAX
     global tid_list
     threadPointList = []
+    join_id = 0
     # k: tid; v: unit
     for k, v in single_data.items():
         pre_time = max(int(start_times.get(k) or 0) - TIME_MIN[mtx], 0)
@@ -111,10 +114,14 @@ def calculation_single(mtx, single_data, start_times, stop_times):
         # TODO solve end time thread exit time
         #last_time = max(last_time,  TIME_MAX[mtx]-TIME_MIN[mtx])
         last_time = max(last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx])
+        if (join_id < len(join_times)):
+            last_time = max(last_time, join_times[join_id] - TIME_MIN[mtx])
+            print("\tjoin time %d", join_times[join_id] - TIME_MIN[mtx])
+            join_id = join_id + 1
+        print("\tstart time %d ::: end time %d" % (pre_time, last_time))
+        print("\tlast time %d ::: mtx max time %d" % (last_time, TIME_MAX[mtx]))
         threadPointList.append(TIME(0, k, pre_time))
         threadPointList.append(TIME(1, k, last_time))
-        print("\tstart time %d ::: end time %d" % (pre_time, last_time))
-        print("\tlast time %d ::: stop time %d ::: mtx max time %d" % (last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx], TIME_MAX[mtx]))
     threadPointList.sort(key=lambda pair: pair.time)
     return calculation_single_inner(threadPointList)
 
