@@ -116,7 +116,7 @@ def calculation_single(mtx, single_data, start_times, stop_times, join_times):
         last_time = max(last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx])
         if (join_id < len(join_times)):
             last_time = max(last_time, join_times[join_id] - TIME_MIN[mtx])
-            print("\tjoin time %d", join_times[join_id] - TIME_MIN[mtx])
+            print("\tjoin time %d", % (join_times[join_id] - TIME_MIN[mtx]))
             join_id = join_id + 1
         print("\tstart time %d ::: end time %d" % (pre_time, last_time))
         print("\tlast time %d ::: mtx max time %d" % (last_time, TIME_MAX[mtx]))
