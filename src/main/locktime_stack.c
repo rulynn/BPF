@@ -148,24 +148,6 @@ int probe_mutex_init(struct pt_regs *ctx)
  return 0;
 }
 
-//BPF_HASH(test, u64);
-//int probe_create(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    test.increment(now);
-//    return 0;
-//}
-//
-//int probe_exit(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    test.increment(now);
-//    return 0;
-//}
-//int probe_mutex_trylock(struct pt_regs *ctx){
-//    u64 now = bpf_ktime_get_ns();
-//    test.increment(now);
-//    return 0;
-//}
-
 struct time_k {
     u64 val;
     u32 tid;
@@ -183,13 +165,9 @@ int trace_pthread(struct pt_regs *ctx) {
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-
-//    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
     u64 start_routine = 0;
     bpf_usdt_readarg(2, ctx, &start_routine);
-    unit.runtime_id = start_routine;  // This is really a function pointer
-    //unit.runtime_id = PT_REGS_PARM1(ctx);
-
+    unit.runtime_id = start_routine;
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;

@@ -120,13 +120,9 @@ int trace_pthread(struct pt_regs *ctx) {
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-
-//    te.native_id = bpf_get_current_pid_tgid() & 0xFFFFFFFF;
     u64 start_routine = 0;
     bpf_usdt_readarg(2, ctx, &start_routine);
-    unit.runtime_id = start_routine;  // This is really a function pointer
-    //unit.runtime_id = PT_REGS_PARM1(ctx);
-
+    unit.runtime_id = start_routine;
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
@@ -138,19 +134,7 @@ int probe_join(struct pt_regs *ctx){
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-
-    u32 runtime_id = PT_REGS_PARM1(ctx);
-    unit.runtime_id = runtime_id;
-    //unit.val = PT_REGS_PARM1(ctx);
-
-
-   // u64 nameptr = 0, id = 0, native_id = 0;
- //   bpf_usdt_readarg(1, ctx, &nameptr);
-    //bpf_usdt_readarg(3, ctx, &id);
-    //bpf_usdt_readarg(4, ctx, &native_id);
- //   unit.val = native_id;
-
-
+    unit.runtime_id = PT_REGS_PARM1(ctx)
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
