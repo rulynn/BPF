@@ -110,7 +110,7 @@ def calculation_single(mtx, single_data, start_times, stop_times, join_times):
             pre_time = item.start_time - TIME_MIN[mtx] + item.wait_time
             last_time = item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time
         # TODO solve end time thread exit time
-        #last_time = max(last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx])
+        last_time = max(last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx])
         print("\tstart time %d ::: end time %d" % (pre_time, last_time))
         print("\tlast time %d ::: mtx max time %d" % (last_time, TIME_MAX[mtx]))
         threadPointList.append(TIME(0, k, pre_time))
