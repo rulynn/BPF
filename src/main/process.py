@@ -90,14 +90,14 @@ def calculation_single(tid, data, start_times, stop_times):
     global threadPointList
 
     grouper = lambda x: x.start_time
-    sorted_data = sorted(data.items(), key=grouper)
+    sorted_data = sorted(data, key=grouper)
 
 
     pre_time = max(int(start_times.get(tid) or 0) - TIME_MIN, 0)
     last_time = max(int(stop_times.get(tid) or 0) - TIME_MIN, 0)
     print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
 
-    for item in data:
+    for item in sorted_data:
         print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
         threadPointList.append(TIME(0, tid, pre_time))
         threadPointList.append(TIME(1, tid, item.start_time - TIME_MIN))
