@@ -41,8 +41,6 @@ def run(locks, times, status):
             start_times[k.tid] = k.timestamp/1000.0
         if (k.type == "stop"):
             stop_times[k.tid] = k.timestamp/1000.0
-        if (k.type == 'join'):
-            join_times.append( k.timestamp/1000.0)
 
     # start calculate
     for k, v in output_data.items():
@@ -112,12 +110,7 @@ def calculation_single(mtx, single_data, start_times, stop_times, join_times):
             pre_time = item.start_time - TIME_MIN[mtx] + item.wait_time
             last_time = item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time
         # TODO solve end time thread exit time
-        #last_time = max(last_time,  TIME_MAX[mtx]-TIME_MIN[mtx])
         last_time = max(last_time, int(stop_times.get(k) or 0) - TIME_MIN[mtx])
-        if (join_id < len(join_times)):
-            last_time = max(last_time, join_times[join_id] - TIME_MIN[mtx])
-            print("\tjoin time %d" % (join_times[join_id] - TIME_MIN[mtx]))
-            join_id = join_id + 1
         print("\tstart time %d ::: end time %d" % (pre_time, last_time))
         print("\tlast time %d ::: mtx max time %d" % (last_time, TIME_MAX[mtx]))
         threadPointList.append(TIME(0, k, pre_time))
@@ -141,11 +134,8 @@ def calculation_single_inner(threadPointList):
         ans.append(0.0)
 
     for threadPoint in threadPointList:
-        #maxTid = threadPoint.tid if maxTid < threadPoint.tid else maxTid
         nowCount = countHold(isHold)
         index = tid_list.index(threadPoint.tid)
-        #print("tid %d ::: nowCount %d ::: index %d" % (threadPoint.tid, nowCount, index))
-
         for i in range(0, len(tid_list)):
             if isHold[i] == True:
                 ans[i] += (threadPoint.time - lastStamp) * 1.0 / nowCount
@@ -165,26 +155,3 @@ def countHold(isHold):
         if item == True:
             count = count + 1
     return count
-
-
-# def calculation_single(mtx, single_data):
-#
-#     #print("------------------- Single MTX start: %d -------------------\n" % (mtx))
-#     global TIME_MIN
-#     global tid_list
-#     threadPointList = []
-#     # k: tid; v: unit
-#     for k, v in single_data.items():
-#         #print("tid: %d" % (k))
-#         for item in v:
-#             threadPointList.append(TIME(0, k, item.start_time - TIME_MIN[mtx]))
-#             threadPointList.append(TIME(1, k, item.start_time - TIME_MIN[mtx] + item.wait_time + item.hold_time))
-#             #print("\tstart %.2f ::: wait %.2f ::: spin %.2f ::: hold %.2f ::: enter count %d" % (item.start_time - TIME_MIN[mtx],
-#             #item.wait_time, item.spin_time, item.hold_time, item.enter_count))
-#     threadPointList.sort(key=lambda pair: pair.time)
-#
-# #     print("................... thread point list ...................")
-# #     for item in threadPointList:
-# #         print("time %d ::: tid %d ::: status: %d" % (item.time, item.tid, item.status))
-#
-#     return calculation_single_inner(threadPointList)
