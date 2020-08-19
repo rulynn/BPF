@@ -49,7 +49,7 @@ def run(locks, times, status):
     threadPointList.sort(key=lambda pair: pair.time)
     calculation_single_inner(threadPointList)
     for item in threadPointList:
-        print("\ttid %d ::: time %d ::: status %" % (item.tid, item.time, item.status))
+        print("\ttid %d ::: time %d ::: status %d" % (item.tid, item.time, item.status))
 
     # start plot
     plot.run(tid_list, ans, total, status)
