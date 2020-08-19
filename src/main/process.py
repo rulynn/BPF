@@ -98,8 +98,8 @@ def calculation_single(tid, data, start_times, stop_times):
         pre_time = item.start_time - TIME_MIN + item.wait_time
         last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
     # thread exit time
-    threadPointList.append(TIME(0, k, pre_time))
-    threadPointList.append(TIME(1, k, last_time))
+    threadPointList.append(TIME(0, tid, pre_time))
+    threadPointList.append(TIME(1, tid, last_time))
 
 
 # def calculation_single(mtx, single_data, start_times, stop_times):
