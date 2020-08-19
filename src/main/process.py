@@ -48,6 +48,8 @@ def run(locks, times, status):
 
     threadPointList.sort(key=lambda pair: pair.time)
     calculation_single_inner(threadPointList)
+    for item in threadPointList:
+        print("\ttid %d ::: time %d ::: status %" % (item.tid, item.time, item.status))
 
     # start plot
     plot.run(tid_list, ans, total, status)
@@ -61,7 +63,7 @@ def preprocessed(locks):
     sorted_by_thread = sorted(locks.items(), key=grouper)
     locks_by_thread = itertools.groupby(sorted_by_thread, grouper)
     for tid, items in locks_by_thread:
-        print("thread %d" % tid)
+        #print("thread %d" % tid)
         for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
 
              if k not in tid_list:
