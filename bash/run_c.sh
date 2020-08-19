@@ -20,7 +20,7 @@ echo "program pid: " $pid
 
 # eBPF
 chmod 777 main/locktime.py
-output=`main/locktime.py $pid $time > output/out.log`
+output=`main/locktime.py -l c -p $pid -t $time > output/out.log`
 
 
 
