@@ -11,7 +11,7 @@ public class ThreadsWithLock {
     private static Lock lock = new ReentrantLock();
 
     public static void main(String[] args) throws InterruptedException {
-        int times = 5;
+        int times = 1;
         while(times > 0) {
             times--;
             TestThread testThread = new TestThread();
@@ -31,7 +31,7 @@ public class ThreadsWithLock {
         public void run() {
             lock.lock();
             System.out.println("now tid: " + Thread.currentThread().getId());
-            for (int i = 0; i < 40000000; i++) {
+            for (int i = 0; i < 500000000; i++) {
                 val++;
             }
             lock.unlock();
