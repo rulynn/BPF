@@ -44,7 +44,7 @@ if not language:
     language = utils.detect_language(languages, args.pid)
 
 usdt = USDT(pid=args.pid)
-usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
+# usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
 
 # load BPF program
 if language == "java":
