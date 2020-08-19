@@ -48,8 +48,8 @@ def run(locks, times, status):
 
     threadPointList.sort(key=lambda pair: pair.time)
     calculation_single_inner(threadPointList)
-    for item in threadPointList:
-        print("\ttid %d ::: time %d ::: status %d" % (item.tid, item.time, item.status))
+#     for item in threadPointList:
+#         print("\ttid %d ::: time %d ::: status %d" % (item.tid, item.time, item.status))
 
     # start plot
     plot.run(tid_list, ans, total, status)
@@ -97,12 +97,13 @@ def calculation_single(tid, data, start_times, stop_times):
         print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
         threadPointList.append(TIME(0, tid, pre_time))
         threadPointList.append(TIME(1, tid, item.start_time - TIME_MIN))
-        #print("\tstart time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN[mtx]))
+        print("\tstart time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN))
         pre_time = item.start_time - TIME_MIN + item.wait_time
         last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
     # thread exit time
     threadPointList.append(TIME(0, tid, pre_time))
     threadPointList.append(TIME(1, tid, last_time))
+    print("\tstart time %d ::: end time %d" % (pre_time, last_time))
 
 
 # def calculation_single(mtx, single_data, start_times, stop_times):
