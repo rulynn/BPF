@@ -10,6 +10,7 @@ import plotStatic as plot
 # version 1
 TIME_MIN = 9999999999999999999
 tid_list = []
+threadPointList = []
 ans = []
 total = 0
 class UNIT:
@@ -92,8 +93,8 @@ def calculation_single(tid, data, start_times, stop_times):
 
     for item in data:
         print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
-        threadPointList.append(TIME(0, k, pre_time))
-        threadPointList.append(TIME(1, k, item.start_time - TIME_MIN))
+        threadPointList.append(TIME(0, tid, pre_time))
+        threadPointList.append(TIME(1, tid, item.start_time - TIME_MIN))
         #print("\tstart time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN[mtx]))
         pre_time = item.start_time - TIME_MIN + item.wait_time
         last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
