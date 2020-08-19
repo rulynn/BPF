@@ -201,12 +201,8 @@ int probe_join(struct pt_regs *ctx){
     struct time_k unit = {};
     unit.timestamp = now;
     unit.tid = bpf_get_current_pid_tgid();
-    u32 runtime_id = PT_REGS_PARM1(ctx);
-    unit.runtime_id = runtime_id;
+    unit.runtime_id = PT_REGS_PARM1(ctx)
     //unit.val = PT_REGS_PARM1(ctx);
-
-
-
     __builtin_memcpy(&unit.type, type, sizeof(unit.type));
     times.increment(unit);
     return 0;
