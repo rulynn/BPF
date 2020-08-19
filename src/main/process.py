@@ -89,6 +89,10 @@ def calculation_single(tid, data, start_times, stop_times):
     global tid_list
     global threadPointList
 
+    grouper = lambda x: x.start_time
+    sorted_data = sorted(data.items(), key=grouper)
+
+
     pre_time = max(int(start_times.get(tid) or 0) - TIME_MIN, 0)
     last_time = max(int(stop_times.get(tid) or 0) - TIME_MIN, 0)
     print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
