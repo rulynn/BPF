@@ -100,7 +100,7 @@ def calculation_single(tid, data, start_times, stop_times):
     print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
 
     for item in sorted_data:
-        #print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
+        print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
         if (pre_time < 0):
             pre_time = item.start_time - TIME_MIN + item.wait_time
             last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
