@@ -1,7 +1,0 @@
-id,name,thread,height,sum
-1,VM Thread 20828,20828,0.257,1
-2,C2 CompilerThread0 20835,20835,0.2234,0.743
-3,C1 CompilerThread1 20838,20838,0.2233,0.5196
-4,VM Periodic Task Thread 20841,20841,0.2621,0.2963
-5,Thread-0 20842,20842,0.0172,0.0342
-6,Thread-1 20843,20843,0.0171,0.017

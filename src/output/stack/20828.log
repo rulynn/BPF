@@ -1,5 +1,0 @@
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();Monitor::lock_without_safepoint_check();Monitor::ILock(Thread*);os::PlatformEvent::park() 1
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();SafepointSynchronize::end();os::PlatformEvent::unpark() 1
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();SafepointSynchronize::begin();Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::park() 1
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::park(long) 546
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();os::PlatformEvent::unpark() 546
