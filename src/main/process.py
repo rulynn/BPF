@@ -104,7 +104,7 @@ def calculation_single(tid, data, start_times, stop_times):
         if (pre_time < 0):
             pre_time = item.start_time - TIME_MIN + item.wait_time
             last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
-        elif (item.start_time - TIME_MIN < pre_time):
+        elif (item.start_time - TIME_MIN + item.wait_time < pre_time):
             pre_time = min(pre_time, item.start_time - TIME_MIN + item.wait_time)
             last_time = max(last_time, item.start_time - TIME_MIN + item.wait_time + item.hold_time)
         else:
