@@ -63,14 +63,14 @@ def preprocessed(locks):
     sorted_by_thread = sorted(locks.items(), key=grouper)
     locks_by_thread = itertools.groupby(sorted_by_thread, grouper)
     for tid, items in locks_by_thread:
-        #print("thread %d" % tid)
+        print("thread %d" % tid)
         for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
 
              if k not in tid_list:
                 tid_list.append(k.tid)
 
              tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
-             #print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: hold %.2fus ::: enter count %d" % (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+             print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: hold %.2fus ::: enter count %d" % (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
              # save data
              if output_data.get(k.tid) == None:
@@ -97,10 +97,10 @@ def calculation_single(tid, data, start_times, stop_times):
 #     last_time = max(int(stop_times.get(tid) or 0) - TIME_MIN, 0)
     pre_time = int(start_times.get(tid) or 0) - TIME_MIN
     last_time = int(stop_times.get(tid) or 0) - TIME_MIN
-    print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
+    #print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
 
     for item in sorted_data:
-        print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
+        #print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
         if (pre_time < 0):
             pre_time = item.start_time - TIME_MIN + item.wait_time
             last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
@@ -113,7 +113,7 @@ def calculation_single(tid, data, start_times, stop_times):
             print("\tstart time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN))
             pre_time = min(pre_time, item.start_time - TIME_MIN + item.wait_time)
             last_time = max(last_time, item.start_time - TIME_MIN + item.wait_time + item.hold_time)
-        print("\tpre time %d ::: last time %d" % (pre_time, last_time))
+        #print("\tpre time %d ::: last time %d" % (pre_time, last_time))
     # thread exit time
     threadPointList.append(TIME(0, tid, pre_time))
     threadPointList.append(TIME(1, tid, last_time))
