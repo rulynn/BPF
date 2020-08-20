@@ -1,358 +1,239 @@
-(14938L, 1737377961807924L, 'stop')
-tid: 14920 ::: thread start time -1737372524328 ::: thread end time -1737372524328
-	start time 5454840 ::: wait time 7 ::: hold time 0
-	pre time 5454847 ::: last time 5454847
-	start time 5454847 ::: end time 5454847
-tid: 14924 ::: thread start time -1737372524328 ::: thread end time -1737372524328
-	start time 441 ::: wait time 571 ::: hold time 756
-	pre time 1012 ::: last time 1769
-	start time 475 ::: wait time 4604 ::: hold time 79705131
-	pre time 1012 ::: last time 79710211
-	start time 5497278 ::: wait time 39467 ::: hold time 9911
-	start time 1012 ::: end time 5497278
-	pre time 1012 ::: last time 79710211
-	start time 1012 ::: end time 79710211
-tid: 14931 ::: thread start time -1737372524328 ::: thread end time -1737372524328
-	start time 526551 ::: wait time 145 ::: hold time 74974516
-	pre time 526696 ::: last time 75501213
-	start time 5438672 ::: wait time 7 ::: hold time 9
-	start time 526696 ::: end time 5438672
-	pre time 526696 ::: last time 75501213
-	start time 5450538 ::: wait time 6 ::: hold time 7
-	start time 526696 ::: end time 5450538
-	pre time 526696 ::: last time 75501213
-	start time 5450577 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5450577
-	pre time 526696 ::: last time 75501213
-	start time 5450595 ::: wait time 5 ::: hold time 4
-	start time 526696 ::: end time 5450595
-	pre time 526696 ::: last time 75501213
-	start time 5450626 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5450626
-	pre time 526696 ::: last time 75501213
-	start time 5450643 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5450643
-	pre time 526696 ::: last time 75501213
-	start time 5450659 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5450659
-	pre time 526696 ::: last time 75501213
-	start time 5450675 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5450675
-	pre time 526696 ::: last time 75501213
-	start time 5450697 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5450697
-	pre time 526696 ::: last time 75501213
-	start time 5450751 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5450751
-	pre time 526696 ::: last time 75501213
-	start time 5450783 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5450783
-	pre time 526696 ::: last time 75501213
-	start time 5450802 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5450802
-	pre time 526696 ::: last time 75501213
-	start time 5450978 ::: wait time 7 ::: hold time 7
-	start time 526696 ::: end time 5450978
-	pre time 526696 ::: last time 75501213
-	start time 5451088 ::: wait time 6 ::: hold time 8
-	start time 526696 ::: end time 5451088
-	pre time 526696 ::: last time 75501213
-	start time 5451234 ::: wait time 7 ::: hold time 4
-	start time 526696 ::: end time 5451234
-	pre time 526696 ::: last time 75501213
-	start time 5451404 ::: wait time 7 ::: hold time 4
-	start time 526696 ::: end time 5451404
-	pre time 526696 ::: last time 75501213
-	start time 5451496 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451496
-	pre time 526696 ::: last time 75501213
-	start time 5451557 ::: wait time 7 ::: hold time 3
-	start time 526696 ::: end time 5451557
-	pre time 526696 ::: last time 75501213
-	start time 5451677 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451677
-	pre time 526696 ::: last time 75501213
-	start time 5451695 ::: wait time 7 ::: hold time 3
-	start time 526696 ::: end time 5451695
-	pre time 526696 ::: last time 75501213
-	start time 5451723 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451723
-	pre time 526696 ::: last time 75501213
-	start time 5451749 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451749
-	pre time 526696 ::: last time 75501213
-	start time 5451802 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451802
-	pre time 526696 ::: last time 75501213
-	start time 5451818 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451818
-	pre time 526696 ::: last time 75501213
-	start time 5451844 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451844
-	pre time 526696 ::: last time 75501213
-	start time 5451871 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5451871
-	pre time 526696 ::: last time 75501213
-	start time 5451998 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5451998
-	pre time 526696 ::: last time 75501213
-	start time 5452024 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452024
-	pre time 526696 ::: last time 75501213
-	start time 5452139 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5452139
-	pre time 526696 ::: last time 75501213
-	start time 5452158 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452158
-	pre time 526696 ::: last time 75501213
-	start time 5452216 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452216
-	pre time 526696 ::: last time 75501213
-	start time 5452233 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5452233
-	pre time 526696 ::: last time 75501213
-	start time 5452249 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452249
-	pre time 526696 ::: last time 75501213
-	start time 5452276 ::: wait time 30 ::: hold time 15
-	start time 526696 ::: end time 5452276
-	pre time 526696 ::: last time 75501213
-	start time 5452303 ::: wait time 67 ::: hold time 31
-	start time 526696 ::: end time 5452303
-	pre time 526696 ::: last time 75501213
-	start time 5452320 ::: wait time 31 ::: hold time 15
-	start time 526696 ::: end time 5452320
-	pre time 526696 ::: last time 75501213
-	start time 5452637 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452637
-	pre time 526696 ::: last time 75501213
-	start time 5452759 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452759
-	pre time 526696 ::: last time 75501213
-	start time 5452777 ::: wait time 24 ::: hold time 11
-	start time 526696 ::: end time 5452777
-	pre time 526696 ::: last time 75501213
-	start time 5452887 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5452887
-	pre time 526696 ::: last time 75501213
-	start time 5453025 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453025
-	pre time 526696 ::: last time 75501213
-	start time 5453045 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453045
-	pre time 526696 ::: last time 75501213
-	start time 5453061 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5453061
-	pre time 526696 ::: last time 75501213
-	start time 5453086 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453086
-	pre time 526696 ::: last time 75501213
-	start time 5453139 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453139
-	pre time 526696 ::: last time 75501213
-	start time 5453175 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453175
-	pre time 526696 ::: last time 75501213
-	start time 5453249 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5453249
-	pre time 526696 ::: last time 75501213
-	start time 5453266 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453266
-	pre time 526696 ::: last time 75501213
-	start time 5453319 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453319
-	pre time 526696 ::: last time 75501213
-	start time 5453351 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453351
-	pre time 526696 ::: last time 75501213
-	start time 5453424 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453424
-	pre time 526696 ::: last time 75501213
-	start time 5453441 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5453441
-	pre time 526696 ::: last time 75501213
-	start time 5453500 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453500
-	pre time 526696 ::: last time 75501213
-	start time 5453543 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453543
-	pre time 526696 ::: last time 75501213
-	start time 5453561 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5453561
-	pre time 526696 ::: last time 75501213
-	start time 5453577 ::: wait time 5 ::: hold time 3
-	start time 526696 ::: end time 5453577
-	pre time 526696 ::: last time 75501213
-	start time 5453592 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453592
-	pre time 526696 ::: last time 75501213
-	start time 5453922 ::: wait time 13 ::: hold time 6
-	start time 526696 ::: end time 5453922
-	pre time 526696 ::: last time 75501213
-	start time 5453955 ::: wait time 11 ::: hold time 3
-	start time 526696 ::: end time 5453955
-	pre time 526696 ::: last time 75501213
-	start time 5453975 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5453975
-	pre time 526696 ::: last time 75501213
-	start time 5454063 ::: wait time 13 ::: hold time 7
-	start time 526696 ::: end time 5454063
-	pre time 526696 ::: last time 75501213
-	start time 5454090 ::: wait time 12 ::: hold time 6
-	start time 526696 ::: end time 5454090
-	pre time 526696 ::: last time 75501213
-	start time 5454184 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5454184
-	pre time 526696 ::: last time 75501213
-	start time 5454240 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5454240
-	pre time 526696 ::: last time 75501213
-	start time 5454269 ::: wait time 7 ::: hold time 3
-	start time 526696 ::: end time 5454269
-	pre time 526696 ::: last time 75501213
-	start time 5454315 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5454315
-	pre time 526696 ::: last time 75501213
-	start time 5454332 ::: wait time 11 ::: hold time 5
-	start time 526696 ::: end time 5454332
-	pre time 526696 ::: last time 75501213
-	start time 5454362 ::: wait time 18 ::: hold time 8
-	start time 526696 ::: end time 5454362
-	pre time 526696 ::: last time 75501213
-	start time 5454407 ::: wait time 12 ::: hold time 5
-	start time 526696 ::: end time 5454407
-	pre time 526696 ::: last time 75501213
-	start time 5454444 ::: wait time 19 ::: hold time 8
-	start time 526696 ::: end time 5454444
-	pre time 526696 ::: last time 75501213
-	start time 5454493 ::: wait time 35 ::: hold time 10
-	start time 526696 ::: end time 5454493
-	pre time 526696 ::: last time 75501213
-	start time 526696 ::: end time 75501213
-tid: 14934 ::: thread start time -1737372524328 ::: thread end time -1737372524328
-	start time 526584 ::: wait time 112 ::: hold time 74977039
-	pre time 526696 ::: last time 75503736
-	start time 5438752 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5438752
-	pre time 526696 ::: last time 75503736
-	start time 5438770 ::: wait time 5 ::: hold time 4
-	start time 526696 ::: end time 5438770
-	pre time 526696 ::: last time 75503736
-	start time 5438808 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5438808
-	pre time 526696 ::: last time 75503736
-	start time 5438935 ::: wait time 8 ::: hold time 5
-	start time 526696 ::: end time 5438935
-	pre time 526696 ::: last time 75503736
-	start time 5439091 ::: wait time 7 ::: hold time 5
-	start time 526696 ::: end time 5439091
-	pre time 526696 ::: last time 75503736
-	start time 5439133 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5439133
-	pre time 526696 ::: last time 75503736
-	start time 5439262 ::: wait time 7 ::: hold time 4
-	start time 526696 ::: end time 5439262
-	pre time 526696 ::: last time 75503736
-	start time 5439406 ::: wait time 7 ::: hold time 4
-	start time 526696 ::: end time 5439406
-	pre time 526696 ::: last time 75503736
-	start time 5439454 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5439454
-	pre time 526696 ::: last time 75503736
-	start time 5439546 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5439546
-	pre time 526696 ::: last time 75503736
-	start time 5439672 ::: wait time 6 ::: hold time 3
-	start time 526696 ::: end time 5439672
-	pre time 526696 ::: last time 75503736
-	start time 5439786 ::: wait time 7 ::: hold time 4
-	start time 526696 ::: end time 5439786
-	pre time 526696 ::: last time 75503736
-	start time 5439967 ::: wait time 6 ::: hold time 4
-	start time 526696 ::: end time 5439967
-	pre time 526696 ::: last time 75503736
-	start time 5440231 ::: wait time 61 ::: hold time 26
-	start time 526696 ::: end time 5440231
-	pre time 526696 ::: last time 75503736
-	start time 5440389 ::: wait time 18 ::: hold time 8
-	start time 526696 ::: end time 5440389
-	pre time 526696 ::: last time 75503736
-	start time 526696 ::: end time 75503736
-tid: 14937 ::: thread start time -1737372524328 ::: thread end time -1737372524328
-	start time 4548 ::: wait time 14781 ::: hold time 79927257
-	pre time 19330 ::: last time 79946587
-	start time 1507553 ::: wait time 144 ::: hold time 137
-	start time 19330 ::: end time 1507553
-	pre time 19330 ::: last time 79946587
-	start time 1507577 ::: wait time 99 ::: hold time 65
-	start time 19330 ::: end time 1507577
-	pre time 19330 ::: last time 79946587
-	start time 1507593 ::: wait time 98 ::: hold time 66
-	start time 19330 ::: end time 1507593
-	pre time 19330 ::: last time 79946587
-	start time 1507609 ::: wait time 99 ::: hold time 59
-	start time 19330 ::: end time 1507609
-	pre time 19330 ::: last time 79946587
-	start time 19330 ::: end time 79946587
-tid: 14938 ::: thread start time -1737372524328 ::: thread end time 5437478
-	start time 0 ::: wait time 722 ::: hold time 1043
-	pre time 722 ::: last time 1766
-	start time 64 ::: wait time 308 ::: hold time 21982
-	pre time 372 ::: last time 22355
-	start time 5437279 ::: wait time 19 ::: hold time 16
-	start time 372 ::: end time 5437279
-	pre time 372 ::: last time 5437316
-	start time 5437346 ::: wait time 6 ::: hold time 4
-	start time 372 ::: end time 5437346
-	pre time 372 ::: last time 5437356
-	start time 5437366 ::: wait time 6 ::: hold time 4
-	start time 372 ::: end time 5437366
-	pre time 372 ::: last time 5437377
-	start time 5437418 ::: wait time 6 ::: hold time 3
-	start time 372 ::: end time 5437418
-	pre time 372 ::: last time 5437428
-	start time 5437439 ::: wait time 6 ::: hold time 16
-	start time 372 ::: end time 5437439
-	pre time 372 ::: last time 5437462
-	start time 5454661 ::: wait time 7 ::: hold time 8
-	start time 372 ::: end time 5454661
-	pre time 372 ::: last time 5454676
-	start time 5454715 ::: wait time 6 ::: hold time 3
-	start time 372 ::: end time 5454715
-	pre time 372 ::: last time 5454725
-	start time 5454732 ::: wait time 6 ::: hold time 3
-	start time 372 ::: end time 5454732
-	pre time 372 ::: last time 5454742
-	start time 372 ::: end time 5454742
-tid: 14941 ::: thread start time -1737372524328 ::: thread end time -1737372524328
-	start time 153564 ::: wait time 52 ::: hold time 5283825
-	pre time 153617 ::: last time 5437442
-	start time 5437928 ::: wait time 8 ::: hold time 7
-	start time 153617 ::: end time 5437928
-	pre time 153617 ::: last time 5437945
-	start time 5447707 ::: wait time 12 ::: hold time 18
-	start time 153617 ::: end time 5447707
-	pre time 153617 ::: last time 5447738
-	start time 5456124 ::: wait time 7 ::: hold time 6
-	start time 153617 ::: end time 5456124
-	pre time 153617 ::: last time 5456137
-	start time 5456149 ::: wait time 6 ::: hold time 3
-	start time 153617 ::: end time 5456149
-	pre time 153617 ::: last time 5456159
-	start time 5456169 ::: wait time 6 ::: hold time 3
-	start time 153617 ::: end time 5456169
-	pre time 153617 ::: last time 5456179
-	start time 5456210 ::: wait time 6 ::: hold time 3
-	start time 153617 ::: end time 5456210
-	pre time 153617 ::: last time 5456220
-	start time 5496813 ::: wait time 9788 ::: hold time 14168
-	start time 153617 ::: end time 5496813
-	pre time 153617 ::: last time 5520770
-	start time 5496858 ::: wait time 5536 ::: hold time 295063
-	start time 153617 ::: end time 5496858
-	pre time 153617 ::: last time 5797457
-	start time 153617 ::: end time 5797457
+thread 18269
+	mutex 140381610361384 ::: start 1749778427018.80us ::: wait 18.24us ::: hold 0.00us ::: enter count 1
+thread 18272
+	mutex 140381611406120 ::: start 1749773764952.44us ::: wait 521.31us ::: hold 551.75us ::: enter count 42
+	mutex 140381611413800 ::: start 1749778483788.44us ::: wait 27134.37us ::: hold 7076.62us ::: enter count 494
+	mutex 140381610887976 ::: start 1749773764986.77us ::: wait 3439.64us ::: hold 59687366.14us ::: enter count 536
+thread 18280
+	mutex 140381741345120 ::: start 1749778436379.18us ::: wait 12.91us ::: hold 3.41us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437377.66us ::: wait 18.04us ::: hold 7.04us ::: enter count 2
+	mutex 140381741345120 ::: start 1749778434706.61us ::: wait 8.43us ::: hold 4.19us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434541.36us ::: wait 7.54us ::: hold 4.68us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437547.66us ::: wait 7.46us ::: hold 4.06us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434296.60us ::: wait 7.44us ::: hold 4.09us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435447.27us ::: wait 7.12us ::: hold 3.70us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437794.57us ::: wait 29.73us ::: hold 13.11us ::: enter count 4
+	mutex 140381741345120 ::: start 1749778437243.78us ::: wait 13.16us ::: hold 6.44us ::: enter count 2
+	mutex 140381611148072 ::: start 1749774352909.53us ::: wait 94.25us ::: hold 59100829.50us ::: enter count 14
+	mutex 140381741345120 ::: start 1749778434984.15us ::: wait 6.83us ::: hold 4.26us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434403.00us ::: wait 6.72us ::: hold 4.40us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435299.63us ::: wait 6.64us ::: hold 3.66us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778433917.25us ::: wait 6.60us ::: hold 10.46us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434865.88us ::: wait 6.51us ::: hold 4.18us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437617.03us ::: wait 6.47us ::: hold 3.42us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437745.77us ::: wait 18.85us ::: hold 8.47us ::: enter count 3
+	mutex 140381741345120 ::: start 1749778436575.91us ::: wait 6.46us ::: hold 3.37us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435030.16us ::: wait 6.45us ::: hold 3.96us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434798.29us ::: wait 6.43us ::: hold 4.23us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436341.61us ::: wait 6.42us ::: hold 3.72us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435524.15us ::: wait 6.41us ::: hold 3.38us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435055.65us ::: wait 6.39us ::: hold 4.05us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435151.51us ::: wait 6.39us ::: hold 3.72us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778433969.69us ::: wait 6.34us ::: hold 3.59us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437577.10us ::: wait 6.34us ::: hold 3.54us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434087.15us ::: wait 6.33us ::: hold 3.29us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437492.73us ::: wait 6.33us ::: hold 3.59us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435325.06us ::: wait 6.33us ::: hold 3.48us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436643.37us ::: wait 6.33us ::: hold 3.52us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436214.91us ::: wait 6.31us ::: hold 4.23us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435109.56us ::: wait 6.31us ::: hold 3.37us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435002.43us ::: wait 6.31us ::: hold 3.79us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435587.43us ::: wait 31.15us ::: hold 15.97us ::: enter count 5
+	mutex 140381741345120 ::: start 1749778436823.22us ::: wait 6.31us ::: hold 3.61us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778434118.23us ::: wait 6.30us ::: hold 4.08us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436500.20us ::: wait 6.28us ::: hold 3.37us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436867.62us ::: wait 6.27us ::: hold 3.57us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436745.85us ::: wait 6.27us ::: hold 3.56us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435125.96us ::: wait 6.26us ::: hold 3.43us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436464.16us ::: wait 6.25us ::: hold 3.32us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435958.19us ::: wait 6.24us ::: hold 3.89us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435616.66us ::: wait 68.34us ::: hold 31.71us ::: enter count 11
+	mutex 140381741345120 ::: start 1749778436082.92us ::: wait 6.22us ::: hold 4.08us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436410.66us ::: wait 6.21us ::: hold 3.32us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437709.72us ::: wait 12.39us ::: hold 5.76us ::: enter count 2
+	mutex 140381741345120 ::: start 1749778434137.94us ::: wait 6.20us ::: hold 3.36us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436885.92us ::: wait 6.20us ::: hold 3.58us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437276.15us ::: wait 6.20us ::: hold 3.79us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436917.81us ::: wait 6.18us ::: hold 3.43us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436901.98us ::: wait 6.18us ::: hold 3.35us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436676.05us ::: wait 6.17us ::: hold 3.62us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435633.76us ::: wait 31.24us ::: hold 16.02us ::: enter count 5
+	mutex 140381741345120 ::: start 1749778435558.55us ::: wait 6.14us ::: hold 3.54us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436363.02us ::: wait 6.13us ::: hold 3.68us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437400.27us ::: wait 12.25us ::: hold 6.64us ::: enter count 2
+	mutex 140381741345120 ::: start 1749778435466.26us ::: wait 6.10us ::: hold 3.66us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778435540.84us ::: wait 6.09us ::: hold 3.71us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436101.68us ::: wait 24.41us ::: hold 11.67us ::: enter count 4
+	mutex 140381741345120 ::: start 1749778434036.23us ::: wait 6.08us ::: hold 3.51us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437633.41us ::: wait 12.28us ::: hold 6.01us ::: enter count 2
+	mutex 140381741345120 ::: start 1749778433986.25us ::: wait 6.07us ::: hold 3.41us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436763.42us ::: wait 12.22us ::: hold 6.10us ::: enter count 2
+	mutex 140381741345120 ::: start 1749778434002.01us ::: wait 6.06us ::: hold 3.63us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778437664.37us ::: wait 18.45us ::: hold 8.19us ::: enter count 3
+	mutex 140381741345120 ::: start 1749778434018.00us ::: wait 12.35us ::: hold 7.11us ::: enter count 2
+	mutex 140381741345120 ::: start 1749778433942.70us ::: wait 6.04us ::: hold 3.60us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778436592.07us ::: wait 6.04us ::: hold 4.05us ::: enter count 1
+thread 18283
+	mutex 140381611197992 ::: start 1749774352877.68us ::: wait 114.45us ::: hold 59108971.95us ::: enter count 14
+	mutex 140381741345120 ::: start 1749778428526.76us ::: wait 64.51us ::: hold 27.47us ::: enter count 10
+	mutex 140381741345120 ::: start 1749778427587.16us ::: wait 7.68us ::: hold 4.52us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427727.41us ::: wait 7.43us ::: hold 4.54us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427422.23us ::: wait 7.29us ::: hold 4.89us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778428259.69us ::: wait 7.22us ::: hold 4.17us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427297.40us ::: wait 7.13us ::: hold 4.85us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427460.51us ::: wait 7.03us ::: hold 5.09us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427827.50us ::: wait 6.78us ::: hold 3.86us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778428066.92us ::: wait 6.67us ::: hold 4.66us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427938.04us ::: wait 6.65us ::: hold 3.88us ::: enter count 1
+	mutex 140381611148072 ::: start 1749778427062.44us ::: wait 6.49us ::: hold 6.84us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427776.86us ::: wait 6.41us ::: hold 4.41us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427162.86us ::: wait 6.33us ::: hold 4.60us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427104.32us ::: wait 6.30us ::: hold 5.37us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778428688.79us ::: wait 18.62us ::: hold 8.81us ::: enter count 3
+	mutex 140381611148072 ::: start 1749778433865.73us ::: wait 6.16us ::: hold 5.91us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778427123.95us ::: wait 6.06us ::: hold 4.21us ::: enter count 1
+thread 18286
+	mutex 140381741345120 ::: start 1749775359889.72us ::: wait 108.08us ::: hold 96.44us ::: enter count 12
+	mutex 140381611220264 ::: start 1749773764551.73us ::: wait 10887.25us ::: hold 59956012.77us ::: enter count 1156
+	mutex 140381741345120 ::: start 1749775359916.59us ::: wait 82.31us ::: hold 45.71us ::: enter count 12
+	mutex 140381741345120 ::: start 1749775359933.26us ::: wait 75.05us ::: hold 45.70us ::: enter count 12
+	mutex 140381741345120 ::: start 1749775359949.36us ::: wait 74.77us ::: hold 41.94us ::: enter count 12
+thread 18287
+	mutex 140381610887976 ::: start 1749773764459.00us ::: wait 645.65us ::: hold 849.03us ::: enter count 42
+	mutex 140381741345120 ::: start 1749778422210.73us ::: wait 11.44us ::: hold 10.97us ::: enter count 1
+	mutex 140381610361384 ::: start 1749778422469.63us ::: wait 7.42us ::: hold 7.27us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778422336.66us ::: wait 6.60us ::: hold 4.24us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778422516.97us ::: wait 6.47us ::: hold 3.99us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778422263.84us ::: wait 6.36us ::: hold 4.14us ::: enter count 1
+	mutex 140381611406120 ::: start 1749773764518.42us ::: wait 688.04us ::: hold 18049.14us ::: enter count 42
+	mutex 140381741345120 ::: start 1749778422534.67us ::: wait 6.21us ::: hold 3.46us ::: enter count 1
+	mutex 140381611412776 ::: start 1749778422358.56us ::: wait 6.09us ::: hold 11.91us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778422284.31us ::: wait 6.08us ::: hold 3.77us ::: enter count 1
+thread 18288
+	mutex 140381610887976 ::: start 1749778483329.69us ::: wait 7135.32us ::: hold 10020.25us ::: enter count 494
+	mutex 140381611197992 ::: start 1749778433604.34us ::: wait 9.54us ::: hold 10.44us ::: enter count 1
+	mutex 140381611412776 ::: start 1749774023880.00us ::: wait 43.45us ::: hold 4398633.42us ::: enter count 5
+	mutex 140381741345120 ::: start 1749778439084.14us ::: wait 7.71us ::: hold 6.02us ::: enter count 1
+	mutex 140381611197992 ::: start 1749778423008.91us ::: wait 7.13us ::: hold 8.68us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778439174.20us ::: wait 6.50us ::: hold 3.70us ::: enter count 1
+	mutex 140381611413800 ::: start 1749778483369.64us ::: wait 3161.24us ::: hold 216232.18us ::: enter count 494
+	mutex 140381741345120 ::: start 1749778439109.81us ::: wait 6.14us ::: hold 4.06us ::: enter count 1
+	mutex 140381741345120 ::: start 1749778439129.49us ::: wait 6.13us ::: hold 3.85us ::: enter count 1
+(18287L, 1749778422399163L, 'stop')
+tid: 18272 ::: thread start time -1749773764459 ::: thread end time 59691333
+	start time 3967 ::: end time 4719329
+	start time 4746463 ::: end time 59691333
+tid: 18280 ::: thread start time -1749773764459 ::: thread end time 59689374
+	start time 588544 ::: end time 4669458
+	start time 4669464 ::: end time 4669483
+	start time 4669489 ::: end time 4669510
+	start time 4669517 ::: end time 4669527
+	start time 4669533 ::: end time 4669543
+	start time 4669549 ::: end time 4669559
+	start time 4669571 ::: end time 4669577
+	start time 4669583 ::: end time 4669628
+	start time 4669634 ::: end time 4669659
+	start time 4669665 ::: end time 4669678
+	start time 4669685 ::: end time 4669837
+	start time 4669845 ::: end time 4669943
+	start time 4669950 ::: end time 4670082
+	start time 4670089 ::: end time 4670247
+	start time 4670256 ::: end time 4670339
+	start time 4670345 ::: end time 4670406
+	start time 4670413 ::: end time 4670525
+	start time 4670531 ::: end time 4670543
+	start time 4670549 ::: end time 4670571
+	start time 4670577 ::: end time 4670596
+	start time 4670603 ::: end time 4670650
+	start time 4670656 ::: end time 4670666
+	start time 4670673 ::: end time 4670692
+	start time 4670698 ::: end time 4670840
+	start time 4670847 ::: end time 4670866
+	start time 4670872 ::: end time 4670988
+	start time 4670995 ::: end time 4671007
+	start time 4671013 ::: end time 4671065
+	start time 4671071 ::: end time 4671081
+	start time 4671087 ::: end time 4671099
+	start time 4671105 ::: end time 4671128
+	start time 4671225 ::: end time 4671499
+	start time 4671505 ::: end time 4671623
+	start time 4671630 ::: end time 4671642
+	start time 4671667 ::: end time 4671755
+	start time 4671762 ::: end time 4671882
+	start time 4671889 ::: end time 4671904
+	start time 4671910 ::: end time 4671920
+	start time 4671933 ::: end time 4671951
+	start time 4671957 ::: end time 4672005
+	start time 4672011 ::: end time 4672041
+	start time 4672047 ::: end time 4672116
+	start time 4672123 ::: end time 4672133
+	start time 4672139 ::: end time 4672184
+	start time 4672190 ::: end time 4672217
+	start time 4672223 ::: end time 4672286
+	start time 4672293 ::: end time 4672304
+	start time 4672316 ::: end time 4672364
+	start time 4672370 ::: end time 4672408
+	start time 4672414 ::: end time 4672426
+	start time 4672433 ::: end time 4672442
+	start time 4672449 ::: end time 4672458
+	start time 4672464 ::: end time 4672784
+	start time 4672797 ::: end time 4672817
+	start time 4672823 ::: end time 4672918
+	start time 4672936 ::: end time 4672941
+	start time 4672953 ::: end time 4673033
+	start time 4673040 ::: end time 4673088
+	start time 4673096 ::: end time 4673118
+	start time 4673124 ::: end time 4673158
+	start time 4673164 ::: end time 4673174
+	start time 4673186 ::: end time 4673205
+	start time 4673223 ::: end time 4673250
+	start time 4673263 ::: end time 4673286
+	start time 4673305 ::: end time 4673335
+	start time 4673365 ::: end time 59689374
+tid: 18283 ::: thread start time -1749773764459 ::: thread end time 59697505
+	start time 588533 ::: end time 4662603
+	start time 4662609 ::: end time 4662645
+	start time 4662651 ::: end time 4662664
+	start time 4662671 ::: end time 4662703
+	start time 4662710 ::: end time 4662838
+	start time 4662845 ::: end time 4662963
+	start time 4662970 ::: end time 4663001
+	start time 4663008 ::: end time 4663128
+	start time 4663135 ::: end time 4663268
+	start time 4663275 ::: end time 4663317
+	start time 4663324 ::: end time 4663368
+	start time 4663375 ::: end time 4663479
+	start time 4663485 ::: end time 4663607
+	start time 4663614 ::: end time 4663800
+	start time 4663807 ::: end time 4664067
+	start time 4664132 ::: end time 4664229
+	start time 4664248 ::: end time 4669406
+	start time 4669412 ::: end time 59697505
+tid: 18286 ::: thread start time -1749773764459 ::: thread end time 59966992
+	start time 10979 ::: end time 1595430
+	start time 1595565 ::: end time 59966992
+tid: 18287 ::: thread start time -1749773764459 ::: thread end time 4658085
+	start time 747 ::: end time 4657751
+	start time 4657763 ::: end time 4657804
+	start time 4657811 ::: end time 4657825
+	start time 4657831 ::: end time 4657877
+	start time 4657884 ::: end time 4657899
+	start time 4657905 ::: end time 4658010
+	start time 4658018 ::: end time 4658057
+	start time 4658064 ::: end time 4658075
+	start time 4658081 ::: end time 4658085
+tid: 18288 ::: thread start time -1749773764459 ::: thread end time 4938304
+	start time 259464 ::: end time 4658549
+	start time 4658557 ::: end time 4669145
+	start time 4669154 ::: end time 4674625
+	start time 4674632 ::: end time 4674650
+	start time 4674656 ::: end time 4674670
+	start time 4674676 ::: end time 4674715
+	start time 4674721 ::: end time 4718870
+	start time 4726006 ::: end time 4938304
+tid: 18269 ::: thread start time -1749773764459 ::: thread end time 4662578
+	start time 4662578 ::: end time 4662578
 start print stack info
-('count: ', 115)
+('count: ', 113)
 1
-(14938L, 1737377961807924L, 'stop', 139642137583184L, 0L)
+(18287L, 1749778422399163L, 'stop', 140380804847216L, 0L)

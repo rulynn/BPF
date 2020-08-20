@@ -1,37 +1,34 @@
-2020-08-20 05:11:29
+2020-08-20 08:38:11
 Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 
-"Attach Listener" #10 daemon prio=9 os_prio=0 tid=0x00007f0100001000 nid=0x3a5e waiting on condition [0x0000000000000000]
+"Attach Listener" #10 daemon prio=9 os_prio=0 tid=0x00007facfc001000 nid=0x4773 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Thread-1" #9 prio=5 os_prio=0 tid=0x00007f012814c000 nid=0x3a5d waiting for monitor entry [0x00007f011827b000]
+"Thread-1" #9 prio=5 os_prio=0 tid=0x00007fad2414c000 nid=0x4770 waiting for monitor entry [0x00007fad14ad1000]
    java.lang.Thread.State: BLOCKED (on object monitor)
 	at Threads$TestThread.run(Threads.java:29)
 	- waiting to lock <0x00000000c7781800> (a Threads$TestThread)
 	at java.lang.Thread.run(Thread.java:748)
 
-"Thread-0" #8 prio=5 os_prio=0 tid=0x00007f012814a000 nid=0x3a5a runnable [0x00007f011837c000]
+"Thread-0" #8 prio=5 os_prio=0 tid=0x00007fad2414a000 nid=0x476f runnable [0x00007fad14bd2000]
    java.lang.Thread.State: RUNNABLE
-	at java.lang.Number.<init>(Number.java:55)
-	at java.lang.Long.<init>(Long.java:947)
-	at java.lang.Long.valueOf(Long.java:840)
-	at Threads$TestThread.run(Threads.java:31)
+	at Threads$TestThread.run(Threads.java:30)
 	- locked <0x00000000c7781800> (a Threads$TestThread)
 	at java.lang.Thread.run(Thread.java:748)
 
-"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007f012811a800 nid=0x3a58 runnable [0x0000000000000000]
+"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007fad2411a800 nid=0x476d runnable [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"C1 CompilerThread1" #6 daemon prio=9 os_prio=0 tid=0x00007f0128117800 nid=0x3a56 waiting on condition [0x0000000000000000]
+"C1 CompilerThread1" #6 daemon prio=9 os_prio=0 tid=0x00007fad24117800 nid=0x476b waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007f012810b000 nid=0x3a53 waiting on condition [0x0000000000000000]
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007fad2410b000 nid=0x4768 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Signal Dispatcher" #4 daemon prio=9 os_prio=0 tid=0x00007f0128108800 nid=0x3a52 runnable [0x0000000000000000]
+"Signal Dispatcher" #4 daemon prio=9 os_prio=0 tid=0x00007fad24108800 nid=0x4767 runnable [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Finalizer" #3 daemon prio=8 os_prio=0 tid=0x00007f01280da800 nid=0x3a4f in Object.wait() [0x00007f0118dae000]
+"Finalizer" #3 daemon prio=8 os_prio=0 tid=0x00007fad240da800 nid=0x4763 in Object.wait() [0x00007fad28650000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000c7782188> (a java.lang.ref.ReferenceQueue$Lock)
@@ -40,7 +37,7 @@ Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
 	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:216)
 
-"Reference Handler" #2 daemon prio=10 os_prio=0 tid=0x00007f01280d5800 nid=0x3a4d in Object.wait() [0x00007f0118eaf000]
+"Reference Handler" #2 daemon prio=10 os_prio=0 tid=0x00007fad240d5800 nid=0x4762 in Object.wait() [0x00007fad28751000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000c7782340> (a java.lang.ref.Reference$Lock)
@@ -49,7 +46,7 @@ Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 	- locked <0x00000000c7782340> (a java.lang.ref.Reference$Lock)
 	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
 
-"main" #1 prio=5 os_prio=0 tid=0x00007f012804b800 nid=0x3a48 in Object.wait() [0x00007f0130307000]
+"main" #1 prio=5 os_prio=0 tid=0x00007fad2404b800 nid=0x475d in Object.wait() [0x00007fad2cb60000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000c7781810> (a java.lang.Thread)
@@ -58,9 +55,9 @@ Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 	at java.lang.Thread.join(Thread.java:1326)
 	at Threads.main(Threads.java:19)
 
-"VM Thread" os_prio=0 tid=0x00007f01280cc000 nid=0x3a4c runnable 
+"VM Thread" os_prio=0 tid=0x00007fad240cc000 nid=0x4760 runnable 
 
-"VM Periodic Task Thread" os_prio=0 tid=0x00007f012811d000 nid=0x3a59 waiting on condition 
+"VM Periodic Task Thread" os_prio=0 tid=0x00007fad2411d000 nid=0x476e waiting on condition 
 
 JNI global references: 5
 

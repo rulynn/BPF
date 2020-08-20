@@ -1,2 +1,0 @@
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::park(long) 731
-VM Thread;start_thread;java_start(Thread*);VMThread::run();VMThread::loop();os::PlatformEvent::unpark() 731
