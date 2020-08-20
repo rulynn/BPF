@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+# sh run_java.sh 80
+
 time=$1
 burn_path="../resources"
 out_path="../src/output"
@@ -7,8 +10,6 @@ out_path="../src/output"
 rm -rf $out_path
 mkdir $out_path
 mkdir $out_path/stack
-
-
 
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
