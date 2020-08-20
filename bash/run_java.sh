@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-# sh run_java.sh 80
+# sh run_java.sh 60
 
 time=$1
 burn_path="../resources"
