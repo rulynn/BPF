@@ -89,7 +89,7 @@ def calculation_single(tid, data, start_times, stop_times):
     global tid_list
     global threadPointList
 
-    grouper = lambda x: x.start_time
+    grouper = lambda x: x.start_time + item.wait_time
     sorted_data = sorted(data, key=grouper)
 
 
