@@ -93,13 +93,18 @@ def calculation_single(tid, data, start_times, stop_times):
     sorted_data = sorted(data, key=grouper)
 
 
-    pre_time = max(int(start_times.get(tid) or 0) - TIME_MIN, 0)
-    last_time = max(int(stop_times.get(tid) or 0) - TIME_MIN, 0)
+#     pre_time = max(int(start_times.get(tid) or 0) - TIME_MIN, 0)
+#     last_time = max(int(stop_times.get(tid) or 0) - TIME_MIN, 0)
+    pre_time = int(start_times.get(tid) or 0) - TIME_MIN
+    last_time = int(stop_times.get(tid) or 0) - TIME_MIN
     print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
 
     for item in sorted_data:
         print("\tstart time %d ::: wait time %d ::: hold time %d" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
-        if (item.start_time - TIME_MIN < pre_time):
+        if (pre_time < 0):
+            pre_time = item.start_time - TIME_MIN + item.wait_time
+            last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
+        elif (item.start_time - TIME_MIN < pre_time):
             pre_time = min(pre_time, item.start_time - TIME_MIN + item.wait_time)
             last_time = max(last_time, item.start_time - TIME_MIN + item.wait_time + item.hold_time)
         else:
@@ -108,6 +113,7 @@ def calculation_single(tid, data, start_times, stop_times):
             print("\tstart time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN))
             pre_time = item.start_time - TIME_MIN + item.wait_time
             last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
+
     # thread exit time
     threadPointList.append(TIME(0, tid, pre_time))
     threadPointList.append(TIME(1, tid, last_time))
