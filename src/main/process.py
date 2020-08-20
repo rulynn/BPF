@@ -111,8 +111,8 @@ def calculation_single(tid, data, start_times, stop_times):
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start_time - TIME_MIN))
             print("\tstart time %d ::: end time %d" % (pre_time, item.start_time - TIME_MIN))
-            pre_time = item.start_time - TIME_MIN + item.wait_time
-            last_time = item.start_time - TIME_MIN + item.wait_time + item.hold_time
+            pre_time = min(pre_time, item.start_time - TIME_MIN + item.wait_time)
+            last_time = max(last_time, item.start_time - TIME_MIN + item.wait_time + item.hold_time)
         print("\tpre time %d ::: last time %d" % (pre_time, last_time))
     # thread exit time
     threadPointList.append(TIME(0, tid, pre_time))
