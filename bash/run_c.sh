@@ -10,7 +10,7 @@ mkdir $out_path
 mkdir $out_path/stack
 
 cd ../src/code
-name="Threads" #ThreadsWithLock
+name="ThreadsWithExtraWork" #ThreadsWithLock
 g++ Threads.c -o Threads -lpthread
 ./Threads &
 cd ..
