@@ -7,10 +7,10 @@ using namespace std;
 
 
 volatile long long val;
+volatile int id = 1;
 
 mutex mut;
-mutex mut2;
-int id = 1;
+
 
 void icrement () {
 
@@ -24,16 +24,6 @@ void icrement () {
     }
     id++;
     mut.unlock ();
-//    for (int i = 0; i < 2000000000; i++) {
-//            val++;
-//    }
-//    mut2.lock();
-//    int id = 1;
-//    for (int i = 0; i < id * 1000000000; i++) {
-//                val++;
-//    }
-//    id++;
-//    mut2.unlock ();
 }
 
 int main (int argc, char* argv []) {
