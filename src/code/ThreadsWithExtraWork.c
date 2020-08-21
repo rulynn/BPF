@@ -10,13 +10,14 @@ volatile long long val;
 
 mutex mut;
 mutex mut2;
+int id = 1;
 
 void icrement () {
+
     mut.lock ();
 //    for (int i = 0; i < 1000000000; i++) {
 //        val++;
 //    }
-    int id = 1;
     for (int i = 0; i < id * 1000000000; i++) {
         val++;
     }
