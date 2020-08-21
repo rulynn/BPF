@@ -3,7 +3,7 @@
 # sh run_dacapo.sh 30/18
 
 time=$1
-name="avrora"
+name="h2"
 burn_path="../resources"
 out_path="../src/output"
 
@@ -14,7 +14,7 @@ mkdir $out_path/stack
 cd ../src
 
 # Dacapo -s large -n 5 -Xmx1024m -XX:ReservedCodeCacheSize=64M -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints
-java -Xms8m -Xmx8m -XX:ReservedCodeCacheSize=16M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 $name &
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 $name &
 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
