@@ -15,7 +15,7 @@ g++ Threads.c -o Threads -lpthread
 ./Threads &
 cd ..
 
-pid=$(pgrep -f "./Threads")
+pid=$(pgrep -f "./ThreadsWithExtraWork")
 echo "program pid: " $pid
 
 # eBPF
