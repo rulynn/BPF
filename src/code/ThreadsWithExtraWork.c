@@ -19,7 +19,7 @@ void icrement () {
 //        val++;
 //    }
     cout << id << endl;
-    long long len = id * 1000000000
+    long long len = id * 1000000000;
     for (int i = 0; i < len; i++) {
         val++;
     }
