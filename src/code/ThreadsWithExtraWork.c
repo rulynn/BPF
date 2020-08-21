@@ -26,7 +26,7 @@ void icrement () {
     id++;
     mut.unlock ();
 
-    for (int i = 0; i < 5000000000; i++) {
+    for (int i = 0; i < 3000000000; i++) {
         val++;
     }
 }
