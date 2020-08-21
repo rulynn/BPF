@@ -11,8 +11,8 @@ mkdir $out_path/stack
 
 cd ../src/code
 name="ThreadsWithExtraWork" #ThreadsWithLock
-g++ Threads.c -o Threads -lpthread
-./Threads &
+g++ ThreadsWithExtraWork.c -o ThreadsWithExtraWork -lpthread
+./ThreadsWithExtraWork &
 cd ..
 
 pid=$(pgrep -f "./ThreadsWithExtraWork")
