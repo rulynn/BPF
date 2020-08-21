@@ -25,6 +25,10 @@ void icrement () {
     }
     id++;
     mut.unlock ();
+
+    for (int i = 0; i < 5000000000; i++) {
+        val++;
+    }
 }
 
 int main (int argc, char* argv []) {
