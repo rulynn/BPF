@@ -16,7 +16,8 @@ mkdir $out_path/stack
 cd ../src/code
 name="Threads" #ThreadsWithLock
 javac $name.java
-java -Xmx2m -XX:ReservedCodeCacheSize=16M -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
+# -Xmx2m -XX:ReservedCodeCacheSize=16M
+java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
 #sleep 1
 cd ..
 
