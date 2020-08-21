@@ -18,6 +18,7 @@ void icrement () {
 //    for (int i = 0; i < 1000000000; i++) {
 //        val++;
 //    }
+    cout << id << endl;
     for (int i = 0; i < id * 1000000000; i++) {
         val++;
     }
