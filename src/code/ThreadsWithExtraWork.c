@@ -36,12 +36,10 @@ int main (int argc, char* argv []) {
         // Two threads
         thread t1 (icrement);
         thread t2 (icrement);
-        thread t3 (icrement);
 
         // wait
         t1.join();
         t2.join();
-        t3.join();
         cout << val << endl;
     }
     return 0;
