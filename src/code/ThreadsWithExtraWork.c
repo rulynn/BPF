@@ -9,29 +9,30 @@ using namespace std;
 volatile long long val;
 
 mutex mut;
+mutex mut2;
 
 void icrement () {
     mut.lock ();
-//    std::thread::id tid = std::this_thread::get_id();
-//    cout << tid << endl;
-    for (int i = 0; i < 1000000000; i++) {
+//    for (int i = 0; i < 1000000000; i++) {
+//        val++;
+//    }
+    int id = 1;
+    for (int i = 0; i < id * 1000000000; i++) {
         val++;
     }
+    id++;
     mut.unlock ();
-    for (int i = 0; i < 2000000000; i++) {
-            val++;
-    }
-}
-
-//void icrement () {
-//
-//    for (int i = 0; i < 100000000; i++) {
-//        mut.lock ();
-//        val++;
-//        mut.unlock ();
+//    for (int i = 0; i < 2000000000; i++) {
+//            val++;
 //    }
-//}
-
+//    mut2.lock();
+//    int id = 1;
+//    for (int i = 0; i < id * 1000000000; i++) {
+//                val++;
+//    }
+//    id++;
+//    mut2.unlock ();
+}
 
 int main (int argc, char* argv []) {
 
@@ -42,10 +43,12 @@ int main (int argc, char* argv []) {
         // Two threads
         thread t1 (icrement);
         thread t2 (icrement);
+        thread t3 (icrement);
 
         // wait
         t1.join();
         t2.join();
+        t3.join();
         cout << val << endl;
     }
     return 0;
