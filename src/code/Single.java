@@ -6,7 +6,7 @@ public class Single {
 
     class Node() {
         long val;
-        public Node(val){
+        public Node(int val){
             this.val = val;
         }
 
