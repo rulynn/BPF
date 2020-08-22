@@ -44,7 +44,7 @@ if not language:
     language = utils.detect_language(languages, args.pid)
 
 usdt = USDT(pid=args.pid)
-usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
+
 
 # load BPF program
 if language == "java":
@@ -53,6 +53,7 @@ if language == "java":
     bpf = BPF(src_file = "locktime_stack.c", usdt_contexts=[usdt])
     bpf.attach_uprobe(name="pthread", sym="pthread_mutex_init", fn_name="probe_mutex_init", pid=args.pid)
 else:
+    usdt.enable_probe_or_bail("pthread_start", "trace_pthread")
     bpf = BPF(src_file = "locktime.c", usdt_contexts=[usdt])
 
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock", pid=args.pid)
