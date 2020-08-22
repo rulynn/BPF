@@ -27,7 +27,6 @@ public class Threads {
         @Override
         public void run() {
             synchronized (this) {
-
                 for (int i = 0; i < 500000000; i++) {
                     val++;
                 }
