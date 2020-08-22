@@ -59,6 +59,7 @@ else:
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock", pid=args.pid)
 bpf.attach_uretprobe(name="pthread", sym="pthread_mutex_lock", fn_name="probe_mutex_lock_return", pid=args.pid)
 bpf.attach_uprobe(name="pthread", sym="pthread_mutex_unlock", fn_name="probe_mutex_unlock", pid=args.pid)
+bpf.attach_uprobe(name="pthread", sym="pthread_spin_lock", fn_name="probe_spin_lock", pid=args.pid)
 
 # new
 bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", pid=args.pid)

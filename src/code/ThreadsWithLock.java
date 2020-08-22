@@ -30,7 +30,7 @@ public class ThreadsWithLock {
     public static class TestThread implements Runnable{
         @Override
         public void run() {
-            lock.lock();
+            lock.tryLock();
             long start = System.currentTimeMillis();
             for (int i = 0; i < 500000000; i++) {
                 val++;
