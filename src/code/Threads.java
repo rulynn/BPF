@@ -14,14 +14,11 @@ public class Threads {
             TestThread testThread = new TestThread();
             Thread thread1 = new Thread(testThread);
             Thread thread2 = new Thread(testThread);
-            Thread thread3 = new Thread(testThread);
             thread1.start();
             thread2.start();
-            thread3.start();
 
             thread1.join();
             thread2.join();
-            thread3.join();
             System.out.println(val);
         }
     }
