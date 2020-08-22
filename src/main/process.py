@@ -165,11 +165,6 @@ def calculation_single_inner(threadPointList):
 
         lastStamp = threadPoint.time
 
-    for i, item in enumerate(ans):
-        if (item > 0):
-            print("tid %d ::: ans %.2f" % (tid_list.index(i), ans[i]))
-
-
     for i in range(len(tid_list)):
         if ans[i] == 0:
             continue
