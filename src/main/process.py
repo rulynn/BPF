@@ -110,6 +110,8 @@ def calculation_single(tid, data, start_times, stop_times):
     end = -1
     for item in sorted_data:
         print("\tstart %.2fus ::: wait %.2fus ::: hold %.2fus" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
+    print("\t---------------------------")
+    for item in sorted_data:
         if start == -1:
             start = item.start_time - TIME_MIN
             end = item.start_time + item.wait_time - TIME_MIN
@@ -124,7 +126,7 @@ def calculation_single(tid, data, start_times, stop_times):
     print("\twait start time %d ::: wait end time %d" % (start, end))
     waitPointList.append(WAIT(start, end))
 
-    print("---------------------------")
+
     for item in waitPointList:
         if int(pre_time) >= 0:
             threadPointList.append(TIME(0, tid, pre_time))
