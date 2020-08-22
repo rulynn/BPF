@@ -5,7 +5,7 @@ import java.util.Random;
 public class Single {
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws InterruptedException {
         Thread.sleep(5000);
         long start = System.currentTimeMillis();
 //        ArrayList<Integer> integers = new ArrayList<>();
