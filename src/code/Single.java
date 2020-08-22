@@ -5,19 +5,20 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Single {
 
     public static class Node {
+        Lock lock = new ReentrantLock();
         long val;
         public Node(int val){
             this.val = val;
         }
-//        private static Lock lock = new ReentrantLock();
 
-        public synchronized void run() {
-//            lock.lock();
+
+        public void run() {
+            lock.lock();
             Random random = new Random();
             for (int i = 0; i < 1000000000; i++) {
                 val += random.nextInt(100000);
             }
-//            lock.unlock();
+            lock.unlock();
             System.out.println("val: " + val);
         }
     }
