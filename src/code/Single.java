@@ -12,7 +12,7 @@ public class Single {
         }
 //        private static Lock lock = new ReentrantLock();
 
-        public void run() {
+        public synchronized void run() {
 //            lock.lock();
             Random random = new Random();
             for (int i = 0; i < 1000000000; i++) {
