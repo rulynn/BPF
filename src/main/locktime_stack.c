@@ -242,8 +242,8 @@ int trace_stop(struct pt_regs *ctx) {
 }
 
 
-int trace__park__begin(struct pt_regs *ctx){
-    char type[] = "park__begin";
+int trace_park_begin(struct pt_regs *ctx){
+    char type[] = "park_begin";
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
     unit.timestamp = now;
@@ -254,8 +254,8 @@ int trace__park__begin(struct pt_regs *ctx){
     return 0;
 }
 
-int trace__park__stop(struct pt_regs *ctx){
-    char type[] = "park__stop";
+int trace_park_stop(struct pt_regs *ctx){
+    char type[] = "park_stop";
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
     unit.timestamp = now;
@@ -266,7 +266,7 @@ int trace__park__stop(struct pt_regs *ctx){
     return 0;
 }
 
-int trace__unpark(struct pt_regs *ctx){
+int trace_unpark(struct pt_regs *ctx){
     char type[] = "unpark";
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
