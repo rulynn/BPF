@@ -20,8 +20,10 @@ public class Single {
 //
 //        }
         long val = 0;
-        for (int i = 0; i < 10000000000; i++) {
-            val++;
+        for (int i = 0; i < 1000000; i++) {
+            for (int j = 0; j < 100000; j++) {
+                val++;
+            }
         }
         System.out.println("val: " + val);
         long end = System.currentTimeMillis();
