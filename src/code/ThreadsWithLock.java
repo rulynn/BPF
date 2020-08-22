@@ -21,9 +21,9 @@ public class ThreadsWithLock {
             thread1.start();
             thread2.start();
 
-            thread1.join();
-            thread2.join();
-            System.out.println(val);
+//            thread1.join();
+//            thread2.join();
+//            System.out.println(val);
         }
     }
 
@@ -31,7 +31,6 @@ public class ThreadsWithLock {
         @Override
         public void run() {
             lock.lock();
-
             for (int i = 0; i < 500000000; i++) {
                 val++;
             }
