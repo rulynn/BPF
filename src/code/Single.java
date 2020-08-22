@@ -1,6 +1,7 @@
-import java.io.IOException;
-import java.util.ArrayList;
+package code;
 import java.util.Random;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Single {
 
@@ -9,13 +10,15 @@ public class Single {
         public Node(int val){
             this.val = val;
         }
+        private static Lock lock = new ReentrantLock();
 
-        public synchronized void run() {
-            long val = 0;
+        public void run() {
+            lock.lock();
             Random random = new Random();
             for (int i = 0; i < 1000000000; i++) {
                 val += random.nextInt(100000);
             }
+            lock.unlock();
             System.out.println("val: " + val);
         }
     }
