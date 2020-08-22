@@ -14,7 +14,7 @@ mkdir $out_path/stack
 # Modify java program: Replace 'SingleFun' in java and java_name
 # java program shows in ../java/
 cd ../src/code
-name="ThreadsWithLock" #ThreadsWithLock
+name="Threads" #ThreadsWithLock
 javac $name.java
 # -Xmx2m -XX:ReservedCodeCacheSize=16M
 java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVMOptions -XX:+DebugNonSafepoints $name &
