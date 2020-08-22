@@ -124,7 +124,9 @@ def calculation_single(tid, data, start_times, stop_times):
     waitPointList.append(WAIT(start, end))
 
     for item in waitPointList:
+        print("\tpre time %d" % (pre_time))
         if pre_time >= 0:
+            print("\tpre time true %d" % (pre_time))
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
             print("\tstart time %d ::: end time %d" % (pre_time, item.start))
