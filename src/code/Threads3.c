@@ -11,6 +11,14 @@ volatile int id = 1;
 
 mutex mut;
 
+void icrement () {
+    mut.lock ();
+    for (int i = 0; i < 2000000000; i++) {
+        val++;
+    }
+    mut.unlock ();
+}
+
 void thread1() {
     for (int i = 0; i < 1000000000; i++) {
         val++;
@@ -24,15 +32,6 @@ void thread2() {
     }
     icrement ()
 }
-
-void icrement () {
-    mut.lock ();
-    for (int i = 0; i < 2000000000; i++) {
-        val++;
-    }
-    mut.unlock ();
-}
-
 
 
 int main (int argc, char* argv []) {
