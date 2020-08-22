@@ -30,7 +30,8 @@ public class ThreadsWithLock {
     public static class TestThread implements Runnable{
         @Override
         public void run() {
-            if (lock.tryLock()) {
+            //if (lock.tryLock()) {
+                lock.lock();
                 long start = System.currentTimeMillis();
                 for (int i = 0; i < 500000000; i++) {
                     val++;
@@ -41,7 +42,7 @@ public class ThreadsWithLock {
                 }
                 System.out.println("now tid: " + Thread.currentThread().getId() + " finish");
                 lock.unlock();
-            }
+            //}
         }
     }
 
