@@ -34,6 +34,8 @@ class WAIT:
 
 def run(locks, times, status):
 
+    global TIME_MIN
+
     # deal data
     output_data = preprocessed(locks)
 
@@ -44,6 +46,7 @@ def run(locks, times, status):
         print(k.tid, k.timestamp, k.type)
         if (k.type == "pthread" or k.type == "start"):
             start_times[k.tid] = k.timestamp/1000.0
+            TIME_MIN = min(TIME_MIN, k.timestamp/1000.0)
         if (k.type == "stop"):
             stop_times[k.tid] = k.timestamp/1000.0
 
