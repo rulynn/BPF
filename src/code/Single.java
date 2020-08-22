@@ -4,6 +4,22 @@ import java.util.Random;
 
 public class Single {
 
+    class Node() {
+        long val;
+        public Node(val){
+            this.val = val;
+        }
+
+        public synchronized void run() {
+            long val = 0;
+            Random random = new Random();
+            for (int i = 0; i < 1000000000; i++) {
+                val += random.nextInt(100000);
+            }
+            System.out.println("val: " + val);
+        }
+    }
+
 
     public static void main(String[] args) throws InterruptedException {
         Thread.sleep(5000);
@@ -19,14 +35,17 @@ public class Single {
 //            }
 //
 //        }
-        synchronized (this) {
-            long val = 0;
-            Random random = new Random();
-            for (int i = 0; i < 1000000000; i++) {
-                val += random.nextInt(100000);
-            }
-            System.out.println("val: " + val);
-        }
+//        synchronized(map) {
+//            long val = 0;
+//            Random random = new Random();
+//            for (int i = 0; i < 1000000000; i++) {
+//                val += random.nextInt(100000);
+//            }
+//            System.out.println("val: " + val);
+//        }
+        Node node = new Node(0);
+        node.run();
+
         long end = System.currentTimeMillis();
         System.out.println(end - start);
     }
