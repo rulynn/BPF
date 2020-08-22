@@ -11,7 +11,7 @@ mkdir $out_path/stack
 
 cd ../src/code
 name="ThreadsWithExtraWork" #ThreadsWithLock
-g++ ThreadsWithExtraWork.c -o ThreadsWithExtraWork -lpthread
+g++ Threads2.c -o ThreadsWithExtraWork -lpthread
 ./ThreadsWithExtraWork &
 cd ..
 
