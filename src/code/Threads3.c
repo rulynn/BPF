@@ -43,7 +43,7 @@ int main (int argc, char* argv []) {
         times--;
         // Two threads
         thread t1 (thread1);
-        thread t2 (icrement);
+        thread t2 (thread2);
 
         // wait
         t1.join();
