@@ -19,12 +19,14 @@ public class Single {
 //            }
 //
 //        }
-        long val = 0;
-        Random random = new Random();
-        for (int i = 0; i < 1000000000; i++) {
-            val += random.nextInt(100000);
+        synchronized (this) {
+            long val = 0;
+            Random random = new Random();
+            for (int i = 0; i < 1000000000; i++) {
+                val += random.nextInt(100000);
+            }
+            System.out.println("val: " + val);
         }
-        System.out.println("val: " + val);
         long end = System.currentTimeMillis();
         System.out.println(end - start);
     }
