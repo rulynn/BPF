@@ -68,15 +68,14 @@ bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", 
 # bpf.attach_uprobe(name="pthread", sym="pthread_cancel", fn_name="probe_cancel", pid=int(pid))
 # bpf.attach_uprobe(name="pthread", sym="pthread_barrier_init", fn_name="probe_barrier_init", pid=int(pid))
 
-
+sleep(args.time)
 locks = bpf["locks"]
 times = bpf["times"]
-sleep(args.time)
+
 
 if language == "java":
     process.run(locks, times, True)
     stack.run_sub(bpf, args.pid, locks)
-    times = bpf["times"]
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
@@ -84,7 +83,6 @@ if language == "java":
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
     process.run(locks, times, False)
-    times = bpf["times"]
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
