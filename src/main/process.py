@@ -93,6 +93,7 @@ def preprocessed(locks):
 
 def calculation_single(tid, data, start_times, stop_times):
 
+
     global TIME_MIN
     global tid_list
     global threadPointList
@@ -102,6 +103,8 @@ def calculation_single(tid, data, start_times, stop_times):
 
     pre_time = int(start_times.get(tid) or 0) - TIME_MIN
     last_time = int(stop_times.get(tid) or 0) - TIME_MIN
+    print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
+
     waitPointList = []
     start = -1
     end = -1
@@ -112,13 +115,14 @@ def calculation_single(tid, data, start_times, stop_times):
         elif item.start_time - TIME_MIN < end:
             end = max(end, item.start_time + item.wait_time - TIME_MIN)
         else:
+            print("\twait start time %d ::: wait end time %d" % (start, end))
             waitPointList.append(WAIT(start, end))
             start = item.start_time - TIME_MIN
             end = item.start_time + item.wait_time - TIME_MIN
         last_time = max(last_time, item.start_time + item.wait_time + item.hold_time - TIME_MIN)
+    print("\twait start time %d ::: wait end time %d" % (start, end))
     waitPointList.append(WAIT(start, end))
 
-    print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
     for item in waitPointList:
         if pre_time >= 0:
             threadPointList.append(TIME(0, tid, pre_time))
