@@ -26,9 +26,15 @@ public class Threads {
     public static class TestThread implements Runnable{
         @Override
         public void run() {
+
             synchronized (this) {
+                long start = System.currentTimeMillis();
                 for (int i = 0; i < 500000000; i++) {
                     val++;
+                    if (i % 100000000 == 0) {
+                        long end = System.currentTimeMillis();
+                        System.out.println("now tid: " + Thread.currentThread().getId() + " ::: time: " + (end - start));
+                    }
                 }
                 System.out.println("now tid: " + Thread.currentThread().getId() + " finish");
             }
