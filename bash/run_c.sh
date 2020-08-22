@@ -10,12 +10,12 @@ mkdir $out_path
 mkdir $out_path/stack
 
 cd ../src/code
-name="Threads" #ThreadsWithLock
-g++ Threads.c -o Threads -lpthread
-./Threads &
+name="ThreadsWithExtraWork" #ThreadsWithLock
+g++ ThreadsWithExtraWork.c -o ThreadsWithExtraWork -lpthread
+./ThreadsWithExtraWork &
 cd ..
 
-pid=$(pgrep -f "./Threads")
+pid=$(pgrep -f "./ThreadsWithExtraWork")
 echo "program pid: " $pid
 
 # eBPF

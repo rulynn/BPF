@@ -15,9 +15,6 @@ mutex mut;
 void icrement () {
 
     mut.lock ();
-//    for (int i = 0; i < 1000000000; i++) {
-//        val++;
-//    }
     cout << id << endl;
     long long len = id * 1000000000;
     for (int i = 0; i < len; i++) {
@@ -26,9 +23,9 @@ void icrement () {
     id++;
     mut.unlock ();
 
-    for (int i = 0; i < 3000000000; i++) {
-        val++;
-    }
+//    for (int i = 0; i < 3000000000; i++) {
+//        val++;
+//    }
 }
 
 int main (int argc, char* argv []) {

@@ -12,23 +12,11 @@ mutex mut;
 
 void icrement () {
     mut.lock ();
-    std::thread::id tid = std::this_thread::get_id();
-    cout << tid << endl;
     for (int i = 0; i < 2000000000; i++) {
         val++;
     }
     mut.unlock ();
 }
-
-//void icrement () {
-//
-//    for (int i = 0; i < 100000000; i++) {
-//        mut.lock ();
-//        val++;
-//        mut.unlock ();
-//    }
-//}
-
 
 int main (int argc, char* argv []) {
 
