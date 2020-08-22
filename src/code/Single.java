@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Single {
 
-    class Node() {
+    class Node {
         long val;
         public Node(int val){
             this.val = val;
