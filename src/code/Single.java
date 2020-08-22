@@ -20,9 +20,10 @@ public class Single {
 //
 //        }
         long val = 0;
+        Random random = new Random();
         for (int i = 0; i < 1000000; i++) {
             for (int j = 0; j < 1000000; j++) {
-                val++;
+                val += random.nextInt(100000);
             }
         }
         System.out.println("val: " + val);
