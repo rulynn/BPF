@@ -10,15 +10,15 @@ public class Single {
         public Node(int val){
             this.val = val;
         }
-        private static Lock lock = new ReentrantLock();
+//        private static Lock lock = new ReentrantLock();
 
         public void run() {
-            lock.lock();
+//            lock.lock();
             Random random = new Random();
             for (int i = 0; i < 1000000000; i++) {
                 val += random.nextInt(100000);
             }
-            lock.unlock();
+//            lock.unlock();
             System.out.println("val: " + val);
         }
     }
