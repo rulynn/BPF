@@ -31,10 +31,15 @@ public class ThreadsWithLock {
         @Override
         public void run() {
             lock.lock();
+            long start = System.currentTimeMillis();
             for (int i = 0; i < 500000000; i++) {
                 val++;
+                if (i % 100000000 == 0) {
+                    long end = System.currentTimeMillis();
+                    System.out.println("now tid: " + Thread.currentThread().getId() + " ::: time: " + (end - start));
+                }
             }
-            System.out.println("tid: " + Thread.currentThread().getId() + " finish");
+            System.out.println("now tid: " + Thread.currentThread().getId() + " finish");
             lock.unlock();
         }
     }
