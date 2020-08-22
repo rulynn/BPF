@@ -169,6 +169,12 @@ def calculation_single_inner(threadPointList):
         if (item > 0):
             print("tid %d ::: ans %.2f" % (tid_list.index(i), ans[i]))
 
+
+    for i in range(len(tid_list)):
+        if ans[i] == 0:
+            continue
+        print("tid %d ::: ans %.2f" % (tid_list[i], ans[i]))
+
     return ans, total
 
 def countHold(isHold):
