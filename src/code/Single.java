@@ -20,8 +20,9 @@ public class Single {
 //
 //        }
         long val = 0;
+        Random random = new Random();
         for (int i = 0; i < 1000000000; i++) {
-            val++;
+            val = val + random.nextInt(100);
         }
         System.out.println("val: " + val);
         long end = System.currentTimeMillis();
