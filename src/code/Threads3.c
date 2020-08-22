@@ -23,14 +23,14 @@ void thread1() {
     for (int i = 0; i < 1000000000; i++) {
         val++;
     }
-    icrement ()
+    icrement ();
 }
 
 void thread2() {
     for (int i = 0; i < 1500000000; i++) {
         val++;
     }
-    icrement ()
+    icrement ();
 }
 
 
