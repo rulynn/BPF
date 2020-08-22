@@ -22,6 +22,7 @@ public class Single {
         for (int i = 0; i < 1000000000; i++) {
             val++;
         }
+        System.out.println("val: " + val);
         long end = System.currentTimeMillis();
         System.out.println(end - start);
     }
