@@ -240,3 +240,40 @@ int trace_stop(struct pt_regs *ctx) {
     times.increment(unit);
     return 0;
 }
+
+
+int trace__park__begin(struct pt_regs *ctx){
+    char type[] = "park__begin";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+
+int trace__park__stop(struct pt_regs *ctx){
+    char type[] = "park__stop";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+
+int trace__unpark(struct pt_regs *ctx){
+    char type[] = "unpark";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}

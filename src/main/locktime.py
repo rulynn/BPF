@@ -50,6 +50,11 @@ usdt = USDT(pid=args.pid)
 if language == "java":
     usdt.enable_probe_or_bail("thread__start", "trace_start")
     usdt.enable_probe_or_bail("thread__stop", "trace_stop")
+    usdt.enable_probe_or_bail("thread__park__begin", "trace__park__begin")
+    usdt.enable_probe_or_bail("thread__park__end", "trace__park__end")
+    usdt.enable_probe_or_bail("thread__unpark", "trace__unpark")
+
+
     bpf = BPF(src_file = "locktime_stack.c", usdt_contexts=[usdt])
     bpf.attach_uprobe(name="pthread", sym="pthread_mutex_init", fn_name="probe_mutex_init", pid=args.pid)
 else:
