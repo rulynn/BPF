@@ -103,7 +103,7 @@ def calculation_single(tid, data, start_times, stop_times):
 
     pre_time = int(start_times.get(tid) or 0) - TIME_MIN
     last_time = int(stop_times.get(tid) or 0) - TIME_MIN
-    print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
+
 
     waitPointList = []
     start = -1
@@ -115,18 +115,17 @@ def calculation_single(tid, data, start_times, stop_times):
         elif item.start_time - TIME_MIN < end:
             end = max(end, item.start_time + item.wait_time - TIME_MIN)
         else:
-            print("\twait start time %d ::: wait end time %d" % (start, end))
+            #print("\twait start time %d ::: wait end time %d" % (start, end))
             waitPointList.append(WAIT(start, end))
             start = item.start_time - TIME_MIN
             end = item.start_time + item.wait_time - TIME_MIN
         last_time = max(last_time, item.start_time + item.wait_time + item.hold_time - TIME_MIN)
-    print("\twait start time %d ::: wait end time %d" % (start, end))
+    #print("\twait start time %d ::: wait end time %d" % (start, end))
     waitPointList.append(WAIT(start, end))
 
+    print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
     for item in waitPointList:
-        print("\tpre time %d" % (pre_time))
         if int(pre_time) >= 0:
-            print("\tpre time true %d" % (pre_time))
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
             print("\tstart time %d ::: end time %d" % (pre_time, item.start))
@@ -165,6 +164,9 @@ def calculation_single_inner(threadPointList):
             isHold[index] = False
 
         lastStamp = threadPoint.time
+    for i, item in enumerate(ans):
+        if (item > 0):
+            print("tid %d ::: ans %.2f" % (tid_list.index(i), ans[i])
     return ans, total
 
 def countHold(isHold):
