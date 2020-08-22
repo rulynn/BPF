@@ -31,10 +31,11 @@ public class ThreadsWithLock {
         @Override
         public void run() {
             lock.lock();
-            System.out.println("now tid: " + Thread.currentThread().getId());
+
             for (int i = 0; i < 500000000; i++) {
                 val++;
             }
+            System.out.println("tid: " + Thread.currentThread().getId() + " finish");
             lock.unlock();
         }
     }
