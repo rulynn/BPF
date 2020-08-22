@@ -37,6 +37,7 @@ public class Threads {
                     }
                 }
                 System.out.println("now tid: " + Thread.currentThread().getId() + " finish");
+                Thread.currentThread().stop();
             }
         }
     }
