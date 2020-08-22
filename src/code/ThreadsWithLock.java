@@ -11,7 +11,7 @@ public class ThreadsWithLock {
     private static Lock lock = new ReentrantLock();
 
     public static void main(String[] args) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         int times = 1;
         while(times > 0) {
             times--;
@@ -38,4 +38,5 @@ public class ThreadsWithLock {
             lock.unlock();
         }
     }
+
 }

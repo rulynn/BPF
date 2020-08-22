@@ -7,7 +7,7 @@ public class Threads {
     public static volatile Long val = 0L;
 
     public static void main(String[] args) throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(5000);
         int times = 1;
         while(times > 0) {
             times--;
@@ -17,9 +17,9 @@ public class Threads {
             thread1.start();
             thread2.start();
 
-            thread1.join();
-            thread2.join();
-            System.out.println(val);
+//            thread1.join();
+//            thread2.join();
+//            System.out.println(val);
         }
     }
 
@@ -34,5 +34,6 @@ public class Threads {
             }
         }
     }
+
 }
 
