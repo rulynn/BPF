@@ -164,9 +164,11 @@ def calculation_single_inner(threadPointList):
             isHold[index] = False
 
         lastStamp = threadPoint.time
+
     for i, item in enumerate(ans):
         if (item > 0):
-            print("tid %d ::: ans %.2f" % (tid_list.index(i), ans[i])
+            print("tid %d ::: ans %.2f" % (tid_list.index(i), ans[i]))
+
     return ans, total
 
 def countHold(isHold):
