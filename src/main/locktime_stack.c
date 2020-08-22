@@ -254,8 +254,8 @@ int trace_park_begin(struct pt_regs *ctx){
     return 0;
 }
 
-int trace_park_stop(struct pt_regs *ctx){
-    char type[] = "park_stop";
+int trace_park_end(struct pt_regs *ctx){
+    char type[] = "park_end";
     u64 now = bpf_ktime_get_ns();
     struct time_k unit = {};
     unit.timestamp = now;
