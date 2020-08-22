@@ -29,7 +29,7 @@ public class Threads {
 
             synchronized (this) {
                 long start = System.currentTimeMillis();
-                for (int i = 0; i < 200000000; i++) {
+                for (int i = 0; i < 500000000; i++) {
                     val++;
                     if (i % 100000000 == 0) {
                         long end = System.currentTimeMillis();
