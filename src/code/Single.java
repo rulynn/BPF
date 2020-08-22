@@ -51,5 +51,6 @@ public class Single {
 
         long end = System.currentTimeMillis();
         System.out.println(end - start);
+
     }
 }
