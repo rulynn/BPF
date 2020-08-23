@@ -13,7 +13,7 @@ public class ThreadsWithLock2 {
         int times = 1;
         while(times > 0) {
             times--;
-            ThreadsWithLock.TestThread testThread = new ThreadsWithLock.TestThread();
+            TestThread testThread = new TestThread();
             Thread thread1 = new Thread(testThread);
             Thread thread2 = new Thread(testThread);
             thread1.start();
