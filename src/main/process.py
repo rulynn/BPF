@@ -148,7 +148,7 @@ def calculation_single(tid, data, point_times):
 
     print("\t---------------------------")
     for item in waitPointList:
-        if int(pre_time) >= 0:
+        if int(pre_time or -1) >= 0:
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
             print("\tstart time %d ::: end time %d" % (pre_time, item.start))
