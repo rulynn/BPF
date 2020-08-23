@@ -65,6 +65,8 @@ def run(locks, times, status):
 
     # start calculate
     for k, v in output_data.items():
+        if point_times.get(k) == None:
+            point_times[k] = {}
         calculation_single(k, v, point_times.get(k))
 
     threadPointList.sort(key=lambda pair: pair.time)
@@ -105,6 +107,7 @@ def preprocessed(locks):
 
 
 def calculation_single(tid, data, point_times):
+
 
 
     global TIME_MIN
