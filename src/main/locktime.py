@@ -87,7 +87,7 @@ if language == "java":
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
-    t = time.time(
+    t = time.time()
     print "Finish : %s" % (int(round(t * 1000)))
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
