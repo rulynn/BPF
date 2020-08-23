@@ -42,19 +42,30 @@ def run(locks, times, status):
     output_data = preprocessed(locks)
 
     # deal start time and stop time
-    start_times = {}
-    stop_times = {}
+#     start_times = {}
+#     stop_times = {}
+    point_times = {}
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type)
+        if point_times.get(k.tid) == None:
+            point_times[k.tid] = {}
+#         if point_times[k.tid].get(k.type) == None:
+#             point_times[k.tid][k.type] = k.timestamp/1000.0
         if (k.type == "pthread" or k.type == "start"):
-            start_times[k.tid] = k.timestamp/1000.0
+            point_times[k.tid]["start"] = k.timestamp/1000.0
             TIME_MIN = min(TIME_MIN, k.timestamp/1000.0)
-        if (k.type == "stop"):
-            stop_times[k.tid] = k.timestamp/1000.0
+        else:
+            point_times[k.tid][k.type] = k.timestamp/1000.0
+#         if (k.type == "stop"):
+#             point_times[k.tid]["stop"] = k.timestamp/1000.0
+#         if (k.type == "park_begin"):
+#             point_times[k.tid]["park_begin"] = k.timestamp/1000.0
+#         if (k.type == "park_end"):
+#             point_times[k.tid]["park_end"] = k.timestamp/1000.0
 
     # start calculate
     for k, v in output_data.items():
-        calculation_single(k, v, start_times, stop_times)
+        calculation_single(k, v, point_times.get(k))
 
     threadPointList.sort(key=lambda pair: pair.time)
     calculation_single_inner(threadPointList)
@@ -93,7 +104,7 @@ def preprocessed(locks):
     return output_data
 
 
-def calculation_single(tid, data, start_times, stop_times):
+def calculation_single(tid, data, point_times):
 
 
     global TIME_MIN
@@ -103,8 +114,8 @@ def calculation_single(tid, data, start_times, stop_times):
     grouper = lambda x: x.start_time
     sorted_data = sorted(data, key=grouper)
 
-    pre_time = int(start_times.get(tid) or 0) - TIME_MIN
-    last_time = int(stop_times.get(tid) or 0) - TIME_MIN
+    pre_time = int(point_times.get("start") or 0) - TIME_MIN
+    last_time = int(point_times.get("stop") or 0) - TIME_MIN
     print("tid: %d ::: thread start time %d ::: thread end time %d" % (tid, pre_time, last_time))
 
     waitPointList = []
@@ -128,16 +139,20 @@ def calculation_single(tid, data, start_times, stop_times):
     #print("\twait start time %d ::: wait end time %d" % (start, end))
     waitPointList.append(WAIT(start, end))
 
-    #print("\t---------------------------")
+    # deal park time
+    waitPointList.append(WAIT(point_times.get("park_begin"), point_times.get("park_end")))
+    waitPointList = sorted(waitPointList, key=lambda x: x.start)
+
+    print("\t---------------------------")
     for item in waitPointList:
         if int(pre_time) >= 0:
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
-            #print("\tstart time %d ::: end time %d" % (pre_time, item.start))
+            print("\tstart time %d ::: end time %d" % (pre_time, item.start))
         pre_time = item.end
     threadPointList.append(TIME(0, tid, pre_time))
     threadPointList.append(TIME(1, tid, last_time))
-    #print("\tstart time %d ::: end time %d" % (pre_time, last_time))
+    print("\tstart time %d ::: end time %d" % (pre_time, last_time))
 
 
 def calculation_single_inner(threadPointList):

@@ -153,7 +153,7 @@ struct time_k {
     u32 tid;
     u64 runtime_id;
     u64 timestamp;
-    char type[8];
+    char type[16];
 };
 
 BPF_HASH(times, struct time_k);
