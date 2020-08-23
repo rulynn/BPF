@@ -1,12 +1,7 @@
-package code;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * @Author : linouya
- * @Date : Created in 5:19 下午 2020/8/23
- */
 public class ThreadsWithLock3 {
 
     public static volatile Long val = 0L;
