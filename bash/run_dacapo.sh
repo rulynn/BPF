@@ -19,10 +19,10 @@ java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -XX:+UnlockDiagnosticVM
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
 
+# perf map
+sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass" &
 # jstack
 output=`jstack $pid > output/out_stack.log`
-# perf map
-output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 main/locktime.py
 output=`main/locktime.py -l java -p $pid -t $time> output/out.log`
