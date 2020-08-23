@@ -80,7 +80,7 @@ print "End : %s" % time.ctime()
 
 if language == "java":
     process.run(locks, times, True)
-    #stack.run_sub(bpf, args.pid, locks)
+    stack.run_sub(bpf, args.pid, locks)
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
