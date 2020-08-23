@@ -35,14 +35,16 @@ public class ThreadsWithLock {
             //if (lock.tryLock()) {
                 lock.lock();
                 long start = System.currentTimeMillis();
+                System.out.println("now tid: " + Thread.currentThread().getId() + " ::: start time: " + start);
                 for (int i = 0; i < 500000000; i++) {
                     val++;
                     if (i % 100000000 == 0) {
                         long end = System.currentTimeMillis();
-                        System.out.println("now tid: " + Thread.currentThread().getId() + " ::: time: " + (end - start));
+                        System.out.println("now tid: " + Thread.currentThread().getId() + " ::: time: " + end);
                     }
                 }
-                System.out.println("now tid: " + Thread.currentThread().getId() + " finish");
+                long end = System.currentTimeMillis();
+                System.out.println("now tid: " + Thread.currentThread().getId() + " ::: finish time: " + end);
                 lock.unlock();
             //}
         }
