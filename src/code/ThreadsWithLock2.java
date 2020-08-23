@@ -27,6 +27,7 @@ public class ThreadsWithLock2 {
             lock.lock();
             long start = System.currentTimeMillis();
             System.out.println("now tid: " + Thread.currentThread().getId() + " ::: start time: " + start);
+            System.out.println(id);
             for (int i = 0; i < id * 100000000; i++) {
                 val++;
                 if (i % 100000000 == 0) {
