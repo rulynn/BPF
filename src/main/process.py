@@ -86,14 +86,14 @@ def preprocessed(locks):
     sorted_by_thread = sorted(locks.items(), key=grouper)
     locks_by_thread = itertools.groupby(sorted_by_thread, grouper)
     for tid, items in locks_by_thread:
-        print("thread %d" % tid)
+        #print("thread %d" % tid)
         for k, v in sorted(items, key=lambda (k, v): -v.wait_time_ns):
 
              if k not in tid_list:
                 tid_list.append(k.tid)
 
              tmp = UNIT(k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
-             print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: hold %.2fus ::: enter count %d" % (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
+             #print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: hold %.2fus ::: enter count %d" % (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
              # save data
              if output_data.get(k.tid) == None:
@@ -143,7 +143,9 @@ def calculation_single(tid, data, point_times):
     waitPointList.append(WAIT(start, end))
 
     # deal park time
+    print(point_times.get("park_begin"), point_times.get("park_end"))
     if point_times.get("park_begin") != None and point_times.get("park_end") != None:
+        print("\twait start time %d ::: wait end time %d" % (point_times.get("park_begin"), point_times.get("park_end")))
         waitPointList.append(WAIT(point_times.get("park_begin"), point_times.get("park_end")))
     waitPointList = sorted(waitPointList, key=lambda x: x.start)
 
