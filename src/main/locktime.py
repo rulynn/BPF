@@ -73,11 +73,13 @@ bpf.attach_uprobe(name="pthread", sym="pthread_create", fn_name="probe_create", 
 # bpf.attach_uprobe(name="pthread", sym="pthread_cancel", fn_name="probe_cancel", pid=int(pid))
 # bpf.attach_uprobe(name="pthread", sym="pthread_barrier_init", fn_name="probe_barrier_init", pid=int(pid))
 
-print "Start : %s" % time.time()
+t = time.time()
+print "Start : %s" % (int(round(t * 1000)))
 sleep(args.time)
 locks = bpf["locks"]
 times = bpf["times"]
-print "End : %s" % time.time()
+t = time.time()
+print "End : %s" % (int(round(t * 1000)))
 
 if language == "java":
     process.run(locks, times, True)
@@ -85,7 +87,8 @@ if language == "java":
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
-    print "Finish : %s" % time.time()
+    t = time.time(
+    print "Finish : %s" % (int(round(t * 1000)))
 #     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
     process.run(locks, times, False)
