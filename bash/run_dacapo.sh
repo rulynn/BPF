@@ -3,7 +3,7 @@
 # sh run_dacapo.sh 30/18
 
 time=$1
-name="eclipse"
+name="lusearch"
 burn_path="../resources"
 out_path="../src/output"
 
@@ -19,10 +19,11 @@ java -XX:+ExtendedDTraceProbes -XX:+PreserveFramePointer -jar ~/dacapo.jar -n 5 
 pid=$(pgrep -f "$name")
 echo "program pid: " $pid
 
+# perf map
+sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass" &
+
 # jstack
 output=`jstack $pid > output/out_stack.log`
-# perf map
-output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 # eBPF
 chmod 777 main/locktime.py
 output=`main/locktime.py -l java -p $pid -t $time> output/out.log`
