@@ -143,7 +143,7 @@ def calculation_single(tid, data, point_times):
     waitPointList.append(WAIT(start, end))
 
     # deal park time
-    if point_times.get("park_begin") != None andpoint_times.get("park_end") != None:
+    if point_times.get("park_begin") != None and point_times.get("park_end") != None:
         waitPointList.append(WAIT(point_times.get("park_begin"), point_times.get("park_end")))
     waitPointList = sorted(waitPointList, key=lambda x: x.start)
 
