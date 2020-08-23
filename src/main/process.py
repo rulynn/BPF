@@ -14,11 +14,13 @@ threadPointList = []
 ans = []
 total = 0
 class UNIT:
-    def __init__(self, start_time, wait_time, hold_time, enter_count):
+    def __init__(self, mtx, start_time, wait_time, hold_time, enter_count):
+        self.mtx = mtx
         self.start_time = start_time
         self.wait_time = wait_time
         self.hold_time = hold_time
         self.enter_count = enter_count
+
 
 class TIME:
     def __init__(self, status, tid, time):
@@ -77,7 +79,7 @@ def preprocessed(locks):
              if k not in tid_list:
                 tid_list.append(k.tid)
 
-             tmp = UNIT(v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
+             tmp = UNIT(k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count)
              print("\tmutex %s ::: start %.2fus ::: wait %.2fus ::: hold %.2fus ::: enter count %d" % (k.mtx, v.start_time_ns/1000.0, v.wait_time_ns/1000.0 + v.spin_time_ns/1000.0, v.lock_time_ns/1000.0, v.enter_count))
 
              # save data
@@ -109,8 +111,8 @@ def calculation_single(tid, data, start_times, stop_times):
     start = -1
     end = -1
     for item in sorted_data:
-        print("\tstart %.2fus ::: wait %.2fus ::: hold %.2fus" % (item.start_time - TIME_MIN, item.wait_time, item.hold_time))
-    print("\t---------------------------")
+        print("\tmutex %d ::: start %.2fus ::: wait %.2fus ::: hold %.2fus" % (item.mtx, item.start_time - TIME_MIN, item.wait_time, item.hold_time))
+    #print("\t---------------------------")
     for item in sorted_data:
         if start == -1:
             start = item.start_time - TIME_MIN
@@ -118,24 +120,24 @@ def calculation_single(tid, data, start_times, stop_times):
         elif item.start_time - TIME_MIN < end:
             end = max(end, item.start_time + item.wait_time - TIME_MIN)
         else:
-            print("\twait start time %d ::: wait end time %d" % (start, end))
+            #print("\twait start time %d ::: wait end time %d" % (start, end))
             waitPointList.append(WAIT(start, end))
             start = item.start_time - TIME_MIN
             end = item.start_time + item.wait_time - TIME_MIN
         last_time = max(last_time, item.start_time + item.wait_time + item.hold_time - TIME_MIN)
-    print("\twait start time %d ::: wait end time %d" % (start, end))
+    #print("\twait start time %d ::: wait end time %d" % (start, end))
     waitPointList.append(WAIT(start, end))
 
-    print("\t---------------------------")
+    #print("\t---------------------------")
     for item in waitPointList:
         if int(pre_time) >= 0:
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
-            print("\tstart time %d ::: end time %d" % (pre_time, item.start))
+            #print("\tstart time %d ::: end time %d" % (pre_time, item.start))
         pre_time = item.end
     threadPointList.append(TIME(0, tid, pre_time))
     threadPointList.append(TIME(1, tid, last_time))
-    print("\tstart time %d ::: end time %d" % (pre_time, last_time))
+    #print("\tstart time %d ::: end time %d" % (pre_time, last_time))
 
 
 def calculation_single_inner(threadPointList):
