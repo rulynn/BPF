@@ -1,22 +1,22 @@
-2020-08-23 13:37:21
+2020-08-23 13:56:49
 Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 
-"Attach Listener" #8 daemon prio=9 os_prio=0 tid=0x00007f93d8001000 nid=0x6228 waiting on condition [0x0000000000000000]
+"Attach Listener" #8 daemon prio=9 os_prio=0 tid=0x00007ff234001000 nid=0x6679 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007f9400141800 nid=0x6224 runnable [0x0000000000000000]
+"Service Thread" #7 daemon prio=9 os_prio=0 tid=0x00007ff25c141800 nid=0x6675 runnable [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"C1 CompilerThread1" #6 daemon prio=9 os_prio=0 tid=0x00007f940013e800 nid=0x6222 waiting on condition [0x0000000000000000]
+"C1 CompilerThread1" #6 daemon prio=9 os_prio=0 tid=0x00007ff25c13e800 nid=0x6673 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007f9400132000 nid=0x621f waiting on condition [0x0000000000000000]
+"C2 CompilerThread0" #5 daemon prio=9 os_prio=0 tid=0x00007ff25c131800 nid=0x6670 waiting on condition [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Signal Dispatcher" #4 daemon prio=9 os_prio=0 tid=0x00007f9400130000 nid=0x621e runnable [0x0000000000000000]
+"Signal Dispatcher" #4 daemon prio=9 os_prio=0 tid=0x00007ff25c12f800 nid=0x666f runnable [0x0000000000000000]
    java.lang.Thread.State: RUNNABLE
 
-"Finalizer" #3 daemon prio=8 os_prio=0 tid=0x00007f9400101800 nid=0x621a in Object.wait() [0x00007f9405647000]
+"Finalizer" #3 daemon prio=8 os_prio=0 tid=0x00007ff25c101800 nid=0x666b in Object.wait() [0x00007ff260f95000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000c6608ee0> (a java.lang.ref.ReferenceQueue$Lock)
@@ -25,7 +25,7 @@ Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
 	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:216)
 
-"Reference Handler" #2 daemon prio=10 os_prio=0 tid=0x00007f94000fc800 nid=0x6219 in Object.wait() [0x00007f9405748000]
+"Reference Handler" #2 daemon prio=10 os_prio=0 tid=0x00007ff25c0fc800 nid=0x666a in Object.wait() [0x00007ff261096000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
 	- waiting on <0x00000000c6606c00> (a java.lang.ref.Reference$Lock)
@@ -34,21 +34,20 @@ Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 	- locked <0x00000000c6606c00> (a java.lang.ref.Reference$Lock)
 	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
 
-"main" #1 prio=5 os_prio=0 tid=0x00007f940004b800 nid=0x6214 runnable [0x00007f9409b06000]
+"main" #1 prio=5 os_prio=0 tid=0x00007ff25c04b800 nid=0x6665 runnable [0x00007ff265456000]
    java.lang.Thread.State: RUNNABLE
-	at java.lang.String.indexOf(String.java:1503)
-	at java.lang.ClassLoader.checkName(ClassLoader.java:864)
-	at java.lang.ClassLoader.findLoadedClass(ClassLoader.java:1029)
-	at org.dacapo.harness.DacapoClassLoader.loadClass(DacapoClassLoader.java:115)
-	- locked <0x00000000c6919628> (a org.dacapo.harness.DacapoClassLoader)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
-	at cck.util.Option$List.parseString(Option.java:535)
-	at cck.util.Option$List.<init>(Option.java:491)
-	at cck.util.Options.newOptionList(Options.java:72)
-	at avrora.Main.<clinit>(Main.java:72)
-	at java.lang.Class.forName0(Native Method)
-	at java.lang.Class.forName(Class.java:348)
-	at org.dacapo.harness.Avrora.<init>(Avrora.java:27)
+	at java.util.zip.Inflater.inflate(Inflater.java:257)
+	- locked <0x00000000c691f488> (a java.util.zip.ZStreamRef)
+	at java.util.zip.InflaterInputStream.read(InflaterInputStream.java:152)
+	at java.util.zip.ZipInputStream.read(ZipInputStream.java:194)
+	at org.dacapo.harness.Benchmark.fileFromInputStream(Benchmark.java:622)
+	at org.dacapo.harness.Benchmark.unpackZipStream(Benchmark.java:611)
+	at org.dacapo.harness.Benchmark.unpackZipFileResource(Benchmark.java:582)
+	at org.dacapo.harness.Benchmark.prepare(Benchmark.java:262)
+	at org.dacapo.harness.Benchmark.initialize(Benchmark.java:238)
+	at org.dacapo.harness.Benchmark.<init>(Benchmark.java:217)
+	at org.dacapo.harness.Benchmark.<init>(Benchmark.java:209)
+	at org.dacapo.harness.Avrora.<init>(Avrora.java:26)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -61,9 +60,9 @@ Full thread dump OpenJDK 64-Bit Server VM (25.262-b10 mixed mode):
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at Harness.main(Unknown Source)
 
-"VM Thread" os_prio=0 tid=0x00007f94000f3000 nid=0x6217 runnable 
+"VM Thread" os_prio=0 tid=0x00007ff25c0f3000 nid=0x6669 runnable 
 
-"VM Periodic Task Thread" os_prio=0 tid=0x00007f9400144000 nid=0x6225 waiting on condition 
+"VM Periodic Task Thread" os_prio=0 tid=0x00007ff25c144000 nid=0x6676 waiting on condition 
 
 JNI global references: 5
 

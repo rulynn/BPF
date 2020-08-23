@@ -1,1335 +1,787 @@
-Start : 1598189853107
-End : 1598189868122
-tid: 25122 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273633146152 ::: start 85245.90us ::: wait 238.55us ::: hold 234.89us
-	mutex 140273633195816 ::: start 85265.85us ::: wait 359.63us ::: hold 14672644.49us
-	mutex 140273633146152 ::: start 2094323.26us ::: wait 89.62us ::: hold 97.97us
-	mutex 140273779603808 ::: start 2094371.66us ::: wait 135.82us ::: hold 82.09us
-	mutex 140273779603808 ::: start 2094390.92us ::: wait 130.09us ::: hold 74.83us
-	mutex 140273779603808 ::: start 2094445.84us ::: wait 134.42us ::: hold 79.78us
-	mutex 140273779603808 ::: start 2094599.16us ::: wait 7.41us ::: hold 4.52us
-	mutex 140273779603808 ::: start 2094703.37us ::: wait 14.11us ::: hold 8.60us
-	mutex 140273779603808 ::: start 2094909.11us ::: wait 498.78us ::: hold 229.15us
-	mutex 140273779603808 ::: start 2094964.25us ::: wait 274.62us ::: hold 127.03us
-	mutex 140273779603808 ::: start 2095129.94us ::: wait 7.07us ::: hold 4.55us
-	mutex 140273779603808 ::: start 2095219.52us ::: wait 6.70us ::: hold 4.26us
-	mutex 140273779603808 ::: start 2228064.62us ::: wait 7.67us ::: hold 4.93us
-	mutex 140273779603808 ::: start 2228200.93us ::: wait 6.80us ::: hold 4.73us
-	mutex 140273779603808 ::: start 3288500.40us ::: wait 7.65us ::: hold 5.30us
-	mutex 140273779603808 ::: start 3288621.72us ::: wait 6.84us ::: hold 4.63us
-	mutex 140273779603808 ::: start 3289005.02us ::: wait 7.86us ::: hold 5.23us
-	mutex 140273779603808 ::: start 3289103.84us ::: wait 7.50us ::: hold 4.79us
-	mutex 140273779603808 ::: start 3289192.68us ::: wait 19.90us ::: hold 13.85us
-	mutex 140273779603808 ::: start 3289306.57us ::: wait 6.72us ::: hold 4.72us
-	mutex 140273779603808 ::: start 3308626.90us ::: wait 7.45us ::: hold 4.47us
-	mutex 140273779603808 ::: start 3308754.27us ::: wait 21.23us ::: hold 13.39us
-	mutex 140273779603808 ::: start 3308836.62us ::: wait 6.60us ::: hold 4.53us
-	mutex 140273779603808 ::: start 3309314.92us ::: wait 6.90us ::: hold 4.29us
-	mutex 140273779603808 ::: start 3309383.90us ::: wait 6.93us ::: hold 4.15us
-	mutex 140273779603808 ::: start 3849781.06us ::: wait 7.34us ::: hold 4.87us
-	mutex 140273779603808 ::: start 4159036.73us ::: wait 7.54us ::: hold 5.17us
-	mutex 140273779603808 ::: start 4159305.44us ::: wait 7.14us ::: hold 5.36us
-	mutex 140273779603808 ::: start 4159414.32us ::: wait 7.19us ::: hold 3.87us
-	mutex 140273779603808 ::: start 4292979.10us ::: wait 13.84us ::: hold 9.23us
-	mutex 140273779603808 ::: start 4293346.08us ::: wait 6.66us ::: hold 4.32us
-	mutex 140273779603808 ::: start 4293365.55us ::: wait 6.26us ::: hold 3.93us
-	mutex 140273779603808 ::: start 4293554.38us ::: wait 7.09us ::: hold 4.47us
-	mutex 140273779603808 ::: start 5871728.03us ::: wait 7.12us ::: hold 4.79us
-	mutex 140273779603808 ::: start 6915994.38us ::: wait 7.14us ::: hold 5.12us
-	mutex 140273779603808 ::: start 10658522.44us ::: wait 14.11us ::: hold 9.26us
-	mutex 140273779603808 ::: start 11429099.33us ::: wait 13.61us ::: hold 9.19us
-	mutex 140273779603808 ::: start 11429577.81us ::: wait 6.81us ::: hold 5.14us
-	mutex 140273779603808 ::: start 11429603.58us ::: wait 12.65us ::: hold 8.07us
-	mutex 140273779603808 ::: start 11430012.23us ::: wait 7.27us ::: hold 4.88us
-	mutex 140273779603808 ::: start 11430097.06us ::: wait 7.34us ::: hold 4.23us
-	mutex 140273779603808 ::: start 11430171.87us ::: wait 22.56us ::: hold 4.98us
-	mutex 140273779603808 ::: start 11430575.87us ::: wait 7.20us ::: hold 5.18us
-	mutex 140273779603808 ::: start 12482227.91us ::: wait 7.59us ::: hold 5.95us
-	mutex 140273779603808 ::: start 12482306.89us ::: wait 8.05us ::: hold 6.42us
-	mutex 140273779603808 ::: start 12482361.41us ::: wait 6.86us ::: hold 5.21us
-	mutex 140273779603808 ::: start 12482600.45us ::: wait 6.63us ::: hold 4.67us
-	mutex 140273779603808 ::: start 12482689.11us ::: wait 7.44us ::: hold 4.76us
-	mutex 140273779603808 ::: start 12564300.30us ::: wait 7.63us ::: hold 6.72us
-	mutex 140273779603808 ::: start 13792317.34us ::: wait 6.43us ::: hold 5.30us
-	mutex 140273779603808 ::: start 13792357.10us ::: wait 6.33us ::: hold 4.52us
-	mutex 140273779603808 ::: start 13792464.80us ::: wait 7.20us ::: hold 5.54us
-	mutex 140273779603808 ::: start 13792484.07us ::: wait 6.27us ::: hold 5.12us
-	mutex 140273779603808 ::: start 13792501.93us ::: wait 6.08us ::: hold 5.27us
-	mutex 140273779603808 ::: start 13792583.38us ::: wait 7.01us ::: hold 5.66us
-	mutex 140273779603808 ::: start 13792634.04us ::: wait 6.41us ::: hold 5.22us
-	mutex 140273779603808 ::: start 13792723.91us ::: wait 12.82us ::: hold 7.19us
-	mutex 140273779603808 ::: start 13792819.13us ::: wait 6.32us ::: hold 4.24us
-	mutex 140273779603808 ::: start 13792908.81us ::: wait 6.36us ::: hold 4.60us
-	mutex 140273779603808 ::: start 13792999.90us ::: wait 6.42us ::: hold 4.24us
-	mutex 140273779603808 ::: start 13793049.41us ::: wait 6.41us ::: hold 4.44us
-	mutex 140273779603808 ::: start 13793270.61us ::: wait 6.83us ::: hold 4.32us
-	mutex 140273779603808 ::: start 13793355.86us ::: wait 6.30us ::: hold 4.23us
-	mutex 140273779603808 ::: start 13793519.19us ::: wait 6.50us ::: hold 4.09us
+Start : 1598191100978
+End : 1598191118997
+tid: 26320 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678906104616 ::: start 320.76us ::: wait 44650.05us ::: hold 36209.75us
+	mutex 140678906127144 ::: start 388.49us ::: wait 214532.80us ::: hold 11696159.12us
+	mutex 140678906112040 ::: start 743.38us ::: wait 34913.88us ::: hold 27981.46us
+	mutex 140678906119720 ::: start 1200.61us ::: wait 41611.84us ::: hold 34174.66us
+	mutex 140678906112040 ::: start 12785.86us ::: wait 857.61us ::: hold 784.13us
+	mutex 140678906273576 ::: start 16535.18us ::: wait 33145.67us ::: hold 26784.42us
+	mutex 140678906134824 ::: start 16943.15us ::: wait 37356.05us ::: hold 30268.73us
+	mutex 140678906127144 ::: start 98860.51us ::: wait 34639.44us ::: hold 3316434.81us
+	mutex 140678906104616 ::: start 99875.61us ::: wait 7079.68us ::: hold 5930.58us
+	mutex 140678906119720 ::: start 112747.63us ::: wait 6892.64us ::: hold 5876.53us
+	mutex 140678906134824 ::: start 113903.88us ::: wait 25.76us ::: hold 44.49us
+	mutex 140678906127144 ::: start 114650.00us ::: wait 397.07us ::: hold 110491.87us
+	mutex 140678906119720 ::: start 131944.01us ::: wait 845.38us ::: hold 805.38us
+	mutex 140678906104616 ::: start 153862.51us ::: wait 143.56us ::: hold 151.54us
+	mutex 140678906119720 ::: start 208117.25us ::: wait 160.48us ::: hold 147.39us
+	mutex 140678906273576 ::: start 221486.13us ::: wait 5593.59us ::: hold 4904.53us
+	mutex 140678906127144 ::: start 247950.43us ::: wait 14.17us ::: hold 1012.32us
+	mutex 140678906273576 ::: start 298226.60us ::: wait 666.09us ::: hold 628.89us
+	mutex 140678906104616 ::: start 317902.09us ::: wait 774.39us ::: hold 762.50us
+	mutex 140678906134824 ::: start 334587.28us ::: wait 538.30us ::: hold 542.06us
+	mutex 140678906273576 ::: start 442110.96us ::: wait 180.47us ::: hold 159.44us
+	mutex 140678906119720 ::: start 506709.36us ::: wait 69.08us ::: hold 67.46us
+	mutex 140678906127144 ::: start 543976.33us ::: wait 63.06us ::: hold 2540.89us
+	mutex 140678906104616 ::: start 544357.71us ::: wait 6.29us ::: hold 7.19us
+	mutex 140678906112040 ::: start 694143.28us ::: wait 5666.28us ::: hold 4915.40us
+	mutex 140678906127144 ::: start 711500.59us ::: wait 734.89us ::: hold 73898.60us
+	mutex 140678906134824 ::: start 765569.70us ::: wait 5383.59us ::: hold 4752.78us
+	mutex 140678906104616 ::: start 810861.20us ::: wait 81.77us ::: hold 81.77us
+	mutex 140678906112040 ::: start 1015389.22us ::: wait 118.31us ::: hold 122.10us
+	mutex 140678906134824 ::: start 1287880.67us ::: wait 55.96us ::: hold 57.03us
+	mutex 140678906273576 ::: start 1721191.22us ::: wait 69.32us ::: hold 66.70us
+	mutex 140678906127144 ::: start 1977909.04us ::: wait 7.35us ::: hold 1542.81us
+	mutex 140678906104616 ::: start 2519014.89us ::: wait 16.72us ::: hold 19.68us
+	mutex 140678906134824 ::: start 3431457.52us ::: wait 140.72us ::: hold 138.55us
+	mutex 140678906112040 ::: start 4186124.67us ::: wait 6.55us ::: hold 5.51us
+	mutex 140678906119720 ::: start 4300514.00us ::: wait 24.19us ::: hold 24.41us
+	mutex 140678906112040 ::: start 4336195.69us ::: wait 43.63us ::: hold 41.87us
+	mutex 140678906119720 ::: start 4980780.25us ::: wait 6.38us ::: hold 6.45us
+	mutex 140678906119720 ::: start 5254200.12us ::: wait 12.82us ::: hold 16.37us
+	mutex 140678906273576 ::: start 5616251.54us ::: wait 24.71us ::: hold 28.81us
+	mutex 140678906119720 ::: start 5924470.22us ::: wait 12.49us ::: hold 17.43us
+	mutex 140678906134824 ::: start 7335411.74us ::: wait 12.33us ::: hold 13.18us
+	mutex 140678906134824 ::: start 9534635.07us ::: wait 22.99us ::: hold 21.70us
+	mutex 140678906273576 ::: start 12631561.87us ::: wait 7.48us ::: hold 7.47us
+	mutex 140678906134824 ::: start 13708779.77us ::: wait 6.31us ::: hold 6.99us
+	mutex 140678906119720 ::: start 15373613.60us ::: wait 15.09us ::: hold 15.75us
+	mutex 140678906104616 ::: start 15659545.17us ::: wait 7.16us ::: hold 7.45us
+	mutex 140678906112040 ::: start 15795955.94us ::: wait 6.72us ::: hold 6.29us
+	mutex 140678906127144 ::: start 15904839.74us ::: wait 13.07us ::: hold 1323.06us
+	mutex 140678906273576 ::: start 16859788.36us ::: wait 6.40us ::: hold 7.17us
+	mutex 140678906112040 ::: start 16965811.58us ::: wait 6.32us ::: hold 7.00us
+	mutex 140678906127144 ::: start 17141864.13us ::: wait 8.15us ::: hold 1076.17us
+	mutex 140678906127144 ::: start 17459780.48us ::: wait 6.23us ::: hold 769.58us
 	---------------------------
-	start time 85625 ::: end time 2094323
-	start time 2094580 ::: end time 2094599
-	start time 2094606 ::: end time 2094703
-	start time 2094717 ::: end time 2094909
-	start time 2095407 ::: end time 2228064
-	start time 2228072 ::: end time 2228200
-	start time 2228207 ::: end time 3288500
-	start time 3288508 ::: end time 3288621
-	start time 3288628 ::: end time 3289005
-	start time 3289012 ::: end time 3289103
-	start time 3289111 ::: end time 3289192
-	start time 3289212 ::: end time 3289306
-	start time 3289313 ::: end time 3308626
-	start time 3308634 ::: end time 3308754
-	start time 3308775 ::: end time 3308836
-	start time 3308843 ::: end time 3309314
-	start time 3309321 ::: end time 3309383
-	start time 3309390 ::: end time 3849781
-	start time 3849788 ::: end time 4159036
-	start time 4159044 ::: end time 4159305
-	start time 4159312 ::: end time 4159414
-	start time 4159421 ::: end time 4292979
-	start time 4292992 ::: end time 4293346
-	start time 4293352 ::: end time 4293365
-	start time 4293371 ::: end time 4293554
-	start time 4293561 ::: end time 5871728
-	start time 5871735 ::: end time 6915994
-	start time 6916001 ::: end time 10658522
-	start time 10658536 ::: end time 11429099
-	start time 11429112 ::: end time 11429577
-	start time 11429584 ::: end time 11429603
-	start time 11429616 ::: end time 11430012
-	start time 11430019 ::: end time 11430097
-	start time 11430104 ::: end time 11430171
-	start time 11430194 ::: end time 11430575
-	start time 11430583 ::: end time 12482227
-	start time 12482235 ::: end time 12482306
-	start time 12482314 ::: end time 12482361
-	start time 12482368 ::: end time 12482600
-	start time 12482607 ::: end time 12482689
-	start time 12482696 ::: end time 12564300
-	start time 12564307 ::: end time 13792317
-	start time 13792323 ::: end time 13792357
-	start time 13792363 ::: end time 13792464
-	start time 13792471 ::: end time 13792484
-	start time 13792490 ::: end time 13792501
-	start time 13792508 ::: end time 13792583
-	start time 13792590 ::: end time 13792634
-	start time 13792640 ::: end time 13792723
-	start time 13792736 ::: end time 13792819
-	start time 13792825 ::: end time 13792908
-	start time 13792915 ::: end time 13792999
-	start time 13793006 ::: end time 13793049
-	start time 13793055 ::: end time 13793270
-	start time 13793277 ::: end time 13793355
-	start time 13793362 ::: end time 13793519
-	start time 13793525 ::: end time 14758269
-tid: 25125 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273633218344 ::: start 16431.18us ::: wait 2045.17us ::: hold 14969976.73us
-	mutex 140273779603808 ::: start 3025195.68us ::: wait 19.83us ::: hold 14.71us
-	mutex 140273779603808 ::: start 3025213.60us ::: wait 18.33us ::: hold 11.35us
-	mutex 140273779603808 ::: start 3025229.61us ::: wait 18.39us ::: hold 9.88us
-	mutex 140273779603808 ::: start 3025245.09us ::: wait 19.98us ::: hold 16.08us
+	start time 214921 ::: end time 221486
+	start time 227079 ::: end time 247950
+	start time 247964 ::: end time 298226
+	start time 298892 ::: end time 317902
+	start time 318676 ::: end time 334587
+	start time 335125 ::: end time 442110
+	start time 442291 ::: end time 506709
+	start time 506778 ::: end time 543976
+	start time 544039 ::: end time 544357
+	start time 544363 ::: end time 694143
+	start time 699809 ::: end time 711500
+	start time 712235 ::: end time 765569
+	start time 770953 ::: end time 810861
+	start time 810942 ::: end time 1015389
+	start time 1015507 ::: end time 1287880
+	start time 1287936 ::: end time 1721191
+	start time 1721260 ::: end time 1977909
+	start time 1977916 ::: end time 2519014
+	start time 2519031 ::: end time 3431457
+	start time 3431598 ::: end time 4186124
+	start time 4186131 ::: end time 4300513
+	start time 4300538 ::: end time 4336195
+	start time 4336239 ::: end time 4980780
+	start time 4980786 ::: end time 5254200
+	start time 5254212 ::: end time 5616251
+	start time 5616276 ::: end time 5924470
+	start time 5924482 ::: end time 7335411
+	start time 7335424 ::: end time 9534635
+	start time 9534658 ::: end time 12631561
+	start time 12631569 ::: end time 13708779
+	start time 13708786 ::: end time 15373613
+	start time 15373628 ::: end time 15659545
+	start time 15659552 ::: end time 15795955
+	start time 15795962 ::: end time 15904839
+	start time 15904852 ::: end time 16859788
+	start time 16859794 ::: end time 16965811
+	start time 16965817 ::: end time 17141864
+	start time 17141872 ::: end time 17459780
+	start time 17459786 ::: end time 17460556
+tid: 26323 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678906127144 ::: start 638.91us ::: wait 42323.98us ::: hold 33434.99us
+	mutex 140678906119720 ::: start 720.04us ::: wait 190300.00us ::: hold 11603861.87us
+	mutex 140678906127144 ::: start 7535.06us ::: wait 97.33us ::: hold 91.48us
+	mutex 140678906112040 ::: start 16233.39us ::: wait 33365.28us ::: hold 26520.48us
+	mutex 140678906273576 ::: start 16795.65us ::: wait 30444.05us ::: hold 24670.01us
+	mutex 140678906119720 ::: start 29315.27us ::: wait 442.71us ::: hold 19994.39us
+	mutex 140678906273576 ::: start 32374.99us ::: wait 205.08us ::: hold 194.78us
+	mutex 140678906134824 ::: start 39194.23us ::: wait 37413.95us ::: hold 26837.12us
+	mutex 140678906127144 ::: start 49561.63us ::: wait 1178.25us ::: hold 878.08us
+	mutex 140678906104616 ::: start 61313.61us ::: wait 38820.76us ::: hold 31285.92us
+	mutex 140678906273576 ::: start 97956.72us ::: wait 822.19us ::: hold 741.08us
+	mutex 140678906104616 ::: start 98541.97us ::: wait 861.22us ::: hold 787.97us
+	mutex 140678906119720 ::: start 139239.28us ::: wait 23538.69us ::: hold 2559877.91us
+	mutex 140678906273576 ::: start 140288.95us ::: wait 3815.59us ::: hold 3308.54us
+	mutex 140678906112040 ::: start 148475.55us ::: wait 4379.08us ::: hold 3935.61us
+	mutex 140678906134824 ::: start 221826.45us ::: wait 3941.19us ::: hold 3514.89us
+	mutex 140678906127144 ::: start 227008.06us ::: wait 4885.01us ::: hold 4199.67us
+	mutex 140678906127144 ::: start 235738.60us ::: wait 257.29us ::: hold 220.00us
+	mutex 140678906119720 ::: start 248121.69us ::: wait 13.70us ::: hold 905.12us
+	mutex 140678906127144 ::: start 248692.07us ::: wait 7.09us ::: hold 7.20us
+	mutex 140678906119720 ::: start 248762.70us ::: wait 518.38us ::: hold 55301.65us
+	mutex 140678906134824 ::: start 264944.94us ::: wait 551.95us ::: hold 536.96us
+	mutex 140678906104616 ::: start 298429.90us ::: wait 257.42us ::: hold 232.03us
+	mutex 140678906104616 ::: start 337498.46us ::: wait 78.20us ::: hold 86.16us
+	mutex 140678906119720 ::: start 386180.19us ::: wait 8587.15us ::: hold 885902.77us
+	mutex 140678906127144 ::: start 386736.92us ::: wait 1814.82us ::: hold 1716.97us
+	mutex 140678906273576 ::: start 387183.20us ::: wait 1401.27us ::: hold 1352.90us
+	mutex 140678906134824 ::: start 388922.11us ::: wait 1703.01us ::: hold 1602.82us
+	mutex 140678906104616 ::: start 389494.46us ::: wait 1230.26us ::: hold 1198.84us
+	mutex 140678906112040 ::: start 433642.89us ::: wait 147.61us ::: hold 148.12us
+	mutex 140678906104616 ::: start 441694.96us ::: wait 3710.64us ::: hold 3148.68us
+	mutex 140678906112040 ::: start 584982.40us ::: wait 538.50us ::: hold 495.23us
+	mutex 140678906127144 ::: start 598688.69us ::: wait 62.25us ::: hold 60.21us
+	mutex 140678906112040 ::: start 693936.67us ::: wait 1656.62us ::: hold 1550.96us
+	mutex 140678906273576 ::: start 810937.93us ::: wait 18.92us ::: hold 17.68us
+	mutex 140678906104616 ::: start 811906.24us ::: wait 73.91us ::: hold 64.12us
+	mutex 140678906134824 ::: start 879171.60us ::: wait 22.29us ::: hold 21.93us
+	mutex 140678906112040 ::: start 931135.28us ::: wait 95.00us ::: hold 84.40us
+	mutex 140678906112040 ::: start 1112289.44us ::: wait 22.46us ::: hold 21.75us
+	mutex 140678906134824 ::: start 1239732.07us ::: wait 82.75us ::: hold 85.43us
+	mutex 140678906134824 ::: start 2048007.94us ::: wait 186.59us ::: hold 172.65us
+	mutex 140678906134824 ::: start 2371248.51us ::: wait 12.43us ::: hold 13.57us
+	mutex 140678906112040 ::: start 3285319.58us ::: wait 37.28us ::: hold 37.47us
+	mutex 140678906273576 ::: start 4135450.58us ::: wait 22.02us ::: hold 21.67us
+	mutex 140678906119720 ::: start 4185797.79us ::: wait 12.66us ::: hold 721.26us
+	mutex 140678906273576 ::: start 4201419.61us ::: wait 24.94us ::: hold 25.81us
+	mutex 140678906119720 ::: start 4955908.37us ::: wait 12.72us ::: hold 378.25us
+	mutex 140678906134824 ::: start 4955969.28us ::: wait 6.32us ::: hold 5.33us
+	mutex 140678906273576 ::: start 5073419.64us ::: wait 6.67us ::: hold 6.70us
+	mutex 140678906112040 ::: start 5123071.44us ::: wait 6.87us ::: hold 8.78us
+	mutex 140678906104616 ::: start 5139216.43us ::: wait 12.32us ::: hold 21.39us
+	mutex 140678906127144 ::: start 5648693.60us ::: wait 6.94us ::: hold 7.37us
+	mutex 140678906112040 ::: start 5924515.76us ::: wait 13.80us ::: hold 28.57us
+	mutex 140678906119720 ::: start 9061823.93us ::: wait 28.01us ::: hold 2880.11us
+	mutex 140678906104616 ::: start 9861885.23us ::: wait 14.91us ::: hold 15.44us
+	mutex 140678906273576 ::: start 10416573.88us ::: wait 12.56us ::: hold 11.04us
+	mutex 140678906134824 ::: start 12771637.09us ::: wait 12.38us ::: hold 13.69us
+	mutex 140678906104616 ::: start 14782539.99us ::: wait 6.56us ::: hold 8.79us
+	mutex 140678906119720 ::: start 15791729.51us ::: wait 6.41us ::: hold 161.50us
+	mutex 140678906104616 ::: start 15796725.99us ::: wait 7.13us ::: hold 7.61us
+	mutex 140678906104616 ::: start 17393942.58us ::: wait 6.32us ::: hold 6.68us
 	---------------------------
-	start time 18476 ::: end time 3025195
-	start time 3025265 ::: end time 14988453
-tid: 25111 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273632885800 ::: start 599114.58us ::: wait 132.12us ::: hold 14377310.90us
-	mutex 140273779603808 ::: start 8971993.14us ::: wait 10.26us ::: hold 9.64us
-	mutex 140273779603808 ::: start 8972390.68us ::: wait 8.12us ::: hold 6.10us
-	mutex 140273635961640 ::: start 8972434.64us ::: wait 7.68us ::: hold 9.73us
-	mutex 140273632885800 ::: start 13978269.42us ::: wait 8.64us ::: hold 96.71us
-	mutex 140273633146152 ::: start 13978443.02us ::: wait 7.15us ::: hold 7.26us
+	start time 191020 ::: end time 221826
+	start time 225767 ::: end time 227008
+	start time 231893 ::: end time 235738
+	start time 235995 ::: end time 248121
+	start time 248135 ::: end time 248692
+	start time 248699 ::: end time 248762
+	start time 249281 ::: end time 264944
+	start time 265496 ::: end time 298429
+	start time 298687 ::: end time 337498
+	start time 337576 ::: end time 386180
+	start time 394767 ::: end time 433642
+	start time 433790 ::: end time 441694
+	start time 445405 ::: end time 584982
+	start time 585520 ::: end time 598688
+	start time 598750 ::: end time 693936
+	start time 695593 ::: end time 810937
+	start time 810956 ::: end time 811906
+	start time 811980 ::: end time 879171
+	start time 879193 ::: end time 931135
+	start time 931230 ::: end time 1112289
+	start time 1112311 ::: end time 1239732
+	start time 1239814 ::: end time 2048007
+	start time 2048194 ::: end time 2371248
+	start time 2371260 ::: end time 3285319
+	start time 3285356 ::: end time 4135450
+	start time 4135472 ::: end time 4185797
+	start time 4185810 ::: end time 4201419
+	start time 4201444 ::: end time 4955908
+	start time 4955921 ::: end time 4955969
+	start time 4955975 ::: end time 5073419
+	start time 5073426 ::: end time 5123071
+	start time 5123078 ::: end time 5139216
+	start time 5139228 ::: end time 5648693
+	start time 5648700 ::: end time 5924515
+	start time 5924529 ::: end time 9061823
+	start time 9061851 ::: end time 9861885
+	start time 9861900 ::: end time 10416573
+	start time 10416586 ::: end time 12771637
+	start time 12771649 ::: end time 14782539
+	start time 14782546 ::: end time 15791729
+	start time 15791735 ::: end time 15796725
+	start time 15796733 ::: end time 17393942
+	start time 17393948 ::: end time 17393955
+tid: 26217 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678903315496 ::: start 10908.75us ::: wait 128.96us ::: hold 17247376.42us
+	mutex 140679043012960 ::: start 3273968.38us ::: wait 21.96us ::: hold 20.35us
+	mutex 140679043012960 ::: start 3276048.18us ::: wait 30.21us ::: hold 26.85us
+	mutex 140678906098984 ::: start 3276123.23us ::: wait 7.53us ::: hold 13.00us
+	mutex 140678906105640 ::: start 13263049.77us ::: wait 8.19us ::: hold 14.20us
 	---------------------------
-	start time 599246 ::: end time 8971993
-	start time 8972003 ::: end time 8972390
-	start time 8972398 ::: end time 8972434
-	start time 8972442 ::: end time 13978269
-	start time 13978278 ::: end time 13978443
-	start time 13978450 ::: end time 14976557
-tid: 25142 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273635953192 ::: start 492.17us ::: wait 28257.08us ::: hold 21729.93us
-	mutex 140273635694376 ::: start 546.18us ::: wait 175423.16us ::: hold 9745407.57us
-	mutex 140273635681576 ::: start 9630.98us ::: wait 37430.55us ::: hold 28911.36us
-	mutex 140273635681576 ::: start 10558.67us ::: wait 5663.51us ::: hold 4478.65us
-	mutex 140273635694376 ::: start 10696.85us ::: wait 28061.28us ::: hold 2798299.60us
-	mutex 140273635694376 ::: start 16760.62us ::: wait 20.20us ::: hold 1796.85us
-	mutex 140273635704104 ::: start 20061.83us ::: wait 5046.64us ::: hold 4029.85us
-	mutex 140273635704104 ::: start 24581.11us ::: wait 172.96us ::: hold 148.36us
-	mutex 140273635704104 ::: start 28211.74us ::: wait 35248.40us ::: hold 27214.19us
-	mutex 140273635677224 ::: start 28798.09us ::: wait 32829.53us ::: hold 25396.12us
-	mutex 140273635677224 ::: start 59403.73us ::: wait 538.62us ::: hold 470.30us
-	mutex 140273635960616 ::: start 93562.30us ::: wait 4988.21us ::: hold 4029.74us
-	mutex 140273635677224 ::: start 96310.36us ::: wait 4594.61us ::: hold 3692.69us
-	mutex 140273635960616 ::: start 102538.73us ::: wait 29761.05us ::: hold 23136.40us
-	mutex 140273635677224 ::: start 138831.82us ::: wait 114.65us ::: hold 98.89us
-	mutex 140273635694376 ::: start 139227.45us ::: wait 355.19us ::: hold 101640.87us
-	mutex 140273635681576 ::: start 155705.08us ::: wait 716.97us ::: hold 626.38us
-	mutex 140273635960616 ::: start 198234.00us ::: wait 704.44us ::: hold 612.01us
-	mutex 140273635953192 ::: start 216317.58us ::: wait 4443.63us ::: hold 3633.67us
-	mutex 140273635694376 ::: start 280732.21us ::: wait 86.86us ::: hold 4612.52us
-	mutex 140273635704104 ::: start 280940.49us ::: wait 18.49us ::: hold 17.77us
-	mutex 140273635694376 ::: start 320788.89us ::: wait 484.43us ::: hold 59693.22us
-	mutex 140273635677224 ::: start 365901.01us ::: wait 6.12us ::: hold 6.09us
-	mutex 140273635681576 ::: start 393474.03us ::: wait 50.74us ::: hold 47.13us
-	mutex 140273635704104 ::: start 441633.47us ::: wait 639.04us ::: hold 583.75us
-	mutex 140273635677224 ::: start 517963.28us ::: wait 43.20us ::: hold 40.22us
-	mutex 140273635704104 ::: start 526619.39us ::: wait 8.37us ::: hold 7.30us
-	mutex 140273635953192 ::: start 592601.25us ::: wait 582.31us ::: hold 526.02us
-	mutex 140273635681576 ::: start 721525.89us ::: wait 116.55us ::: hold 101.65us
-	mutex 140273635960616 ::: start 772250.84us ::: wait 43.17us ::: hold 52.76us
-	mutex 140273635953192 ::: start 901075.05us ::: wait 138.79us ::: hold 130.88us
-	mutex 140273635681576 ::: start 1086315.51us ::: wait 23.84us ::: hold 24.11us
-	mutex 140273635704104 ::: start 1104122.61us ::: wait 49.84us ::: hold 58.32us
-	mutex 140273635960616 ::: start 1121107.91us ::: wait 200.34us ::: hold 180.18us
-	mutex 140273635953192 ::: start 1227607.28us ::: wait 56.18us ::: hold 52.88us
-	mutex 140273635677224 ::: start 1274084.11us ::: wait 6.10us ::: hold 7.19us
-	mutex 140273635681576 ::: start 1425639.11us ::: wait 6.19us ::: hold 6.11us
-	mutex 140273635960616 ::: start 2933717.13us ::: wait 12.27us ::: hold 12.44us
-	mutex 140273635704104 ::: start 3856689.97us ::: wait 6.47us ::: hold 6.18us
-	mutex 140273635681576 ::: start 4626647.12us ::: wait 20.37us ::: hold 17.85us
-	mutex 140273635681576 ::: start 5153001.75us ::: wait 6.15us ::: hold 5.78us
-	mutex 140273633195816 ::: start 5268643.53us ::: wait 6.74us ::: hold 9.62us
-	mutex 140273635953192 ::: start 5873146.92us ::: wait 12.39us ::: hold 12.10us
-	mutex 140273635704104 ::: start 6171420.89us ::: wait 7.03us ::: hold 5.85us
-	mutex 140273633195816 ::: start 6915299.31us ::: wait 7.93us ::: hold 11.44us
-	mutex 140273635953192 ::: start 7196993.41us ::: wait 12.32us ::: hold 12.96us
-	mutex 140273633195816 ::: start 7200856.42us ::: wait 7.51us ::: hold 9.30us
-	mutex 140273635953192 ::: start 7288114.72us ::: wait 6.12us ::: hold 6.41us
-	mutex 140273633195816 ::: start 7307730.23us ::: wait 7.07us ::: hold 10.69us
-	mutex 140273635677224 ::: start 7549978.40us ::: wait 6.82us ::: hold 6.54us
-	mutex 140273635677224 ::: start 8651940.53us ::: wait 6.65us ::: hold 6.48us
-	mutex 140273633195816 ::: start 10658129.77us ::: wait 8.64us ::: hold 11.45us
-	mutex 140273633195816 ::: start 11238916.06us ::: wait 7.55us ::: hold 9.96us
-	mutex 140273633195816 ::: start 11593060.72us ::: wait 8.73us ::: hold 10.82us
-	mutex 140273633195816 ::: start 11656587.98us ::: wait 9.66us ::: hold 12.40us
-	mutex 140273635960616 ::: start 12029460.07us ::: wait 15.57us ::: hold 16.18us
-	mutex 140273635704104 ::: start 12127745.08us ::: wait 6.93us ::: hold 7.24us
-	mutex 140273633195816 ::: start 12133230.47us ::: wait 7.02us ::: hold 9.71us
-	mutex 140273633195816 ::: start 12420155.96us ::: wait 8.29us ::: hold 11.85us
-	mutex 140273633195816 ::: start 13587724.56us ::: wait 8.05us ::: hold 11.33us
-	mutex 140273635694376 ::: start 13695293.58us ::: wait 6.62us ::: hold 42.99us
-	mutex 140273635695400 ::: start 13978312.45us ::: wait 6.37us ::: hold 884.10us
-	mutex 140273633195816 ::: start 14079194.59us ::: wait 6.82us ::: hold 10.40us
+	start time 11037 ::: end time 3273968
+	start time 3273990 ::: end time 3276048
+	start time 3276078 ::: end time 3276123
+	start time 3276130 ::: end time 13263049
+	start time 13263057 ::: end time 17258414
+tid: 26319 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678906127144 ::: start 227.65us ::: wait 35526.81us ::: hold 28178.82us
+	mutex 140678906112040 ::: start 294.10us ::: wait 181798.87us ::: hold 11609239.53us
+	mutex 140678906134824 ::: start 789.04us ::: wait 31670.22us ::: hold 25296.82us
+	mutex 140678906104616 ::: start 1426.21us ::: wait 36599.44us ::: hold 29362.89us
+	mutex 140678906104616 ::: start 12823.88us ::: wait 808.48us ::: hold 736.57us
+	mutex 140678906119720 ::: start 16042.08us ::: wait 33845.41us ::: hold 26584.17us
+	mutex 140678906119720 ::: start 34472.84us ::: wait 485.46us ::: hold 435.74us
+	mutex 140678906112040 ::: start 40415.30us ::: wait 322.80us ::: hold 15102.43us
+	mutex 140678906119720 ::: start 40679.06us ::: wait 56.89us ::: hold 55.05us
+	mutex 140678906273576 ::: start 61616.10us ::: wait 33870.11us ::: hold 27077.53us
+	mutex 140678906273576 ::: start 63190.08us ::: wait 73.73us ::: hold 71.59us
+	mutex 140678906104616 ::: start 69152.97us ::: wait 269.77us ::: hold 232.27us
+	mutex 140678906112040 ::: start 98410.86us ::: wait 22458.55us ::: hold 2344344.00us
+	mutex 140678906134824 ::: start 99139.72us ::: wait 4223.14us ::: hold 3792.97us
+	mutex 140678906273576 ::: start 99421.02us ::: wait 3951.81us ::: hold 3411.89us
+	mutex 140678906273576 ::: start 131868.17us ::: wait 650.21us ::: hold 590.96us
+	mutex 140678906112040 ::: start 138427.68us ::: wait 9035.43us ::: hold 949062.74us
+	mutex 140678906273576 ::: start 138956.35us ::: wait 1734.38us ::: hold 1629.85us
+	mutex 140678906134824 ::: start 139380.20us ::: wait 1505.20us ::: hold 1383.51us
+	mutex 140678906119720 ::: start 149605.96us ::: wait 1205.89us ::: hold 1225.69us
+	mutex 140678906127144 ::: start 183500.62us ::: wait 296.88us ::: hold 292.67us
+	mutex 140678906104616 ::: start 221195.89us ::: wait 3403.76us ::: hold 2989.33us
+	mutex 140678906112040 ::: start 237068.81us ::: wait 644.22us ::: hold 171120.08us
+	mutex 140678906104616 ::: start 237962.51us ::: wait 76.91us ::: hold 73.15us
+	mutex 140678906112040 ::: start 238344.93us ::: wait 500.39us ::: hold 62817.43us
+	mutex 140678906273576 ::: start 257779.67us ::: wait 12.70us ::: hold 11.41us
+	mutex 140678906127144 ::: start 334549.55us ::: wait 552.41us ::: hold 521.95us
+	mutex 140678906134824 ::: start 367077.07us ::: wait 464.95us ::: hold 400.55us
+	mutex 140678906134824 ::: start 471447.72us ::: wait 250.93us ::: hold 227.44us
+	mutex 140678906134824 ::: start 517272.77us ::: wait 86.87us ::: hold 91.68us
+	mutex 140678906119720 ::: start 592182.90us ::: wait 4709.40us ::: hold 3994.01us
+	mutex 140678906119720 ::: start 598638.99us ::: wait 37.45us ::: hold 36.22us
+	mutex 140678906119720 ::: start 609785.31us ::: wait 98.04us ::: hold 112.37us
+	mutex 140678906127144 ::: start 652929.08us ::: wait 65.31us ::: hold 66.90us
+	mutex 140678906104616 ::: start 670280.10us ::: wait 57.53us ::: hold 57.30us
+	mutex 140678906127144 ::: start 695253.16us ::: wait 3925.52us ::: hold 3421.34us
+	mutex 140678906127144 ::: start 697497.95us ::: wait 56.02us ::: hold 56.06us
+	mutex 140678906104616 ::: start 760437.07us ::: wait 2057.04us ::: hold 1922.93us
+	mutex 140678906127144 ::: start 760671.11us ::: wait 1516.98us ::: hold 1366.86us
+	mutex 140678906127144 ::: start 820597.52us ::: wait 55.83us ::: hold 60.88us
+	mutex 140678906273576 ::: start 880584.74us ::: wait 104.56us ::: hold 121.28us
+	mutex 140678906273576 ::: start 1035963.21us ::: wait 159.16us ::: hold 157.13us
+	mutex 140678906104616 ::: start 1287799.47us ::: wait 43.76us ::: hold 44.07us
+	mutex 140678906134824 ::: start 1421724.95us ::: wait 42.47us ::: hold 44.53us
+	mutex 140678906119720 ::: start 1498590.59us ::: wait 71.13us ::: hold 70.15us
+	mutex 140678906127144 ::: start 1774289.80us ::: wait 77.16us ::: hold 96.64us
+	mutex 140678906119720 ::: start 1979975.86us ::: wait 280.26us ::: hold 259.64us
+	mutex 140678906273576 ::: start 2416320.25us ::: wait 12.46us ::: hold 15.43us
+	mutex 140678906273576 ::: start 3086515.34us ::: wait 12.31us ::: hold 12.89us
+	mutex 140678906112040 ::: start 4186110.15us ::: wait 19.83us ::: hold 749.80us
+	mutex 140678906104616 ::: start 4186217.92us ::: wait 6.27us ::: hold 6.14us
+	mutex 140678906134824 ::: start 4850755.08us ::: wait 50.80us ::: hold 50.90us
+	mutex 140678906119720 ::: start 5073378.94us ::: wait 6.26us ::: hold 8.38us
+	mutex 140678906273576 ::: start 6814042.69us ::: wait 60.53us ::: hold 55.95us
+	mutex 140678906104616 ::: start 7102310.37us ::: wait 6.88us ::: hold 7.88us
+	mutex 140678906134824 ::: start 8578957.55us ::: wait 18.80us ::: hold 17.38us
+	mutex 140678906273576 ::: start 13086056.17us ::: wait 6.16us ::: hold 7.24us
+	mutex 140678906104616 ::: start 13510844.05us ::: wait 6.21us ::: hold 6.96us
+	mutex 140678906112040 ::: start 15795916.98us ::: wait 6.50us ::: hold 161.75us
+	mutex 140678906119720 ::: start 15796350.50us ::: wait 7.27us ::: hold 7.07us
+	mutex 140678906112040 ::: start 16965794.20us ::: wait 6.64us ::: hold 179.38us
+	mutex 140678906273576 ::: start 17142475.23us ::: wait 7.36us ::: hold 7.42us
+	mutex 140678906119720 ::: start 17286694.53us ::: wait 6.21us ::: hold 8.57us
+	mutex 140678906127144 ::: start 17460480.94us ::: wait 6.54us ::: hold 5.75us
 	---------------------------
-	start time 175969 ::: end time 198233
-	start time 198938 ::: end time 216317
-	start time 220761 ::: end time 280732
-	start time 280819 ::: end time 280940
-	start time 280958 ::: end time 320788
-	start time 321273 ::: end time 365901
-	start time 365907 ::: end time 393474
-	start time 393524 ::: end time 441633
-	start time 442272 ::: end time 517963
-	start time 518006 ::: end time 526619
-	start time 526627 ::: end time 592601
-	start time 593183 ::: end time 721525
-	start time 721642 ::: end time 772250
-	start time 772294 ::: end time 901075
-	start time 901213 ::: end time 1086315
-	start time 1086339 ::: end time 1104122
-	start time 1104172 ::: end time 1121107
-	start time 1121308 ::: end time 1227607
-	start time 1227663 ::: end time 1274084
-	start time 1274090 ::: end time 1425639
-	start time 1425645 ::: end time 2933717
-	start time 2933729 ::: end time 3856689
-	start time 3856696 ::: end time 4626647
-	start time 4626667 ::: end time 5153001
-	start time 5153007 ::: end time 5268643
-	start time 5268650 ::: end time 5873146
-	start time 5873159 ::: end time 6171420
-	start time 6171427 ::: end time 6915299
-	start time 6915307 ::: end time 7196993
-	start time 7197005 ::: end time 7200856
-	start time 7200863 ::: end time 7288114
-	start time 7288120 ::: end time 7307730
-	start time 7307737 ::: end time 7549978
-	start time 7549985 ::: end time 8651940
-	start time 8651947 ::: end time 10658129
-	start time 10658138 ::: end time 11238916
-	start time 11238923 ::: end time 11593060
-	start time 11593069 ::: end time 11656587
-	start time 11656597 ::: end time 12029460
-	start time 12029475 ::: end time 12127745
-	start time 12127752 ::: end time 12133230
-	start time 12133237 ::: end time 12420155
-	start time 12420164 ::: end time 13587724
-	start time 13587732 ::: end time 13695293
-	start time 13695300 ::: end time 13978312
-	start time 13978318 ::: end time 14079194
-	start time 14079201 ::: end time 14079211
-tid: 25143 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273635953192 ::: start 295.73us ::: wait 33131.84us ::: hold 25723.76us
-	mutex 140273635681576 ::: start 353.37us ::: wait 177464.47us ::: hold 9742625.60us
-	mutex 140273635960616 ::: start 637.39us ::: wait 32546.67us ::: hold 25316.92us
-	mutex 140273635960616 ::: start 4198.41us ::: wait 739.14us ::: hold 656.33us
-	mutex 140273635704104 ::: start 9749.15us ::: wait 27720.94us ::: hold 21404.20us
-	mutex 140273635694376 ::: start 10408.36us ::: wait 37486.11us ::: hold 29224.94us
-	mutex 140273635681576 ::: start 10498.46us ::: wait 30002.41us ::: hold 2811699.76us
-	mutex 140273635704104 ::: start 10718.97us ::: wait 4471.85us ::: hold 3590.62us
-	mutex 140273635694376 ::: start 11568.12us ::: wait 5613.39us ::: hold 4511.52us
-	mutex 140273635677224 ::: start 20812.33us ::: wait 21.16us ::: hold 20.14us
-	mutex 140273635677224 ::: start 22552.77us ::: wait 5971.41us ::: hold 4809.49us
-	mutex 140273635677224 ::: start 26288.05us ::: wait 130.67us ::: hold 120.33us
-	mutex 140273635681576 ::: start 26669.81us ::: wait 192.08us ::: hold 48090.69us
-	mutex 140273635953192 ::: start 43150.63us ::: wait 717.38us ::: hold 619.28us
-	mutex 140273635960616 ::: start 83692.12us ::: wait 5236.62us ::: hold 4217.52us
-	mutex 140273635953192 ::: start 83998.10us ::: wait 4835.69us ::: hold 3977.72us
-	mutex 140273635677224 ::: start 118202.40us ::: wait 32758.22us ::: hold 25505.40us
-	mutex 140273635681576 ::: start 176046.26us ::: wait 97.06us ::: hold 4862.14us
-	mutex 140273635677224 ::: start 190670.87us ::: wait 611.52us ::: hold 545.97us
-	mutex 140273635694376 ::: start 198194.60us ::: wait 759.65us ::: hold 660.91us
-	mutex 140273635704104 ::: start 222313.77us ::: wait 68.66us ::: hold 63.62us
-	mutex 140273635704104 ::: start 285334.95us ::: wait 394.95us ::: hold 352.20us
-	mutex 140273635694376 ::: start 317955.32us ::: wait 160.52us ::: hold 136.76us
-	mutex 140273635704104 ::: start 358553.64us ::: wait 133.42us ::: hold 109.64us
-	mutex 140273635694376 ::: start 401326.59us ::: wait 7.16us ::: hold 7.90us
-	mutex 140273635681576 ::: start 521885.12us ::: wait 21.96us ::: hold 3022.02us
-	mutex 140273635960616 ::: start 522244.33us ::: wait 12.24us ::: hold 12.02us
-	mutex 140273635681576 ::: start 528238.22us ::: wait 586.75us ::: hold 79557.45us
-	mutex 140273635953192 ::: start 577006.74us ::: wait 49.55us ::: hold 45.46us
-	mutex 140273635677224 ::: start 772366.18us ::: wait 37.82us ::: hold 33.94us
-	mutex 140273635953192 ::: start 832097.45us ::: wait 60.07us ::: hold 51.81us
-	mutex 140273635953192 ::: start 1008547.08us ::: wait 19.97us ::: hold 21.09us
-	mutex 140273635694376 ::: start 1425137.19us ::: wait 94.21us ::: hold 86.81us
-	mutex 140273635953192 ::: start 1526257.08us ::: wait 30.58us ::: hold 29.50us
-	mutex 140273635694376 ::: start 2738732.00us ::: wait 24.71us ::: hold 25.85us
-	mutex 140273635681576 ::: start 3856354.78us ::: wait 6.59us ::: hold 1147.71us
-	mutex 140273635960616 ::: start 3996640.81us ::: wait 18.65us ::: hold 20.57us
-	mutex 140273635960616 ::: start 4174850.97us ::: wait 88.91us ::: hold 78.38us
-	mutex 140273635677224 ::: start 4793115.32us ::: wait 12.22us ::: hold 13.24us
-	mutex 140273635704104 ::: start 5059646.92us ::: wait 18.91us ::: hold 18.44us
-	mutex 140273635677224 ::: start 5153039.14us ::: wait 6.17us ::: hold 6.14us
-	mutex 140273635960616 ::: start 5199560.64us ::: wait 37.05us ::: hold 43.52us
-	mutex 140273633195816 ::: start 5407521.26us ::: wait 6.92us ::: hold 9.42us
-	mutex 140273635681576 ::: start 5407949.98us ::: wait 7.38us ::: hold 10553.10us
-	mutex 140273633195816 ::: start 5871414.58us ::: wait 8.13us ::: hold 10.64us
-	mutex 140273635694376 ::: start 5873107.06us ::: wait 6.37us ::: hold 6.71us
-	mutex 140273633195816 ::: start 6354658.66us ::: wait 8.03us ::: hold 11.60us
-	mutex 140273635960616 ::: start 6358863.20us ::: wait 6.07us ::: hold 6.38us
-	mutex 140273633195816 ::: start 6565518.97us ::: wait 8.90us ::: hold 9.91us
-	mutex 140273633195816 ::: start 7198525.66us ::: wait 9.29us ::: hold 11.05us
-	mutex 140273633195816 ::: start 7558920.15us ::: wait 9.41us ::: hold 10.09us
-	mutex 140273635681576 ::: start 8651778.79us ::: wait 6.41us ::: hold 622.93us
-	mutex 140273635704104 ::: start 8652667.87us ::: wait 6.97us ::: hold 6.09us
-	mutex 140273635677224 ::: start 9066615.23us ::: wait 7.19us ::: hold 6.75us
-	mutex 140273635704104 ::: start 9557794.18us ::: wait 23.07us ::: hold 24.84us
-	mutex 140273633195816 ::: start 10936395.94us ::: wait 8.35us ::: hold 10.73us
-	mutex 140273635960616 ::: start 11044414.72us ::: wait 8.26us ::: hold 8.20us
-	mutex 140273635677224 ::: start 11228349.78us ::: wait 6.40us ::: hold 5.66us
-	mutex 140273633195816 ::: start 11364743.96us ::: wait 8.76us ::: hold 12.71us
-	mutex 140273633195816 ::: start 12563807.37us ::: wait 8.43us ::: hold 13.13us
-	mutex 140273779603808 ::: start 13788150.91us ::: wait 7.31us ::: hold 6.61us
-	mutex 140273779603808 ::: start 13788201.88us ::: wait 6.32us ::: hold 4.32us
-	mutex 140273779603808 ::: start 13788222.43us ::: wait 6.14us ::: hold 5.26us
-	mutex 140273779603808 ::: start 13788263.76us ::: wait 6.36us ::: hold 5.17us
-	mutex 140273635953192 ::: start 14603899.17us ::: wait 6.07us ::: hold 5.97us
+	start time 182092 ::: end time 183500
+	start time 183797 ::: end time 221195
+	start time 224599 ::: end time 237068
+	start time 237713 ::: end time 237962
+	start time 238039 ::: end time 238344
+	start time 238845 ::: end time 257779
+	start time 257792 ::: end time 334549
+	start time 335101 ::: end time 367077
+	start time 367542 ::: end time 471447
+	start time 471698 ::: end time 517272
+	start time 517359 ::: end time 592182
+	start time 596892 ::: end time 598638
+	start time 598676 ::: end time 609785
+	start time 609883 ::: end time 652929
+	start time 652994 ::: end time 670280
+	start time 670337 ::: end time 695253
+	start time 699178 ::: end time 760437
+	start time 762494 ::: end time 820597
+	start time 820653 ::: end time 880584
+	start time 880689 ::: end time 1035963
+	start time 1036122 ::: end time 1287799
+	start time 1287843 ::: end time 1421724
+	start time 1421767 ::: end time 1498590
+	start time 1498661 ::: end time 1774289
+	start time 1774366 ::: end time 1979975
+	start time 1980256 ::: end time 2416320
+	start time 2416332 ::: end time 3086515
+	start time 3086527 ::: end time 4186110
+	start time 4186129 ::: end time 4186217
+	start time 4186224 ::: end time 4850755
+	start time 4850805 ::: end time 5073378
+	start time 5073385 ::: end time 6814042
+	start time 6814103 ::: end time 7102310
+	start time 7102317 ::: end time 8578957
+	start time 8578976 ::: end time 13086056
+	start time 13086062 ::: end time 13510844
+	start time 13510850 ::: end time 15795916
+	start time 15795923 ::: end time 15796350
+	start time 15796357 ::: end time 16965794
+	start time 16965800 ::: end time 17142475
+	start time 17142482 ::: end time 17286694
+	start time 17286700 ::: end time 17460480
+	start time 17460487 ::: end time 17460493
+tid: 26224 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678903574312 ::: start 1053304.18us ::: wait 33.96us ::: hold 14952915.02us
+	mutex 140679043012960 ::: start 14463820.48us ::: wait 14.43us ::: hold 8.25us
+	mutex 140679043012960 ::: start 14463839.03us ::: wait 12.54us ::: hold 8.14us
+	mutex 140679043012960 ::: start 14463873.24us ::: wait 12.71us ::: hold 7.35us
+	mutex 140679043012960 ::: start 14463890.18us ::: wait 12.47us ::: hold 7.35us
+	mutex 140679043012960 ::: start 14463906.57us ::: wait 12.40us ::: hold 6.73us
+	mutex 140679043012960 ::: start 14463922.82us ::: wait 12.38us ::: hold 6.90us
+	mutex 140679043012960 ::: start 14463941.20us ::: wait 12.49us ::: hold 7.81us
+	mutex 140679043012960 ::: start 14463998.00us ::: wait 12.94us ::: hold 8.93us
+	mutex 140679043012960 ::: start 14464023.02us ::: wait 12.35us ::: hold 7.88us
+	mutex 140679043012960 ::: start 14464042.99us ::: wait 12.39us ::: hold 7.97us
+	mutex 140679043012960 ::: start 14464301.37us ::: wait 32.22us ::: hold 9.95us
+	mutex 140679043012960 ::: start 14464335.90us ::: wait 12.75us ::: hold 7.55us
+	mutex 140679043012960 ::: start 14464353.17us ::: wait 12.43us ::: hold 7.49us
+	mutex 140679043012960 ::: start 14464392.99us ::: wait 6.46us ::: hold 3.99us
+	mutex 140679043012960 ::: start 14464419.83us ::: wait 37.28us ::: hold 19.23us
+	mutex 140679043012960 ::: start 14464448.96us ::: wait 31.46us ::: hold 15.65us
+	mutex 140679043012960 ::: start 14464538.67us ::: wait 13.42us ::: hold 8.13us
+	mutex 140679043012960 ::: start 14464556.01us ::: wait 22.09us ::: hold 6.92us
+	mutex 140679043012960 ::: start 14464576.68us ::: wait 12.47us ::: hold 7.58us
+	mutex 140679043012960 ::: start 14464619.83us ::: wait 12.96us ::: hold 7.58us
+	mutex 140679043012960 ::: start 14464636.44us ::: wait 12.25us ::: hold 7.31us
+	mutex 140679043012960 ::: start 14464709.80us ::: wait 12.84us ::: hold 7.42us
+	mutex 140679043012960 ::: start 14464726.81us ::: wait 12.19us ::: hold 7.73us
+	mutex 140679043012960 ::: start 14464794.53us ::: wait 13.30us ::: hold 7.77us
+	mutex 140679043012960 ::: start 14464825.68us ::: wait 12.68us ::: hold 19.88us
+	mutex 140679043012960 ::: start 14464849.85us ::: wait 14.32us ::: hold 7.22us
+	mutex 140679043012960 ::: start 14464866.94us ::: wait 12.29us ::: hold 6.56us
+	mutex 140679043012960 ::: start 14464882.68us ::: wait 12.57us ::: hold 6.64us
+	mutex 140679043012960 ::: start 14464964.70us ::: wait 7.04us ::: hold 4.35us
+	mutex 140679043012960 ::: start 14465000.78us ::: wait 12.92us ::: hold 7.24us
+	mutex 140679043012960 ::: start 14465045.41us ::: wait 25.61us ::: hold 12.30us
+	mutex 140679043012960 ::: start 14465077.02us ::: wait 18.25us ::: hold 9.02us
+	mutex 140679043012960 ::: start 14465092.79us ::: wait 24.70us ::: hold 11.64us
+	mutex 140679043012960 ::: start 14465132.26us ::: wait 24.80us ::: hold 11.71us
+	mutex 140679043012960 ::: start 14465166.80us ::: wait 30.91us ::: hold 13.95us
+	mutex 140679043012960 ::: start 14465227.28us ::: wait 6.47us ::: hold 3.81us
+	mutex 140679043012960 ::: start 14465247.34us ::: wait 6.08us ::: hold 3.63us
+	mutex 140679043012960 ::: start 16008351.85us ::: wait 8.79us ::: hold 6.21us
+	mutex 140679043012960 ::: start 16008543.36us ::: wait 8.32us ::: hold 5.83us
+	mutex 140679043012960 ::: start 16008573.66us ::: wait 6.39us ::: hold 3.46us
+	mutex 140679043012960 ::: start 16008731.83us ::: wait 6.32us ::: hold 3.80us
+	mutex 140679043012960 ::: start 16008779.28us ::: wait 25.49us ::: hold 12.87us
+	mutex 140679043012960 ::: start 16008916.75us ::: wait 6.39us ::: hold 4.21us
+	mutex 140679043012960 ::: start 16009359.38us ::: wait 6.61us ::: hold 3.73us
+	mutex 140679043012960 ::: start 16009402.85us ::: wait 6.40us ::: hold 3.99us
+	mutex 140679043012960 ::: start 16009813.48us ::: wait 6.67us ::: hold 4.67us
+	mutex 140679043012960 ::: start 16009866.02us ::: wait 6.58us ::: hold 3.95us
 	---------------------------
-	start time 177817 ::: end time 190670
-	start time 191282 ::: end time 198194
-	start time 198954 ::: end time 222313
-	start time 222382 ::: end time 285334
-	start time 285729 ::: end time 317955
-	start time 318115 ::: end time 358553
-	start time 358687 ::: end time 401326
-	start time 401333 ::: end time 521885
-	start time 521907 ::: end time 522244
-	start time 522256 ::: end time 528238
-	start time 528824 ::: end time 577006
-	start time 577056 ::: end time 772366
-	start time 772404 ::: end time 832097
-	start time 832157 ::: end time 1008547
-	start time 1008567 ::: end time 1425137
-	start time 1425231 ::: end time 1526257
-	start time 1526287 ::: end time 2738732
-	start time 2738756 ::: end time 3856354
-	start time 3856361 ::: end time 3996640
-	start time 3996659 ::: end time 4174850
-	start time 4174939 ::: end time 4793115
-	start time 4793127 ::: end time 5059646
-	start time 5059665 ::: end time 5153039
-	start time 5153045 ::: end time 5199560
-	start time 5199597 ::: end time 5407521
-	start time 5407528 ::: end time 5407949
-	start time 5407957 ::: end time 5871414
-	start time 5871422 ::: end time 5873107
-	start time 5873113 ::: end time 6354658
-	start time 6354666 ::: end time 6358863
-	start time 6358869 ::: end time 6565518
-	start time 6565527 ::: end time 7198525
-	start time 7198534 ::: end time 7558920
-	start time 7558929 ::: end time 8651778
-	start time 8651785 ::: end time 8652667
-	start time 8652674 ::: end time 9066615
-	start time 9066622 ::: end time 9557794
-	start time 9557817 ::: end time 10936395
-	start time 10936404 ::: end time 11044414
-	start time 11044422 ::: end time 11228349
-	start time 11228356 ::: end time 11364743
-	start time 11364752 ::: end time 12563807
-	start time 12563815 ::: end time 13788150
-	start time 13788158 ::: end time 13788201
-	start time 13788208 ::: end time 13788222
-	start time 13788228 ::: end time 13788263
-	start time 13788270 ::: end time 14603899
-	start time 14603905 ::: end time 14603911
-tid: 25144 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273635704104 ::: start 0.00us ::: wait 31280.62us ::: hold 24312.55us
-	mutex 140273635677224 ::: start 73.63us ::: wait 162030.05us ::: hold 9639559.25us
-	mutex 140273635953192 ::: start 9967.77us ::: wait 27595.69us ::: hold 21391.61us
-	mutex 140273635677224 ::: start 10108.76us ::: wait 19999.67us ::: hold 2167331.96us
-	mutex 140273635953192 ::: start 11133.36us ::: wait 3399.74us ::: hold 2693.34us
-	mutex 140273635953192 ::: start 17197.86us ::: wait 134.72us ::: hold 106.53us
-	mutex 140273635681576 ::: start 20547.62us ::: wait 4543.99us ::: hold 3623.44us
-	mutex 140273635681576 ::: start 28544.15us ::: wait 33537.88us ::: hold 25842.26us
-	mutex 140273635694376 ::: start 29295.13us ::: wait 32324.74us ::: hold 24979.73us
-	mutex 140273635960616 ::: start 44878.54us ::: wait 27283.20us ::: hold 20979.17us
-	mutex 140273635704104 ::: start 84237.39us ::: wait 3610.55us ::: hold 2925.59us
-	mutex 140273635694376 ::: start 95060.42us ::: wait 3182.16us ::: hold 2548.23us
-	mutex 140273635953192 ::: start 100348.38us ::: wait 29.40us ::: hold 25.40us
-	mutex 140273635677224 ::: start 100778.76us ::: wait 7992.12us ::: hold 805831.71us
-	mutex 140273635694376 ::: start 117373.06us ::: wait 881.13us ::: hold 772.84us
-	mutex 140273635677224 ::: start 155386.61us ::: wait 343.23us ::: hold 18630.54us
-	mutex 140273635704104 ::: start 155781.51us ::: wait 88.87us ::: hold 83.87us
-	mutex 140273635681576 ::: start 198148.16us ::: wait 489.42us ::: hold 445.76us
-	mutex 140273635704104 ::: start 215063.61us ::: wait 1607.78us ::: hold 1379.87us
-	mutex 140273635960616 ::: start 215811.12us ::: wait 1197.47us ::: hold 1039.56us
-	mutex 140273635681576 ::: start 253309.95us ::: wait 188.12us ::: hold 160.79us
-	mutex 140273635694376 ::: start 304866.64us ::: wait 175.33us ::: hold 146.75us
-	mutex 140273635960616 ::: start 312340.11us ::: wait 3209.41us ::: hold 2575.22us
-	mutex 140273635677224 ::: start 320428.31us ::: wait 355.94us ::: hold 35047.78us
-	mutex 140273635694376 ::: start 393435.65us ::: wait 24.59us ::: hold 23.68us
-	mutex 140273635953192 ::: start 425543.77us ::: wait 731.35us ::: hold 618.44us
-	mutex 140273635960616 ::: start 436133.18us ::: wait 536.19us ::: hold 458.22us
-	mutex 140273635694376 ::: start 510765.42us ::: wait 1389.77us ::: hold 1172.27us
-	mutex 140273635960616 ::: start 563823.87us ::: wait 217.45us ::: hold 168.03us
-	mutex 140273635704104 ::: start 702834.15us ::: wait 367.48us ::: hold 331.15us
-	mutex 140273635681576 ::: start 768255.55us ::: wait 1394.42us ::: hold 1237.39us
-	mutex 140273635953192 ::: start 769104.03us ::: wait 1515.51us ::: hold 1315.79us
-	mutex 140273635704104 ::: start 800447.90us ::: wait 232.79us ::: hold 194.98us
-	mutex 140273635960616 ::: start 834115.33us ::: wait 12.42us ::: hold 12.29us
-	mutex 140273635681576 ::: start 916315.01us ::: wait 67.97us ::: hold 64.06us
-	mutex 140273635960616 ::: start 1027636.86us ::: wait 43.95us ::: hold 41.22us
-	mutex 140273635960616 ::: start 1687933.42us ::: wait 30.83us ::: hold 39.93us
-	mutex 140273635704104 ::: start 1816950.10us ::: wait 13.82us ::: hold 13.82us
-	mutex 140273635953192 ::: start 1859968.06us ::: wait 31.69us ::: hold 31.15us
-	mutex 140273635694376 ::: start 2147470.46us ::: wait 50.77us ::: hold 49.95us
-	mutex 140273635681576 ::: start 2169051.51us ::: wait 70.77us ::: hold 67.98us
-	mutex 140273635694376 ::: start 2410963.63us ::: wait 35.38us ::: hold 34.11us
-	mutex 140273633195816 ::: start 3270009.55us ::: wait 6.99us ::: hold 8.47us
-	mutex 140273633195816 ::: start 3849369.38us ::: wait 7.07us ::: hold 9.69us
-	mutex 140273635677224 ::: start 3856510.51us ::: wait 13.58us ::: hold 778.82us
-	mutex 140273635681576 ::: start 3857439.26us ::: wait 13.53us ::: hold 11.62us
-	mutex 140273635960616 ::: start 4147146.91us ::: wait 7.21us ::: hold 6.61us
-	mutex 140273635677224 ::: start 5842361.44us ::: wait 13.15us ::: hold 508.57us
-	mutex 140273633195816 ::: start 6037174.64us ::: wait 16.16us ::: hold 9.52us
-	mutex 140273635694376 ::: start 6171372.56us ::: wait 8.70us ::: hold 9.99us
-	mutex 140273633195816 ::: start 6422451.78us ::: wait 9.71us ::: hold 9.86us
-	mutex 140273635953192 ::: start 6680136.05us ::: wait 31.05us ::: hold 30.61us
-	mutex 140273633195816 ::: start 9336265.85us ::: wait 6.75us ::: hold 9.65us
-	mutex 140273633195816 ::: start 9467000.85us ::: wait 7.16us ::: hold 10.10us
-	mutex 140273633195816 ::: start 10659962.38us ::: wait 7.27us ::: hold 8.30us
-	mutex 140273635677224 ::: start 11228333.78us ::: wait 6.30us ::: hold 127.41us
-	mutex 140273633195816 ::: start 11424997.32us ::: wait 7.39us ::: hold 9.68us
-	mutex 140273635960616 ::: start 12501529.73us ::: wait 6.64us ::: hold 6.72us
-	mutex 140273635704104 ::: start 13265745.85us ::: wait 6.18us ::: hold 6.57us
-	mutex 140273635681576 ::: start 13590409.78us ::: wait 7.55us ::: hold 7.63us
-	mutex 140273635694376 ::: start 13695310.07us ::: wait 6.35us ::: hold 5.91us
-	mutex 140273633195816 ::: start 13972518.21us ::: wait 6.90us ::: hold 9.30us
+	start time 1053338 ::: end time 14463820
+	start time 14463834 ::: end time 14463839
+	start time 14463851 ::: end time 14463873
+	start time 14463885 ::: end time 14463890
+	start time 14463902 ::: end time 14463906
+	start time 14463918 ::: end time 14463922
+	start time 14463935 ::: end time 14463941
+	start time 14463953 ::: end time 14463998
+	start time 14464010 ::: end time 14464023
+	start time 14464035 ::: end time 14464042
+	start time 14464055 ::: end time 14464301
+	start time 14464333 ::: end time 14464335
+	start time 14464348 ::: end time 14464353
+	start time 14464365 ::: end time 14464392
+	start time 14464399 ::: end time 14464419
+	start time 14464480 ::: end time 14464538
+	start time 14464552 ::: end time 14464556
+	start time 14464589 ::: end time 14464619
+	start time 14464632 ::: end time 14464636
+	start time 14464648 ::: end time 14464709
+	start time 14464722 ::: end time 14464726
+	start time 14464738 ::: end time 14464794
+	start time 14464807 ::: end time 14464825
+	start time 14464838 ::: end time 14464849
+	start time 14464864 ::: end time 14464866
+	start time 14464879 ::: end time 14464882
+	start time 14464895 ::: end time 14464964
+	start time 14464971 ::: end time 14465000
+	start time 14465013 ::: end time 14465045
+	start time 14465071 ::: end time 14465077
+	start time 14465117 ::: end time 14465132
+	start time 14465157 ::: end time 14465166
+	start time 14465197 ::: end time 14465227
+	start time 14465233 ::: end time 14465247
+	start time 14465253 ::: end time 16008351
+	start time 16008360 ::: end time 16008543
+	start time 16008551 ::: end time 16008573
+	start time 16008580 ::: end time 16008731
+	start time 16008738 ::: end time 16008779
+	start time 16008804 ::: end time 16008916
+	start time 16008923 ::: end time 16009359
+	start time 16009365 ::: end time 16009402
+	start time 16009409 ::: end time 16009813
+	start time 16009820 ::: end time 16009866
+	start time 16009872 ::: end time 16009876
+tid: 26321 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678906273576 ::: start 414.84us ::: wait 33305.24us ::: hold 30716.53us
+	mutex 140678906104616 ::: start 517.07us ::: wait 218964.46us ::: hold 11663834.99us
+	mutex 140678906112040 ::: start 1053.17us ::: wait 37252.01us ::: hold 30594.24us
+	mutex 140678906273576 ::: start 12861.54us ::: wait 830.90us ::: hold 736.63us
+	mutex 140678906127144 ::: start 17196.91us ::: wait 44869.62us ::: hold 36241.86us
+	mutex 140678906127144 ::: start 32778.91us ::: wait 859.14us ::: hold 999.06us
+	mutex 140678906119720 ::: start 61023.69us ::: wait 38801.60us ::: hold 31180.40us
+	mutex 140678906119720 ::: start 66497.71us ::: wait 800.56us ::: hold 742.45us
+	mutex 140678906104616 ::: start 98679.74us ::: wait 34403.18us ::: hold 3304054.79us
+	mutex 140678906119720 ::: start 98882.30us ::: wait 4920.40us ::: hold 4152.73us
+	mutex 140678906127144 ::: start 99710.60us ::: wait 7133.64us ::: hold 16623.50us
+	mutex 140678906134824 ::: start 117033.94us ::: wait 37382.05us ::: hold 30475.27us
+	mutex 140678906134824 ::: start 139848.68us ::: wait 6324.82us ::: hold 5350.26us
+	mutex 140678906134824 ::: start 148200.04us ::: wait 75.19us ::: hold 73.44us
+	mutex 140678906104616 ::: start 157434.68us ::: wait 756.32us ::: hold 88477.92us
+	mutex 140678906134824 ::: start 174142.87us ::: wait 585.52us ::: hold 556.30us
+	mutex 140678906112040 ::: start 221035.91us ::: wait 5525.48us ::: hold 4679.76us
+	mutex 140678906119720 ::: start 248228.07us ::: wait 14.05us ::: hold 13.73us
+	mutex 140678906112040 ::: start 268178.74us ::: wait 771.48us ::: hold 721.60us
+	mutex 140678906104616 ::: start 341398.72us ::: wait 116.16us ::: hold 4425.25us
+	mutex 140678906273576 ::: start 341522.08us ::: wait 21.54us ::: hold 23.32us
+	mutex 140678906273576 ::: start 390302.35us ::: wait 6086.10us ::: hold 5318.64us
+	mutex 140678906273576 ::: start 399366.69us ::: wait 168.59us ::: hold 170.92us
+	mutex 140678906104616 ::: start 403307.71us ::: wait 419.96us ::: hold 99991.66us
+	mutex 140678906127144 ::: start 456394.16us ::: wait 195.34us ::: hold 191.69us
+	mutex 140678906112040 ::: start 598599.23us ::: wait 70.37us ::: hold 68.58us
+	mutex 140678906104616 ::: start 706069.06us ::: wait 29.88us ::: hold 2326.38us
+	mutex 140678906134824 ::: start 706364.40us ::: wait 18.55us ::: hold 19.30us
+	mutex 140678906119720 ::: start 810900.17us ::: wait 56.13us ::: hold 53.74us
+	mutex 140678906119720 ::: start 977579.01us ::: wait 98.32us ::: hold 83.33us
+	mutex 140678906119720 ::: start 1209621.60us ::: wait 42.07us ::: hold 43.27us
+	mutex 140678906112040 ::: start 1267906.75us ::: wait 114.49us ::: hold 122.10us
+	mutex 140678906127144 ::: start 1287842.21us ::: wait 87.05us ::: hold 83.68us
+	mutex 140678906134824 ::: start 1359939.85us ::: wait 132.72us ::: hold 138.41us
+	mutex 140678906273576 ::: start 1733098.98us ::: wait 33.34us ::: hold 31.57us
+	mutex 140678906273576 ::: start 1965599.90us ::: wait 56.06us ::: hold 57.58us
+	mutex 140678906104616 ::: start 1978097.06us ::: wait 7.00us ::: hold 714.86us
+	mutex 140678906127144 ::: start 1978877.49us ::: wait 6.65us ::: hold 7.16us
+	mutex 140678906127144 ::: start 2099927.42us ::: wait 8.21us ::: hold 8.14us
+	mutex 140678906119720 ::: start 2743204.80us ::: wait 6.19us ::: hold 6.76us
+	mutex 140678906112040 ::: start 3104467.23us ::: wait 38.51us ::: hold 39.55us
+	mutex 140678906134824 ::: start 3384527.47us ::: wait 12.54us ::: hold 14.21us
+	mutex 140678906104616 ::: start 4186026.54us ::: wait 34.30us ::: hold 576.10us
+	mutex 140678906273576 ::: start 4186299.69us ::: wait 6.21us ::: hold 5.57us
+	mutex 140678906104616 ::: start 5211731.53us ::: wait 12.94us ::: hold 81.02us
+	mutex 140678906127144 ::: start 5778828.78us ::: wait 26.67us ::: hold 26.29us
+	mutex 140678906112040 ::: start 9821567.20us ::: wait 15.72us ::: hold 13.91us
+	mutex 140678906134824 ::: start 10416312.17us ::: wait 19.56us ::: hold 25.51us
+	mutex 140678903315496 ::: start 13260671.87us ::: wait 6.87us ::: hold 9.60us
+	mutex 140678906105640 ::: start 13260695.55us ::: wait 6.09us ::: hold 2505.92us
+	mutex 140678906112040 ::: start 13263226.07us ::: wait 6.48us ::: hold 6.96us
+	mutex 140678906119720 ::: start 13510885.24us ::: wait 6.61us ::: hold 7.60us
+	mutex 140678906127144 ::: start 13708736.18us ::: wait 6.49us ::: hold 7.95us
+	mutex 140678906134824 ::: start 14251187.66us ::: wait 16.02us ::: hold 18.09us
+	mutex 140678906273576 ::: start 14782583.18us ::: wait 6.70us ::: hold 7.28us
+	mutex 140678906127144 ::: start 14902176.62us ::: wait 6.15us ::: hold 7.20us
+	mutex 140678906104616 ::: start 15659432.98us ::: wait 7.37us ::: hold 235.06us
+	mutex 140678906134824 ::: start 15659755.41us ::: wait 6.85us ::: hold 7.58us
+	mutex 140678906119720 ::: start 15791746.58us ::: wait 6.46us ::: hold 5.70us
+	mutex 140678906104616 ::: start 15795750.72us ::: wait 6.50us ::: hold 1059.88us
+	mutex 140678906273576 ::: start 15905064.17us ::: wait 15.16us ::: hold 13.06us
+	mutex 140678906134824 ::: start 16374325.53us ::: wait 6.22us ::: hold 7.70us
+	mutex 140678906104616 ::: start 16974177.45us ::: wait 6.98us ::: hold 173.40us
+	mutex 140678906127144 ::: start 16974611.38us ::: wait 7.98us ::: hold 8.36us
+	mutex 140678906119720 ::: start 17287678.33us ::: wait 6.50us ::: hold 7.72us
+	mutex 140678906273576 ::: start 17744569.25us ::: wait 6.20us ::: hold 6.29us
 	---------------------------
-	start time 162103 ::: end time 198148
-	start time 198637 ::: end time 215063
-	start time 217008 ::: end time 253309
-	start time 253498 ::: end time 304866
-	start time 305041 ::: end time 312340
-	start time 315549 ::: end time 320428
-	start time 320784 ::: end time 393435
-	start time 393460 ::: end time 425543
-	start time 426275 ::: end time 436133
-	start time 436669 ::: end time 510765
-	start time 512155 ::: end time 563823
-	start time 564041 ::: end time 702834
-	start time 703201 ::: end time 768255
-	start time 770619 ::: end time 800447
-	start time 800680 ::: end time 834115
-	start time 834127 ::: end time 916315
-	start time 916382 ::: end time 1027636
-	start time 1027680 ::: end time 1687933
-	start time 1687964 ::: end time 1816950
-	start time 1816963 ::: end time 1859968
-	start time 1859999 ::: end time 2147470
-	start time 2147521 ::: end time 2169051
-	start time 2169122 ::: end time 2410963
-	start time 2410999 ::: end time 3270009
-	start time 3270016 ::: end time 3849369
-	start time 3849376 ::: end time 3856510
-	start time 3856524 ::: end time 3857439
-	start time 3857452 ::: end time 4147146
-	start time 4147154 ::: end time 5842361
-	start time 5842374 ::: end time 6037174
-	start time 6037190 ::: end time 6171372
-	start time 6171381 ::: end time 6422451
-	start time 6422461 ::: end time 6680136
-	start time 6680167 ::: end time 9336265
-	start time 9336272 ::: end time 9467000
-	start time 9467008 ::: end time 10659962
-	start time 10659969 ::: end time 11228333
-	start time 11228340 ::: end time 11424997
-	start time 11425004 ::: end time 12501529
-	start time 12501536 ::: end time 13265745
-	start time 13265752 ::: end time 13590409
-	start time 13590417 ::: end time 13695310
-	start time 13695316 ::: end time 13972518
-	start time 13972525 ::: end time 13972534
-tid: 25145 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273635694376 ::: start 375.59us ::: wait 28559.13us ::: hold 21818.66us
-	mutex 140273635953192 ::: start 432.94us ::: wait 151938.20us ::: hold 9630437.07us
-	mutex 140273635681576 ::: start 567.04us ::: wait 33435.55us ::: hold 25646.86us
-	mutex 140273635681576 ::: start 4154.16us ::: wait 474.40us ::: hold 432.87us
-	mutex 140273635960616 ::: start 10130.79us ::: wait 26195.04us ::: hold 25084.66us
-	mutex 140273635953192 ::: start 10237.85us ::: wait 19389.91us ::: hold 2130482.48us
-	mutex 140273635677224 ::: start 10983.81us ::: wait 3550.66us ::: hold 2840.62us
-	mutex 140273635960616 ::: start 11300.31us ::: wait 3922.04us ::: hold 3090.64us
-	mutex 140273635677224 ::: start 28468.85us ::: wait 27950.19us ::: hold 21416.64us
-	mutex 140273635677224 ::: start 61065.95us ::: wait 192.88us ::: hold 158.74us
-	mutex 140273635677224 ::: start 77509.63us ::: wait 231.44us ::: hold 214.64us
-	mutex 140273635681576 ::: start 83564.62us ::: wait 3412.59us ::: hold 2711.26us
-	mutex 140273635960616 ::: start 119196.85us ::: wait 371.09us ::: hold 335.11us
-	mutex 140273635953192 ::: start 123285.18us ::: wait 8124.17us ::: hold 873658.15us
-	mutex 140273635960616 ::: start 123739.78us ::: wait 1417.18us ::: hold 1222.80us
-	mutex 140273635681576 ::: start 124118.97us ::: wait 1645.01us ::: hold 1344.78us
-	mutex 140273635960616 ::: start 149212.80us ::: wait 158.72us ::: hold 140.44us
-	mutex 140273635704104 ::: start 205564.60us ::: wait 27528.30us ::: hold 21391.13us
-	mutex 140273635694376 ::: start 216462.98us ::: wait 2779.71us ::: hold 2274.98us
-	mutex 140273635694376 ::: start 222102.36us ::: wait 239.70us ::: hold 211.66us
-	mutex 140273635694376 ::: start 230879.76us ::: wait 57.93us ::: hold 57.27us
-	mutex 140273635704104 ::: start 247932.81us ::: wait 315.62us ::: hold 278.52us
-	mutex 140273635704104 ::: start 305172.17us ::: wait 3816.49us ::: hold 2935.11us
-	mutex 140273635704104 ::: start 312637.15us ::: wait 19.47us ::: hold 17.57us
-	mutex 140273635704104 ::: start 319202.05us ::: wait 49.75us ::: hold 52.32us
-	mutex 140273635953192 ::: start 329716.58us ::: wait 195.65us ::: hold 8704.62us
-	mutex 140273635704104 ::: start 330071.01us ::: wait 47.90us ::: hold 42.03us
-	mutex 140273635704104 ::: start 394003.94us ::: wait 1073.52us ::: hold 978.71us
-	mutex 140273635694376 ::: start 656598.59us ::: wait 366.17us ::: hold 324.56us
-	mutex 140273635677224 ::: start 672098.45us ::: wait 1523.04us ::: hold 1303.51us
-	mutex 140273635694376 ::: start 672781.93us ::: wait 1649.54us ::: hold 1438.48us
-	mutex 140273635704104 ::: start 718496.97us ::: wait 192.44us ::: hold 174.65us
-	mutex 140273635960616 ::: start 895100.32us ::: wait 18.57us ::: hold 18.00us
-	mutex 140273635953192 ::: start 928377.66us ::: wait 378.49us ::: hold 51538.89us
-	mutex 140273635953192 ::: start 1010238.71us ::: wait 6.65us ::: hold 39.84us
-	mutex 140273635694376 ::: start 1190333.17us ::: wait 31.06us ::: hold 30.87us
-	mutex 140273635677224 ::: start 1388982.31us ::: wait 48.75us ::: hold 47.09us
-	mutex 140273635704104 ::: start 1425061.45us ::: wait 31.01us ::: hold 29.64us
-	mutex 140273635681576 ::: start 1630774.71us ::: wait 235.62us ::: hold 218.66us
-	mutex 140273635677224 ::: start 2042607.77us ::: wait 36.86us ::: hold 36.70us
-	mutex 140273633195816 ::: start 2223306.14us ::: wait 7.64us ::: hold 10.76us
-	mutex 140273635960616 ::: start 2326968.28us ::: wait 28.26us ::: hold 28.05us
-	mutex 140273633195816 ::: start 3308319.77us ::: wait 6.84us ::: hold 8.64us
-	mutex 140273635681576 ::: start 3525293.80us ::: wait 49.97us ::: hold 48.24us
-	mutex 140273633195816 ::: start 4157935.75us ::: wait 8.04us ::: hold 11.61us
-	mutex 140273635694376 ::: start 4408761.21us ::: wait 24.86us ::: hold 25.69us
-	mutex 140273635694376 ::: start 5152963.89us ::: wait 6.10us ::: hold 5.96us
-	mutex 140273635677224 ::: start 5842433.90us ::: wait 6.63us ::: hold 6.17us
-	mutex 140273635953192 ::: start 6352778.95us ::: wait 31.29us ::: hold 2184.83us
-	mutex 140273635704104 ::: start 6358780.06us ::: wait 12.47us ::: hold 12.82us
-	mutex 140273633195816 ::: start 6711537.40us ::: wait 8.93us ::: hold 12.65us
-	mutex 140273633195816 ::: start 6918782.13us ::: wait 7.06us ::: hold 8.35us
-	mutex 140273633195816 ::: start 6998021.21us ::: wait 11.62us ::: hold 16.36us
-	mutex 140273635694376 ::: start 7254285.28us ::: wait 6.37us ::: hold 6.15us
-	mutex 140273635960616 ::: start 7549242.87us ::: wait 18.63us ::: hold 17.48us
-	mutex 140273633195816 ::: start 7876013.09us ::: wait 7.88us ::: hold 10.46us
-	mutex 140273635677224 ::: start 8596107.49us ::: wait 6.24us ::: hold 6.22us
-	mutex 140273635953192 ::: start 8651465.30us ::: wait 6.67us ::: hold 1299.76us
-	mutex 140273635681576 ::: start 8873862.61us ::: wait 19.55us ::: hold 19.06us
-	mutex 140273633195816 ::: start 10356641.85us ::: wait 7.25us ::: hold 10.09us
-	mutex 140273633195816 ::: start 10992293.94us ::: wait 8.15us ::: hold 11.26us
-	mutex 140273633195816 ::: start 12481067.50us ::: wait 10.18us ::: hold 16.77us
-	mutex 140273635677224 ::: start 13874577.47us ::: wait 12.47us ::: hold 12.10us
-	mutex 140273633195816 ::: start 14773119.24us ::: wait 8.28us ::: hold 12.51us
+	start time 219481 ::: end time 221035
+	start time 226561 ::: end time 248228
+	start time 248242 ::: end time 268178
+	start time 268950 ::: end time 341398
+	start time 341514 ::: end time 341522
+	start time 341543 ::: end time 390302
+	start time 396388 ::: end time 399366
+	start time 399535 ::: end time 403307
+	start time 403727 ::: end time 456394
+	start time 456589 ::: end time 598599
+	start time 598669 ::: end time 706069
+	start time 706098 ::: end time 706364
+	start time 706382 ::: end time 810900
+	start time 810956 ::: end time 977579
+	start time 977677 ::: end time 1209621
+	start time 1209663 ::: end time 1267906
+	start time 1268021 ::: end time 1287842
+	start time 1287929 ::: end time 1359939
+	start time 1360072 ::: end time 1733098
+	start time 1733132 ::: end time 1965599
+	start time 1965655 ::: end time 1978097
+	start time 1978104 ::: end time 1978877
+	start time 1978884 ::: end time 2099927
+	start time 2099935 ::: end time 2743204
+	start time 2743210 ::: end time 3104467
+	start time 3104505 ::: end time 3384527
+	start time 3384540 ::: end time 4186026
+	start time 4186060 ::: end time 4186299
+	start time 4186305 ::: end time 5211731
+	start time 5211744 ::: end time 5778828
+	start time 5778855 ::: end time 9821567
+	start time 9821582 ::: end time 10416312
+	start time 10416331 ::: end time 13260671
+	start time 13260678 ::: end time 13260695
+	start time 13260701 ::: end time 13263226
+	start time 13263232 ::: end time 13510885
+	start time 13510891 ::: end time 13708736
+	start time 13708742 ::: end time 14251187
+	start time 14251203 ::: end time 14782583
+	start time 14782589 ::: end time 14902176
+	start time 14902182 ::: end time 15659432
+	start time 15659440 ::: end time 15659755
+	start time 15659762 ::: end time 15791746
+	start time 15791753 ::: end time 15795750
+	start time 15795757 ::: end time 15905064
+	start time 15905079 ::: end time 16374325
+	start time 16374331 ::: end time 16974177
+	start time 16974184 ::: end time 16974611
+	start time 16974619 ::: end time 17287678
+	start time 17287684 ::: end time 17744569
+	start time 17744575 ::: end time 17744581
+tid: 26322 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678906112040 ::: start 0.00us ::: wait 31174.51us ::: hold 24998.98us
+	mutex 140678906134824 ::: start 189.28us ::: wait 186712.69us ::: hold 11585074.35us
+	mutex 140678906273576 ::: start 900.08us ::: wait 35201.96us ::: hold 28674.33us
+	mutex 140678906127144 ::: start 16460.40us ::: wait 37707.12us ::: hold 30316.92us
+	mutex 140678906112040 ::: start 28649.16us ::: wait 1534.77us ::: hold 266.88us
+	mutex 140678906127144 ::: start 46022.10us ::: wait 182.20us ::: hold 178.19us
+	mutex 140678906119720 ::: start 51751.09us ::: wait 32939.04us ::: hold 26654.02us
+	mutex 140678906119720 ::: start 79535.37us ::: wait 243.09us ::: hold 246.87us
+	mutex 140678906134824 ::: start 98285.33us ::: wait 22851.42us ::: hold 2535822.35us
+	mutex 140678906112040 ::: start 99299.36us ::: wait 4256.99us ::: hold 3635.25us
+	mutex 140678906127144 ::: start 113547.73us ::: wait 3811.87us ::: hold 3308.29us
+	mutex 140678906104616 ::: start 117628.18us ::: wait 42568.62us ::: hold 35987.33us
+	mutex 140678906112040 ::: start 131827.97us ::: wait 459.50us ::: hold 512.52us
+	mutex 140678906104616 ::: start 140602.01us ::: wait 4303.52us ::: hold 3699.30us
+	mutex 140678906112040 ::: start 148244.12us ::: wait 31.06us ::: hold 31.49us
+	mutex 140678906134824 ::: start 157015.98us ::: wait 531.39us ::: hold 57555.51us
+	mutex 140678906273576 ::: start 174181.69us ::: wait 616.94us ::: hold 561.22us
+	mutex 140678906134824 ::: start 219845.11us ::: wait 8872.55us ::: hold 921382.05us
+	mutex 140678906273576 ::: start 220632.97us ::: wait 1516.26us ::: hold 1424.83us
+	mutex 140678906119720 ::: start 221742.44us ::: wait 1542.72us ::: hold 1447.19us
+	mutex 140678906112040 ::: start 227891.04us ::: wait 1460.06us ::: hold 1410.60us
+	mutex 140678906104616 ::: start 351892.82us ::: wait 203.03us ::: hold 184.91us
+	mutex 140678906119720 ::: start 388508.68us ::: wait 4925.60us ::: hold 3633.12us
+	mutex 140678906134824 ::: start 469860.18us ::: wait 335.91us ::: hold 14590.48us
+	mutex 140678906104616 ::: start 469986.82us ::: wait 63.88us ::: hold 66.69us
+	mutex 140678906104616 ::: start 474540.64us ::: wait 539.67us ::: hold 552.88us
+	mutex 140678906104616 ::: start 497084.07us ::: wait 1877.17us ::: hold 1787.17us
+	mutex 140678906119720 ::: start 626947.80us ::: wait 364.57us ::: hold 369.40us
+	mutex 140678906273576 ::: start 761251.52us ::: wait 3658.09us ::: hold 3279.78us
+	mutex 140678906273576 ::: start 764304.22us ::: wait 25.38us ::: hold 23.41us
+	mutex 140678906127144 ::: start 898624.14us ::: wait 576.51us ::: hold 568.21us
+	mutex 140678906273576 ::: start 1065781.45us ::: wait 80.48us ::: hold 76.59us
+	mutex 140678906127144 ::: start 1096138.50us ::: wait 1564.71us ::: hold 1416.42us
+	mutex 140678906273576 ::: start 1164698.39us ::: wait 257.95us ::: hold 235.88us
+	mutex 140678906127144 ::: start 1368425.50us ::: wait 95.33us ::: hold 93.27us
+	mutex 140678906273576 ::: start 1978380.48us ::: wait 13.74us ::: hold 14.08us
+	mutex 140678906112040 ::: start 1985988.53us ::: wait 47.09us ::: hold 37.71us
+	mutex 140678906104616 ::: start 2066215.78us ::: wait 68.67us ::: hold 68.66us
+	mutex 140678906112040 ::: start 2244497.81us ::: wait 21.57us ::: hold 20.90us
+	mutex 140678906134824 ::: start 2288804.94us ::: wait 30.13us ::: hold 2110.18us
+	mutex 140678906273576 ::: start 2289016.23us ::: wait 6.15us ::: hold 6.16us
+	mutex 140678906119720 ::: start 3413720.02us ::: wait 18.73us ::: hold 19.68us
+	mutex 140678906127144 ::: start 4018365.22us ::: wait 30.97us ::: hold 41.46us
+	mutex 140678906119720 ::: start 4060315.00us ::: wait 43.68us ::: hold 45.88us
+	mutex 140678906104616 ::: start 4635151.80us ::: wait 28.82us ::: hold 30.32us
+	mutex 140678906134824 ::: start 4955794.00us ::: wait 12.75us ::: hold 524.51us
+	mutex 140678906119720 ::: start 5195760.34us ::: wait 28.28us ::: hold 28.63us
+	mutex 140678906112040 ::: start 5273054.06us ::: wait 12.49us ::: hold 12.53us
+	mutex 140678906273576 ::: start 6082387.27us ::: wait 46.04us ::: hold 47.68us
+	mutex 140678906134824 ::: start 7033066.92us ::: wait 9.87us ::: hold 2082.80us
+	mutex 140678906273576 ::: start 8161084.55us ::: wait 12.48us ::: hold 15.57us
+	mutex 140678906134824 ::: start 9534347.78us ::: wait 64.98us ::: hold 1739.17us
+	mutex 140678906119720 ::: start 9535131.46us ::: wait 7.30us ::: hold 8.12us
+	mutex 140678906134824 ::: start 10416287.84us ::: wait 13.57us ::: hold 561.71us
+	mutex 140678906119720 ::: start 10416465.75us ::: wait 6.30us ::: hold 5.89us
+	mutex 140678906104616 ::: start 11783446.37us ::: wait 6.21us ::: hold 8.10us
+	mutex 140678906127144 ::: start 12945059.94us ::: wait 29.02us ::: hold 39.13us
+	mutex 140678906119720 ::: start 13085956.26us ::: wait 15.55us ::: hold 13.65us
+	mutex 140678903625512 ::: start 14463562.84us ::: wait 8.14us ::: hold 11.64us
+	mutex 140678906134824 ::: start 15904753.37us ::: wait 13.50us ::: hold 1451.11us
+	mutex 140678906112040 ::: start 16374366.04us ::: wait 12.19us ::: hold 6.48us
+	mutex 140678906127144 ::: start 17447862.42us ::: wait 6.72us ::: hold 5.68us
+	mutex 140678906112040 ::: start 17460406.26us ::: wait 6.18us ::: hold 5.12us
 	---------------------------
-	start time 152371 ::: end time 205564
-	start time 233092 ::: end time 247932
-	start time 248248 ::: end time 305172
-	start time 308988 ::: end time 312637
-	start time 312656 ::: end time 319202
-	start time 319251 ::: end time 329716
-	start time 329912 ::: end time 330071
-	start time 330118 ::: end time 394003
-	start time 395077 ::: end time 656598
-	start time 656964 ::: end time 672098
-	start time 674431 ::: end time 718496
-	start time 718689 ::: end time 895100
-	start time 895118 ::: end time 928377
-	start time 928756 ::: end time 1010238
-	start time 1010245 ::: end time 1190333
-	start time 1190364 ::: end time 1388982
-	start time 1389031 ::: end time 1425061
-	start time 1425092 ::: end time 1630774
-	start time 1631010 ::: end time 2042607
-	start time 2042644 ::: end time 2223306
-	start time 2223313 ::: end time 2326968
-	start time 2326996 ::: end time 3308319
-	start time 3308326 ::: end time 3525293
-	start time 3525343 ::: end time 4157935
-	start time 4157943 ::: end time 4408761
-	start time 4408786 ::: end time 5152963
-	start time 5152969 ::: end time 5842433
-	start time 5842440 ::: end time 6352778
-	start time 6352810 ::: end time 6358780
-	start time 6358792 ::: end time 6711537
-	start time 6711546 ::: end time 6918782
-	start time 6918789 ::: end time 6998021
-	start time 6998032 ::: end time 7254285
-	start time 7254291 ::: end time 7549242
-	start time 7549261 ::: end time 7876013
-	start time 7876020 ::: end time 8596107
-	start time 8596113 ::: end time 8651465
-	start time 8651471 ::: end time 8873862
-	start time 8873882 ::: end time 10356641
-	start time 10356649 ::: end time 10992293
-	start time 10992302 ::: end time 12481067
-	start time 12481077 ::: end time 13874577
-	start time 13874589 ::: end time 14773119
-	start time 14773127 ::: end time 14773140
-tid: 25146 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273635681576 ::: start 208.30us ::: wait 33758.62us ::: hold 25183.61us
-	mutex 140273635960616 ::: start 273.02us ::: wait 154693.43us ::: hold 9725884.18us
-	mutex 140273635704104 ::: start 678.45us ::: wait 28028.30us ::: hold 21805.77us
-	mutex 140273635960616 ::: start 8166.86us ::: wait 8627.76us ::: hold 793434.32us
-	mutex 140273635681576 ::: start 9013.60us ::: wait 1552.45us ::: hold 1342.20us
-	mutex 140273635677224 ::: start 9927.35us ::: wait 1037.74us ::: hold 883.21us
-	mutex 140273635704104 ::: start 10259.14us ::: wait 1451.54us ::: hold 1232.47us
-	mutex 140273635953192 ::: start 10947.01us ::: wait 1555.34us ::: hold 1360.69us
-	mutex 140273635953192 ::: start 25367.65us ::: wait 25892.95us ::: hold 20144.33us
-	mutex 140273635704104 ::: start 38115.43us ::: wait 220.14us ::: hold 186.28us
-	mutex 140273635677224 ::: start 44320.98us ::: wait 27067.13us ::: hold 20872.81us
-	mutex 140273635677224 ::: start 54534.04us ::: wait 198.91us ::: hold 178.66us
-	mutex 140273635960616 ::: start 82856.80us ::: wait 19285.58us ::: hold 1966867.78us
-	mutex 140273635681576 ::: start 83842.00us ::: wait 3677.32us ::: hold 2899.19us
-	mutex 140273633195816 ::: start 85088.97us ::: wait 6.95us ::: hold 7.59us
-	mutex 140273635681576 ::: start 93076.82us ::: wait 184.06us ::: hold 156.73us
-	mutex 140273635694376 ::: start 93720.49us ::: wait 3441.53us ::: hold 2776.36us
-	mutex 140273635953192 ::: start 94595.36us ::: wait 3607.12us ::: hold 2911.09us
-	mutex 140273635704104 ::: start 96022.52us ::: wait 3682.90us ::: hold 2892.24us
-	mutex 140273635960616 ::: start 100075.39us ::: wait 568.28us ::: hold 158061.73us
-	mutex 140273635694376 ::: start 101205.57us ::: wait 49.53us ::: hold 46.26us
-	mutex 140273635694376 ::: start 102997.50us ::: wait 30220.68us ::: hold 23937.46us
-	mutex 140273635704104 ::: start 140027.34us ::: wait 82.47us ::: hold 116.27us
-	mutex 140273635960616 ::: start 140393.75us ::: wait 390.09us ::: hold 39615.26us
-	mutex 140273635694376 ::: start 155664.72us ::: wait 626.27us ::: hold 560.39us
-	mutex 140273635953192 ::: start 198272.08us ::: wait 1212.76us ::: hold 609.91us
-	mutex 140273635677224 ::: start 217089.18us ::: wait 3145.69us ::: hold 2522.55us
-	mutex 140273635694376 ::: start 359796.16us ::: wait 45.41us ::: hold 43.89us
-	mutex 140273635953192 ::: start 392684.51us ::: wait 165.31us ::: hold 139.24us
-	mutex 140273635953192 ::: start 402514.30us ::: wait 95.08us ::: hold 96.22us
-	mutex 140273635677224 ::: start 436335.52us ::: wait 669.01us ::: hold 630.76us
-	mutex 140273635704104 ::: start 470131.47us ::: wait 399.76us ::: hold 355.30us
-	mutex 140273635960616 ::: start 470814.72us ::: wait 265.41us ::: hold 12817.51us
-	mutex 140273635677224 ::: start 471024.39us ::: wait 55.50us ::: hold 52.70us
-	mutex 140273635694376 ::: start 517924.98us ::: wait 19.33us ::: hold 17.63us
-	mutex 140273635681576 ::: start 548045.78us ::: wait 659.10us ::: hold 558.13us
-	mutex 140273635694376 ::: start 570843.93us ::: wait 1353.58us ::: hold 1162.84us
-	mutex 140273635953192 ::: start 637662.04us ::: wait 48.09us ::: hold 56.87us
-	mutex 140273635694376 ::: start 849151.87us ::: wait 213.82us ::: hold 164.65us
-	mutex 140273635677224 ::: start 1006934.36us ::: wait 50.03us ::: hold 50.27us
-	mutex 140273635704104 ::: start 1270902.54us ::: wait 31.07us ::: hold 29.82us
-	mutex 140273635704104 ::: start 1274163.11us ::: wait 6.21us ::: hold 6.09us
-	mutex 140273633195816 ::: start 1426912.89us ::: wait 6.79us ::: hold 8.88us
-	mutex 140273635704104 ::: start 1618358.29us ::: wait 38.53us ::: hold 40.46us
-	mutex 140273635681576 ::: start 1670149.11us ::: wait 112.94us ::: hold 118.31us
-	mutex 140273635694376 ::: start 1890643.02us ::: wait 52.51us ::: hold 51.08us
-	mutex 140273635953192 ::: start 2203691.20us ::: wait 31.14us ::: hold 29.41us
-	mutex 140273633195816 ::: start 2227734.78us ::: wait 8.64us ::: hold 10.73us
-	mutex 140273635704104 ::: start 2675282.26us ::: wait 60.82us ::: hold 51.06us
-	mutex 140273635681576 ::: start 2777346.52us ::: wait 69.69us ::: hold 67.41us
-	mutex 140273635677224 ::: start 2960347.16us ::: wait 28.16us ::: hold 26.04us
-	mutex 140273635681576 ::: start 2989886.41us ::: wait 61.92us ::: hold 60.35us
-	mutex 140273633195816 ::: start 4288803.09us ::: wait 7.03us ::: hold 9.73us
-	mutex 140273635953192 ::: start 5152921.11us ::: wait 7.30us ::: hold 8.26us
-	mutex 140273635681576 ::: start 5841062.19us ::: wait 34.88us ::: hold 34.67us
-	mutex 140273635953192 ::: start 6133808.61us ::: wait 12.30us ::: hold 12.71us
-	mutex 140273635960616 ::: start 6505230.34us ::: wait 6.42us ::: hold 37.87us
-	mutex 140273633195816 ::: start 6639744.90us ::: wait 10.64us ::: hold 15.46us
-	mutex 140273635960616 ::: start 7549227.66us ::: wait 6.48us ::: hold 39.23us
-	mutex 140273635694376 ::: start 8596028.68us ::: wait 6.24us ::: hold 7.74us
-	mutex 140273632885800 ::: start 8971625.85us ::: wait 7.13us ::: hold 8.27us
-	mutex 140273635961640 ::: start 8971648.30us ::: wait 6.11us ::: hold 821.29us
-	mutex 140273633195816 ::: start 9403732.99us ::: wait 6.86us ::: hold 8.82us
-	mutex 140273635953192 ::: start 9598811.43us ::: wait 6.16us ::: hold 7.39us
-	mutex 140273635677224 ::: start 10452288.85us ::: wait 19.39us ::: hold 17.59us
-	mutex 140273635960616 ::: start 12501337.73us ::: wait 7.46us ::: hold 260.33us
-	mutex 140273635681576 ::: start 13151531.42us ::: wait 12.54us ::: hold 14.01us
-	mutex 140273633195816 ::: start 14014139.23us ::: wait 7.91us ::: hold 10.18us
+	start time 186901 ::: end time 219845
+	start time 229351 ::: end time 351892
+	start time 352095 ::: end time 388508
+	start time 393434 ::: end time 469860
+	start time 470196 ::: end time 474540
+	start time 475080 ::: end time 497084
+	start time 498961 ::: end time 626947
+	start time 627312 ::: end time 761251
+	start time 764909 ::: end time 898624
+	start time 899200 ::: end time 1065781
+	start time 1065861 ::: end time 1096138
+	start time 1097703 ::: end time 1164698
+	start time 1164956 ::: end time 1368425
+	start time 1368520 ::: end time 1978380
+	start time 1978394 ::: end time 1985988
+	start time 1986035 ::: end time 2066215
+	start time 2066284 ::: end time 2244497
+	start time 2244519 ::: end time 2288804
+	start time 2288835 ::: end time 2289016
+	start time 2289022 ::: end time 3413720
+	start time 3413738 ::: end time 4018365
+	start time 4018396 ::: end time 4060315
+	start time 4060358 ::: end time 4635151
+	start time 4635180 ::: end time 4955794
+	start time 4955806 ::: end time 5195760
+	start time 5195788 ::: end time 5273054
+	start time 5273066 ::: end time 6082387
+	start time 6082433 ::: end time 7033066
+	start time 7033076 ::: end time 8161084
+	start time 8161097 ::: end time 9534347
+	start time 9534412 ::: end time 9535131
+	start time 9535138 ::: end time 10416287
+	start time 10416301 ::: end time 10416465
+	start time 10416472 ::: end time 11783446
+	start time 11783452 ::: end time 12945059
+	start time 12945088 ::: end time 13085956
+	start time 13085971 ::: end time 14463562
+	start time 14463570 ::: end time 15904753
+	start time 15904766 ::: end time 16374366
+	start time 16374378 ::: end time 17447862
+	start time 17447869 ::: end time 17460406
+	start time 17460412 ::: end time 17460417
+tid: 26227 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678903625512 ::: start 1053276.17us ::: wait 31.61us ::: hold 14954491.95us
+	mutex 140678903574312 ::: start 14463749.78us ::: wait 13.04us ::: hold 13.87us
 	---------------------------
-	start time 154966 ::: end time 155664
-	start time 156290 ::: end time 198272
-	start time 199484 ::: end time 217089
-	start time 220234 ::: end time 359796
-	start time 359841 ::: end time 392684
-	start time 392849 ::: end time 402514
-	start time 402609 ::: end time 436335
-	start time 437004 ::: end time 470131
-	start time 470531 ::: end time 470814
-	start time 471080 ::: end time 517924
-	start time 517944 ::: end time 548045
-	start time 548704 ::: end time 570843
-	start time 572197 ::: end time 637662
-	start time 637710 ::: end time 849151
-	start time 849365 ::: end time 1006934
-	start time 1006984 ::: end time 1270902
-	start time 1270933 ::: end time 1274163
-	start time 1274169 ::: end time 1426912
-	start time 1426919 ::: end time 1618358
-	start time 1618396 ::: end time 1670149
-	start time 1670262 ::: end time 1890643
-	start time 1890695 ::: end time 2203691
-	start time 2203722 ::: end time 2227734
-	start time 2227743 ::: end time 2675282
-	start time 2675343 ::: end time 2777346
-	start time 2777416 ::: end time 2960347
-	start time 2960375 ::: end time 2989886
-	start time 2989948 ::: end time 4288803
-	start time 4288810 ::: end time 5152921
-	start time 5152928 ::: end time 5841062
-	start time 5841097 ::: end time 6133808
-	start time 6133820 ::: end time 6505230
-	start time 6505236 ::: end time 6639744
-	start time 6639755 ::: end time 7549227
-	start time 7549234 ::: end time 8596028
-	start time 8596034 ::: end time 8971625
-	start time 8971632 ::: end time 8971648
-	start time 8971654 ::: end time 9403732
-	start time 9403739 ::: end time 9598811
-	start time 9598817 ::: end time 10452288
-	start time 10452308 ::: end time 12501337
-	start time 12501345 ::: end time 13151531
-	start time 13151543 ::: end time 14014139
-	start time 14014147 ::: end time 14014157
-tid: 25147 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273635960616 ::: start 99.11us ::: wait 28641.63us ::: hold 21866.68us
-	mutex 140273635704104 ::: start 159.28us ::: wait 161398.16us ::: hold 9636448.01us
-	mutex 140273635677224 ::: start 724.28us ::: wait 31533.51us ::: hold 24272.21us
-	mutex 140273635681576 ::: start 10296.58us ::: wait 27587.81us ::: hold 21943.85us
-	mutex 140273635704104 ::: start 10387.28us ::: wait 20156.89us ::: hold 2130351.44us
-	mutex 140273635960616 ::: start 10834.21us ::: wait 3813.12us ::: hold 3049.95us
-	mutex 140273635681576 ::: start 11452.89us ::: wait 2986.02us ::: hold 2450.97us
-	mutex 140273635704104 ::: start 14587.46us ::: wait 57.25us ::: hold 4088.81us
-	mutex 140273635681576 ::: start 15094.56us ::: wait 24.49us ::: hold 22.93us
-	mutex 140273635694376 ::: start 21372.86us ::: wait 3545.15us ::: hold 2872.48us
-	mutex 140273635704104 ::: start 27847.98us ::: wait 390.86us ::: hold 58311.85us
-	mutex 140273635694376 ::: start 28721.03us ::: wait 35221.31us ::: hold 27358.53us
-	mutex 140273635681576 ::: start 43113.45us ::: wait 466.19us ::: hold 407.32us
-	mutex 140273635694376 ::: start 80423.91us ::: wait 211.39us ::: hold 193.52us
-	mutex 140273635704104 ::: start 82382.86us ::: wait 8154.55us ::: hold 808940.39us
-	mutex 140273635677224 ::: start 83412.87us ::: wait 1331.96us ::: hold 1134.26us
-	mutex 140273635694376 ::: start 84354.43us ::: wait 1513.70us ::: hold 1284.45us
-	mutex 140273635681576 ::: start 95564.40us ::: wait 1505.59us ::: hold 1286.47us
-	mutex 140273635960616 ::: start 97165.27us ::: wait 1342.34us ::: hold 1181.95us
-	mutex 140273635677224 ::: start 108746.04us ::: wait 225.91us ::: hold 193.45us
-	mutex 140273635960616 ::: start 132717.06us ::: wait 235.65us ::: hold 205.25us
-	mutex 140273635677224 ::: start 171472.41us ::: wait 520.15us ::: hold 459.09us
-	mutex 140273635953192 ::: start 206164.07us ::: wait 27377.54us ::: hold 21843.36us
-	mutex 140273635677224 ::: start 216851.52us ::: wait 3674.16us ::: hold 2931.58us
-	mutex 140273635694376 ::: start 282048.55us ::: wait 503.64us ::: hold 457.04us
-	mutex 140273635953192 ::: start 285373.01us ::: wait 316.51us ::: hold 288.24us
-	mutex 140273635704104 ::: start 298939.97us ::: wait 308.04us ::: hold 14185.39us
-	mutex 140273635681576 ::: start 299283.37us ::: wait 72.11us ::: hold 54.13us
-	mutex 140273635953192 ::: start 304520.08us ::: wait 3401.31us ::: hold 2765.90us
-	mutex 140273635953192 ::: start 312491.14us ::: wait 24.70us ::: hold 22.43us
-	mutex 140273635953192 ::: start 344224.51us ::: wait 1533.52us ::: hold 1292.53us
-	mutex 140273635953192 ::: start 399864.10us ::: wait 184.15us ::: hold 166.94us
-	mutex 140273635960616 ::: start 467770.48us ::: wait 353.36us ::: hold 325.29us
-	mutex 140273635681576 ::: start 500048.59us ::: wait 207.97us ::: hold 183.80us
-	mutex 140273635694376 ::: start 784294.99us ::: wait 43.50us ::: hold 41.67us
-	mutex 140273635677224 ::: start 834073.30us ::: wait 7.47us ::: hold 7.71us
-	mutex 140273635677224 ::: start 840303.25us ::: wait 62.33us ::: hold 63.81us
-	mutex 140273635681576 ::: start 1104168.48us ::: wait 49.40us ::: hold 63.91us
-	mutex 140273635677224 ::: start 1698513.00us ::: wait 41.95us ::: hold 40.85us
-	mutex 140273635694376 ::: start 1984424.77us ::: wait 12.50us ::: hold 12.91us
-	mutex 140273635694376 ::: start 2009472.40us ::: wait 80.24us ::: hold 81.03us
-	mutex 140273635694376 ::: start 2075996.55us ::: wait 31.61us ::: hold 30.03us
-	mutex 140273633195816 ::: start 2090526.60us ::: wait 7.24us ::: hold 8.57us
-	mutex 140273635953192 ::: start 2827912.42us ::: wait 28.83us ::: hold 28.71us
-	mutex 140273633195816 ::: start 3284429.38us ::: wait 8.24us ::: hold 10.00us
-	mutex 140273635953192 ::: start 3768279.97us ::: wait 6.25us ::: hold 7.17us
-	mutex 140273635704104 ::: start 3856639.64us ::: wait 13.15us ::: hold 1609.62us
-	mutex 140273635677224 ::: start 3857064.54us ::: wait 6.81us ::: hold 6.11us
-	mutex 140273635681576 ::: start 3969285.05us ::: wait 13.98us ::: hold 14.73us
-	mutex 140273635960616 ::: start 5467643.21us ::: wait 12.28us ::: hold 12.91us
-	mutex 140273635677224 ::: start 6025960.68us ::: wait 12.29us ::: hold 12.91us
-	mutex 140273635953192 ::: start 6041922.41us ::: wait 39.41us ::: hold 37.93us
-	mutex 140273635960616 ::: start 6063560.07us ::: wait 18.54us ::: hold 18.29us
-	mutex 140273635681576 ::: start 6358818.73us ::: wait 6.13us ::: hold 6.77us
-	mutex 140273635960616 ::: start 7203698.49us ::: wait 13.96us ::: hold 14.25us
-	mutex 140273633195816 ::: start 13792090.85us ::: wait 6.72us ::: hold 8.56us
-	mutex 140273635953192 ::: start 14663231.10us ::: wait 6.72us ::: hold 6.89us
+	start time 1053307 ::: end time 14463749
+	start time 14463762 ::: end time 16007799
+tid: 26324 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678906119720 ::: start 547.49us ::: wait 31185.26us ::: hold 24571.10us
+	mutex 140678906273576 ::: start 611.44us ::: wait 177664.32us ::: hold 11638710.69us
+	mutex 140678906104616 ::: start 979.06us ::: wait 33288.74us ::: hold 27285.88us
+	mutex 140678906134824 ::: start 1505.23us ::: wait 35255.42us ::: hold 28468.84us
+	mutex 140678906134824 ::: start 12899.91us ::: wait 451.66us ::: hold 440.37us
+	mutex 140678906127144 ::: start 16871.04us ::: wait 33484.92us ::: hold 36238.12us
+	mutex 140678906127144 ::: start 32421.97us ::: wait 445.52us ::: hold 420.81us
+	mutex 140678906112040 ::: start 62259.80us ::: wait 33938.25us ::: hold 27028.13us
+	mutex 140678906104616 ::: start 66459.62us ::: wait 566.80us ::: hold 531.58us
+	mutex 140678906112040 ::: start 83064.11us ::: wait 521.39us ::: hold 485.14us
+	mutex 140678906273576 ::: start 98520.65us ::: wait 23342.62us ::: hold 2554788.35us
+	mutex 140678906112040 ::: start 99029.20us ::: wait 3995.23us ::: hold 3357.01us
+	mutex 140678906119720 ::: start 99541.59us ::: wait 4180.92us ::: hold 3517.20us
+	mutex 140678906119720 ::: start 155711.46us ::: wait 51.99us ::: hold 48.81us
+	mutex 140678906273576 ::: start 156138.73us ::: wait 8570.73us ::: hold 908681.13us
+	mutex 140678906119720 ::: start 174220.00us ::: wait 558.63us ::: hold 510.45us
+	mutex 140678906273576 ::: start 194381.28us ::: wait 373.42us ::: hold 14761.26us
+	mutex 140678906134824 ::: start 194522.94us ::: wait 63.31us ::: hold 67.79us
+	mutex 140678906127144 ::: start 220685.49us ::: wait 4211.97us ::: hold 3484.38us
+	mutex 140678906134824 ::: start 221606.24us ::: wait 4210.38us ::: hold 3610.00us
+	mutex 140678906134824 ::: start 237436.14us ::: wait 255.40us ::: hold 241.43us
+	mutex 140678906273576 ::: start 257762.82us ::: wait 26.60us ::: hold 892.90us
+	mutex 140678906104616 ::: start 390135.88us ::: wait 3447.73us ::: hold 2914.48us
+	mutex 140678906127144 ::: start 442065.03us ::: wait 50.06us ::: hold 49.69us
+	mutex 140678906104616 ::: start 486564.31us ::: wait 101.82us ::: hold 104.22us
+	mutex 140678906127144 ::: start 516008.79us ::: wait 319.08us ::: hold 304.79us
+	mutex 140678906127144 ::: start 600656.03us ::: wait 1360.23us ::: hold 1203.14us
+	mutex 140678906119720 ::: start 601851.25us ::: wait 1191.07us ::: hold 1116.86us
+	mutex 140678906112040 ::: start 633868.06us ::: wait 288.00us ::: hold 258.73us
+	mutex 140678906104616 ::: start 683956.62us ::: wait 249.08us ::: hold 254.95us
+	mutex 140678906104616 ::: start 709782.50us ::: wait 46.89us ::: hold 50.30us
+	mutex 140678906134824 ::: start 764032.35us ::: wait 56.88us ::: hold 56.79us
+	mutex 140678906112040 ::: start 862604.11us ::: wait 1581.37us ::: hold 1499.84us
+	mutex 140678906104616 ::: start 866779.75us ::: wait 2443.05us ::: hold 2268.77us
+	mutex 140678906119720 ::: start 886601.87us ::: wait 279.31us ::: hold 260.75us
+	mutex 140678906273576 ::: start 982500.23us ::: wait 472.16us ::: hold 66178.06us
+	mutex 140678906119720 ::: start 1100490.15us ::: wait 63.70us ::: hold 66.70us
+	mutex 140678906134824 ::: start 1482629.88us ::: wait 1081.63us ::: hold 1067.83us
+	mutex 140678906112040 ::: start 1965639.16us ::: wait 68.78us ::: hold 68.33us
+	mutex 140678906273576 ::: start 1978337.23us ::: wait 28.30us ::: hold 1014.18us
+	mutex 140678906104616 ::: start 1978735.97us ::: wait 14.09us ::: hold 13.98us
+	mutex 140678906119720 ::: start 2314170.48us ::: wait 43.43us ::: hold 44.46us
+	mutex 140678906112040 ::: start 2885748.16us ::: wait 38.29us ::: hold 46.57us
+	mutex 140678906273576 ::: start 3199585.63us ::: wait 37.02us ::: hold 2533.51us
+	mutex 140678903315496 ::: start 3273445.58us ::: wait 14.19us ::: hold 23.77us
+	mutex 140678906098984 ::: start 3273491.08us ::: wait 6.12us ::: hold 9767.06us
+	mutex 140678906127144 ::: start 3981818.73us ::: wait 22.14us ::: hold 24.67us
+	mutex 140678906273576 ::: start 4185916.84us ::: wait 12.62us ::: hold 532.37us
+	mutex 140678906119720 ::: start 4186374.26us ::: wait 13.41us ::: hold 11.80us
+	mutex 140678906112040 ::: start 5535013.98us ::: wait 30.01us ::: hold 29.96us
+	mutex 140678906127144 ::: start 6753615.64us ::: wait 15.33us ::: hold 16.33us
+	mutex 140678906127144 ::: start 7067820.54us ::: wait 65.16us ::: hold 69.05us
+	mutex 140678906134824 ::: start 7364260.79us ::: wait 21.42us ::: hold 20.73us
+	mutex 140678906104616 ::: start 7550451.68us ::: wait 25.85us ::: hold 25.74us
+	mutex 140678906112040 ::: start 7949766.43us ::: wait 8.04us ::: hold 10.19us
+	mutex 140678906119720 ::: start 8161127.38us ::: wait 6.10us ::: hold 6.67us
+	mutex 140678906112040 ::: start 13510802.37us ::: wait 6.32us ::: hold 8.09us
+	mutex 140678906104616 ::: start 14773509.10us ::: wait 6.15us ::: hold 6.30us
+	mutex 140678906273576 ::: start 15658949.14us ::: wait 15.31us ::: hold 2031.46us
+	mutex 140678906127144 ::: start 15905440.42us ::: wait 14.38us ::: hold 14.14us
+	mutex 140678903625512 ::: start 16007569.29us ::: wait 6.76us ::: hold 9.58us
+	mutex 140678906134824 ::: start 16104848.02us ::: wait 9.23us ::: hold 9.61us
+	mutex 140678906273576 ::: start 16504866.46us ::: wait 10.68us ::: hold 64.66us
+	mutex 140678906119720 ::: start 16962265.67us ::: wait 6.13us ::: hold 7.06us
+	mutex 140678906104616 ::: start 17460255.39us ::: wait 6.24us ::: hold 6.13us
 	---------------------------
-	start time 161557 ::: end time 171472
-	start time 171992 ::: end time 206164
-	start time 233541 ::: end time 282048
-	start time 282552 ::: end time 285373
-	start time 285689 ::: end time 298939
-	start time 299248 ::: end time 299283
-	start time 299355 ::: end time 304520
-	start time 307921 ::: end time 312491
-	start time 312515 ::: end time 344224
-	start time 345758 ::: end time 399864
-	start time 400048 ::: end time 467770
-	start time 468123 ::: end time 500048
-	start time 500256 ::: end time 784294
-	start time 784338 ::: end time 834073
-	start time 834080 ::: end time 840303
-	start time 840365 ::: end time 1104168
-	start time 1104217 ::: end time 1698513
-	start time 1698554 ::: end time 1984424
-	start time 1984437 ::: end time 2009472
-	start time 2009552 ::: end time 2075996
-	start time 2076028 ::: end time 2090526
-	start time 2090533 ::: end time 2827912
-	start time 2827941 ::: end time 3284429
-	start time 3284437 ::: end time 3768279
-	start time 3768286 ::: end time 3856639
-	start time 3856652 ::: end time 3857064
-	start time 3857071 ::: end time 3969285
-	start time 3969299 ::: end time 5467643
-	start time 5467655 ::: end time 6025960
-	start time 6025972 ::: end time 6041922
-	start time 6041961 ::: end time 6063560
-	start time 6063578 ::: end time 6358818
-	start time 6358824 ::: end time 7203698
-	start time 7203712 ::: end time 13792090
-	start time 13792097 ::: end time 14663231
-	start time 14663237 ::: end time 14663244
-tid: 25119 ::: thread start time -2026856367664 ::: thread end time -2026856367664
-	mutex 140273779603808 ::: start 85316.05us ::: wait 258.05us ::: hold 164.82us
-	mutex 140273779603808 ::: start 85334.60us ::: wait 237.51us ::: hold 156.86us
-	mutex 140273779603808 ::: start 85370.55us ::: wait 251.72us ::: hold 149.62us
-	mutex 140273779603808 ::: start 85387.22us ::: wait 240.16us ::: hold 135.65us
-	mutex 140273779603808 ::: start 85403.17us ::: wait 234.64us ::: hold 133.07us
-	mutex 140273779603808 ::: start 85420.49us ::: wait 234.58us ::: hold 130.32us
-	mutex 140273779603808 ::: start 85438.13us ::: wait 242.11us ::: hold 146.30us
-	mutex 140273779603808 ::: start 85493.67us ::: wait 280.60us ::: hold 148.12us
-	mutex 140273779603808 ::: start 85517.50us ::: wait 237.73us ::: hold 143.25us
-	mutex 140273779603808 ::: start 85536.82us ::: wait 300.98us ::: hold 156.62us
-	mutex 140273779603808 ::: start 85764.07us ::: wait 7.81us ::: hold 5.03us
-	mutex 140273779603808 ::: start 85923.34us ::: wait 117.80us ::: hold 61.36us
-	mutex 140273779603808 ::: start 85950.91us ::: wait 140.28us ::: hold 77.47us
-	mutex 140273779603808 ::: start 86022.59us ::: wait 287.94us ::: hold 168.85us
-	mutex 140273779603808 ::: start 86061.36us ::: wait 242.36us ::: hold 149.33us
-	mutex 140273779603808 ::: start 86078.67us ::: wait 242.05us ::: hold 160.16us
-	mutex 140273779603808 ::: start 86106.56us ::: wait 1286.29us ::: hold 662.71us
-	mutex 140273779603808 ::: start 86129.14us ::: wait 2096.23us ::: hold 1028.09us
-	mutex 140273779603808 ::: start 86160.00us ::: wait 232.85us ::: hold 114.82us
-	mutex 140273779603808 ::: start 86226.24us ::: wait 43.61us ::: hold 27.25us
-	mutex 140273779603808 ::: start 86304.84us ::: wait 808.23us ::: hold 378.20us
-	mutex 140273779603808 ::: start 86446.13us ::: wait 249.03us ::: hold 151.00us
-	mutex 140273779603808 ::: start 86464.31us ::: wait 234.64us ::: hold 136.90us
-	mutex 140273779603808 ::: start 86486.11us ::: wait 231.86us ::: hold 145.31us
-	mutex 140273779603808 ::: start 86553.72us ::: wait 305.57us ::: hold 173.96us
-	mutex 140273779603808 ::: start 86570.37us ::: wait 233.91us ::: hold 130.86us
-	mutex 140273779603808 ::: start 86630.08us ::: wait 70.41us ::: hold 39.47us
-	mutex 140273779603808 ::: start 86678.36us ::: wait 162.14us ::: hold 98.07us
-	mutex 140273779603808 ::: start 86701.95us ::: wait 289.63us ::: hold 151.59us
-	mutex 140273779603808 ::: start 86718.08us ::: wait 214.03us ::: hold 115.85us
-	mutex 140273779603808 ::: start 86817.50us ::: wait 19.44us ::: hold 11.50us
-	mutex 140273779603808 ::: start 86843.32us ::: wait 7.08us ::: hold 3.69us
-	mutex 140273779603808 ::: start 86863.32us ::: wait 107.63us ::: hold 62.37us
-	mutex 140273779603808 ::: start 86880.58us ::: wait 216.78us ::: hold 113.47us
-	mutex 140273779603808 ::: start 86896.46us ::: wait 88.62us ::: hold 46.81us
-	mutex 140273779603808 ::: start 87078.25us ::: wait 331.92us ::: hold 177.94us
-	mutex 140273779603808 ::: start 87094.98us ::: wait 238.86us ::: hold 132.14us
-	mutex 140273779603808 ::: start 87111.13us ::: wait 247.53us ::: hold 133.44us
-	mutex 140273779603808 ::: start 87251.63us ::: wait 266.09us ::: hold 140.81us
-	mutex 140273779603808 ::: start 87331.31us ::: wait 580.57us ::: hold 263.19us
-	mutex 140273779603808 ::: start 87362.76us ::: wait 513.67us ::: hold 232.57us
-	mutex 140273779603808 ::: start 87393.83us ::: wait 490.38us ::: hold 225.70us
-	mutex 140273779603808 ::: start 87437.19us ::: wait 552.55us ::: hold 254.35us
-	mutex 140273779603808 ::: start 87471.39us ::: wait 750.86us ::: hold 324.68us
-	mutex 140273633146152 ::: start 87504.87us ::: wait 337.74us ::: hold 14532814.11us
-	mutex 140273779603808 ::: start 1427831.83us ::: wait 7.27us ::: hold 5.17us
-	mutex 140273779603808 ::: start 1427963.91us ::: wait 7.34us ::: hold 4.92us
-	mutex 140273779603808 ::: start 1428005.17us ::: wait 6.46us ::: hold 4.45us
-	mutex 140273779603808 ::: start 1428087.62us ::: wait 7.00us ::: hold 4.98us
-	mutex 140273779603808 ::: start 1428119.57us ::: wait 6.46us ::: hold 4.48us
-	mutex 140273779603808 ::: start 1428377.56us ::: wait 22.29us ::: hold 15.16us
-	mutex 140273779603808 ::: start 1428428.20us ::: wait 19.08us ::: hold 12.91us
-	mutex 140273779603808 ::: start 1428464.52us ::: wait 75.01us ::: hold 62.95us
-	mutex 140273779603808 ::: start 1428615.99us ::: wait 13.13us ::: hold 7.64us
-	mutex 140273779603808 ::: start 1428657.35us ::: wait 57.95us ::: hold 31.65us
-	mutex 140273779603808 ::: start 1428690.69us ::: wait 13.53us ::: hold 7.72us
-	mutex 140273779603808 ::: start 1428724.85us ::: wait 19.05us ::: hold 11.13us
-	mutex 140273779603808 ::: start 1428868.66us ::: wait 6.70us ::: hold 3.92us
-	mutex 140273779603808 ::: start 1428912.38us ::: wait 6.40us ::: hold 4.15us
-	mutex 140273779603808 ::: start 1429086.17us ::: wait 39.06us ::: hold 22.16us
-	mutex 140273779603808 ::: start 1429119.50us ::: wait 12.35us ::: hold 7.47us
-	mutex 140273779603808 ::: start 1429159.78us ::: wait 19.20us ::: hold 11.09us
-	mutex 140273779603808 ::: start 1429208.23us ::: wait 50.17us ::: hold 29.55us
-	mutex 140273779603808 ::: start 1429227.01us ::: wait 7.13us ::: hold 4.01us
-	mutex 140273779603808 ::: start 1429357.56us ::: wait 6.60us ::: hold 4.31us
-	mutex 140273779603808 ::: start 1429421.71us ::: wait 6.69us ::: hold 4.20us
-	mutex 140273779603808 ::: start 1429783.81us ::: wait 43.32us ::: hold 20.73us
-	mutex 140273779603808 ::: start 1429980.47us ::: wait 14.73us ::: hold 9.37us
-	mutex 140273779603808 ::: start 1430071.82us ::: wait 27.54us ::: hold 15.60us
-	mutex 140273779603808 ::: start 1430116.99us ::: wait 6.27us ::: hold 4.14us
-	mutex 140273779603808 ::: start 1430146.61us ::: wait 53.00us ::: hold 28.20us
-	mutex 140273779603808 ::: start 1430284.13us ::: wait 7.32us ::: hold 4.00us
-	mutex 140273779603808 ::: start 1430305.07us ::: wait 6.29us ::: hold 3.84us
-	mutex 140273779603808 ::: start 1430487.74us ::: wait 6.76us ::: hold 4.21us
-	mutex 140273779603808 ::: start 1430662.85us ::: wait 7.01us ::: hold 3.94us
-	mutex 140273779603808 ::: start 1430774.27us ::: wait 161.22us ::: hold 81.08us
-	mutex 140273779603808 ::: start 1430846.80us ::: wait 12.74us ::: hold 7.73us
-	mutex 140273779603808 ::: start 1430910.89us ::: wait 40.33us ::: hold 22.60us
-	mutex 140273779603808 ::: start 1431068.11us ::: wait 37.68us ::: hold 24.48us
-	mutex 140273779603808 ::: start 1431536.41us ::: wait 45.03us ::: hold 24.32us
-	mutex 140273779603808 ::: start 1431570.79us ::: wait 12.24us ::: hold 7.37us
-	mutex 140273779603808 ::: start 1431607.80us ::: wait 19.41us ::: hold 10.93us
-	mutex 140273779603808 ::: start 1431715.38us ::: wait 57.50us ::: hold 36.88us
-	mutex 140273779603808 ::: start 1431748.72us ::: wait 6.21us ::: hold 3.54us
-	mutex 140273779603808 ::: start 1431866.12us ::: wait 19.17us ::: hold 12.70us
-	mutex 140273779603808 ::: start 1432579.87us ::: wait 565.78us ::: hold 285.56us
-	mutex 140273779603808 ::: start 1432620.63us ::: wait 37.19us ::: hold 20.51us
-	mutex 140273779603808 ::: start 1432726.81us ::: wait 6.14us ::: hold 4.10us
-	mutex 140273779603808 ::: start 1433661.64us ::: wait 6.12us ::: hold 3.67us
-	mutex 140273779603808 ::: start 1434811.96us ::: wait 6.07us ::: hold 3.88us
-	mutex 140273779603808 ::: start 1435063.37us ::: wait 12.85us ::: hold 7.93us
-	mutex 140273779603808 ::: start 1435097.11us ::: wait 29.74us ::: hold 15.49us
-	mutex 140273779603808 ::: start 1435301.61us ::: wait 14.85us ::: hold 9.60us
-	mutex 140273779603808 ::: start 1435501.54us ::: wait 13.20us ::: hold 8.40us
-	mutex 140273779603808 ::: start 1435545.47us ::: wait 66.65us ::: hold 39.33us
-	mutex 140273779603808 ::: start 1435753.50us ::: wait 12.71us ::: hold 7.79us
-	mutex 140273779603808 ::: start 1435771.60us ::: wait 37.70us ::: hold 22.51us
-	mutex 140273779603808 ::: start 1435876.76us ::: wait 44.14us ::: hold 25.70us
-	mutex 140273779603808 ::: start 1435892.88us ::: wait 12.63us ::: hold 7.63us
-	mutex 140273779603808 ::: start 1436438.77us ::: wait 6.46us ::: hold 3.65us
-	mutex 140273779603808 ::: start 1436456.41us ::: wait 38.96us ::: hold 23.27us
-	mutex 140273779603808 ::: start 1436558.46us ::: wait 38.01us ::: hold 21.43us
-	mutex 140273779603808 ::: start 1436764.77us ::: wait 20.04us ::: hold 7.86us
-	mutex 140273779603808 ::: start 1436857.95us ::: wait 6.21us ::: hold 3.46us
-	mutex 140273779603808 ::: start 1436924.69us ::: wait 6.35us ::: hold 3.97us
-	mutex 140273779603808 ::: start 1437196.05us ::: wait 12.88us ::: hold 7.29us
-	mutex 140273779603808 ::: start 1437213.70us ::: wait 39.01us ::: hold 21.87us
-	mutex 140273779603808 ::: start 1437287.56us ::: wait 19.05us ::: hold 11.59us
-	mutex 140273779603808 ::: start 1437338.60us ::: wait 37.46us ::: hold 21.16us
-	mutex 140273779603808 ::: start 1437860.17us ::: wait 27.42us ::: hold 18.14us
-	mutex 140273779603808 ::: start 1437904.23us ::: wait 6.49us ::: hold 3.86us
-	mutex 140273779603808 ::: start 1438120.84us ::: wait 19.43us ::: hold 11.12us
-	mutex 140273779603808 ::: start 1438138.43us ::: wait 45.95us ::: hold 25.14us
-	mutex 140273779603808 ::: start 1481508.98us ::: wait 15.05us ::: hold 10.25us
-	mutex 140273779603808 ::: start 1481605.31us ::: wait 43.97us ::: hold 25.07us
-	mutex 140273779603808 ::: start 1483221.12us ::: wait 13.09us ::: hold 8.04us
-	mutex 140273779603808 ::: start 1483274.36us ::: wait 169.62us ::: hold 106.60us
-	mutex 140273779603808 ::: start 1483331.03us ::: wait 92.62us ::: hold 53.70us
-	mutex 140273779603808 ::: start 1483592.14us ::: wait 290.95us ::: hold 169.07us
-	mutex 140273779603808 ::: start 1483670.14us ::: wait 49.79us ::: hold 29.45us
-	mutex 140273779603808 ::: start 1483798.04us ::: wait 55.82us ::: hold 27.05us
-	mutex 140273779603808 ::: start 1483830.89us ::: wait 33.16us ::: hold 18.77us
-	mutex 140273779603808 ::: start 1484219.48us ::: wait 7.03us ::: hold 4.87us
-	mutex 140273779603808 ::: start 1484257.24us ::: wait 107.78us ::: hold 61.18us
-	mutex 140273779603808 ::: start 1484412.42us ::: wait 6.99us ::: hold 3.86us
-	mutex 140273779603808 ::: start 2223965.17us ::: wait 8.24us ::: hold 5.87us
-	mutex 140273779603808 ::: start 2224105.20us ::: wait 15.77us ::: hold 11.03us
-	mutex 140273779603808 ::: start 2224163.52us ::: wait 7.22us ::: hold 4.97us
-	mutex 140273779603808 ::: start 2225311.09us ::: wait 12.88us ::: hold 8.87us
-	mutex 140273779603808 ::: start 2225738.60us ::: wait 6.36us ::: hold 3.70us
-	mutex 140273779603808 ::: start 2226027.28us ::: wait 26.41us ::: hold 16.58us
-	mutex 140273779603808 ::: start 2226191.34us ::: wait 6.61us ::: hold 4.03us
-	mutex 140273779603808 ::: start 2226328.33us ::: wait 15.38us ::: hold 8.59us
-	mutex 140273779603808 ::: start 2226860.20us ::: wait 7.68us ::: hold 4.41us
-	mutex 140273779603808 ::: start 2226887.80us ::: wait 14.39us ::: hold 8.69us
-	mutex 140273779603808 ::: start 2227028.23us ::: wait 46.80us ::: hold 26.20us
-	mutex 140273779603808 ::: start 3270774.36us ::: wait 7.70us ::: hold 5.76us
-	mutex 140273779603808 ::: start 3271657.95us ::: wait 6.37us ::: hold 4.09us
-	mutex 140273779603808 ::: start 3272020.31us ::: wait 6.84us ::: hold 4.37us
-	mutex 140273779603808 ::: start 5269533.01us ::: wait 17.94us ::: hold 11.39us
-	mutex 140273779603808 ::: start 5269902.58us ::: wait 12.24us ::: hold 7.72us
-	mutex 140273779603808 ::: start 5270468.44us ::: wait 6.33us ::: hold 4.30us
-	mutex 140273779603808 ::: start 5270659.83us ::: wait 13.00us ::: hold 7.67us
-	mutex 140273779603808 ::: start 5271492.14us ::: wait 26.00us ::: hold 15.89us
-	mutex 140273779603808 ::: start 5271511.82us ::: wait 38.07us ::: hold 26.43us
-	mutex 140273779603808 ::: start 5408242.30us ::: wait 12.68us ::: hold 8.99us
-	mutex 140273779603808 ::: start 5408261.66us ::: wait 18.40us ::: hold 11.46us
-	mutex 140273779603808 ::: start 5408417.40us ::: wait 6.92us ::: hold 4.91us
-	mutex 140273779603808 ::: start 5408546.62us ::: wait 7.10us ::: hold 4.61us
-	mutex 140273779603808 ::: start 5408658.45us ::: wait 7.12us ::: hold 4.66us
-	mutex 140273779603808 ::: start 5408782.11us ::: wait 13.76us ::: hold 5.05us
-	mutex 140273779603808 ::: start 5408884.88us ::: wait 7.33us ::: hold 4.27us
-	mutex 140273779603808 ::: start 5408909.00us ::: wait 6.25us ::: hold 4.54us
-	mutex 140273779603808 ::: start 5409015.94us ::: wait 7.30us ::: hold 5.45us
-	mutex 140273779603808 ::: start 5409169.21us ::: wait 24.27us ::: hold 4.50us
-	mutex 140273779603808 ::: start 5409271.54us ::: wait 6.45us ::: hold 3.95us
-	mutex 140273779603808 ::: start 5409325.28us ::: wait 6.59us ::: hold 3.87us
-	mutex 140273779603808 ::: start 5409480.63us ::: wait 6.59us ::: hold 3.71us
-	mutex 140273779603808 ::: start 5409697.94us ::: wait 6.78us ::: hold 4.42us
-	mutex 140273779603808 ::: start 5409861.44us ::: wait 6.32us ::: hold 4.16us
-	mutex 140273779603808 ::: start 5410116.14us ::: wait 6.27us ::: hold 4.34us
-	mutex 140273779603808 ::: start 5410281.94us ::: wait 19.20us ::: hold 13.22us
-	mutex 140273779603808 ::: start 5410653.75us ::: wait 6.23us ::: hold 3.67us
-	mutex 140273779603808 ::: start 5411667.79us ::: wait 50.74us ::: hold 32.88us
-	mutex 140273779603808 ::: start 5412444.35us ::: wait 12.52us ::: hold 7.92us
-	mutex 140273779603808 ::: start 5412644.54us ::: wait 7.10us ::: hold 3.75us
-	mutex 140273779603808 ::: start 5412829.03us ::: wait 13.59us ::: hold 8.52us
-	mutex 140273779603808 ::: start 5412976.68us ::: wait 6.48us ::: hold 4.16us
-	mutex 140273779603808 ::: start 5413314.51us ::: wait 19.07us ::: hold 11.83us
-	mutex 140273779603808 ::: start 5413555.48us ::: wait 13.33us ::: hold 7.21us
-	mutex 140273779603808 ::: start 5413653.58us ::: wait 6.12us ::: hold 4.06us
-	mutex 140273779603808 ::: start 5413833.25us ::: wait 12.90us ::: hold 8.54us
-	mutex 140273779603808 ::: start 5413911.77us ::: wait 6.48us ::: hold 3.76us
-	mutex 140273779603808 ::: start 5415203.80us ::: wait 6.35us ::: hold 3.94us
-	mutex 140273779603808 ::: start 5416089.89us ::: wait 6.36us ::: hold 3.83us
-	mutex 140273779603808 ::: start 5416138.78us ::: wait 18.52us ::: hold 11.55us
-	mutex 140273779603808 ::: start 5416161.69us ::: wait 18.57us ::: hold 10.75us
-	mutex 140273779603808 ::: start 5416446.38us ::: wait 27.09us ::: hold 15.70us
-	mutex 140273779603808 ::: start 6037800.08us ::: wait 7.23us ::: hold 5.15us
-	mutex 140273779603808 ::: start 6038345.82us ::: wait 39.59us ::: hold 26.52us
-	mutex 140273779603808 ::: start 6038553.40us ::: wait 6.22us ::: hold 4.02us
-	mutex 140273779603808 ::: start 6423020.31us ::: wait 7.88us ::: hold 5.12us
-	mutex 140273779603808 ::: start 6566095.42us ::: wait 15.31us ::: hold 10.74us
-	mutex 140273779603808 ::: start 6566325.99us ::: wait 52.15us ::: hold 35.01us
-	mutex 140273779603808 ::: start 6566449.95us ::: wait 33.45us ::: hold 19.53us
-	mutex 140273779603808 ::: start 6566509.03us ::: wait 12.50us ::: hold 7.69us
-	mutex 140273779603808 ::: start 6566563.60us ::: wait 31.70us ::: hold 19.03us
-	mutex 140273779603808 ::: start 6566806.28us ::: wait 12.29us ::: hold 7.35us
-	mutex 140273779603808 ::: start 6567601.85us ::: wait 18.87us ::: hold 11.97us
-	mutex 140273779603808 ::: start 6568203.41us ::: wait 13.71us ::: hold 8.16us
-	mutex 140273779603808 ::: start 6640736.72us ::: wait 7.71us ::: hold 5.79us
-	mutex 140273779603808 ::: start 6641309.91us ::: wait 6.26us ::: hold 5.29us
-	mutex 140273779603808 ::: start 6641670.91us ::: wait 6.69us ::: hold 4.26us
-	mutex 140273779603808 ::: start 6712816.40us ::: wait 7.71us ::: hold 5.39us
-	mutex 140273779603808 ::: start 6713147.80us ::: wait 6.30us ::: hold 4.81us
-	mutex 140273779603808 ::: start 6713591.64us ::: wait 6.38us ::: hold 4.31us
-	mutex 140273779603808 ::: start 6919825.95us ::: wait 35.40us ::: hold 22.36us
-	mutex 140273779603808 ::: start 6999081.52us ::: wait 8.01us ::: hold 6.20us
-	mutex 140273779603808 ::: start 6999249.36us ::: wait 7.24us ::: hold 4.99us
-	mutex 140273779603808 ::: start 6999420.55us ::: wait 7.71us ::: hold 5.32us
-	mutex 140273779603808 ::: start 6999561.24us ::: wait 6.51us ::: hold 3.98us
-	mutex 140273779603808 ::: start 6999748.00us ::: wait 6.13us ::: hold 4.32us
-	mutex 140273779603808 ::: start 7000144.67us ::: wait 6.22us ::: hold 3.92us
-	mutex 140273779603808 ::: start 7000415.43us ::: wait 6.82us ::: hold 4.44us
-	mutex 140273779603808 ::: start 7002243.84us ::: wait 13.63us ::: hold 9.38us
-	mutex 140273779603808 ::: start 7002374.49us ::: wait 34.06us ::: hold 20.84us
-	mutex 140273779603808 ::: start 7002472.61us ::: wait 13.07us ::: hold 7.73us
-	mutex 140273779603808 ::: start 7002589.94us ::: wait 50.25us ::: hold 28.78us
-	mutex 140273779603808 ::: start 7002697.69us ::: wait 13.70us ::: hold 7.77us
-	mutex 140273779603808 ::: start 7003504.54us ::: wait 67.36us ::: hold 39.47us
-	mutex 140273779603808 ::: start 7003523.20us ::: wait 62.01us ::: hold 33.72us
-	mutex 140273779603808 ::: start 7003754.90us ::: wait 52.53us ::: hold 32.18us
-	mutex 140273779603808 ::: start 7199137.39us ::: wait 7.61us ::: hold 5.37us
-	mutex 140273779603808 ::: start 7199993.07us ::: wait 6.17us ::: hold 4.04us
-	mutex 140273779603808 ::: start 7201664.27us ::: wait 7.59us ::: hold 5.17us
-	mutex 140273779603808 ::: start 7202479.36us ::: wait 6.23us ::: hold 4.19us
-	mutex 140273779603808 ::: start 7203173.08us ::: wait 26.19us ::: hold 4.12us
-	mutex 140273779603808 ::: start 7309242.43us ::: wait 6.71us ::: hold 4.45us
-	mutex 140273779603808 ::: start 7559450.86us ::: wait 6.39us ::: hold 4.47us
-	mutex 140273779603808 ::: start 7559676.92us ::: wait 14.22us ::: hold 16.71us
-	mutex 140273779603808 ::: start 7559790.37us ::: wait 7.27us ::: hold 5.02us
-	mutex 140273779603808 ::: start 7559945.55us ::: wait 6.76us ::: hold 4.68us
-	mutex 140273779603808 ::: start 7560150.88us ::: wait 12.90us ::: hold 8.54us
-	mutex 140273779603808 ::: start 7560873.81us ::: wait 6.11us ::: hold 3.93us
-	mutex 140273779603808 ::: start 7560962.26us ::: wait 6.42us ::: hold 3.98us
-	mutex 140273779603808 ::: start 7561373.06us ::: wait 12.62us ::: hold 7.31us
-	mutex 140273779603808 ::: start 7561722.07us ::: wait 36.15us ::: hold 19.90us
-	mutex 140273779603808 ::: start 7561823.96us ::: wait 30.81us ::: hold 18.02us
-	mutex 140273779603808 ::: start 7562026.73us ::: wait 6.35us ::: hold 3.92us
-	mutex 140273779603808 ::: start 7877271.99us ::: wait 7.75us ::: hold 5.95us
-	mutex 140273779603808 ::: start 7877665.73us ::: wait 6.62us ::: hold 4.10us
-	mutex 140273779603808 ::: start 7877712.50us ::: wait 8.13us ::: hold 4.77us
-	mutex 140273779603808 ::: start 7878552.89us ::: wait 6.16us ::: hold 4.43us
-	mutex 140273779603808 ::: start 7878716.76us ::: wait 26.55us ::: hold 15.28us
-	mutex 140273779603808 ::: start 7878740.66us ::: wait 12.44us ::: hold 10.75us
-	mutex 140273779603808 ::: start 7878907.33us ::: wait 12.17us ::: hold 7.86us
-	mutex 140273779603808 ::: start 7879128.58us ::: wait 6.28us ::: hold 3.90us
-	mutex 140273779603808 ::: start 9405018.36us ::: wait 14.22us ::: hold 9.38us
-	mutex 140273779603808 ::: start 9468606.39us ::: wait 6.79us ::: hold 5.11us
-	mutex 140273779603808 ::: start 10661141.17us ::: wait 6.72us ::: hold 5.06us
-	mutex 140273779603808 ::: start 11240060.01us ::: wait 8.05us ::: hold 6.67us
-	mutex 140273779603808 ::: start 11240416.93us ::: wait 6.86us ::: hold 4.35us
-	mutex 140273779603808 ::: start 11240478.05us ::: wait 6.72us ::: hold 4.83us
-	mutex 140273779603808 ::: start 11241355.03us ::: wait 6.12us ::: hold 3.85us
-	mutex 140273779603808 ::: start 11241509.16us ::: wait 6.37us ::: hold 3.86us
-	mutex 140273779603808 ::: start 11241566.29us ::: wait 6.24us ::: hold 4.19us
-	mutex 140273779603808 ::: start 11241766.00us ::: wait 6.07us ::: hold 3.78us
-	mutex 140273779603808 ::: start 11241938.72us ::: wait 6.45us ::: hold 4.06us
-	mutex 140273779603808 ::: start 11242171.26us ::: wait 18.24us ::: hold 4.23us
-	mutex 140273779603808 ::: start 11365511.46us ::: wait 7.29us ::: hold 5.32us
-	mutex 140273779603808 ::: start 11366424.73us ::: wait 6.40us ::: hold 4.12us
-	mutex 140273779603808 ::: start 11366447.89us ::: wait 6.15us ::: hold 3.66us
-	mutex 140273779603808 ::: start 11366502.21us ::: wait 6.19us ::: hold 3.56us
-	mutex 140273779603808 ::: start 11593838.83us ::: wait 9.49us ::: hold 7.87us
-	mutex 140273779603808 ::: start 11593934.11us ::: wait 7.33us ::: hold 5.08us
-	mutex 140273779603808 ::: start 11594008.28us ::: wait 7.14us ::: hold 5.12us
-	mutex 140273779603808 ::: start 11595245.50us ::: wait 6.57us ::: hold 4.07us
-	mutex 140273779603808 ::: start 11596404.55us ::: wait 12.57us ::: hold 8.16us
-	mutex 140273779603808 ::: start 11596915.89us ::: wait 6.25us ::: hold 4.01us
-	mutex 140273779603808 ::: start 11597132.83us ::: wait 6.33us ::: hold 4.33us
-	mutex 140273779603808 ::: start 11657342.83us ::: wait 8.20us ::: hold 6.14us
-	mutex 140273779603808 ::: start 11657708.32us ::: wait 6.55us ::: hold 5.18us
-	mutex 140273779603808 ::: start 11657744.95us ::: wait 6.50us ::: hold 5.91us
-	mutex 140273779603808 ::: start 11658525.52us ::: wait 6.19us ::: hold 4.88us
-	mutex 140273779603808 ::: start 13588386.34us ::: wait 7.69us ::: hold 4.65us
-	mutex 140273779603808 ::: start 13589297.72us ::: wait 6.20us ::: hold 3.91us
-	mutex 140273779603808 ::: start 13973019.52us ::: wait 6.99us ::: hold 6.04us
-	mutex 140273779603808 ::: start 13973283.20us ::: wait 8.40us ::: hold 6.17us
-	mutex 140273779603808 ::: start 13973361.06us ::: wait 7.02us ::: hold 5.04us
-	mutex 140273779603808 ::: start 13973431.11us ::: wait 6.80us ::: hold 4.51us
-	mutex 140273779603808 ::: start 13973510.39us ::: wait 7.16us ::: hold 5.04us
-	mutex 140273779603808 ::: start 13974060.50us ::: wait 6.21us ::: hold 4.28us
-	mutex 140273779603808 ::: start 13975171.19us ::: wait 17.36us ::: hold 4.75us
-	mutex 140273779603808 ::: start 13975596.98us ::: wait 115.98us ::: hold 19.50us
-	mutex 140273779603808 ::: start 13976673.30us ::: wait 6.88us ::: hold 4.61us
-	mutex 140273779603808 ::: start 13977423.15us ::: wait 6.64us ::: hold 3.91us
-	mutex 140273632885800 ::: start 13978340.25us ::: wait 6.53us ::: hold 8.03us
-	mutex 140273633146152 ::: start 13978362.20us ::: wait 6.21us ::: hold 110.86us
-	mutex 140273635695400 ::: start 13978486.54us ::: wait 6.32us ::: hold 5.82us
-	mutex 140273779603808 ::: start 14014883.05us ::: wait 7.88us ::: hold 5.84us
-	mutex 140273779603808 ::: start 14014952.93us ::: wait 7.32us ::: hold 5.11us
-	mutex 140273779603808 ::: start 14015020.33us ::: wait 7.09us ::: hold 5.29us
-	mutex 140273779603808 ::: start 14016494.66us ::: wait 6.37us ::: hold 4.51us
-	mutex 140273779603808 ::: start 14774129.91us ::: wait 8.03us ::: hold 6.50us
-	mutex 140273779603808 ::: start 14774213.48us ::: wait 6.93us ::: hold 5.40us
-	mutex 140273779603808 ::: start 14774486.26us ::: wait 6.26us ::: hold 4.10us
-	mutex 140273779603808 ::: start 14774608.21us ::: wait 6.42us ::: hold 4.11us
-	mutex 140273779603808 ::: start 14776199.61us ::: wait 6.26us ::: hold 4.29us
-	mutex 140273779603808 ::: start 14776607.24us ::: wait 6.32us ::: hold 4.27us
+	start time 178275 ::: end time 194381
+	start time 194754 ::: end time 220685
+	start time 225816 ::: end time 237436
+	start time 237691 ::: end time 257762
+	start time 257789 ::: end time 390135
+	start time 393583 ::: end time 442065
+	start time 442115 ::: end time 486564
+	start time 486666 ::: end time 516008
+	start time 516327 ::: end time 600656
+	start time 603042 ::: end time 633868
+	start time 634156 ::: end time 683956
+	start time 684205 ::: end time 709782
+	start time 709829 ::: end time 764032
+	start time 764089 ::: end time 862604
+	start time 864185 ::: end time 866779
+	start time 869222 ::: end time 886601
+	start time 886881 ::: end time 982500
+	start time 982972 ::: end time 1100490
+	start time 1100553 ::: end time 1482629
+	start time 1483711 ::: end time 1965639
+	start time 1965707 ::: end time 1978337
+	start time 1978365 ::: end time 1978735
+	start time 1978750 ::: end time 2314170
+	start time 2314213 ::: end time 2885748
+	start time 2885786 ::: end time 3199585
+	start time 3199622 ::: end time 3273445
+	start time 3273459 ::: end time 3273491
+	start time 3273497 ::: end time 3981818
+	start time 3981840 ::: end time 4185916
+	start time 4185929 ::: end time 4186374
+	start time 4186387 ::: end time 5535013
+	start time 5535043 ::: end time 6753615
+	start time 6753630 ::: end time 7067820
+	start time 7067885 ::: end time 7364260
+	start time 7364282 ::: end time 7550451
+	start time 7550477 ::: end time 7949766
+	start time 7949774 ::: end time 8161127
+	start time 8161133 ::: end time 13510802
+	start time 13510808 ::: end time 14773509
+	start time 14773515 ::: end time 15658949
+	start time 15658964 ::: end time 15905440
+	start time 15905454 ::: end time 16007569
+	start time 16007576 ::: end time 16104848
+	start time 16104857 ::: end time 16504866
+	start time 16504877 ::: end time 16962265
+	start time 16962271 ::: end time 17460255
+	start time 17460261 ::: end time 17460267
+tid: 26230 ::: thread start time -2028104248182 ::: thread end time -2028104248182
+	mutex 140678903648040 ::: start 11914.35us ::: wait 2543.36us ::: hold 17954968.79us
+	mutex 140679043012960 ::: start 3678271.38us ::: wait 20.36us ::: hold 15.26us
+	mutex 140679043012960 ::: start 3678291.11us ::: wait 18.77us ::: hold 11.11us
+	mutex 140679043012960 ::: start 3678307.79us ::: wait 18.56us ::: hold 9.76us
+	mutex 140679043012960 ::: start 3678323.56us ::: wait 18.54us ::: hold 10.45us
 	---------------------------
-	start time 85837 ::: end time 85923
-	start time 88225 ::: end time 1427831
-	start time 1427839 ::: end time 1427963
-	start time 1427971 ::: end time 1428005
-	start time 1428011 ::: end time 1428087
-	start time 1428094 ::: end time 1428119
-	start time 1428126 ::: end time 1428377
-	start time 1428399 ::: end time 1428428
-	start time 1428447 ::: end time 1428464
-	start time 1428539 ::: end time 1428615
-	start time 1428629 ::: end time 1428657
-	start time 1428715 ::: end time 1428724
-	start time 1428743 ::: end time 1428868
-	start time 1428875 ::: end time 1428912
-	start time 1428918 ::: end time 1429086
-	start time 1429131 ::: end time 1429159
-	start time 1429178 ::: end time 1429208
-	start time 1429258 ::: end time 1429357
-	start time 1429364 ::: end time 1429421
-	start time 1429428 ::: end time 1429783
-	start time 1429827 ::: end time 1429980
-	start time 1429995 ::: end time 1430071
-	start time 1430099 ::: end time 1430116
-	start time 1430123 ::: end time 1430146
-	start time 1430199 ::: end time 1430284
-	start time 1430291 ::: end time 1430305
-	start time 1430311 ::: end time 1430487
-	start time 1430494 ::: end time 1430662
-	start time 1430669 ::: end time 1430774
-	start time 1430951 ::: end time 1431068
-	start time 1431105 ::: end time 1431536
-	start time 1431583 ::: end time 1431607
-	start time 1431627 ::: end time 1431715
-	start time 1431772 ::: end time 1431866
-	start time 1431885 ::: end time 1432579
-	start time 1433145 ::: end time 1433661
-	start time 1433667 ::: end time 1434811
-	start time 1434818 ::: end time 1435063
-	start time 1435076 ::: end time 1435097
-	start time 1435126 ::: end time 1435301
-	start time 1435316 ::: end time 1435501
-	start time 1435514 ::: end time 1435545
-	start time 1435612 ::: end time 1435753
-	start time 1435766 ::: end time 1435771
-	start time 1435809 ::: end time 1435876
-	start time 1435920 ::: end time 1436438
-	start time 1436445 ::: end time 1436456
-	start time 1436495 ::: end time 1436558
-	start time 1436596 ::: end time 1436764
-	start time 1436784 ::: end time 1436857
-	start time 1436864 ::: end time 1436924
-	start time 1436931 ::: end time 1437196
-	start time 1437208 ::: end time 1437213
-	start time 1437252 ::: end time 1437287
-	start time 1437306 ::: end time 1437338
-	start time 1437376 ::: end time 1437860
-	start time 1437887 ::: end time 1437904
-	start time 1437910 ::: end time 1438120
-	start time 1438184 ::: end time 1481508
-	start time 1481524 ::: end time 1481605
-	start time 1481649 ::: end time 1483221
-	start time 1483234 ::: end time 1483274
-	start time 1483443 ::: end time 1483592
-	start time 1483883 ::: end time 1484219
-	start time 1484226 ::: end time 1484257
-	start time 1484365 ::: end time 1484412
-	start time 1484419 ::: end time 2223965
-	start time 2223973 ::: end time 2224105
-	start time 2224120 ::: end time 2224163
-	start time 2224170 ::: end time 2225311
-	start time 2225323 ::: end time 2225738
-	start time 2225744 ::: end time 2226027
-	start time 2226053 ::: end time 2226191
-	start time 2226197 ::: end time 2226328
-	start time 2226343 ::: end time 2226860
-	start time 2226867 ::: end time 2226887
-	start time 2226902 ::: end time 2227028
-	start time 2227075 ::: end time 3270774
-	start time 3270782 ::: end time 3271657
-	start time 3271664 ::: end time 3272020
-	start time 3272027 ::: end time 5269533
-	start time 5269550 ::: end time 5269902
-	start time 5269914 ::: end time 5270468
-	start time 5270474 ::: end time 5270659
-	start time 5270672 ::: end time 5271492
-	start time 5271549 ::: end time 5408242
-	start time 5408254 ::: end time 5408261
-	start time 5408280 ::: end time 5408417
-	start time 5408424 ::: end time 5408546
-	start time 5408553 ::: end time 5408658
-	start time 5408665 ::: end time 5408782
-	start time 5408795 ::: end time 5408884
-	start time 5408892 ::: end time 5408909
-	start time 5408915 ::: end time 5409015
-	start time 5409023 ::: end time 5409169
-	start time 5409193 ::: end time 5409271
-	start time 5409277 ::: end time 5409325
-	start time 5409331 ::: end time 5409480
-	start time 5409487 ::: end time 5409697
-	start time 5409704 ::: end time 5409861
-	start time 5409867 ::: end time 5410116
-	start time 5410122 ::: end time 5410281
-	start time 5410301 ::: end time 5410653
-	start time 5410659 ::: end time 5411667
-	start time 5411718 ::: end time 5412444
-	start time 5412456 ::: end time 5412644
-	start time 5412651 ::: end time 5412829
-	start time 5412842 ::: end time 5412976
-	start time 5412983 ::: end time 5413314
-	start time 5413333 ::: end time 5413555
-	start time 5413568 ::: end time 5413653
-	start time 5413659 ::: end time 5413833
-	start time 5413846 ::: end time 5413911
-	start time 5413918 ::: end time 5415203
-	start time 5415210 ::: end time 5416089
-	start time 5416096 ::: end time 5416138
-	start time 5416157 ::: end time 5416161
-	start time 5416180 ::: end time 5416446
-	start time 5416473 ::: end time 6037800
-	start time 6037807 ::: end time 6038345
-	start time 6038385 ::: end time 6038553
-	start time 6038559 ::: end time 6423020
-	start time 6423028 ::: end time 6566095
-	start time 6566110 ::: end time 6566325
-	start time 6566378 ::: end time 6566449
-	start time 6566483 ::: end time 6566509
-	start time 6566521 ::: end time 6566563
-	start time 6566595 ::: end time 6566806
-	start time 6566818 ::: end time 6567601
-	start time 6567620 ::: end time 6568203
-	start time 6568217 ::: end time 6640736
-	start time 6640744 ::: end time 6641309
-	start time 6641316 ::: end time 6641670
-	start time 6641677 ::: end time 6712816
-	start time 6712824 ::: end time 6713147
-	start time 6713154 ::: end time 6713591
-	start time 6713598 ::: end time 6919825
-	start time 6919861 ::: end time 6999081
-	start time 6999089 ::: end time 6999249
-	start time 6999256 ::: end time 6999420
-	start time 6999428 ::: end time 6999561
-	start time 6999567 ::: end time 6999747
-	start time 6999754 ::: end time 7000144
-	start time 7000150 ::: end time 7000415
-	start time 7000422 ::: end time 7002243
-	start time 7002257 ::: end time 7002374
-	start time 7002408 ::: end time 7002472
-	start time 7002485 ::: end time 7002589
-	start time 7002640 ::: end time 7002697
-	start time 7002711 ::: end time 7003504
-	start time 7003585 ::: end time 7003754
-	start time 7003807 ::: end time 7199137
-	start time 7199145 ::: end time 7199993
-	start time 7199999 ::: end time 7201664
-	start time 7201671 ::: end time 7202479
-	start time 7202485 ::: end time 7203173
-	start time 7203199 ::: end time 7309242
-	start time 7309249 ::: end time 7559450
-	start time 7559457 ::: end time 7559676
-	start time 7559691 ::: end time 7559790
-	start time 7559797 ::: end time 7559945
-	start time 7559952 ::: end time 7560150
-	start time 7560163 ::: end time 7560873
-	start time 7560879 ::: end time 7560962
-	start time 7560968 ::: end time 7561373
-	start time 7561385 ::: end time 7561722
-	start time 7561758 ::: end time 7561823
-	start time 7561854 ::: end time 7562026
-	start time 7562033 ::: end time 7877271
-	start time 7877279 ::: end time 7877665
-	start time 7877672 ::: end time 7877712
-	start time 7877720 ::: end time 7878552
-	start time 7878559 ::: end time 7878716
-	start time 7878753 ::: end time 7878907
-	start time 7878919 ::: end time 7879128
-	start time 7879134 ::: end time 9405018
-	start time 9405032 ::: end time 9468606
-	start time 9468613 ::: end time 10661141
-	start time 10661147 ::: end time 11240060
-	start time 11240068 ::: end time 11240416
-	start time 11240423 ::: end time 11240478
-	start time 11240484 ::: end time 11241355
-	start time 11241361 ::: end time 11241509
-	start time 11241515 ::: end time 11241566
-	start time 11241572 ::: end time 11241766
-	start time 11241772 ::: end time 11241938
-	start time 11241945 ::: end time 11242171
-	start time 11242189 ::: end time 11365511
-	start time 11365518 ::: end time 11366424
-	start time 11366431 ::: end time 11366447
-	start time 11366454 ::: end time 11366502
-	start time 11366508 ::: end time 11593838
-	start time 11593848 ::: end time 11593934
-	start time 11593941 ::: end time 11594008
-	start time 11594015 ::: end time 11595245
-	start time 11595252 ::: end time 11596404
-	start time 11596417 ::: end time 11596915
-	start time 11596922 ::: end time 11597132
-	start time 11597139 ::: end time 11657342
-	start time 11657351 ::: end time 11657708
-	start time 11657714 ::: end time 11657744
-	start time 11657751 ::: end time 11658525
-	start time 11658531 ::: end time 13588386
-	start time 13588394 ::: end time 13589297
-	start time 13589303 ::: end time 13973019
-	start time 13973026 ::: end time 13973283
-	start time 13973291 ::: end time 13973361
-	start time 13973368 ::: end time 13973431
-	start time 13973437 ::: end time 13973510
-	start time 13973517 ::: end time 13974060
-	start time 13974066 ::: end time 13975171
-	start time 13975188 ::: end time 13975596
-	start time 13975712 ::: end time 13976673
-	start time 13976680 ::: end time 13977423
-	start time 13977429 ::: end time 13978340
-	start time 13978346 ::: end time 13978362
-	start time 13978368 ::: end time 13978486
-	start time 13978492 ::: end time 14014883
-	start time 14014890 ::: end time 14014952
-	start time 14014960 ::: end time 14015020
-	start time 14015027 ::: end time 14016494
-	start time 14016501 ::: end time 14774129
-	start time 14774137 ::: end time 14774213
-	start time 14774220 ::: end time 14774486
-	start time 14774492 ::: end time 14774608
-	start time 14774614 ::: end time 14776199
-	start time 14776205 ::: end time 14776607
-	start time 14776613 ::: end time 14776617
-tid 25111 ::: ans 1558971.56
-tid 25119 ::: ans 1532583.85
-tid 25122 ::: ans 1529376.73
-tid 25125 ::: ans 1713402.59
-tid 25142 ::: ans 1397575.32
-tid 25143 ::: ans 1473162.65
-tid 25144 ::: ans 1386450.41
-tid 25145 ::: ans 1505189.61
-tid 25146 ::: ans 1392659.29
-tid 25147 ::: ans 1480604.72
+	start time 14457 ::: end time 3678271
+	start time 3678342 ::: end time 17969426
+tid 26217 ::: ans 1852635.55
+tid 26224 ::: ans 1495688.08
+tid 26227 ::: ans 1495532.11
+tid 26230 ::: ans 2246562.76
+tid 26319 ::: ans 1792615.49
+tid 26320 ::: ans 1786083.20
+tid 26321 ::: ans 1928068.27
+tid 26322 ::: ans 1789969.62
+tid 26323 ::: ans 1777910.29
+tid 26324 ::: ans 1793323.43
 start print stack info
-('count: ', 559)
+('count: ', 207)
 0
-Finish : 1598189871869
+Finish : 1598191120453
