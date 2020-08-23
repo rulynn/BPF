@@ -2,12 +2,12 @@
 
 import sys
 import itertools
-from time import sleep
 from bcc import BPF, USDT
 import process
 import stack
 import argparse
 import itertools
+import time
 
 # if len(sys.argv) < 3:
 #     print("USAGE: need PID and time")
