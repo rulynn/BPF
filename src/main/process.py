@@ -155,9 +155,6 @@ def calculation_single(tid, data, point_times):
     print("\t---------------------------")
     for item in waitPointList:
         if int(pre_time or -1) >= 0:
-            if item.start - pre_time > 9000000:
-                pre_time = item.end
-                continue
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
             print("\tstart time %d ::: end time %d" % (pre_time, item.start))
