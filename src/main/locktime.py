@@ -80,7 +80,8 @@ locks = bpf["locks"]
 times = bpf["times"]
 t = time.time()
 print "End : %s" % (int(round(t * 1000)))
-
+# wait perf map
+sleep(10)
 if language == "java":
     process.run(locks, times, True)
     stack.run_sub(bpf, args.pid, locks)
