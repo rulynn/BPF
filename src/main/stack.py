@@ -31,18 +31,14 @@ def run(bpf, pid, locks, init_stacks, stacks):
             print_stack(bpf, pid, stacks, k.lock_stack_id)
             print("")
 
-def run_sub(bpf, pid, locks):
-    init_stacks = bpf["init_stacks"]
-    stacks = bpf["stacks"]
-    counts = bpf["counts"]
-    print("start print stack info")
-    print("count: ", len(counts))
+def run_sub(bpf, pid, locks, init_stacks, stacks, counts):
+    print("stack info count: %d " % (len(counts)))
     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
+        print_stack(bpf, pid, stacks, k.user_stack_id)
         user_stack = [] if k.user_stack_id < 0 else stacks.walk(k.user_stack_id)
-
         user_stack = list(user_stack)
         line = [k.name]
-        line.extend([bpf.sym(addr, k.pid) for addr in reversed(user_stack)])
+        line.extend([bpf.sym(addr, pid) for addr in reversed(user_stack)])
         str_data = ";".join(line).decode('utf-8', 'replace') + " " + str(v.value) + "\n"
         file = "output/stack/" +str(k.tid) + ".log"
         with io.open(file, 'a', encoding="utf-8") as f:

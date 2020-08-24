@@ -84,7 +84,11 @@ sleep(20)
 # wait perf map
 if language == "java":
     process.run(locks, times, True)
-    stack.run_sub(bpf, args.pid, locks)
+
+    init_stacks = bpf["init_stacks"]
+    stacks = bpf["stacks"]
+    counts = bpf["counts"]
+    stack.run_sub(bpf, args.pid, locks, init_stacks, stacks, counts)
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
