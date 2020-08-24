@@ -3,7 +3,7 @@
 # sh run_dacapo.sh 30/18
 
 time=$1
-name="pmd"
+name="xalan"
 burn_path="../resources"
 out_path="../src/output"
 
