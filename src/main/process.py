@@ -128,6 +128,8 @@ def calculation_single(tid, data, point_times):
         print("\tmutex %d ::: start %.2fus ::: wait %.2fus ::: hold %.2fus" % (item.mtx, item.start_time - TIME_MIN, item.wait_time, item.hold_time))
     #print("\t---------------------------")
     for item in sorted_data:
+        if (item.hold_time > 9000000):
+            continue
         if start == -1:
             start = item.start_time - TIME_MIN
             end = item.start_time + item.wait_time - TIME_MIN
