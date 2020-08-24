@@ -82,18 +82,18 @@ t = time.time()
 print "End : %s" % (int(round(t * 1000)))
 # wait perf map
 if language == "java":
-    process.run(locks, times, True)
 
     init_stacks = bpf["init_stacks"]
     stacks = bpf["stacks"]
     counts = bpf["counts"]
+
+    process.run(locks, times, True)
     stack.run_sub(bpf, args.pid, locks, init_stacks, stacks, counts)
     print(len(times))
     for k, v in times.items():
         print(k.tid, k.timestamp, k.type, k.val, k.runtime_id)
     t = time.time()
     print "Finish : %s" % (int(round(t * 1000)))
-#     stack.run(bpf, int(pid), locks, init_stacks, stacks)
 else:
     process.run(locks, times, False)
     print(len(times))

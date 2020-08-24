@@ -34,7 +34,7 @@ def run(bpf, pid, locks, init_stacks, stacks):
 def run_sub(bpf, pid, locks, init_stacks, stacks, counts):
     print("stack info count: %d " % (len(counts)))
     for k, v in sorted(counts.items(), key=lambda counts: counts[1].value):
-        print_stack(bpf, pid, stacks, k.user_stack_id)
+        #print_stack(bpf, pid, stacks, k.user_stack_id)
         user_stack = [] if k.user_stack_id < 0 else stacks.walk(k.user_stack_id)
         user_stack = list(user_stack)
         line = [k.name]
