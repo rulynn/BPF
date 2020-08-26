@@ -30,7 +30,7 @@ output=`jstack $pid > output/out_stack.log`
 echo "jstack timeStamp: " $[$(date +%s%N)/1000000]
 # perf map
 
-#output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
+sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass" &
 #echo "perf timeStamp: " $[$(date +%s%N)/1000000]
 
 # eBPF
