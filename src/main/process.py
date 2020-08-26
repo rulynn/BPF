@@ -132,7 +132,7 @@ def calculation_single(tid, data, point_times, VMThread):
     #print("\t---------------------------")
     for item in sorted_data:
         # TODO update
-        if (item.hold_time > 9000000):
+        if isVMThread(tid, VMThread) and item.hold_time > 9999999:
             continue
         if start == -1:
             start = item.start_time - TIME_MIN
@@ -160,10 +160,10 @@ def calculation_single(tid, data, point_times, VMThread):
         if int(pre_time or -1) >= 0:
             if isVMThread(tid, VMThread) and item.start - pre_time > 9000000:
                 print("\tLARGE: start time %d ::: end time %d" % (pre_time, item.start))
-                continue
-            threadPointList.append(TIME(0, tid, pre_time))
-            threadPointList.append(TIME(1, tid, item.start))
-            print("\tstart time %d ::: end time %d" % (pre_time, item.start))
+            else:
+                threadPointList.append(TIME(0, tid, pre_time))
+                threadPointList.append(TIME(1, tid, item.start))
+                print("\tstart time %d ::: end time %d" % (pre_time, item.start))
         pre_time = item.end
 
     if isVMThread(tid, VMThread) and item.start - pre_time > 9000000:
