@@ -277,3 +277,27 @@ int trace_unpark(struct pt_regs *ctx){
     times.increment(unit);
     return 0;
 }
+
+int trace_sleep_begin(struct pt_regs *ctx){
+    char type[] = "sleep_begin";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}
+
+int trace_sleep_end(struct pt_regs *ctx){
+    char type[] = "sleep_end";
+    u64 now = bpf_ktime_get_ns();
+    struct time_k unit = {};
+    unit.timestamp = now;
+    unit.tid = bpf_get_current_pid_tgid();
+
+    __builtin_memcpy(&unit.type, type, sizeof(unit.type));
+    times.increment(unit);
+    return 0;
+}

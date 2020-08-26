@@ -1,13 +1,12 @@
 id,name,thread,height,sum
-1,main 5222,5222,0.0,1
-18,GC task thread#0 (ParallelGC) 5224,5224,0.1646,1.0
-30,GC task thread#1 (ParallelGC) 5225,5225,0.2691,0.8354
-43,VM Thread 5231,5231,0.17,0.5663
-66,Reference Handler 5232,5232,0.0,0.3963
-68,Finalizer 5234,5234,0.0,0.3963
-71,C2 CompilerThread0 5238,5238,0.0685,0.3963
-235,C1 CompilerThread1 5239,5239,0.1497,0.3278
-316,VM Periodic Task Thread 5243,5243,0.0077,0.1781
-322,Attach Listener 5247,5247,0.0,0.1704
-338,Thread 5253,5253,0.0685,0.1704
-382,Thread 5254,5254,0.1019,0.1019
+1,main 6152,6152,0.0,1
+18,GC task thread#0 (ParallelGC) 6154,6154,0.0473,1.0
+32,GC task thread#1 (ParallelGC) 6155,6155,0.3187,0.9527
+43,VM Thread 6161,6161,0.3188,0.634
+63,Reference Handler 6162,6162,0.0,0.3152
+65,Finalizer 6164,6164,0.0,0.3152
+68,C2 CompilerThread0 6168,6168,0.0623,0.3152
+231,C1 CompilerThread1 6169,6169,0.0623,0.2529
+315,VM Periodic Task Thread 6171,6171,0.0069,0.1906
+321,Thread 6212,6212,0.0623,0.1837
+362,Thread 6213,6213,0.1214,0.1214
