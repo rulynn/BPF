@@ -3,7 +3,7 @@
 # sh run_dacapo.sh 30/18
 
 time=$1
-name="eclipse"
+name="avrora"
 burn_path="../resources"
 out_path="../src/output"
 
@@ -24,7 +24,7 @@ echo "now timeStamp: " $[$(date +%s%N)/1000000]
 output=`jstack $pid > output/out_stack.log`
 echo "jstack timeStamp: " $[$(date +%s%N)/1000000]
 # perf map
-sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass" &
+output=`sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass"`
 echo "perf timeStamp: " $[$(date +%s%N)/1000000]
 # eBPF
 chmod 777 main/locktime.py
