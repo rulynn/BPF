@@ -40,6 +40,7 @@ def run(locks, times, status):
 
     # deal data
     output_data = preprocessed(locks)
+    VMThread = getVMThread(status)
 
     # deal start time and stop time
 #     start_times = {}
@@ -67,7 +68,7 @@ def run(locks, times, status):
     for k, v in output_data.items():
         if point_times.get(k) == None:
             point_times[k] = {}
-        calculation_single(k, v, point_times.get(k))
+        calculation_single(k, v, point_times.get(k), VMThread)
 
     threadPointList.sort(key=lambda pair: pair.time)
     calculation_single_inner(threadPointList)
@@ -75,7 +76,7 @@ def run(locks, times, status):
 #         print("\ttid %d ::: time %d ::: status %d" % (item.tid, item.time, item.status))
 
     # start plot
-    plot.run(tid_list, ans, total, status)
+    plot.run(tid_list, ans, total, VMThread)
 
 def preprocessed(locks):
 
@@ -106,13 +107,15 @@ def preprocessed(locks):
     return output_data
 
 
-def calculation_single(tid, data, point_times):
+def calculation_single(tid, data, point_times, VMThread):
 
 
 
     global TIME_MIN
     global tid_list
     global threadPointList
+
+
 
     grouper = lambda x: x.start_time
     sorted_data = sorted(data, key=grouper)
@@ -155,13 +158,20 @@ def calculation_single(tid, data, point_times):
     print("\t---------------------------")
     for item in waitPointList:
         if int(pre_time or -1) >= 0:
+            if isVMThread(tid, VMThread) and item.start - pre_time > 9000000:
+                print("\tLARGE: start time %d ::: end time %d" % (pre_time, item.start))
+                continue
             threadPointList.append(TIME(0, tid, pre_time))
             threadPointList.append(TIME(1, tid, item.start))
             print("\tstart time %d ::: end time %d" % (pre_time, item.start))
         pre_time = item.end
-    threadPointList.append(TIME(0, tid, pre_time))
-    threadPointList.append(TIME(1, tid, last_time))
-    print("\tstart time %d ::: end time %d" % (pre_time, last_time))
+
+    if isVMThread(tid, VMThread) and item.start - pre_time > 9000000:
+        print("\tLARGE: start time %d ::: end time %d" % (pre_time, item.start))
+    else:
+        threadPointList.append(TIME(0, tid, pre_time))
+        threadPointList.append(TIME(1, tid, last_time))
+        print("\tstart time %d ::: end time %d" % (pre_time, last_time))
 
 
 def calculation_single_inner(threadPointList):
@@ -207,3 +217,38 @@ def countHold(isHold):
         if item == True:
             count = count + 1
     return count
+
+def getVMThread(status):
+    VMThread = {}
+    if (status == True):
+        try:
+            with open('output/out_stack.log', 'r') as f:
+                jstack = f.readlines()
+            for i in range(0, len(jstack)):
+                if jstack[i][0] == "\"":
+                    x = jstack[i].split("\"")
+                    idx = jstack[i].find("nid")
+                    nid = ""
+                    for j in range(idx+6, len(jstack[i])):
+                        if jstack[i][j] == ' ':
+                            break
+                        nid += jstack[i][j]
+                    nid_int = int(nid.upper(), 16)
+                    VMThread[nid_int] = x[1]
+                    #print(x[1], nid_int)
+        except IOError:
+            print "Error: Not find output/out_stack.log"
+    return VMThread
+
+
+def isVMThread(tid, VMThread):
+    if (VMThread.get(tid) == "GC task thread#0 (ParallelGC)" or
+        VMThread.get(tid) == "GC task thread#1 (ParallelGC)" or
+        VMThread.get(tid) == "VM Thread" or
+        VMThread.get(tid) == "Reference Handler" or
+        VMThread.get(tid) == "Finalizer" or
+        VMThread.get(tid) == "C2 CompilerThread0" or
+        VMThread.get(tid) == "C1 CompilerThread1" or
+        VMThread.get(tid) == "VM Periodic Task Thread"):
+        return True
+    return False

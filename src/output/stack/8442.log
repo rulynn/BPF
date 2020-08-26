@@ -1,0 +1,9 @@
+java;start_thread;java_start(Thread*);GCTaskThread::run();ThreadRootsTask::do_it(GCTaskManager*, unsigned int);JavaThread::oops_do(OopClosure*, CLDClosure*, CodeBlobClosure*);frame::oops_interpreted_do(OopClosure*, CLDClosure*, RegisterMap const*, bool);Method::mask_for(int, InterpreterOopMap*);InstanceKlass::mask_for(methodHandle, int, InterpreterOopMap*);OopMapCache::lookup(methodHandle, int, InterpreterOopMap*) const;OopMapCacheEntry::fill(methodHandle, int);OopMapForCacheEntry::compute_map(Thread*);Chunk::next_chop();ThreadCritical::ThreadCritical() 1
+java;start_thread;java_start(Thread*);WatcherThread::run();PeriodicTask::real_time_tick(int);ChunkPoolCleaner::task();ThreadCritical::ThreadCritical() 1
+java;start_thread;java_start(Thread*);GCTaskThread::run();GCTaskManager::note_completion(unsigned int);Monitor::lock_without_safepoint_check();Monitor::ILock(Thread*);os::PlatformEvent::park() 5
+java;start_thread;java_start(Thread*);GCTaskThread::run();GCTaskManager::get_task(unsigned int);Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::unpark() 555
+java;start_thread;java_start(Thread*);GCTaskThread::run();WaitForBarrierGCTask::do_it(GCTaskManager*, unsigned int);Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::park() 680
+java;start_thread;java_start(Thread*);GCTaskThread::run();os::PlatformEvent::unpark() 692
+java;start_thread;java_start(Thread*);GCTaskThread::run();GCTaskManager::get_task(unsigned int);os::PlatformEvent::unpark() 704
+java;start_thread;java_start(Thread*);GCTaskThread::run();os::PlatformEvent::unpark() 1133
+java;start_thread;java_start(Thread*);GCTaskThread::run();GCTaskManager::get_task(unsigned int);Monitor::wait(bool, long, bool);Monitor::IWait(Thread*, long);os::PlatformEvent::park() 2961
