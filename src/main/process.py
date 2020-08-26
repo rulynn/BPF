@@ -129,8 +129,8 @@ def calculation_single(tid, data, point_times):
     #print("\t---------------------------")
     for item in sorted_data:
         # TODO update
-        if (item.hold_time > 9000000):
-            continue
+#         if (item.hold_time > 9000000):
+#             continue
         if start == -1:
             start = item.start_time - TIME_MIN
             end = item.start_time + item.wait_time - TIME_MIN
