@@ -1,0 +1,12 @@
+id,name,thread,height,sum
+1,main 14115,14115,0.0,1
+2,GC task thread#0 (ParallelGC) 14116,14116,0.0067,1.0
+3,GC task thread#1 (ParallelGC) 14117,14117,0.0077,0.9933
+4,VM Thread 14124,14124,0.0068,0.9856
+5,Reference Handler 14125,14125,0.0,0.9788
+6,Finalizer 14126,14126,0.0,0.9788
+7,C2 CompilerThread0 14131,14131,0.0004,0.9788
+8,C1 CompilerThread1 14132,14132,0.0001,0.9784
+9,VM Periodic Task Thread 14134,14134,0.0083,0.9783
+10,Thread 14175,14175,0.5432,0.97
+11,Thread 14176,14176,0.4269,0.4268
