@@ -253,6 +253,7 @@ def isVMThread(tid, VMThread):
         VMThread.get(tid) == "Finalizer" or
         VMThread.get(tid) == "C2 CompilerThread0" or
         VMThread.get(tid) == "C1 CompilerThread1" or
+        VMThread.get(tid) == "main" or
         VMThread.get(tid) == "VM Periodic Task Thread"):
         return True
     return False
