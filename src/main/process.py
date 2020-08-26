@@ -158,7 +158,7 @@ def calculation_single(tid, data, point_times, VMThread):
     print("\t---------------------------")
     for item in waitPointList:
         if int(pre_time or -1) >= 0:
-            if isVMThread(tid, VMThread) and item.start - pre_time > 9000000:
+            if isVMThread(tid, VMThread) and item.start - pre_time > 9999999:
                 print("\tLARGE: start time %d ::: end time %d" % (pre_time, item.start))
             else:
                 threadPointList.append(TIME(0, tid, pre_time))
@@ -166,7 +166,7 @@ def calculation_single(tid, data, point_times, VMThread):
                 print("\tstart time %d ::: end time %d" % (pre_time, item.start))
         pre_time = item.end
 
-    if isVMThread(tid, VMThread) and item.start - pre_time > 9000000:
+    if isVMThread(tid, VMThread) and item.start - pre_time > 9999999:
         print("\tLARGE: start time %d ::: end time %d" % (pre_time, item.start))
     else:
         threadPointList.append(TIME(0, tid, pre_time))
