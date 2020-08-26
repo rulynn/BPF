@@ -66,14 +66,14 @@ d3.csv('../output/data.csv', function(error, data){
                 .attr("fill", chart._colors(i))
                 //.attr("stroke", chart._colors(i))
                 .attr("r", 6)
-                .attr("cx", 300)
+                .attr("cx", 280)
                 .attr("cy", 34 + 20 * i);
 
             series.append("text")
                 .attr("font-size", "1em")
                 .attr("text-anchor", "start")
                 .attr("dy", 40 + 20 * i)
-                .attr("dx", 330)
+                .attr("dx", 310)
                 .text(data[i-1].name + ": " + data[i-1].height);
         }
     }
