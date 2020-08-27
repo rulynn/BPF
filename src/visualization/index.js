@@ -13,7 +13,7 @@ d3.csv('../output/data.csv', function(error, data){
         //gridColor: 'gray',
         tickShowGrid: [60, 120, 180],
         title: 'Criticality stacks',
-        hoverColor: 'red',
+        hoverColor: '#c74647',
         rectHeight: 25,
         animateDuration: 1000,
         sum:0

@@ -6,7 +6,12 @@ export default class Chart {
         this._data = [];
         this._scaleX = null;
         this._scaleY = null;
-        this._colors = d3.scaleOrdinal(d3.schemeCategory10);
+
+        var color = d3.schemeTableau10;
+        color[10] = "#9cbed6";
+        color[11] = "#bab0c4";
+        color[12] = "#deb7be";
+        this._colors = d3.scaleOrdinal(color);
         this._box = null;
         this._svg = null;
         this._body = null;
