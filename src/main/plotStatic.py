@@ -44,6 +44,7 @@ def outputCSV(tid_list, ans, total, VMThread):
         writer.writerow(data)
 
     data = [id, "other", 0, other, pre]
+    writer.writerow(data)
     csvfile.close()
 
 
