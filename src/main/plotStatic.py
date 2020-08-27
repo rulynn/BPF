@@ -20,19 +20,30 @@ def outputCSV(tid_list, ans, total, VMThread):
     writer.writerow(['id','name', 'thread', 'height','sum'])
 
     pre = 1
+    other = 0
+    id = 1
     for i in range(len(tid_list)):
 
         if ans[i] == 0:
             continue
+
+        percent = round(ans[i]*1.0/total,4)
+        if percent < 0.001:
+            other = other + percent
+            continue
+
         if VMThread.get(tid_list[i]) == None:
             label = "Thread " + str(tid_list[i])
         else:
             label = VMThread[tid_list[i]] + " " + str(tid_list[i])
 
-        data = [i+1, label, str(tid_list[i]), round(ans[i]*1.0/total,4), pre]
-        pre = round(pre - ans[i]*1.0/total, 4)
+        data = [id, label, str(tid_list[i]), round(ans[i]*1.0/total,4), pre]
+        pre = round(pre - percent, 4)
+        id += 1
+
         writer.writerow(data)
 
+    data = [id, "other", 0, other, pre]
     csvfile.close()
 
 

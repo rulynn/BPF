@@ -59,6 +59,8 @@ d3.csv('../output/data.csv', function(error, data){
 
         var legendWrap = chart.svg().append("g");
         var series = legendWrap.append("g").attr("class", "series");
+        var x = 340;
+        var y = 50;
 
         for (var i=1;i <= data.length;i++) {
             series.append("circle")
@@ -66,14 +68,14 @@ d3.csv('../output/data.csv', function(error, data){
                 .attr("fill", chart._colors(i))
                 //.attr("stroke", chart._colors(i))
                 .attr("r", 6)
-                .attr("cx", 280)
-                .attr("cy", 34 + 20 * i);
+                .attr("cx", x)
+                .attr("cy", y + 20 * i);
 
             series.append("text")
                 .attr("font-size", "1em")
                 .attr("text-anchor", "start")
-                .attr("dy", 40 + 20 * i)
-                .attr("dx", 310)
+                .attr("dy", y+6 + 20 * i)
+                .attr("dx", x + 30)
                 .text(data[i-1].name + ": " + data[i-1].height);
         }
     }

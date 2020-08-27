@@ -11,6 +11,14 @@ export default class Chart {
         color[10] = "#9cbed6";
         color[11] = "#bab0c4";
         color[12] = "#deb7be";
+        color[13] = "#c2d0ba";
+        color[14] = "#8c9d6a";
+        color[15] = "#eed1c1";
+        color[16] = "#cf8c6e";
+        color[17] = "#97b4ae";
+        color[18] = "#c5ac9d";
+        color[19] = "#3c6b82";
+        color[20] = "#e08e9d";
         this._colors = d3.scaleOrdinal(color);
         this._box = null;
         this._svg = null;
