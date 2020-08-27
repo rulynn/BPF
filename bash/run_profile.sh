@@ -22,7 +22,7 @@ sh ~/perf-map-agent/bin/create-java-perf-map.sh $pid "unfoldall,dottedclass" &
 
 # eBPF
 chmod 777 ../resources/profile.py
-output=`../resources/profile -f $time $pid > $out_path/stack/all.log`
+output=`../resources/profile.py -f $time $pid > $out_path/stack/all.log`
 
 $burn_path/burn convert --type=folded $out_path/stack/all.log > $out_path/stack/all.log.json
 
