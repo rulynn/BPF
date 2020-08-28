@@ -3,7 +3,7 @@
 # sh run_dacapo.sh 30/18
 
 time=$1
-name="eclipse"
+name="avrora"
 burn_path="../resources"
 out_path="../src/output"
 

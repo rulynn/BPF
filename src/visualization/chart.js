@@ -7,8 +7,19 @@ export default class Chart {
         this._scaleX = null;
         this._scaleY = null;
 
-        var color = d3.schemeTableau10;
-        color[10] = "#9cbed6";
+        var color = [];
+        color[0] = "#4e79a7";
+        color[1] = "#9cbed6";
+        color[2] = "#e08e9d";
+        color[3] = "#76b7b2";
+
+        color[4] = "#59a14f";
+        color[5] = "#edc949";
+        color[6] = "#af7aa1";
+        color[7] = "#ff9da7";
+        color[8] = "#9c755f";
+        color[9] = "#bab0ab";
+        color[10] = "#f28e2c";
         color[11] = "#bab0c4";
         color[12] = "#deb7be";
         color[13] = "#c2d0ba";
@@ -18,7 +29,6 @@ export default class Chart {
         color[17] = "#97b4ae";
         color[18] = "#c5ac9d";
         color[19] = "#3c6b82";
-        color[20] = "#e08e9d";
         this._colors = d3.scaleOrdinal(color);
         this._box = null;
         this._svg = null;

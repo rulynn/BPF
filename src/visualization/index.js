@@ -59,7 +59,7 @@ d3.csv('../output/data.csv', function(error, data){
 
         var legendWrap = chart.svg().append("g");
         var series = legendWrap.append("g").attr("class", "series");
-        var x = 340;
+        var x = 280;
         var y = 50;
 
         for (var i=1;i <= data.length;i++) {
