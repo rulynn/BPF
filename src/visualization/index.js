@@ -65,7 +65,7 @@ d3.csv('../output/data.csv', function(error, data){
         for (var i=1;i <= data.length;i++) {
             series.append("circle")
                 //.attr("stroke-width", 2)
-                .attr("fill", chart._colors(i))
+                .attr("fill", chart._colors(data[i-1].id))
                 //.attr("stroke", chart._colors(i))
                 .attr("r", 6)
                 .attr("cx", x)
