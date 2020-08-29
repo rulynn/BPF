@@ -9,27 +9,26 @@ export default class Chart {
 
         var color = [];
 
-        color[0] = "#4e79a7";
-        color[1] = "#f28e2c";
-        color[2] = "#edc949";
-        color[3] = "#8c9d6a";
-        color[4] = "#bab0ab";
-        color[5] = "#9c755f";
-        color[6] = "#6c4d6e";
-        color[7] = "#a88bbe";
-        color[8] = "#eed1c1";
+        color[0] = "#8c9d6a";   // main
+        color[1] = "#6c4d6e";   // GC task thread#0
+        color[2] = "#a88bbe";   // GC task thread#1
+        color[3] = "#4e79a7";   // VM
+        color[4] = "#bab0ab";   // Reference Handler
+        color[5] = "#9c755f";   // Finalizer
+        color[6] = "#f28e2c";   // compile
+        color[7] = "#edc949";   // compile edc949
+        color[8] = "#9cbed6";   // VM Periodic Task
 
 
         color[9] = "#e08e9d";
         color[10] = "#76b7b2";
         color[11] = "#bab0c4";
         color[12] = "#c2d0ba";
-        color[13] = "#deb7be";
-        color[14] = "#3c6b82";
+        color[13] = "#eed1c1";
+        color[14] = "#bab0ab";
 
         // color[0] = "#4e79a7";
         // color[1] = "#9cbed6";
-        //
         // color[3] = "#76b7b2";
         // color[4] = "#59a14f";
         // color[5] = "#edc949";
