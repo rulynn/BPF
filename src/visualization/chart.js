@@ -8,24 +8,28 @@ export default class Chart {
         this._scaleY = null;
 
         var color = [];
+
         color[0] = "#4e79a7";
         color[1] = "#f28e2c";
         color[2] = "#edc949";
-        color[3] = "#cf8c6e";
+        color[3] = "#8c9d6a";
         color[4] = "#bab0ab";
         color[5] = "#9c755f";
-        color[5] = "#8c9d6a";
+        color[6] = "#6c4d6e";
+        color[7] = "#a88bbe";
+        color[8] = "#eed1c1";
 
-        color[6] = "#e08e9d";
-        color[7] = "#76b7b2";
-        color[8] = "#bab0c4";
-        color[9] = "#c2d0ba";
-        color[10] = "#eed1c1";
-        color[11] = "#bab0ab";
+
+        color[9] = "#e08e9d";
+        color[10] = "#76b7b2";
+        color[11] = "#bab0c4";
+        color[12] = "#c2d0ba";
+        color[13] = "#deb7be";
+        color[14] = "#3c6b82";
 
         // color[0] = "#4e79a7";
         // color[1] = "#9cbed6";
-        // color[2] = "#e08e9d";
+        //
         // color[3] = "#76b7b2";
         // color[4] = "#59a14f";
         // color[5] = "#edc949";
@@ -34,7 +38,6 @@ export default class Chart {
         // color[8] = "#9c755f";
         // color[9] = "#bab0ab";
         // color[10] = "#f28e2c";
-        // color[11] = "#bab0c4";
         // color[12] = "#deb7be";
         // color[13] = "#c2d0ba";
         // color[14] = "#8c9d6a";

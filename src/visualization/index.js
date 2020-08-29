@@ -63,20 +63,22 @@ d3.csv('../output/data.csv', function(error, data){
         var y = 50;
 
         for (var i=1;i <= data.length;i++) {
-            series.append("circle")
-                //.attr("stroke-width", 2)
-                .attr("fill", chart._colors(data[i-1].id))
-                //.attr("stroke", chart._colors(i))
-                .attr("r", 6)
-                .attr("cx", x)
-                .attr("cy", y + 20 * i);
+            if (data[i-1].height > 0) {
+                series.append("circle")
+                    //.attr("stroke-width", 2)
+                    .attr("fill", chart._colors(data[i - 1].id))
+                    //.attr("stroke", chart._colors(i))
+                    .attr("r", 6)
+                    .attr("cx", x)
+                    .attr("cy", y + 20 * i);
 
-            series.append("text")
-                .attr("font-size", "1em")
-                .attr("text-anchor", "start")
-                .attr("dy", y+6 + 20 * i)
-                .attr("dx", x + 30)
-                .text(data[i-1].name + ": " + data[i-1].height);
+                series.append("text")
+                    .attr("font-size", "1em")
+                    .attr("text-anchor", "start")
+                    .attr("dy", y + 6 + 20 * i)
+                    .attr("dx", x + 30)
+                    .text(data[i - 1].name + ": " + data[i - 1].height);
+            }
         }
     }
 

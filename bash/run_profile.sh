@@ -1,7 +1,7 @@
 #!/bin/bash
 
 time=$1
-name="eclipse"
+name="pmd"
 burn_path="../resources"
 out_path="../src/output"
 
