@@ -11,14 +11,17 @@ export default class Chart {
         color[0] = "#4e79a7";
         color[1] = "#f28e2c";
         color[2] = "#edc949";
-        color[3] = "#bab0ab";
+        color[3] = "#cf8c6e";
+        color[4] = "#bab0ab";
+        color[5] = "#9c755f";
+        color[5] = "#8c9d6a";
 
-        color[4] = "#e08e9d";
-        color[5] = "#76b7b2";
-        color[6] = "#bab0c4";
-        color[7] = "#c2d0ba";
-        color[8] = "#eed1c1";
-        color[9] = "#bab0ab";
+        color[6] = "#e08e9d";
+        color[7] = "#76b7b2";
+        color[8] = "#bab0c4";
+        color[9] = "#c2d0ba";
+        color[10] = "#eed1c1";
+        color[11] = "#bab0ab";
 
         // color[0] = "#4e79a7";
         // color[1] = "#9cbed6";
