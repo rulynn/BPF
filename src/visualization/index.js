@@ -61,6 +61,7 @@ d3.csv('../output/data.csv', function(error, data){
         var series = legendWrap.append("g").attr("class", "series");
         var x = 280;
         var y = 50;
+        var pos = 1;
 
         for (var i=1;i <= data.length;i++) {
             if (data[i-1].height > 0) {
@@ -70,14 +71,15 @@ d3.csv('../output/data.csv', function(error, data){
                     //.attr("stroke", chart._colors(i))
                     .attr("r", 6)
                     .attr("cx", x)
-                    .attr("cy", y + 20 * i);
+                    .attr("cy", y + 20 * pos);
 
                 series.append("text")
                     .attr("font-size", "1em")
                     .attr("text-anchor", "start")
-                    .attr("dy", y + 6 + 20 * i)
+                    .attr("dy", y + 6 + 20 * pos)
                     .attr("dx", x + 30)
                     .text(data[i - 1].name + ": " + data[i - 1].height);
+                pos++;
             }
         }
     }
